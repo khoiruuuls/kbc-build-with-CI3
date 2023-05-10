@@ -1,0 +1,23 @@
+/* ----------- HERO SECTION ----------- */
+
+.img-seminar {
+	background-image: url("/img/seminar.jpg");
+}
+
+.hero-detail img {
+	width: 100%;
+	padding-top: 65px;
+}
+
+/* ----------- BENEFIT SEMINAR SECTION ----------- */
+
+.benefit-checklist i {
+	font-size: 30px;
+	width: 30px;
+	color: #402108;
+}
+
+.benefit-checklist {
+	display: flex;
+	column-gap: 20px;
+}

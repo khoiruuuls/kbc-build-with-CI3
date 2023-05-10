@@ -1,0 +1,104 @@
+/* --------------- CONSULTATION SECTION --------------- */
+
+.img-consultation {
+	background-image: url("../img/consultation.jpg");
+}
+
+#category {
+	padding: 20px;
+	background: var(--white-color);
+}
+
+#category .sub-category {
+	padding-top: 20px;
+}
+
+#category .sub-category ul {
+	padding: 0;
+	list-style: none;
+	display: flex;
+}
+
+#category .sub-category li {
+	padding: 8px 20px;
+	font-weight: 600;
+	margin-right: 20px;
+	border-radius: 12px;
+}
+
+#category .sub-category li:hover {
+	background-color: var(--gray-color-2);
+	cursor: pointer;
+}
+
+#category .sub-category .active {
+	background-color: var(--gray-color-2);
+	border: none;
+}
+
+#category img {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px 0 0 8px;
+	object-fit: cover;
+}
+
+#category .text-card {
+	width: 70%;
+	padding: 20px;
+	position: absolute;
+	right: 0;
+}
+
+#category .card-consultation {
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--gray-color-4);
+	border-radius: 12px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 250px;
+	margin-block: 20px;
+}
+
+#category .img {
+	height: 100%;
+	width: 30%;
+}
+
+#category .mentor-detail {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	border-bottom: 1px solid var(--gray-color-4);
+}
+
+#category .mentor-detail h6 {
+	font-size: 1.25rem;
+}
+
+#category .mentor-detail p {
+	font-size: 1rem;
+}
+
+#category .mentor-name {
+	margin: 10px;
+}
+
+#category .mentor-name p {
+	font-size: 1rem;
+	margin-bottom: 10px;
+}
+
+#category .mentor-button {
+	display: flex;
+	justify-content: flex-end;
+	column-gap: 10px;
+}
+
+#category .mentor-button button {
+	font-size: 14px;
+	font-weight: 600;
+}

@@ -1,0 +1,241 @@
+.hello {
+	border: 1px solid black;
+}
+
+option {
+	margin: 10px;
+}
+
+.user-select {
+	height: 55px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.user-select.active {
+	border-bottom: 3px solid var(--secondary-color-4);
+}
+
+.user-select h6 {
+	margin: 0;
+}
+
+.user-select:hover {
+	cursor: pointer;
+	background-color: var(--gray-color-2);
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+img {
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+}
+
+.stiky {
+	position: sticky;
+	top: 0;
+}
+
+.greeting {
+	margin-top: 40px;
+}
+
+.greeting h4 {
+	color: var(--gray-color-7);
+}
+
+.field {
+	padding-top: 40px;
+	padding-inline: 15%;
+	padding-bottom: 20px;
+}
+
+.field img {
+	width: 82px;
+	height: 76px;
+}
+
+.form-log {
+	padding-block: 32px;
+}
+
+.log-input {
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.log-primary-button,
+.log-secondary-button {
+	width: 100%;
+	height: 52px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-weight: var(--font-bold);
+}
+
+.log-secondary-button p {
+	margin: 0;
+	font-size: var(--large-font-size);
+	font-weight: var(--font-bold);
+	color: inherit;
+}
+
+.log-with {
+	padding-block: 32px;
+	border-block: 1px solid var(--gray-color-4);
+}
+
+.quest-account {
+	padding-top: 32px;
+}
+
+.type-user {
+	padding-top: 32px;
+	column-gap: 30px;
+}
+
+.type-user h6 {
+	font-size: large;
+}
+
+.checkbox-input {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.checkbox-input {
+	column-gap: 30px;
+}
+
+.agreement {
+	color: var(--primary-color-6);
+	cursor: pointer;
+}
+
+input[type="checkbox"] {
+	width: 34px;
+	height: 34px;
+	border: 2px solid black;
+}
+
+.unselect-user-type {
+	font-size: large;
+	color: var(--gray-color-4);
+}
+
+.unselect-user-type:hover {
+	color: var(--gray-color-4);
+}
+
+.select-btn {
+	font-size: 25px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.select-menu {
+	position: relative;
+}
+
+.select-menu.active .select-btn i {
+	transform: rotate(-180deg);
+}
+
+.select-menu .options {
+	padding: 10px;
+	border-radius: 10px;
+	border: 2px solid var(--gray-color-3);
+	background: #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	display: none;
+}
+
+.select-menu.active .options {
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+	position: absolute;
+}
+
+.options .option {
+	height: 55px;
+	cursor: pointer;
+	padding: 0 16px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	background: #fff;
+}
+
+.options .option:hover {
+	background: var(--gray-color-2);
+}
+
+.option i {
+	font-size: 25px;
+	margin-right: 12px;
+}
+
+.option .option-text {
+	font-size: 18px;
+	color: #333;
+}
+
+.select-btnCity {
+	font-size: 25px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.select-menuCity {
+	position: relative;
+}
+
+.select-menuCity.active .select-btnCity i {
+	transform: rotate(-180deg);
+}
+
+.select-menuCity .optionsCity {
+	padding: 10px;
+	border-radius: 10px;
+	border: 2px solid var(--gray-color-3);
+	background: #fff;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	display: none;
+}
+
+.select-menuCity.active .optionsCity {
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+	position: absolute;
+}
+
+.optionsCity .optionCity {
+	height: 55px;
+	cursor: pointer;
+	padding: 0 16px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	background: #fff;
+}
+
+.optionsCity .optionCity:hover {
+	background: var(--gray-color-2);
+}
+
+.optionCity i {
+	font-size: 25px;
+	margin-right: 12px;
+}
+
+.optionCity .option-textCity {
+	font-size: 18px;
+	color: #333;
+}

@@ -1,0 +1,44 @@
+.hello {
+	border: 2px solid black;
+}
+
+.filter-box {
+	padding: 30px;
+	border-right: 1px solid var(--gray-color-4);
+
+	height: 100vh;
+	min-height: 200px;
+	overflow: auto;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 88px;
+}
+
+.filter-title h6,
+.filter-title i {
+	margin: 0;
+	font-size: x-large;
+}
+
+.filter-name h6,
+.filter-name i {
+	margin: 0;
+	font-size: medium;
+}
+
+.filter-display {
+	display: flex;
+	align-items: center;
+}
+
+.filter-title {
+	column-gap: 30px;
+	justify-content: flex-start;
+	border-bottom: 1px solid var(--gray-color-4);
+}
+
+.filter-name {
+	justify-content: space-between;
+	padding-block: 16px;
+	border-bottom: 1px solid var(--gray-color-4);
+}

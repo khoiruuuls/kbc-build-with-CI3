@@ -32,39 +32,46 @@
                         <h4>Registrasi Akun</h4>
                         <p>Selamat datang! Silakan isi formulir pendaftaran di bawah ini untuk membuat akun Anda.</p>
                     </div>
-                    <div class="form-log">
-                        <div class="form-input">
-                            <p>Nama Lengkap</p>
-                            <input class="log-input" type="text" placeholder="Masukkan Nama Lengkap" >
+                    <form action="<?= base_url().'SignController/RegisterUser'; ?>" method="POST" >
+                        <div class="form-log">
+                            <div class="form-input">
+                                <p>Nama Lengkap</p>
+                                <input class="log-input" name="name" type="text" placeholder="Masukkan Nama Lengkap" >
+                                <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-input">
+                                <p>Email</p>
+                                <input class="log-input" name="email" type="text" placeholder="Masukkan Email" >
+                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-input">
+                                <p>Nomor Whatsapp</p>
+                                <input class="log-input" name="noHp" type="text" placeholder="Masukkan Nomor Whatsapp" >
+                                <?= form_error('noHp', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-input">
+                                <p>Password</p>
+                                <input class="log-input" name="password" type="password" placeholder="Masukkan Password" >
+                                <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-input">
+                                <p>Konfirmasi Password</p>
+                                <input class="log-input" name="konfirmasi" type="password" placeholder="Masukkan Ulang Password" >
+                            </div>
+                            <div class="checkbox-input">
+                                <input class="checkbox-pop" type="checkbox" name="cek" id="check2"/>
+                                <p>Membuat akun berarti Anda setuju dengan 
+                                    <a class="agreement">Syarat Layanan</a>,
+                                    <a class="agreement">Kebijakan Privasi</a>, dan 
+                                    <a class="agreement">Pengaturan Notifikasi</a> bawaan kami.
+                                </p>
+                            </div>
+                    
+                            <button type="submit" class="log-primary-button">Registrasi akun</button>
+                            
                         </div>
-                        <div class="form-input">
-                            <p>Email</p>
-                            <input class="log-input" type="text" placeholder="Masukkan Email" >
-                        </div>
-                        <div class="form-input">
-                            <p>Nomor Whatsapp</p>
-                            <input class="log-input" type="text" placeholder="Masukkan Nomor Whatsapp" >
-                        </div>
-                        <div class="form-input">
-                            <p>Password</p>
-                            <input class="log-input" type="password" placeholder="Masukkan Password" >
-                        </div>
-                        <div class="form-input">
-                            <p>Konfirmasi Password</p>
-                            <input class="log-input" type="password" placeholder="Masukkan Ulang Password" >
-                        </div>
-                        <div class="checkbox-input">
-                            <input class="checkbox-pop" type="checkbox" id="check2"/>
-                            <p>Membuat akun berarti Anda setuju dengan 
-                                <a class="agreement">Syarat Layanan</a>,
-                                <a class="agreement">Kebijakan Privasi</a>, dan 
-                                <a class="agreement">Pengaturan Notifikasi</a> bawaan kami.
-                            </p>
-                        </div>
-                        <a href="index.php">
-                            <button class="log-primary-button">Registrasi akun</button>
-                        </a>
-                    </div>
+                        
+                    </form>
                     <div class="log-with text-center">
                         <p>Atau registrasi dengan menggunakan:</p>
                         <div class="row">

@@ -23,20 +23,21 @@
                         <h4>Selamat Datang !</h4>
                         <p>Silakan masukkan alamat email dan password Anda untuk masuk ke akun Anda.</p>
                     </div>
-                    <div class="form-log">
-                        <div class="form-input">
-                            <p>Email</p>
-                            <input class="log-input" type="text" placeholder="Masukan Email" >
+                    <form action="<?= base_url().'SignController/LoginUser' ?>" method="post">
+                        <div class="form-log">
+                            <div class="form-input">
+                                <p>Email</p>
+                                <input class="log-input" name="email" type="text" placeholder="Masukan Email" >
+                            </div>
+                            <div class="form-input">
+                                <p>Password</p>
+                                <input class="log-input" name="password" type="password" placeholder="Masukan Password">
+                            </div>
+                            <a href="hello.php" class="d-flex flex-row-reverse mb-3 ">Lupa Password ?</a>
+                            <button type="submit" name="submit" class="log-primary-button">Masuk</button>
+                            
                         </div>
-                        <div class="form-input">
-                            <p>Password</p>
-                            <input class="log-input" type="password" placeholder="Masukan Password">
-                        </div>
-                        <a href="hello.php" class="d-flex flex-row-reverse mb-3 ">Lupa Password ?</a>
-                        <a href="index.php">
-                            <button class="log-primary-button">Masuk</button>
-                        </a>
-                    </div>
+                    </form>
                     <div class="log-with text-center">
                         <p>Atau masuk dengan menggunakan:</p>
                         <div class="row">

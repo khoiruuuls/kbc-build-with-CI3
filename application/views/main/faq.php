@@ -3,7 +3,7 @@
     <head>
 		<?php $this->load->view("_partials/head.php")?>
     
-        <title><?php echo $page_title; ?></title>
+        
         <!-- CUSTOM CSS -->
         <link rel="stylesheet" href="./assets/css/style.css">
     </head> 
@@ -11,40 +11,7 @@
     <body>  
         <?php $this->load->view("_partials/navbar.php")?>
 
-        <section id="header-post" class="img-seminar ">
-            <div class="header-post-wrap">
-                <div class="container">
-                    <div class="row">
-                        <div class="header-post-box">
-                            <div class="route">
-                                <p><strong>Beranda</strong></p>
-                                <i class="bi bi-chevron-right"></i>
-                                <p><strong>Program</strong></p>
-                                <i class="bi bi-chevron-right"></i>
-                                <p>FAQ</p>
-                            </div>
-                            <h1>FAQ
-                            </h1>
-                            <p class="body-text col-6">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna
-                                aliqua.
-                            </p>
-                            <div class="search-bar">
-                                <input
-                                    placeholder="Kata kunci, kategori, nama konsultan dsb ..."
-                                    type="text"
-                                    class="input" />
-                                <button class="primary-button">
-                                    Cari
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <?php $this->load->view("_partials/sub-header.php")?>
 
     <!-- bagian headline -->
         <section id="headline-faq" class="section-p1">

@@ -3,7 +3,7 @@
     <head>
 		<?php $this->load->view("_partials/head.php")?>
     
-        <title><?php echo $page_title; ?></title>
+        
         <!-- CUSTOM CSS -->
         <link rel="stylesheet" href="<?php echo site_url('/assets/css/style.css');?>">
         <link rel="stylesheet" href="<?php echo site_url('/assets/css/detailconsult.css');?>">
@@ -24,13 +24,13 @@
 								<i class="bi bi-chevron-right"></i>
 								<p><strong>Konsultasi</strong></p>
 								<i class="bi bi-chevron-right"></i>
-								<p><?php echo $item->nama ?></p>
+								<p><?php echo $item->name ?></p>
 							</div>
 							<div class="consultant-box">
 								<img src="<?php echo site_url($item->photo)?>" alt="" />
 								<div class="consultant-wrap">
-									<h3><?php echo $item->nama ?></h3>
-									<h6><?php echo $item->profesi ?></h6>
+									<h3><?php echo $item->name?></h3>
+									<h6><?php echo $item->profesi?></h6>
 									<div class="consultant-bar">
 										<button
 											class="primary-button">

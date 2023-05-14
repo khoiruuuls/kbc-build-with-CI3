@@ -28,12 +28,12 @@
                         <div class="dropdown__content">
                             <div class="dropdown__group">
                                 <i class="ri-group-line"></i>
-                                <a href="consultation"><span class="dropdown__title">
+                                <a href="<?php echo site_url('./consultation')?>"><span class="dropdown__title">
                                         Training</span></a>
                             </div>
                             <div class="dropdown__group">
                                 <i class="ri-open-arm-line"></i>
-                                <a href="coaching">
+                                <a href="<?php echo site_url('./coaching')?>">
                                     <span class="dropdown__title">Pelatihan</span>
                                 </a>
                             </div>
@@ -54,10 +54,10 @@
             </ul>
         </div>
         <div class="button__navbar">
-            <!-- <a href="user-profile.html" class="user-login">
-                    <img src="img/user-profile.jpg" alt="" />
-                    <p>Khoirul Fahmi</p>
-                </a> -->
+            <!-- <a href="<?php echo site_url('auth/user-profile')?>" class="user-login" >
+                <img src="<?php echo base_url('assets/img/user-profile.jpg')?>" alt="" />
+                <p>Khoirul Fahmi</p>
+            </a> -->
             <a href="<?php echo site_url('auth/sign-in')?>" >
                 <button class="log-secondary-button">
                     Masuk

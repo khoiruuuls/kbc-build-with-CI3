@@ -3,7 +3,7 @@
     <head>
 		<?php $this->load->view("_partials/head.php")?>
     
-        <title><?php echo $page_title; ?></title>
+        
         <!-- CUSTOM CSS -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/seminar-program.css'); ?>">
@@ -12,33 +12,9 @@
     <body>  
         <?php $this->load->view("_partials/navbar.php")?>
 
+		<?php $this->load->view("_partials/sub-header.php")?>
+
         <?php foreach ($seminar as $item) : ?> 
-        <section id="header-post" class="img-seminar">
-			<div class="header-post-wrap">
-				<div class="container">
-					<div class="row">
-						<div class="header-post-box">
-							<div class="route">
-								<p><strong>Beranda</strong></p>
-								<i class="bi bi-chevron-right"></i>
-								<p><strong>Program</strong></p>
-								<i class="bi bi-chevron-right"></i>
-								<p><strong>Seminar</strong></p>
-								<i class="bi bi-chevron-right"></i>
-								<p><?php echo $item->name ?></p>
-							</div>
-							<h1>Seminar</h1>
-							<p class="body-text col-6">
-								Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna
-								aliqua.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 
 		<!-- bagian hero section -->
 		<section id="hero-detail-program-seminar">

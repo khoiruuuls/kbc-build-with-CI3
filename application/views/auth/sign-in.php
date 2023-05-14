@@ -32,7 +32,7 @@
                             <p>Password</p>
                             <input class="log-input" type="password" placeholder="Masukan Password">
                         </div>
-                        <a href="hello.php" class="d-flex flex-row-reverse mb-3 ">Lupa Password ?</a>
+                        <a href="hello.php" class="d-flex flex-row-reverse mb-3 link-text ">Lupa Password ?</a>
                         <a href="index.php">
                             <button class="log-primary-button">Masuk</button>
                         </a>

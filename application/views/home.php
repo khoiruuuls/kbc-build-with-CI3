@@ -3,11 +3,9 @@
     <head>
 		<?php $this->load->view("_partials/head.php")?>
     
-        <title><?php echo $page_title; ?></title>
         <!-- CUSTOM CSS -->
-        <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
-        <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/index.css'); ?>"> -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/home.css'); ?>">
+        <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/index.css'); ?>"> -->
 
 
     </head>
@@ -18,11 +16,13 @@
 		<section id="home">
 			<img src="<?php echo base_url('assets/img/home.jpg')?>" alt="">
 			<div class="headline">
-				<h3>Tingkatkan <span>Performa Bisnis</span></h3>
-				<h3>Anda Sekarang Juga!</h3> 
+				<h3>Bisnis anda siap</h3>
+				<h3>untuk Shifting Up ?</h3>
 				<div class="text-hero">
 					<p class="body-text">
-					Dapatkan solusi yang tepat dan efektif dari konsultan bisnis yang ahli di bidangnya melalui program-program yang inovatif untuk membantu mencapai tujuan bisnis Anda.
+						Kamu bisa belajar langsung dari para professional
+						di industri teknologi, dan juga banyak aktifitas
+						seru yang bisa kamu ikuti.
 					</p>
 					<button class="primary-button">
 						Eksplore Sekarang
@@ -33,7 +33,7 @@
 
 		<section id="partnerku" class="section-p1">
 			<div class="container">
-				<div class="list-partner">
+				<div class="list-partner my-3">
 					<img src="<?php echo base_url('assets/img/partner/partner (1).jpg')?>" alt="">
 					<img src="<?php echo base_url('assets/img/partner/partner (2).jpg')?>" alt="">
 					<img src="<?php echo base_url('assets/img/partner/partner (3).jpg')?>" alt="">
@@ -49,7 +49,7 @@
 
 		<section id="about-us" class="section-p1 ">
 			<div class="container">
-				<div class="row display-default">
+				<div class="row display-default my-5">
 				<div class="col">
 					<iframe class="frame" src="https://www.youtube.com/embed/Vrl5dYPf82E" allowfullscreen></iframe>
 				</div>
@@ -65,7 +65,7 @@
 		</section>
 
 		<section id="our-service" class="section-p1">
-			<div class="container">
+			<div class="container my-5">
 				<div class="title-box">
 					<span>Layanan Kami</span>
 					<h6 class="mt-3">Tim Kami Bekerja Sama Untuk Merancang Strategi</h6>
@@ -81,7 +81,7 @@
 							<p class="body-text">Suatu praktik pembelajaran yang bertujuan untuk meningkatkan pengetahuan dan keterampilan anggota tim Anda, dengan harapan dapat memberikan kontribusi positif pada produktivitas dan kinerja perusahaan secara keseluruhan.</p>
 						</div>
 						<button class="log-secondary-button">
-							Baca Lebih Lengkap
+							Eksplor Lebih Lengkap
 						</button>
 					</div>
 					<div class="card card-our-service col">
@@ -93,7 +93,7 @@
 							<p class="body-text">Proses pembelajaran yang mampu memberikan arahan untuk membantu Anda dalam memahami dan mengatasi tantangan bisnis yang dihadapi, serta mengemmt-3kan strategi dan keterampilan yang diperlukan untuk mencapai tujuan bisnis.</p>
 						</div>
 						<button class="log-secondary-button">
-							Baca Lebih Lengkap
+							Eksplor Lebih Lengkap
 						</button>
 					</div>
 					<div class="card card-our-service col">
@@ -105,38 +105,31 @@
 							<p class="body-text">Proses diskusi dengan konsultan yang ahli dibidangnya sehingga Anda dapat memperoleh analisis, solusi, serta rekomendasi untuk mengatasi masalah  terkait bisnis, serta memberikan ide dan saran dalam meningkatkan kinerja bisnis Anda. </p>
 						</div>
 						<button class="log-secondary-button">
-							Baca Lebih Lengkap
+							Eksplor Lebih Lengkap
 						</button>
 					</div>
 				</div>
 			</div>
 		</section>
+
 		<section id="our-consultant" class="section-p1">
-			<div class="container">
-				<div class="title-box">
+			<div class="container my-5">
+				<div class="my-5">
 					<span>Konsultan Kami</span>
 					<h6 class="mt-3">Para Ahli dalam Bidangnya yang Berdedikasi Untuk </h6>
 					<h6>Memberikan Layanan Terbaik Kepada Anda.</h6>
 				</div>
-				<div class="row our-gap">
+				<div class="row our-gap display-default">
 					<div class="box-icon">
 						<i class="ri-arrow-left-line"></i>
 					</div>
+					<?php foreach ($consultant as $item) : ?>
 					<div class="card card-our-consultant col">
-						<img src="<?php echo base_url('assets/img/consultant/consultant (1).jpg')?>" alt="">
-						<h6>Khoirul</h6>
-						<p>Coach</p>
+						<img src="<?php echo base_url('assets/img/consultant/'.$item->photo)?>" alt="">
+						<h6><?php echo $item->name?></h6>
+						<p><?php echo $item->profesi?></p>
 					</div>
-					<div class="card card-our-consultant col">
-						<img src="<?php echo base_url('assets/img/consultant/consultant (2).jpg')?>" alt="">
-						<h6>Khoirul</h6>
-						<p>Coach</p>
-					</div>
-					<div class="card card-our-consultant col">
-						<img src="<?php echo base_url('assets/img/consultant/consultant (3).jpg')?>" alt="">
-						<h6>Khoirul</h6>
-						<p>Psycholog</p>
-					</div>
+					<?php endforeach; ?>
 					<div class="box-icon">
 						<i class="ri-arrow-right-line"></i>
 					</div>
@@ -161,50 +154,34 @@
 			</div>
 		</section>
 
-		<section id="our-consultant" class="section-p1">
-			<div class="container">
-				<div class="title-box">
+		<section id="our-program">
+			<div class="container my-5">
+				<div class="my-5">
 					<span>Program kami</span>
 					<h6 class="mt-3">Temukan Program yang Tepat dalam Membantu Anda</h6>
 					<h6> Mencapai Tujuan Bisnis dengan Lebih Efektif.</h6>
 				</div>
-				<div class="row our-gap">
-					<div class="card card-our-consultant col">
-						<img src="<?php echo base_url('assets/img/program/our-program (1).jpg')?>" alt="">
-						<div class="our-consultant-text">
-							<span>Training</span>
-							<h6>Transformasi Dimulai Dari Pemimpin</h6>
-							<p>23 Juni - 30 Juli 2023</p>
-							<span class="text-capitalize">Rp. 1.200.000 - 3.500.000</span>
+				<div class="row program-gap">
+					<?php foreach ($program as $item): ?>
+					<a href="<?php echo 'homecontroller/detailProgram/'.$item->id?>">
+						<div class="card card-our-program">
+							<img src="<?php echo base_url('assets/img/program/'.$item->photo)?>" alt="">
+							<div class="our-program-text">
+								<span><?= $item->type?></span>
+								<h6><?= $item->name?></h6>
+								<p><?= date('d M Y', strtotime($item->dateStart)). " - " . date('d M Y', strtotime($item->dateEnd))?></p>
+								<span class="text-capitalize">
+									<?php if ($item->priceMin == $item->priceMax){
+										echo "Rp. " . number_format($item->priceMin);
+									} else {
+										echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
+									}
+									?>
+								</span>
+							</div>
 						</div>
-					</div>
-					<div class="card card-our-consultant col">
-						<img src="<?php echo base_url('assets/img/program/our-program (2).jpg')?>" alt="">
-						<div class="our-consultant-text">
-							<span>Training</span>
-							<h6>Kingdom Financial for Kids Program</h6>
-							<p>23 Juni - 30 Juli 2023</p>
-							<span class="text-capitalize">Rp. 1.200.000 - 3.500.000</span>
-						</div>
-					</div>
-					<div class="card card-our-consultant col">
-						<img src="<?php echo base_url('assets/img/program/our-program (3).jpg')?>" alt="">
-						<div class="our-consultant-text">
-							<span>Training</span>
-							<h6>Shifting Up: Tranforming Your Business</h6>
-							<p>23 Juni - 30 Juli 2023</p>
-							<span class="text-capitalize">Rp. 1.200.000 - 3.500.000</span>
-						</div>
-					</div>
-					<div class="card card-our-consultant col">
-						<img src="<?php echo base_url('assets/img/program/our-program (4).jpg')?>" alt="">
-						<div class="our-consultant-text">
-							<span>Training</span>
-							<h6>Sukses Sejati Blended Learning</h6>
-							<p>23 Juni - 30 Juli 2023</p>
-							<span class="text-capitalize">Rp. 1.200.000 - 3.500.000</span>
-						</div>
-					</div>
+					</a>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</section>
@@ -214,8 +191,8 @@
 				<img src="<?php echo base_url('assets/img/testimoni.jpg')?>" alt="">
 			</div>
 			<div class="container testimoni-box">
-				<div class="title-box text-white">
-					<span class="text-uppercase text-white">Blog & Artikel</span>
+				<div class="my-5 text-white">
+					<span class="text-uppercase text-white">Testimoni</span>
 					<h6 class="mt-3">Apa yang Dikatakan Oleh Klien Kami?</h6>
 				</div>
 				<div class="row our-gap">
@@ -280,14 +257,14 @@
 			</div>
 		</section>
 
-		<section id="blog" class="section-p1">
-			<div class="container">
-				<div class="title-box">
+		<section id="blog">
+			<div class="container my-5">
+				<div class="my-3">
 					<span>Blog & Artikel</span>
 					<h6 class="mt-3">Informasi Terbaru Tentang Produk dan Layanan Kami</h6>
 					<h6>untuk Memenuhi Kebutuhan Kisnis Anda.</h6>
 				</div>
-				<div class="row display-default">
+				<div class="row display-default my-5">
 					<div class="col">
 						<img src="<?php echo base_url('assets/img/blog/headline-blog.jpg')?>" alt="">
 					</div>
@@ -295,7 +272,7 @@
 						<p>23 Juni - 30 Juli 2023</p>
 						<h6 class="body-text">Merancang Strategi Kebenaran : Kisah Stanley</h6>
 						<p class="body-text">Namanya mudah diingat orang, Stanley. Pendidikannya mudah dilupakan orang, lulusan Sekolah Menengah Kejuruan. Perawakannya mudah dilecehkan, karena kurus, pendek dan tidak menunjukkan profil 'macho' sehingga dikejar para gadis. Namun gaya bicara dan semangatnya tak mudah diikuti orang karena termasuk manusia luar biasa.</p>
-						<a href="<?php echo base_url('')?>">Baca Selengkapnya</a>
+						<a href="<?php echo base_url('')?>" class="link-text">Baca Selengkapnya</a>
 					</div>
 				</div>
 				<div class="row our-gap">
@@ -305,7 +282,7 @@
 							<p>23 Juni - 30 Juli 2023</p>
 							<h6>Transformasi Dimulai Dari Pemimpin</h6>
 							<p class="body-text">Setelah mengenyam pendidikan dan pelatihan di Jepang selama lebih 12 tahun, ia berketetapan hati kembali ke Indonesia pada tahun 1996.</p>
-							<a href="<?php echo base_url('')?>">Baca Selengkapnya</a>
+							<a href="<?php echo base_url('')?>" class="link-text">Baca Selengkapnya</a>
 						</div>
 					</div>
 					<div class="card card-blog col">
@@ -314,7 +291,7 @@
 							<p>23 Juni - 30 Juli 2023</p>
 							<h6>Kingdom Financial for Kids Program</h6>
 							<p class="body-text">Setelah mengenyam pendidikan dan pelatihan di Jepang selama lebih 12 tahun, ia berketetapan hati kembali ke Indonesia pada tahun 1996.</p>
-							<a href="<?php echo base_url('')?>">Baca Selengkapnya</a>
+							<a href="<?php echo base_url('')?>" class="link-text">Baca Selengkapnya</a>
 						</div>
 					</div>
 					<div class="card card-blog col">
@@ -323,7 +300,7 @@
 							<p>23 Juni - 30 Juli 2023</p>
 							<h6>Shifting Up: Tranforming Your Business</h6>
 							<p class="body-text">Setelah mengenyam pendidikan dan pelatihan di Jepang selama lebih 12 tahun, ia berketetapan hati kembali ke Indonesia pada tahun 1996.</p>
-							<a href="<?php echo base_url('')?>">Baca Selengkapnya</a>
+							<a href="<?php echo base_url('')?>" class="link-text">Baca Selengkapnya</a>
 						</div>
 					</div>
 				</div>

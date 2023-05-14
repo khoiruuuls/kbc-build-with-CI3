@@ -5,13 +5,19 @@
 .filter-box {
 	padding: 30px;
 	border-right: 1px solid var(--gray-color-4);
-
-	height: 100vh;
+	height: 88vh;
 	min-height: 200px;
 	overflow: auto;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 88px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.filter-title {
+	padding-bottom: 10px;
 }
 
 .filter-title h6,
@@ -41,4 +47,21 @@
 	justify-content: space-between;
 	padding-block: 16px;
 	border-bottom: 1px solid var(--gray-color-4);
+}
+
+.filter-button {
+	display: flex;
+	justify-content: center;
+	column-gap: 30px;
+}
+
+.filter-btn {
+	width: 50%;
+}
+
+.header-card {
+	padding-top: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }

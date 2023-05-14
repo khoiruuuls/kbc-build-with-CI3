@@ -14,16 +14,14 @@
                         bekerja.
                     </p>
                 </div>
-                <div class="pt-4">
-                    <div class="search-bar">
-                        <input
-                            placeholder="Alamat email anda . . . "
-                            type="text"
-                            class="input" />
-                        <button class="primary-button">
-                            Subscribe
-                        </button>
-                    </div>
+                <div class="search-bar pt-4">
+                    <input
+                        placeholder="Alamat email anda . . . "
+                        type="text"
+                        class="log-input footer-search" />
+                    <button class="log-primary-button">
+                        Subscribe
+                    </button>
                 </div>
             </div>
 

@@ -35,12 +35,7 @@
                             </div>
                             <a href="hello.php" class="d-flex flex-row-reverse mb-3 ">Lupa Password ?</a>
                             <button type="submit" name="submit" class="log-primary-button">Masuk</button>
-                            
                         </div>
-                        <a href="hello.php" class="d-flex flex-row-reverse mb-3 ">Lupa Password ?</a>
-                        <a href="index.php">
-                            <button class="log-primary-button">Masuk</button>
-                        </a>
                         </form>
                     </div>
                     <div class="log-with text-center">

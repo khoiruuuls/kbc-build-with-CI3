@@ -32,22 +32,27 @@
                         <h4>Registrasi Akun</h4>
                         <p>Selamat datang! Silakan isi formulir pendaftaran di bawah ini untuk membuat akun Anda.</p>
                     </div>
+                    <form action="<?= base_url().'SignController/RegisterUser'; ?>" method="POST" >
                     <div class="form-log">
                         <div class="form-input">
                             <p>Nama Lengkap</p>
                             <input class="log-input" type="text" placeholder="Masukkan Nama Lengkap" >
+                            <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-input">
                             <p>Email</p>
                             <input class="log-input" type="text" placeholder="Masukkan Email" >
+                            <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-input">
                             <p>Nomor Whatsapp</p>
                             <input class="log-input" type="text" placeholder="Masukkan Nomor Whatsapp" >
+                            <?= form_error('noHp', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-input">
                             <p>Password</p>
                             <input class="log-input" type="password" placeholder="Masukkan Password" >
+                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-input">
                             <p>Konfirmasi Password</p>
@@ -65,6 +70,7 @@
                             <button class="log-primary-button">Registrasi akun</button>
                         </a>
                     </div>
+                    </form>
                     <div class="log-with text-center">
                         <p>Atau registrasi dengan menggunakan:</p>
                         <div class="row">

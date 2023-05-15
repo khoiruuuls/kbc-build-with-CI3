@@ -33,13 +33,13 @@
 					<div class="col-6 col-sm-12 col-lg-6">
 						<div class="card-consultation">
 							<div class="img">
-								<img src="<?php echo $item->photo ?>" alt="" />
+								<img src="<?php echo site_url('assets/img/consultant/'.$item->photo )?>" alt="" />
 							</div>
 							<div class="text-card">
 								<div class="mentor-detail">
 									<div class="mentor-name">
 										<h6><?php echo $item->name ?></h6>
-										<p>12 Januari 2009</p>
+										<p class="text-property"><?php echo $item->profesi?></p>
 									</div>
 									<div class="box-icon">
 										<i class="ri-heart-fill"></i>
@@ -47,22 +47,26 @@
 								</div>
 								<div class="mentor-name">
 									<p>
-										Setiap hari | Tatap muka &
-										Online
+										Setiap hari | Tatap muka & Online
 									</p>
 									<p>
-										<strong>4,9 | 235</strong>
-										Klien
+									<div class="star-user">
+										<i class="ri-star-fill"></i>
+										<i class="ri-star-fill"></i>
+										<i class="ri-star-fill"></i>
+										<i class="ri-star-fill"></i>
+										<i class="ri-star-fill"></i>
+									</div>
 									</p>
 								</div>
 								<div class="mentor-button">
-									<button class="sm-primary-button">
-										Lihat selengkapnya
+									<button class="log-primary-button">
+										Jasa layanan
 									</button>
 									<a href="<?php echo 'homecontroller/detail/'.$item->id?>">
 										<button
-											class="sm-secondary-button">
-											Detail
+											class="log-secondary-button">
+											Profile
 										</button>
 									</a>
 								</div>

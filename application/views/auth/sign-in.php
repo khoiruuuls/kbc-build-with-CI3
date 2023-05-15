@@ -33,11 +33,10 @@
                                 <p>Password</p>
                                 <input class="log-input" name="password" type="password" placeholder="Masukan Password">
                             </div>
-                            <a href="hello.php" class="d-flex flex-row-reverse mb-3 ">Lupa Password ?</a>
+                            <a href="hello.php" class="d-flex flex-row-reverse mb-3 link-text">Lupa Password ?</a>
                             <button type="submit" name="submit" class="log-primary-button">Masuk</button>
                         </div>
                         </form>
-                    </div>
                     <div class="log-with text-center">
                         <p>Atau masuk dengan menggunakan:</p>
                         <div class="row">
@@ -52,14 +51,14 @@
                             <div class="col-sm">
                                 <a href="login-facebook.php" class">
                                     <button class="log-secondary-button gap-3">
-                                        <i class="ri-facebook-circle-fill" style="vertical-align: start;"></i>
+                                        <i class="ri-facebook-circle-fill"></i>
                                         <p>Facebook</p>
                                     </button>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <p class="quest-account text-center">Belum memiliki akun? <a href="<?php echo base_url('auth/sign-up')?>">Register Akun</a> </p>
+                    <p class="quest-account text-center">Belum memiliki akun? <a href="<?php echo base_url('auth/sign-up')?>" class="link-text">Register Akun</a> </p>
                 </div>
                     
             </div>

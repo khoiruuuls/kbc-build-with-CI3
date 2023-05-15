@@ -31,11 +31,27 @@ class SignController extends CI_Controller {
 
     //POST
 
+    public function register(){
+
+        $this->form_validation->set_rules('name', 'Name', 'trim|required|is_unique[users.name]');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]',[
+            'required' => 'Please input password is required',
+            'valid_email' => 'The input you enter is not in the form of an email',
+            'is_unique' => 'The e-mail already exists'
+        ]);
+         
+        if($this->form_validation->run() == false){
+            // register gagal
+            return redirect('auth/sign-up');
+        } else {
+            echo "Berhasil login";
+        }
+    }
+
+
+
     public function RegisterUser()
     {
-        
-        
-
         //mengatasi jika user melakukan url langsung tanpa disubmit
         if(!$this->input->post())
         {
@@ -46,6 +62,7 @@ class SignController extends CI_Controller {
         {
             return redirect('auth/sign-up');
         }
+
         //pengecekan data
         $this->form_validation->set_rules('name', 'name', 'trim|required|is_unique[users.name]');
         $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|is_unique[users.email]',[
@@ -106,7 +123,7 @@ class SignController extends CI_Controller {
             $this->session->set_userdata('id', $user->id);
             
             // Alihkan ke halaman dashboard atau halaman yang sesuai
-            return redirect('tes/tes');
+            return redirect(site_url('./'));
         } else {
             // Login gagal, tampilkan pesan kesalahan
             return redirect('auth/sign-in');

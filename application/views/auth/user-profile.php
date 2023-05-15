@@ -4,10 +4,10 @@
 		<?php $this->load->view("_partials/head.php")?>
     
         <!-- CUSTOM CSS -->
-        <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
+        <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>"> -->
         <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/index.css'); ?>"> -->
-        <link rel="stylesheet" href="<?php echo base_url('assets/css/home.css'); ?>">
-        <link rel="stylesheet" href="<?php echo base_url('assets/css/khoirul.css'); ?>">
+        <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/home.css'); ?>"> -->
+        <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/khoirul.css'); ?>"> -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/user-profile.css'); ?>">
 
     </head>
@@ -16,8 +16,8 @@
 		<?php $this->load->view("_partials/navbar.php")?>
 
         <section id="user-profile">
-            <div class="container-fluid user-container">
-                <div class="row">
+            <div class="container-fluid">
+                <div class="row user-container">
                     <div class="col-4 user-box bg-slide">
                         <div class="user-item">
                             <img src="<?php echo base_url('assets/img/user-profile.jpg')?>" alt="">
@@ -29,28 +29,30 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="user-item">
-                            <i class="ri-user-line"></i>
-                            <h6>Akun Saya</h6>
-                        </div>
-                        <div class="user-item">
-                            <i class="ri-thumb-down-line"></i>
-                            <h6>Wishlist</h6>
-                        </div>
-                        <div class="user-item">
-                            <i class="ri-notification-2-line"></i>
-                            <h6>Notification</h6>
-                        </div>
-                        <div class="user-item">
-                            <i class="ri-book-open-line"></i>
-                            <h6>My Program</h6>
-                        </div>
-                        <div class="user-item">
-                        <i class="ri-shopping-cart-line"></i>
-                            <h6>Transaction History</h6>
+                        <div class="user-info">
+                            <div class="user-item">
+                                <i class="ri-user-line"></i>
+                                <h6>Akun Saya</h6>
+                            </div>
+                            <div class="user-item">
+                                <i class="ri-thumb-down-line"></i>
+                                <h6>Wishlist</h6>
+                            </div>
+                            <div class="user-item">
+                                <i class="ri-notification-2-line"></i>
+                                <h6>Notification</h6>
+                            </div>
+                            <div class="user-item">
+                                <i class="ri-book-open-line"></i>
+                                <h6>My Program</h6>
+                            </div>
+                            <div class="user-item">
+                            <i class="ri-shopping-cart-line"></i>
+                                <h6>Transaction History</h6>
+                            </div>
                         </div>
                     </div>
-                    <div class="col user-box">
+                    <div class="col-8 user-box">
                         <div class="user-header">
                             <h4>Profile</h4>
                             <p>Silahkan isi data profile anda secara lengkap. Pastikan informasi akurat dan mudah dihubungi</p>

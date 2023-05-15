@@ -17,9 +17,11 @@
                 <li>
                     <a href="<?php echo site_url('./')?>" class="nav__link">Beranda</a>
                 </li>
+                    <a href="<?php echo site_url('./coaching')?>" class="nav__link">Eksplorasi</a>
+                </li>
 
                 <!-- DROPDOWN -->
-                <li class="dropdown__item">
+                <!-- <li class="dropdown__item">
                     <div class="nav__link dropdown__button">
                         Program
                         <i class="ri-arrow-down-s-line dropdown__arrow"></i>
@@ -43,6 +45,10 @@
                             </div>
                         </div>
                     </div>
+                </li> -->
+
+                <li>
+                    <a href="<?php echo site_url('./consultation')?>" class="nav__link">Consultant</a>
                 </li>
 
                 <li>
@@ -53,6 +59,7 @@
                 </li>
             </ul>
         </div>
+
         <div class="button__navbar">
             <!-- <a href="<?php echo site_url('auth/user-profile')?>" class="user-login" >
                 <img src="<?php echo base_url('assets/img/user-profile.jpg')?>" alt="" />

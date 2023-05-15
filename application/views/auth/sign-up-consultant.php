@@ -133,7 +133,7 @@
                             <div class="col-sm">
                                 <a href="login-facebook.php" class">
                                     <button class="log-secondary-button gap-3">
-                                        <i class="ri-facebook-circle-fill" style="vertical-align: start;"></i>
+                                        <i class="ri-facebook-circle-fill"></i>
                                         <p>Facebook</p>
                                     </button>
                                 </a>

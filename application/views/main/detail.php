@@ -27,7 +27,7 @@
 								<p><?php echo $item->name ?></p>
 							</div>
 							<div class="consultant-box">
-								<img src="<?php echo site_url($item->photo)?>" alt="" />
+								<img src="<?php echo base_url('assets/img/consultant/'.$item->photo)?>" alt="" />
 								<div class="consultant-wrap">
 									<h3><?php echo $item->name?></h3>
 									<h6><?php echo $item->profesi?></h6>

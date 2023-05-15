@@ -438,6 +438,36 @@ li {
 	padding-block-start: 30px;
 }
 
+.box-icon {
+	width: 45px;
+	height: 45px;
+	font-size: 20px;
+	margin-left: 8px;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid var(--gray-color-4);
+	color: var(--gray-color-4);
+	cursor: pointer;
+}
+
+.box-icon:hover {
+	border-color: var(--danger-color-6);
+	background-color: var(--danger-color-4);
+	color: var(--danger-color-7);
+}
+
+.title-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.detail-text {
+	color: var(--primary-color-4);
+}
+
 /* Input and Textarea Style */
 
 input.log-input,

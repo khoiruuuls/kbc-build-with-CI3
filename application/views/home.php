@@ -54,7 +54,7 @@
 					<iframe class="frame" src="https://www.youtube.com/embed/Vrl5dYPf82E" allowfullscreen></iframe>
 				</div>
 				<div class="col">
-					<div class="title-box">
+					<div>
 						<span>Tentang Kami</span>
 						<h6 class="body-text mt-3">Kami Berkomitmen Menyusun Solusi Bisnis yang Unik dan Sesuai dengan Kebutuhan Anda.</h6>
 					</div>
@@ -66,7 +66,7 @@
 
 		<section id="our-service" class="section-p1">
 			<div class="container my-5">
-				<div class="title-box">
+				<div class="my-5">
 					<span>Layanan Kami</span>
 					<h6 class="mt-3">Tim Kami Bekerja Sama Untuk Merancang Strategi</h6>
 					<h6>yang Tepat Guna Meningkatkan Performa Bisnis Anda.</h6>
@@ -114,10 +114,15 @@
 
 		<section id="our-consultant" class="section-p1">
 			<div class="container my-5">
-				<div class="my-5">
-					<span>Konsultan Kami</span>
-					<h6 class="mt-3">Para Ahli dalam Bidangnya yang Berdedikasi Untuk </h6>
-					<h6>Memberikan Layanan Terbaik Kepada Anda.</h6>
+				<div class="my-5 title-box">
+					<div>
+						<span>Konsultan Kami</span>
+						<h6 class="mt-3">Para Ahli dalam Bidangnya yang Berdedikasi Untuk </h6>
+						<h6>Memberikan Layanan Terbaik Kepada Anda.</h6>
+					</div>
+					<a href="<?php echo site_url('./consultation')?>">
+						<p class="detail-text">Lihat Semua Konsultan</p>
+					</a>
 				</div>
 				<div class="row our-gap display-default">
 					<div class="box-icon">
@@ -156,10 +161,15 @@
 
 		<section id="our-program">
 			<div class="container my-5">
-				<div class="my-5">
-					<span>Program kami</span>
-					<h6 class="mt-3">Temukan Program yang Tepat dalam Membantu Anda</h6>
-					<h6> Mencapai Tujuan Bisnis dengan Lebih Efektif.</h6>
+				<div class="my-5 title-box">
+					<div>
+						<span>Program kami</span>
+						<h6 class="mt-3">Temukan Program yang Tepat dalam Membantu Anda</h6>
+						<h6> Mencapai Tujuan Bisnis dengan Lebih Efektif.</h6>
+					</div>
+					<a href="<?php echo site_url('./coaching')?>">
+						<p class="detail-text">Lihat Selengkapnya</p>
+					</a>
 				</div>
 				<div class="row program-gap">
 					<?php foreach ($program as $item): ?>

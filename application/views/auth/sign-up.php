@@ -32,7 +32,7 @@
                         <h4>Registrasi Akun</h4>
                         <p>Selamat datang! Silakan isi formulir pendaftaran di bawah ini untuk membuat akun Anda.</p>
                     </div>
-                    <form action="<?= base_url().'SignController/RegisterUser'; ?>" method="POST" >
+                    <form action="<?= base_url().'SignController/signup'; ?>" method="POST" >
                         <div class="form-log">
                             <div class="form-input">
                                 <p>Nama Lengkap</p>

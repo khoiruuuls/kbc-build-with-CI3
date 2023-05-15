@@ -1,40 +1,3 @@
-.title-box {
-	margin-bottom: 40px;
-}
-
-.display-default {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.layer img {
-	object-fit: cover;
-	position: relative;
-	z-index: -1;
-}
-
-.layer {
-	display: inline-block;
-	background: rgba(116, 69, 31, 0.8) 10%;
-}
-
-.star-user i {
-	color: var(--warning-color-5);
-}
-
-.our-gap {
-	column-gap: 30px;
-	margin-top: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.text-gap {
-	padding-block-start: 30px;
-}
-
 #home {
 	position: relative;
 }
@@ -61,9 +24,9 @@
 
 #home .headline h3,
 #home .headline span {
-	font-size: 40px;
+	font-size: 58px;
 	font-weight: var(--font-bold);
-	color: var(--primary-color-8);
+	color: var(--primary-color-7);
 }
 
 #home .headline span {
@@ -92,7 +55,15 @@
 	height: 280px;
 }
 
-:where(#about-us, #our-service, #our-consultant) span {
+:where(
+		#about-us,
+		#our-service,
+		#our-consultant,
+		#our-program,
+		#blog,
+		#testimoni
+	)
+	span {
 	font-weight: bold;
 	color: var(--secondary-color-5);
 	text-transform: uppercase;
@@ -127,7 +98,19 @@
 	font-size: 40px;
 }
 
+#our-consultant .box-icon {
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	border: 2px solid var(--gray-color-4);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
 #our-consultant .card-our-consultant,
+#our-program .card-our-program,
 #blog .card-blog {
 	padding: 0;
 	display: flex;
@@ -139,11 +122,13 @@
 }
 
 #our-consultant .card-our-consultant img,
+#our-program .card-our-program img,
 #blog .card-blog img {
 	width: 100%;
 }
 
 #our-consultant .card-our-consultant,
+#our-program .card-our-program,
 #blog .card-blog {
 	height: 100%;
 }
@@ -172,21 +157,27 @@
 }
 
 #our-consultant .our-consultant-text,
+#our-program .our-program-text,
 #blog .blog-text {
+	width: 100%;
 	padding: 20px;
 	justify-content: flex-start;
 }
 
 #our-consultant .our-consultant-text span,
 #our-consultant .our-consultant-text p,
+#our-program .our-program-text span,
+#our-program .our-program-text p,
 #blog .blog-text span,
 #blog .blog-text p {
 	font-size: 14px;
 }
 
 #our-consultant .our-consultant-text h6,
+#our-program .our-program-text h6,
 #blog .blog-text h6 {
 	font-size: 16px;
+	color: var(--black-color);
 }
 
 #testimoni {
@@ -228,4 +219,8 @@
 #testimoni .testimoni-user p {
 	font-weight: 900;
 	margin: 0;
+}
+
+.hello {
+	border: 2px solid black;
 }

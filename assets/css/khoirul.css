@@ -1,13 +1,11 @@
-#aliyyu {
-	border: 4px solid;
-	width: 900px;
-	height: 300px;
-	background-color: red;
-	display: flex;
-	align-items: center;
-}
-
 .khoirul {
 	background-color: blue;
-	justify-content: center;
+}
+
+.chagiya {
+	background-color: red;
+}
+
+.erulganteng {
+	border: 2px solid black;
 }

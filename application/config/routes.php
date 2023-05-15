@@ -7,6 +7,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 // sign in - sign up
 
+$route['auth/user-profile'] = 'SignController/user';
 $route['auth/sign-in'] = 'SignController/signin';
 $route['auth/sign-up'] = 'SignController/signup';
 $route['auth/sign-up-consultant'] = 'SignController/signupConsultant';
@@ -16,3 +17,4 @@ $route['faq'] = 'HomeController/faq';
 $route['blog'] = 'HomeController/blog';
 $route['consultation'] = 'HomeController/consultation';
 $route['coaching'] = 'HomeController/coaching';
+$route['detail/program'] = 'HomeController/detailProgram';

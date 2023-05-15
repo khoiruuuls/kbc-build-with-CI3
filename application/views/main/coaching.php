@@ -2,140 +2,105 @@
 <html lang="en">
     <head>
 		<?php $this->load->view("_partials/head.php")?>
-    
-        <title><?php echo $page_title; ?></title>
+        
         <!-- CUSTOM CSS -->
 
         <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
         <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/index.css'); ?>"> -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/home.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/program.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('assets/css/khoirul.css'); ?>">
     </head> 
     
     <body>  
         <?php $this->load->view("_partials/navbar.php")?>
 
-        <section id="header-post" class="img-seminar ">
-            <div class="header-post-wrap">
-                <div class="container">
-                    <div class="row">
-                        <div class="header-post-box">
-                            <div class="route">
-                                <p><strong>Beranda</strong></p>
-                                <i class="bi bi-chevron-right"></i>
-                                <p><strong>Program</strong></p>
-                                <i class="bi bi-chevron-right"></i>
-                                <p>Pelatihan</p>
+        <?php $this->load->view("_partials/sub-header.php")?>
+
+
+        <section id="our-program">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3 filter-box stiky">
+                        <div class="filter-top">
+                            <div class="filter-title filter-display">
+                                <i class="ri-equalizer-line"></i>
+                                <h6>Filter</h6>
                             </div>
-                            <h1>Pelatihan</h1>
-                            <p class="body-text col-6">
-                                Suatu praktik pembelajaran yang bertujuan untuk meningkatkan pengetahuan dan keterampilan anggota tim Anda, dengan harapan dapat memberikan kontribusi positif pada produktivitas dan kinerja perusahaan secara keseluruhan.
-                            </p>
-                            <div class="search-bar">
-                                <input
-                                    placeholder="Kata kunci, kategori, nama konsultan dsb ..."
-                                    type="text"
-                                    class="input" />
-                                <button class="primary-button">
-                                    Cari
-                                </button>
+                            <div class="filter-sub">
+                                <div class="filter-name filter-display">
+                                    <h6>Tipe Program</h6>
+                                    <i class="ri-arrow-down-s-fill"></i>
+                                </div>
+                                <div class="filter-name filter-display">
+                                    <h6>Tipe Program</h6>
+                                    <i class="ri-arrow-down-s-fill"></i>
+                                </div>
                             </div>
                         </div>
+                        <div class="filter-button">
+                            <button class="log-secondary-button filter-btn">
+                                Reset
+                            </button>
+                            <button class="log-primary-button filter-btn">
+                                Terapkan
+                            </button>
+                        </div> 
+                    </div>
+                    <div class="col">
+                        <div class="container-fluid">
+                            <div class="header-card">
+                                <p>Menampilkan 9 dari 89 Program</p>
+                                <p>Urutkan Berdasarkan Waktu</p>
+                            </div>
+                            <div class="row program-gap-all">
+                            <?php foreach ($program as $item): ?>
+                                <a href="<?php echo 'homecontroller/detailProgram/'.$item->id?>">
+                                    <div class="card card-our-program">
+                                        <img src="<?php echo base_url('assets/img/program/'.$item->photo)?>" alt="">
+                                        <div class="our-program-text">
+                                            <span><?= $item->type?></span>
+                                            <h6><?= $item->name?></h6>
+                                            <p><?= date('d M Y', strtotime($item->dateStart)). " - " . date('d M Y', strtotime($item->dateEnd))?></p>
+                                            <span class="text-capitalize">
+                                                <?php if ($item->priceMin == $item->priceMax){
+                                                    echo "Rp. " . number_format($item->priceMin);
+                                                } else {
+                                                    echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
+                                                }
+                                                ?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+
+                        <section id="pagination">
+                            <div class="container">
+                                <button class="button prevNext" id="prev" disabled>
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <div class="links">
+                                    <a href="#" class="link active">1</a>
+                                    <a href="#" class="link">2</a>
+                                    <a href="#" class="link">3</a>
+                                    <a href="#" class="link">4</a>
+                                    <a href="#" class="link">5</a>
+                                </div>
+                                <button class="button prevNext" id="next">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <div class="section">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-3 filter-box stiky ">
-                        <div class="filter-title filter-display">
-                            <i class="ri-equalizer-line"></i>
-                            <h6>Filter</h6>
-                        </div>
-                        <div class="filter-sub">
-                            <div class="filter-name filter-display">
-                                <h6>Tipe Program</h6>
-                                <i class="ri-arrow-down-s-fill"></i>
-                            </div>
-                            <div class="filter-name filter-display">
-                                <h6>Tipe Program</h6>
-                                <i class="ri-arrow-down-s-fill"></i>
-                            </div>
-                            <div class="filter-name filter-display">
-                                <h6>Tipe Program</h6>
-                                <i class="ri-arrow-down-s-fill"></i>
-                            </div>
-                            <div class="filter-name filter-display">
-                                <h6>Tipe Program</h6>
-                                <i class="ri-arrow-down-s-fill"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <p>Menampilkan 12 dari 54 Program</p>
-                        <div class="row">
-                            <div class="col-4">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                            </div>
-                            <div class="col-4">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                            </div>
-                            <div class="col-4">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nihil itaque explicabo illum consectetur dicta. Non at atque et doloremque, totam nostrum facilis magni ducimus a dicta doloribus quae quidem?</p>
-                                <p>Lorem
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+        
 
         
 		<?php $this->load->view("_partials/footer.php")?>

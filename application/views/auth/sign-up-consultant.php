@@ -110,9 +110,9 @@
                         <div class="checkbox-input">
                             <input class="checkbox-pop" type="checkbox" id="check2"/>
                             <p>Membuat akun berarti Anda setuju dengan 
-                                <a class="agreement">Syarat Layanan</a>,
-                                <a class="agreement">Kebijakan Privasi</a>, dan 
-                                <a class="agreement">Pengaturan Notifikasi</a> bawaan kami.
+                                <a class="link-text">Syarat Layanan</a>,
+                                <a class="link-text">Kebijakan Privasi</a>, dan 
+                                <a class="link-text">Pengaturan Notifikasi</a> bawaan kami.
                             </p>
                         </div>
                         <a href="index.php">
@@ -140,7 +140,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="quest-account text-center">Sudah memiliki akun? <a href="<?php echo base_url('auth/sign-in')?>">Masuk Akun</a> </p>
+                    <p class="quest-account text-center">Sudah memiliki akun? <a href="<?php echo base_url('auth/sign-in')?>" class="link-text">Masuk Akun</a> </p>
                 </div>
                     
             </div>

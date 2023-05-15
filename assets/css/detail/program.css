@@ -1,0 +1,164 @@
+/*=============== HEADER ===============*/
+#header-program .container-program img {
+	width: 100%;
+	height: 555px;
+	object-fit: cover;
+	object-position: top;
+}
+
+/*=============== ROUTE ===============*/
+#header-route .route {
+	margin-top: 30px;
+	column-gap: 10px;
+	display: inline-flex;
+	color: var(--primary-color-4);
+}
+
+#header-route .route p,
+#header-route .route i {
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 150%;
+	color: var(--primary-color-4);
+}
+
+/*=============== PERIOD ===============*/
+#header-period .title-period h3 {
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 34px;
+	line-height: 140%;
+	color: var(--black-color);
+}
+
+#header-period .text-period1,
+#header-period .text-period2,
+#header-period .text-period3 {
+	display: flex;
+	column-gap: 10px;
+}
+
+#header-period .text-period1 p,
+#header-period .text-period1 i,
+#header-period .text-period2 p,
+#header-period .text-period2 i,
+#header-period .text-period3 p,
+#header-period .text-period3 i {
+	color: var(--gray-color-5);
+}
+
+#header-period .text-period1 i,
+#header-period .text-period2 i,
+#header-period .text-period3 i {
+	font-size: 20px;
+}
+
+#header-period .card-price {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 50px;
+	gap: 30px;
+
+	position: absolute;
+	width: 400px;
+	height: 294px;
+	left: 844px;
+	top: 753px;
+
+	/* Secondary/01 */
+
+	background: #fbf2cd;
+	/* shadow */
+
+	box-shadow: -2px 4px 20px rgba(0, 0, 0, 0.15);
+	border-radius: 15px;
+}
+
+.card-price-content h5 {
+	/* Title/Reguler 20 */
+
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	margin-top: 20px;
+	line-height: 150%;
+	/* or 30px */
+	text-align: center;
+
+	color: #000000;
+}
+
+.card-price-content p {
+	/* Title/Semibold 20 */
+
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 150%;
+	margin-top: 30px;
+
+	text-align: center;
+	/* Primary/08 */
+
+	color: #402108;
+}
+
+.button_price a {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 27px;
+	margin-top: 20px;
+	margin-left: 20px;
+	/* identical to box height */
+	padding: 14px 59.5px 14px 59px;
+
+	/* BWA/White */
+
+	color: #ffffff;
+}
+
+/*=============== DETAIL PROGRAM ===============*/
+.title-detail-program h5 {
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 150%;
+	/* identical to box height, or 30px */
+
+	/* Neutral/02 */
+
+	color: #000000;
+}
+
+.title-detail-program .garis {
+	width: 704px;
+	height: 0px;
+	margin-top: 20px;
+
+	/* Primary/04 */
+
+	border: 2px solid #a9844a;
+}
+
+.text-detail-program p {
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	margin-top: 20px;
+	line-height: 150%;
+	/* or 24px */
+
+	text-align: justify;
+
+	color: #000000;
+}

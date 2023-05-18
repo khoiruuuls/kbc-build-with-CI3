@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2023 at 05:24 PM
+-- Generation Time: May 18, 2023 at 07:49 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `consultant` (
   `id` int(8) NOT NULL,
-  `nama` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
   `profesi` varchar(20) NOT NULL,
   `photo` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -38,11 +38,40 @@ CREATE TABLE `consultant` (
 -- Dumping data for table `consultant`
 --
 
-INSERT INTO `consultant` (`id`, `nama`, `profesi`, `photo`) VALUES
-(0, 'Ruaniwati', 'Profesi Coach', './assets/img/consultant/ruaniwati.jpg'),
-(1, 'Andri Eriek', 'President Director', './assets/img/consultant/andri.jpg'),
-(2, 'Agus Sanetyo', 'Profesi Coach', './assets/img/consultant/agus.jpg'),
-(3, 'Yuliawaty', 'Profesi Psycholog', './assets/img/consultant/yuliawaty.jpg\r\n');
+INSERT INTO `consultant` (`id`, `name`, `profesi`, `photo`) VALUES
+(0, 'Ruaniwati', 'Coach', 'consultant (1).jpg'),
+(1, 'Andri Eriek', 'Coach', 'consultant (2).jpg'),
+(2, 'Yuliawaty ', 'Psycholog', 'consultant (3).jpg'),
+(3, 'Yuliawaty ', 'Psycholog', 'consultant (3).jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program`
+--
+
+CREATE TABLE `program` (
+  `id` int(8) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `descProgram` text NOT NULL,
+  `priceMin` int(20) NOT NULL,
+  `priceMax` int(20) NOT NULL,
+  `dateStart` date NOT NULL,
+  `dateEnd` date NOT NULL,
+  `photo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program`
+--
+
+INSERT INTO `program` (`id`, `name`, `type`, `descProgram`, `priceMin`, `priceMax`, `dateStart`, `dateEnd`, `photo`) VALUES
+(1, 'Shifting Up: Tranforming Your Business', 'Consulting', 'The word “transformation” gets thrown around a lot these days, but it can have different meanings for different individuals and companies. In a world of \r\nunprecedented disruption and market turbulence, transformation today revolves around the need to generate new value—to unlock new opportunities, to drive new growth, to deliver new efficiencies. \r\nAll transformations require you to rethink how your enterprise creates value today and in the future. In other words, all transformations require you to think big. Why? Because incremental improvement \r\nis not enough to win in today’s exponentially \r\ndisrupted business environment. Your organization \r\nrequires sustained growth in the face of near \r\nconstant disruption, and sustained growth requires \r\nagile reinvention. It’s not enough to win today. You \r\nhave to be able to continue to evolve in the future', 2500000, 3500000, '2023-03-23', '2023-05-23', 'our-program (1).jpg'),
+(2, 'Transformasi Dimulai Dari Pemimpin', 'Training', 'Gaya kepemimpinan transformasional, menurut Indeed, adalah cara seorang pemimpin memotivasi dan memberdayakan orang-orang di bawah tanggung jawabnya untuk bekerja sama mewujudkan visi perusahaan.\r\n\r\nSemua itu dicapainya tanpa micromanaging. Seorang pemimpin transformasional justru memberikan anggotanya ruang lebih untuk mengasah berbagai skill yang mereka perlukan di tempat kerja.\r\n\r\nKeleluasaan tersebut memungkinkan mereka menjadi lebih kreatif berinovasi menemukan solusi baru untuk masalah lama, serta mampu melihat ke masa depan.\r\n\r\nDengan begitu, setiap karyawan memiliki kekuasaan untuk membuat keputusan dan bertindak sesuai kebutuhan dalam setiap pekerjaannya.\r\n\r\nLewat tempaan kepemimpinan transformasional, anggota menunjukkan tingkat kepuasan kerja dan komitmen yang tinggi. Mereka juga cenderung memiliki cara pandang baru dan sense of belonging yang lebih kuat. \r\n\r\nPada akhirnya, upaya transformasi ini memungkinkan pemimpin menciptakan budaya dan lingkungan kerja yang sehat, efektif, serta efisien bagi semua. ', 500000, 1250000, '2023-05-03', '2023-06-26', 'our-program (2).jpg'),
+(3, 'Kingdom Financial for Kids Program', 'Coaching', 'As homeschoolers, we all know that a well-rounded education contains more than just the 3 R’s. In fact, in my home, it’s well known that all children are required to have a basic understanding of life skills that my husband and I feel are necessary. A big one for us is money management and money skills. We want to ensure our kids graduate with a basic understanding of what money is, why it’s necessary, and how to use it properly. And while my plan was to wait a little while longer, when my daughter and I learned of The Complete Starter Kit from The Kingdom Code we just knew we wanted to review their money management program, from a Biblical perspective.', 1500000, 1500000, '2023-06-24', '2023-07-01', 'our-program (3).jpg'),
+(4, 'Sukses Sejati Blended Learning', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', 'our-program (4).jpg'),
+(14, 'Sukses Sejati Blended Learning', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', 'our-program (4).jpg');
 
 -- --------------------------------------------------------
 
@@ -60,7 +89,8 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id`, `name`) VALUES
-(1, 'user');
+(1, 'user'),
+(2, 'admin');
 
 -- --------------------------------------------------------
 
@@ -88,6 +118,28 @@ INSERT INTO `seminar` (`id`, `name`, `content`, `price`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `type_sevice`
+--
+
+CREATE TABLE `type_sevice` (
+  `id` int(11) NOT NULL,
+  `icon` varchar(16) NOT NULL,
+  `title` varchar(32) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `type_sevice`
+--
+
+INSERT INTO `type_sevice` (`id`, `icon`, `title`, `description`) VALUES
+(1, 'ri-team-fill', 'Training', 'Suatu praktik pembelajaran yang bertujuan untuk meningkatkan pengetahuan dan keterampilan anggota tim Anda, dengan harapan dapat memberikan kontribusi positif pada produktivitas dan kinerja perusahaan secara keseluruhan.'),
+(2, 'ri-open-arm-fill', 'Coaching & Mentoring', 'Suatu praktik pembelajaran yang bertujuan untuk meningkatkan pengetahuan dan keterampilan anggota tim Anda, dengan harapan dapat memberikan kontribusi positif pada produktivitas dan kinerja perusahaan secara keseluruhan.'),
+(3, 'ri-parent-fill', 'Consulting', 'Khoiurl Suatu praktik pembelajaran yang bertujuan untuk meningkatkan pengetahuan dan keterampilan anggota tim Anda, dengan harapan dapat memberikan kontribusi positif pada produktivitas dan kinerja perusahaan secara keseluruhan.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -108,7 +160,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `password`, `role_id`, `picture`) VALUES
-(1, 'sadam payoda', 'sadampayodaa@gmail.com', 2147483647, NULL, NULL, 'sadam12345', 1, NULL);
+(1, 'sadam payoda', 'sadampayodaa@gmail.com', 2147483647, NULL, NULL, 'sadam12345', 1, NULL),
+(35, 'Khoirul Fahmi', 'khoirul@gmail.com', 977898390, NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
+(37, 'Fahmi', 'Fahmi13@gmail.com', 2147483647, NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
+(38, 'Fauzan Bakhtiar', 'fauzan123@gmail.com', 2147483647, NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
+(39, 'Sadam PS 1', 'sadam123@gmail.com', 2147483647, NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -118,6 +174,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `pass
 -- Indexes for table `consultant`
 --
 ALTER TABLE `consultant`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `program`
+--
+ALTER TABLE `program`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -133,6 +195,12 @@ ALTER TABLE `seminar`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `type_sevice`
+--
+ALTER TABLE `type_sevice`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -144,10 +212,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `program`
+--
+ALTER TABLE `program`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `seminar`
@@ -156,10 +230,16 @@ ALTER TABLE `seminar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `type_sevice`
+--
+ALTER TABLE `type_sevice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables

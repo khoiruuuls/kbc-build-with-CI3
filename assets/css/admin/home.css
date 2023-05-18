@@ -1,0 +1,117 @@
+.form-input {
+	margin-block: 20px;
+}
+
+.upload-container {
+	height: 235px;
+	width: 100%;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	border: 2px solid var(--gray-color-4);
+	padding: 10px;
+	gap: 5px;
+	background: url("../../img/upload-bg.jpg") no-repeat center;
+	background-size: 110%;
+}
+
+.header {
+	flex: 1;
+	width: 100%;
+	border: 2px dashed var(--primary-color-4);
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.header svg {
+	height: 100px;
+}
+
+.header p {
+	text-align: center;
+	color: black;
+}
+
+.footer {
+	border: 2px solid var(--primary-color-4);
+	background-color: var(--white-color);
+	width: 20%;
+	height: 40px;
+	padding: 8px;
+	border-radius: 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	color: var(--primary-color-4);
+}
+
+.footer p {
+	flex: 1;
+	text-align: center;
+	color: var(--primary-color-4);
+}
+
+#file {
+	display: none;
+}
+
+.date-time {
+	font-size: 18px;
+	display: flex;
+}
+
+.card-info {
+	margin-top: 20px;
+	padding: 20px;
+	border: 2px solid var(--gray-color-4);
+	border-radius: 10px;
+}
+
+#date,
+#time {
+	border: none;
+	font-size: initial;
+	font-weight: bold;
+	text-align: center;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
+	background: transparent;
+	bottom: 0;
+	color: transparent;
+	cursor: pointer;
+	height: auto;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+
+input[type="date"]:focus,
+input[type="time"]:focus {
+	outline: none;
+}
+
+.card-date-time {
+	border: 2px solid var(--gray-color-4);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.container-consultant {
+	padding-top: 40px;
+}

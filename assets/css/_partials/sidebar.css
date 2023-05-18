@@ -1,0 +1,39 @@
+.user-box {
+	padding: 30px 60px;
+	background-color: var(--gray-color-1);
+}
+
+.user-item {
+	display: flex;
+	align-items: center;
+	column-gap: 30px;
+	padding-block: 10px;
+}
+
+.user-item i {
+	color: var(--primary-color-3);
+}
+.user-item h6,
+.user-item i {
+	font-size: 18px;
+	font-weight: var(--font-semi-bold);
+	margin: 0;
+}
+
+.user-item img {
+	width: 60px;
+	clip-path: circle();
+}
+
+.user-header {
+	border-bottom: 1px solid var(--gray-color-4);
+	margin-bottom: 20px;
+}
+
+.type {
+	padding: 10px;
+}
+
+.active {
+	background-color: var(--secondary-color-3);
+}

@@ -188,7 +188,7 @@ li {
 	font-weight: var(--font-bold);
 }
 
-.section-p1 {
+.section-pb1 {
 	padding-block: 20px;
 }
 
@@ -468,6 +468,10 @@ li {
 	color: var(--primary-color-4);
 }
 
+.line {
+	border: 1px solid var(--gray-color-4);
+}
+
 /* Input and Textarea Style */
 
 input.log-input,
@@ -585,9 +589,8 @@ textarea:focus {
 	width: 100%;
 }
 
-.accordion .accordion-text .hello {
-	display: flex;
-	justify-content: center;
+.hello {
+	border: 2px solid black;
 }
 
 .accordion .accordion-text h5 {

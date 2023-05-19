@@ -112,7 +112,7 @@ class SignController extends CI_Controller
                 if ($user->role_id == 1) {
                     return redirect(site_url('./'));
                 } else {
-                    return redirect('admin/tambah');
+                    return redirect('admin');
                 }
             }
             // var_dump($pengecekan->row());

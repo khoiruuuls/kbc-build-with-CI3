@@ -532,7 +532,7 @@ textarea:focus {
 	color: var(--white-color);
 }
 
-#header-post .search-bar {
+.search-bar {
 	display: flex;
 	column-gap: 10px;
 }

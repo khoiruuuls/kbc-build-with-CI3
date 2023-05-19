@@ -55,48 +55,32 @@
                         </div>
                         <div class="row program-gap-all">
                             <?php foreach ($program as $item) : ?>
-                                <a href="<?php echo 'homecontroller/detailProgram/' . $item->id ?>">
-                                    <div class="card card-our-program">
-                                        <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
-                                        <div class="our-program-text">
-                                            <span><?= $item->type ?></span>
-                                            <h6><?= $item->name ?></h6>
-                                            <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
-                                            </p>
-                                            <span class="text-capitalize">
-                                                <?php if ($item->priceMin == $item->priceMax) {
+                            <a href="<?php echo 'homecontroller/detailProgram/' . $item->id ?>">
+                                <div class="card card-our-program">
+                                    <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
+                                    <div class="our-program-text">
+                                        <span><?= $item->type ?></span>
+                                        <h6><?= $item->name ?></h6>
+                                        <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
+                                        </p>
+                                        <span class="text-capitalize">
+                                            <?php if ($item->priceMin == $item->priceMax) {
                                                     echo "Rp. " . number_format($item->priceMin);
                                                 } else {
                                                     echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
                                                 }
                                                 ?>
-                                            </span>
-                                        </div>
+                                        </span>
                                     </div>
-                                </a>
+                                </div>
+                            </a>
                             <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <section id="pagination">
-                <div class="container">
-                    <button class="button prevNext" id="prev" disabled>
-                        <i class="bi bi-chevron-left"></i>
-                    </button>
-                    <div class="links">
-                        <a href="#" class="link active">1</a>
-                        <a href="#" class="link">2</a>
-                        <a href="#" class="link">3</a>
-                        <a href="#" class="link">4</a>
-                        <a href="#" class="link">5</a>
-                    </div>
-                    <button class="button prevNext" id="next">
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
-            </section>
+            <?php $this->load->view('_partials/pagination.php')?>
         </div>
         </div>
         </div>

@@ -31,7 +31,7 @@
 
             <div class="row">
                 <?php foreach ($consultant as $item) : ?>
-                <a href="<?php echo site_url('homecontroller/detail/'.$item->id) ?>" class="col-6 col-sm-12 col-lg-6">
+                <a href="<?php echo site_url('homecontroller/detail/' . $item->id) ?>" class="col-6 col-sm-12 col-lg-6">
                     <div class="card-consultation">
                         <div class="img">
                             <img src="<?php echo base_url('assets/img/consultant/' . $item->photo) ?>" alt="" />
@@ -69,23 +69,7 @@
             </div>
     </section>
 
-    <section id="pagination">
-        <div class="container">
-            <button class="button prevNext" id="prev" disabled>
-                <i class="bi bi-chevron-left"></i>
-            </button>
-            <div class="links">
-                <a href="#" class="link active">1</a>
-                <a href="#" class="link">2</a>
-                <a href="#" class="link">3</a>
-                <a href="#" class="link">4</a>
-                <a href="#" class="link">5</a>
-            </div>
-            <button class="button prevNext" id="next">
-                <i class="bi bi-chevron-right"></i>
-            </button>
-        </div>
-    </section>
+    <?php $this->load->view('_partials/pagination.php') ?>
 
     <?php $this->load->view("_partials/footer.php") ?>
 </body>

@@ -51,6 +51,8 @@ class HomeController extends CI_Controller
     public function detail($id)
     {
         $this->load->model("ConsultantModel");
+        $this->load->model("ProgramModel");
+        $data['program'] = $this->ProgramModel->getProgram();
         $data['consultant'] = $this->ConsultantModel->selectWhereConsultant($id);
         $data['page_title'] = 'Detail Consultant';
         $data['user']    = $this->db->get_where('users', ['email' =>

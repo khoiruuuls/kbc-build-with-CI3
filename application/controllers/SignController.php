@@ -24,13 +24,13 @@ class SignController extends CI_Controller
         $this->load->view('auth/sign-in', $data);
     }
 
-    public function signinadmin()
-    {
-        $data['user']    = $this->db->get_where('users', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['page_title'] = 'Sign In';
-        $this->load->view('main/admin/index', $data);
-    }
+    // public function signinadmin()
+    // {
+    //     $data['user']    = $this->db->get_where('users', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+    //     $data['page_title'] = 'Sign In';
+    //     $this->load->view('main/admin/index', $data);
+    // }
 
 
 
@@ -112,7 +112,7 @@ class SignController extends CI_Controller
                 if ($user->role_id == 1) {
                     return redirect(site_url('./'));
                 } else {
-                    return redirect('SignController/signinadmin');
+                    return redirect('admin/tambah');
                 }
             }
             // var_dump($pengecekan->row());

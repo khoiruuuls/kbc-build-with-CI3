@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2023 at 07:49 AM
+-- Generation Time: May 19, 2023 at 03:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kbc-build`
+-- Database: `kbc-build-1`
 --
 
 -- --------------------------------------------------------
@@ -53,25 +53,34 @@ INSERT INTO `consultant` (`id`, `name`, `profesi`, `photo`) VALUES
 CREATE TABLE `program` (
   `id` int(8) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `tag` varchar(255) DEFAULT NULL,
   `type` varchar(50) NOT NULL,
   `descProgram` text NOT NULL,
   `priceMin` int(20) NOT NULL,
   `priceMax` int(20) NOT NULL,
   `dateStart` date NOT NULL,
   `dateEnd` date NOT NULL,
-  `photo` varchar(255) NOT NULL
+  `time_start` time DEFAULT NULL,
+  `time_end` time DEFAULT NULL,
+  `mode` enum('online','hybrid','offline') DEFAULT NULL,
+  `url` varchar(100) DEFAULT NULL,
+  `lokasi` varchar(100) DEFAULT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
+  `kota` varchar(100) DEFAULT NULL,
+  `photo` varchar(255) NOT NULL,
+  `kuota` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `program`
 --
 
-INSERT INTO `program` (`id`, `name`, `type`, `descProgram`, `priceMin`, `priceMax`, `dateStart`, `dateEnd`, `photo`) VALUES
-(1, 'Shifting Up: Tranforming Your Business', 'Consulting', 'The word “transformation” gets thrown around a lot these days, but it can have different meanings for different individuals and companies. In a world of \r\nunprecedented disruption and market turbulence, transformation today revolves around the need to generate new value—to unlock new opportunities, to drive new growth, to deliver new efficiencies. \r\nAll transformations require you to rethink how your enterprise creates value today and in the future. In other words, all transformations require you to think big. Why? Because incremental improvement \r\nis not enough to win in today’s exponentially \r\ndisrupted business environment. Your organization \r\nrequires sustained growth in the face of near \r\nconstant disruption, and sustained growth requires \r\nagile reinvention. It’s not enough to win today. You \r\nhave to be able to continue to evolve in the future', 2500000, 3500000, '2023-03-23', '2023-05-23', 'our-program (1).jpg'),
-(2, 'Transformasi Dimulai Dari Pemimpin', 'Training', 'Gaya kepemimpinan transformasional, menurut Indeed, adalah cara seorang pemimpin memotivasi dan memberdayakan orang-orang di bawah tanggung jawabnya untuk bekerja sama mewujudkan visi perusahaan.\r\n\r\nSemua itu dicapainya tanpa micromanaging. Seorang pemimpin transformasional justru memberikan anggotanya ruang lebih untuk mengasah berbagai skill yang mereka perlukan di tempat kerja.\r\n\r\nKeleluasaan tersebut memungkinkan mereka menjadi lebih kreatif berinovasi menemukan solusi baru untuk masalah lama, serta mampu melihat ke masa depan.\r\n\r\nDengan begitu, setiap karyawan memiliki kekuasaan untuk membuat keputusan dan bertindak sesuai kebutuhan dalam setiap pekerjaannya.\r\n\r\nLewat tempaan kepemimpinan transformasional, anggota menunjukkan tingkat kepuasan kerja dan komitmen yang tinggi. Mereka juga cenderung memiliki cara pandang baru dan sense of belonging yang lebih kuat. \r\n\r\nPada akhirnya, upaya transformasi ini memungkinkan pemimpin menciptakan budaya dan lingkungan kerja yang sehat, efektif, serta efisien bagi semua. ', 500000, 1250000, '2023-05-03', '2023-06-26', 'our-program (2).jpg'),
-(3, 'Kingdom Financial for Kids Program', 'Coaching', 'As homeschoolers, we all know that a well-rounded education contains more than just the 3 R’s. In fact, in my home, it’s well known that all children are required to have a basic understanding of life skills that my husband and I feel are necessary. A big one for us is money management and money skills. We want to ensure our kids graduate with a basic understanding of what money is, why it’s necessary, and how to use it properly. And while my plan was to wait a little while longer, when my daughter and I learned of The Complete Starter Kit from The Kingdom Code we just knew we wanted to review their money management program, from a Biblical perspective.', 1500000, 1500000, '2023-06-24', '2023-07-01', 'our-program (3).jpg'),
-(4, 'Sukses Sejati Blended Learning', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', 'our-program (4).jpg'),
-(14, 'Sukses Sejati Blended Learning', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', 'our-program (4).jpg');
+INSERT INTO `program` (`id`, `name`, `tag`, `type`, `descProgram`, `priceMin`, `priceMax`, `dateStart`, `dateEnd`, `time_start`, `time_end`, `mode`, `url`, `lokasi`, `alamat`, `kota`, `photo`, `kuota`) VALUES
+(1, 'Shifting Up: Tranforming Your Business', '', 'Consulting', 'The word “transformation” gets thrown around a lot these days, but it can have different meanings for different individuals and companies. In a world of \nunprecedented disruption and market turbulence, transformation today revolves around the need to generate new value—to unlock new opportunities, to drive new growth, to deliver new efficiencies. \nAll transformations require you to rethink how your enterprise creates value today and in the future. In other words, all transformations require you to think big. Why? Because incremental improvement \nis not enough to win in today’s exponentially \ndisrupted business environment. Your organization \nrequires sustained growth in the face of near \nconstant disruption, and sustained growth requires \nagile reinvention. It’s not enough to win today. You \nhave to be able to continue to evolve in the future', 2500000, 3500000, '2023-03-23', '2023-05-23', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (1).jpg', 0),
+(2, 'Transformasi Dimulai Dari Pemimpin', '', 'Training', 'Gaya kepemimpinan transformasional, menurut Indeed, adalah cara seorang pemimpin memotivasi dan memberdayakan orang-orang di bawah tanggung jawabnya untuk bekerja sama mewujudkan visi perusahaan.\r\n\r\nSemua itu dicapainya tanpa micromanaging. Seorang pemimpin transformasional justru memberikan anggotanya ruang lebih untuk mengasah berbagai skill yang mereka perlukan di tempat kerja.\r\n\r\nKeleluasaan tersebut memungkinkan mereka menjadi lebih kreatif berinovasi menemukan solusi baru untuk masalah lama, serta mampu melihat ke masa depan.\r\n\r\nDengan begitu, setiap karyawan memiliki kekuasaan untuk membuat keputusan dan bertindak sesuai kebutuhan dalam setiap pekerjaannya.\r\n\r\nLewat tempaan kepemimpinan transformasional, anggota menunjukkan tingkat kepuasan kerja dan komitmen yang tinggi. Mereka juga cenderung memiliki cara pandang baru dan sense of belonging yang lebih kuat. \r\n\r\nPada akhirnya, upaya transformasi ini memungkinkan pemimpin menciptakan budaya dan lingkungan kerja yang sehat, efektif, serta efisien bagi semua. ', 500000, 1250000, '2023-05-03', '2023-06-26', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (2).jpg', 0),
+(3, 'Kingdom Financial for Kids Program', '', 'Coaching', 'As homeschoolers, we all know that a well-rounded education contains more than just the 3 R’s. In fact, in my home, it’s well known that all children are required to have a basic understanding of life skills that my husband and I feel are necessary. A big one for us is money management and money skills. We want to ensure our kids graduate with a basic understanding of what money is, why it’s necessary, and how to use it properly. And while my plan was to wait a little while longer, when my daughter and I learned of The Complete Starter Kit from The Kingdom Code we just knew we wanted to review their money management program, from a Biblical perspective.', 1500000, 1500000, '2023-06-24', '2023-07-01', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (3).jpg', 0),
+(4, 'Sukses Sejati Blended Learning', '', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (4).jpg', 0),
+(14, 'Sukses Sejati Blended Learning', '', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (4).jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -215,7 +224,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `role`

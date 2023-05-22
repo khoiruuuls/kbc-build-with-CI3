@@ -18,13 +18,15 @@
         <a href="<?php echo site_url('admin/tambah') ?>">
             <div class="user-item">
                 <i class="ri-home-5-line"></i>
-                <h6>Home</h6>
+                <h6>Program</h6>
             </div>
         </a>
-        <div class="user-item">
-            <i class="ri-notification-2-line"></i>
-            <h6>Notification</h6>
-        </div>
+        <a href="<?php echo site_url('admin/add_consultant') ?>">
+            <div class="user-item">
+                <i class="ri-user-shared-2-line"></i>
+                <h6>Consultant</h6>
+            </div>
+        </a>
         <div class="user-item">
             <i class="ri-book-open-line"></i>
             <h6>My Program</h6>

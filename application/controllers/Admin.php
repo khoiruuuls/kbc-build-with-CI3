@@ -89,7 +89,7 @@ class Admin extends CI_Controller
         }
         $data['user']    = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['page_title'] = 'Sign In';
+        $data['page_title'] = 'Tambah Konsultan';
         $this->load->view('main/admin/tambah', $data);
     }
 
@@ -116,5 +116,17 @@ class Admin extends CI_Controller
         $this->load->model("ProgramModel");
         $this->ProgramModel->delete($id);
         return redirect('admin');
+    }
+
+    public function add_consultant()
+    {
+        $data = [
+            'page_title' => 'Tambah Konsultan',
+            'user' => $this->db->get_where('users', [
+                'email' => $this->session->userdata('email')
+            ])->row_array()
+        ];
+
+        $this->load->view('main/admin/add_consultant', $data);
     }
 }

@@ -1,0 +1,10 @@
+.card-consultant {
+	border: 2px solid var(--gray-color-4);
+	border-radius: 1rem;
+	padding-inline: 2rem;
+	padding-block: 1rem;
+}
+
+textarea {
+	height: 8rem;
+}

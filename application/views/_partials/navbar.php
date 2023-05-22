@@ -15,9 +15,9 @@
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
                 <li>
-                    <a href="<?php echo site_url('./')?>" class="nav__link">Beranda</a>
+                    <a href="<?php echo site_url('./') ?>" class="nav__link">Beranda</a>
                 </li>
-                    <a href="<?php echo site_url('./coaching')?>" class="nav__link">Eksplorasi</a>
+                <a href="<?php echo site_url('./eksplorasi') ?>" class="nav__link">Eksplorasi</a>
                 </li>
 
                 <!-- DROPDOWN -->
@@ -30,12 +30,12 @@
                         <div class="dropdown__content">
                             <div class="dropdown__group">
                                 <i class="ri-group-line"></i>
-                                <a href="<?php echo site_url('./consultation')?>"><span class="dropdown__title">
+                                <a href="<?php echo site_url('./consultation') ?>"><span class="dropdown__title">
                                         Training</span></a>
                             </div>
                             <div class="dropdown__group">
                                 <i class="ri-open-arm-line"></i>
-                                <a href="<?php echo site_url('./coaching')?>">
+                                <a href="<?php echo site_url('./eksplorasi') ?>">
                                     <span class="dropdown__title">Pelatihan</span>
                                 </a>
                             </div>
@@ -48,36 +48,36 @@
                 </li> -->
 
                 <li>
-                    <a href="<?php echo site_url('./consultation')?>" class="nav__link">Consultant</a>
+                    <a href="<?php echo site_url('./consultation') ?>" class="nav__link">Consultant</a>
                 </li>
 
                 <li>
-                    <a href="<?php echo site_url('./blog')?>" class="nav__link">Blog</a>
+                    <a href="<?php echo site_url('./blog') ?>" class="nav__link">Blog</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('./faq')?>" class="nav__link">FAQ</a>
+                    <a href="<?php echo site_url('./faq') ?>" class="nav__link">FAQ</a>
                 </li>
             </ul>
         </div>
 
         <div class="button__navbar">
-            <?php if(isset($user['name']) ? $user['name'] : '' != null) :?>
-                <a href="<?php echo site_url('auth/user-profile')?>" class="user-login" >
-                    <img src="<?php echo base_url('assets/img/user-profile.jpg')?>" alt="" />
+            <?php if (isset($user['name']) ? $user['name'] : '' != null) : ?>
+                <a href="<?php echo site_url('auth/user-profile') ?>" class="user-login">
+                    <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="" />
                     <p><?= isset($user['name']) ? $user['name'] : '' ?></p>
                 </a>
-                <?php else : ?>
-                <a href="<?php echo site_url('auth/sign-in')?>" >
+            <?php else : ?>
+                <a href="<?php echo site_url('auth/sign-in') ?>">
                     <button class="log-secondary-button">
                         Masuk
                     </button>
                 </a>
-                <a href="<?php echo site_url('auth/sign-up')?>">
+                <a href="<?php echo site_url('auth/sign-up') ?>">
                     <button class="log-primary-button">
                         Registrasi
                     </button>
                 </a>
-            <?php endif;?>
+            <?php endif; ?>
         </div>
     </div>
 </section>

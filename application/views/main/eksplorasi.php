@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <?php $this->load->view('_partials/pagination.php')?>
+            <?php $this->load->view('_partials/pagination.php') ?>
         </div>
         </div>
         </div>

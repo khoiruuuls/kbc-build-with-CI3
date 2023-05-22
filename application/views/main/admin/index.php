@@ -30,9 +30,14 @@
                         <p>Kepemimpinan</p>
                     </div>
                     <h4>Data Program Seminar</h3>
-                        <div class="search-bar col-6">
-                            <input type="text" class="log-input">
-                            <button class="log-primary-button">Search</button>
+                        <div class="d-flex justify-content-between">
+                            <div class="search-bar col-6">
+                                <input type="text" class="log-input">
+                                <button class="log-primary-button">Search</button>
+                            </div>
+                            <a href="<?php echo site_url('admin/tambah') ?>" class="log-primary-button text-center">
+                                Tambah
+                            </a>
                         </div>
                         <div class="table--section table my-4">
                             <table>
@@ -46,72 +51,35 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 1;
+                                    foreach ($program as $item) : ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Digital Marketing</td>
-                                        <td>28 Mei 2023</td>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $item->name ?></td>
+                                        <td><?php echo date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
+                                        </td>
                                         <td>
                                             <p class="menunggu">Menunggu</p>
                                         </td>
-                                        <td>
-                                            <button><i class="ri-eye-line"></i></button>
-                                            <button><i class="ri-edit-line"></i></button>
-                                            <button><i class="ri-delete-bin-5-line"></i></button>
+                                        <td class="d-flex justify-content-between">
+                                            <a href="<?php echo site_url('admin/edit') ?>">
+                                                <button class="edit">
+                                                    <i class="ri-eye-line"></i>
+                                                </button>
+                                            </a>
+                                            <a href="<?php echo site_url('admin/edit/' . $item->id) ?>">
+                                                <button class="warning">
+                                                    <i class="ri-edit-line"></i>
+                                                </button>
+                                            </a>
+                                            <a href="<?php echo site_url('admin/delete_row/' . $item->id); ?>">
+                                                <button class="delete">
+                                                    <i class="ri-delete-bin-5-line"></i>
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Accounting</td>
-                                        <td>20 Mei 2023</td>
-                                        <td>
-                                            <p class="menunggu">Menunggu</p>
-                                        </td>
-                                        <td>
-                                            <button><i class="ri-eye-line"></i></button>
-                                            <button><i class="ri-edit-line"></i></button>
-                                            <button><i class="ri-delete-bin-5-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Management Risk</td>
-                                        <td>28 Juni 2023</td>
-                                        <td>
-                                            <p class="active">Active</p>
-                                        </td>
-                                        <td>
-                                            <button><i class="ri-eye-line"></i></button>
-                                            <button><i class="ri-edit-line"></i></button>
-                                            <button><i class="ri-delete-bin-5-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Fostering creativity, critical thinking, communication and collaboration for
-                                            sustainable business</td>
-                                        <td>27 Juli 2023</td>
-                                        <td>
-                                            <p class="draf">Draf</p>
-                                        </td>
-                                        <td>
-                                            <button><i class="ri-eye-line"></i></button>
-                                            <button><i class="ri-edit-line"></i></button>
-                                            <button><i class="ri-delete-bin-5-line"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Strategic Digital Marketing for Leaders</td>
-                                        <td>29 Juli 2023</td>
-                                        <td>
-                                            <p class="draf">Draf</p>
-                                        </td>
-                                        <td>
-                                            <button><i class="ri-eye-line"></i></button>
-                                            <button><i class="ri-edit-line"></i></button>
-                                            <button><i class="ri-delete-bin-5-line"></i></button>
-                                        </td>
-                                    </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

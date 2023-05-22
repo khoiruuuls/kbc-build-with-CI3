@@ -109,22 +109,6 @@
 	color: #402108;
 }
 
-.button_price a {
-	font-family: "Poppins";
-	font-style: normal;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 27px;
-	margin-top: 20px;
-	margin-left: 20px;
-	/* identical to box height */
-	padding: 14px 59.5px 14px 59px;
-
-	/* BWA/White */
-
-	color: #ffffff;
-}
-
 /*=============== DETAIL PROGRAM ===============*/
 .title-detail-program h5 {
 	font-family: "Manrope";

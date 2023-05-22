@@ -11,6 +11,8 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        $this->load->model("ProgramModel");
+        $data['program'] = $this->ProgramModel->getProgram();
         $data['page_title'] = 'Dashboard';
         $data['user']    = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -89,5 +91,30 @@ class Admin extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $data['page_title'] = 'Sign In';
         $this->load->view('main/admin/tambah', $data);
+    }
+
+    public function edit($id)
+    {
+
+        $this->load->model("ProgramModel");
+        $data['program'] = $this->ProgramModel->editProgram($id);
+        $data['page_title'] = 'Edit';
+        $data['user']    = $this->db->get_where('users', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view('main/admin/edit', $data);
+    }
+
+    public function update($id)
+    {
+        $this->load->model("ProgramModel");
+        $this->ProgramModel->updateProgram($id);
+        redirect('admin');
+    }
+
+    public function delete_row($id)
+    {
+        $this->load->model("ProgramModel");
+        $this->ProgramModel->delete($id);
+        return redirect('admin');
     }
 }

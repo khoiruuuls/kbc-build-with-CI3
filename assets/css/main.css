@@ -165,6 +165,8 @@ a {
 	/* font-weight: var(--font-bold); */
 	text-decoration: none;
 	color: var(--primary-color-5);
+	display: flex;
+	align-items: center;
 }
 
 a:hover {

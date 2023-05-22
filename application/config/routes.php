@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 $route['default_controller'] = 'HomeController';
 $route['404_override'] = '';
@@ -16,5 +16,5 @@ $route['auth/sign-up-consultant'] = 'SignController/signupConsultant';
 $route['faq'] = 'HomeController/faq';
 $route['blog'] = 'HomeController/blog';
 $route['consultation'] = 'HomeController/consultation';
-$route['coaching'] = 'HomeController/coaching';
+$route['eksplorasi'] = 'HomeController/eksplorasi';
 $route['detail/program'] = 'HomeController/detailProgram';

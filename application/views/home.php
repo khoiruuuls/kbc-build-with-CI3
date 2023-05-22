@@ -34,7 +34,7 @@
         <div class="container">
             <div class="list-partner my-3">
                 <?php for ($i = 1; $i <= 8; $i++) { ?>
-                    <img src="<?php echo base_url('assets/img/partner/partner (' . $i . ').jpg') ?>" alt="">
+                <img src="<?php echo base_url('assets/img/partner/partner (' . $i . ').jpg') ?>" alt="">
                 <?php } ?>
             </div>
         </div>
@@ -71,20 +71,20 @@
             </div>
             <div class="row our-gap">
                 <?php foreach ($service as $item) : ?>
-                    <div class=" card-our-service col">
-                        <div class="icon-frame">
-                            <i class="<?php echo $item->icon ?>"></i>
-                        </div>
-                        <div class="text-group">
-                            <h6><?= $item->title ?></h6>
-                            <p class="body-text">
-                                <?= $item->description ?>
-                            </p>
-                        </div>
-                        <button class="log-secondary-button">
-                            Eksplor Lebih Lengkap
-                        </button>
+                <div class=" card-our-service col">
+                    <div class="icon-frame">
+                        <i class="<?php echo $item->icon ?>"></i>
                     </div>
+                    <div class="text-group">
+                        <h6><?= $item->title ?></h6>
+                        <p class="body-text">
+                            <?= $item->description ?>
+                        </p>
+                    </div>
+                    <button class="log-secondary-button">
+                        Eksplor Lebih Lengkap
+                    </button>
+                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -107,11 +107,11 @@
                     <i class="ri-arrow-left-line"></i>
                 </div>
                 <?php foreach ($consultant as $item) : ?>
-                    <div class="card card-our-consultant col">
-                        <img src="<?php echo base_url('assets/img/consultant/' . $item->photo) ?>" alt="">
-                        <h6><?php echo $item->name ?></h6>
-                        <p><?php echo $item->profesi ?></p>
-                    </div>
+                <div class="card card-our-consultant col">
+                    <img src="<?php echo base_url('assets/img/consultant/' . $item->photo) ?>" alt="">
+                    <h6><?php echo $item->name ?></h6>
+                    <p><?php echo $item->profesi ?></p>
+                </div>
                 <?php endforeach; ?>
                 <div class="box-icon">
                     <i class="ri-arrow-right-line"></i>
@@ -133,7 +133,9 @@
                             dengan kami dan jadilah bagian dari tim ahli kami yang berdedikasi dan berpengalaman
                         </p>
                     </div>
-                    <button class="primary-button mt-3">Daftar Konsultan</button>
+                    <a href="https://bit.ly/ProfilKonsultanBuild">
+                        <button class="primary-button mt-3">Daftar Konsultan</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -147,31 +149,31 @@
                     <h6 class="mt-3">Temukan Program yang Tepat dalam Membantu Anda</h6>
                     <h6> Mencapai Tujuan Bisnis dengan Lebih Efektif.</h6>
                 </div>
-                <a href="<?php echo site_url('./coaching') ?>">
+                <a href="<?php echo site_url('./eksplorasi') ?>">
                     <p class="detail-text">Lihat Selengkapnya</p>
                 </a>
             </div>
             <div class="row program-gap">
                 <?php foreach ($program as $item) : ?>
-                    <a href="<?php echo 'homecontroller/detailProgram/' . $item->id ?>">
-                        <div class="card card-our-program">
-                            <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
-                            <div class="our-program-text">
-                                <span><?= $item->type ?></span>
-                                <h6><?= $item->name ?></h6>
-                                <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
-                                </p>
-                                <span class="text-capitalize">
-                                    <?php if ($item->priceMin == $item->priceMax) {
+                <a href="<?php echo 'homecontroller/detailProgram/' . $item->id ?>">
+                    <div class="card card-our-program">
+                        <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
+                        <div class="our-program-text">
+                            <span><?= $item->type ?></span>
+                            <h6><?= $item->name ?></h6>
+                            <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
+                            </p>
+                            <span class="text-capitalize">
+                                <?php if ($item->priceMin == $item->priceMax) {
                                         echo "Rp. " . number_format($item->priceMin);
                                     } else {
                                         echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
                                     }
                                     ?>
-                                </span>
-                            </div>
+                            </span>
                         </div>
-                    </a>
+                    </div>
+                </a>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -200,7 +202,7 @@
                                 <p>Khoirul</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 5; $i++) { ?>
-                                        <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -220,7 +222,7 @@
                                 <p>Khoirul</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 5; $i++) { ?>
-                                        <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -240,7 +242,7 @@
                                 <p>Khoirul</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 4; $i++) { ?>
-                                        <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
                                     <?php } ?>
                                 </div>
                             </div>

@@ -39,14 +39,14 @@ class HomeController extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view('main/consultation', $data);
     }
-    public function coaching()
+    public function eksplorasi()
     {
         $this->load->model("ProgramModel");
         $data['program'] = $this->ProgramModel->getProgram();
-        $data['page_title'] = 'Coaching';
+        $data['page_title'] = 'Eksplorasi';
         $data['user']    = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $this->load->view('main/coaching', $data);
+        $this->load->view('main/eksplorasi', $data);
     }
     public function detail($id)
     {

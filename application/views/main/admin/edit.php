@@ -28,9 +28,11 @@
                         <i class="ri-arrow-right-s-line"></i>
                         <p>Kepemimpinan</p>
                     </div>
-                    <h4>Tambah Program</h3>
+                    <h4>Edit Program</h3>
                         <p>Info Dasar</p>
-                        <form action="<?= base_url() . 'admin/tambah' ?>" enctype="multipart/form-data" method="POST">
+                        <form action="<?= base_url() . 'admin/update/' . $program['id'] ?>"
+                            enctype="multipart/form-data" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $program['id']; ?>">
                             <div class="form-input">
                                 <div class="upload-container">
                                     <div class="header">
@@ -46,22 +48,27 @@
                             </div>
                             <div class="form-input">
                                 <p>Judul</p>
-                                <input class="log-input" type="text" placeholder="Masukan Judul" name="name" id="">
+                                <input class="log-input" type="text" placeholder="Masukan Judul" name="name" id=""
+                                    value="<?php echo $program['name'] ?>">
                             </div>
                             <div class="form-input">
                                 <p>Tag</p>
                                 <div class="d-flex gap-3">
-                                    <input class="log-input" type="text" placeholder="Masukan Tag" name="tag" id="">
+                                    <input class="log-input" type="text" placeholder="Masukan Tag" name="tag" id=""
+                                        value="<?php echo $program['tag'] ?>">
                                     <button class="log-primary-button">Tambah</button>
                                 </div>
                             </div>
                             <div class="form-input">
                                 <p>Konsultan</p>
-                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="" id="">
+                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="" id=""
+                                    value="<?php echo $program['type'] ?>">
                             </div>
                             <div class="form-input">
                                 <p>Deskripsi</p>
-                                <textarea class="log-input" type="text" placeholder="Masukan Deskripsi" style="height: 300px" name="descProgram" id=""></textarea>
+                                <textarea class="log-input" type="text" placeholder="Masukan Deskripsi"
+                                    style="height: 300px" name="descProgram"
+                                    id=""><?php echo $program['descProgram'] ?></textarea>
                             </div>
                             <hr class="line">
                             <div class="form-input">
@@ -98,7 +105,8 @@
                             </div>
                             <div class="form-input">
                                 <p>URL Streaming</p>
-                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="url" id="">
+                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="url"
+                                    id="" value="<?php echo $program['url'] ?>">
                             </div>
                             <hr class="line">
                             <div class="form-input">
@@ -108,24 +116,28 @@
                                         <i class="ri-calendar-2-line" style="font-size: 40px;"></i>
                                         <div class="display">
                                             <p class="text-center">Program Start *</p>
-                                            <input type="date" id="date" name="date_start">
+                                            <input type="date" id="date" name="date_start"
+                                                value="<?php echo $program['dateStart'] ?>">
                                         </div>
                                         <i class="ri-subtract-fill"></i>
                                         <div class="display">
                                             <p class="text-center">Program End *</p>
-                                            <input type="date" id="date" name="date_end">
+                                            <input type="date" id="date" name="date_end"
+                                                value="<?php echo $program['dateEnd'] ?>">
                                         </div>
                                     </div>
                                     <div class="col card card-date-time ">
                                         <i class="ri-time-line" style="font-size: 40px;"></i>
                                         <div class="display">
                                             <p class="text-center">Program Start *</p>
-                                            <input type="time" id="time" name="time_start">
+                                            <input type="time" id="time" name="time_start"
+                                                value="<?php echo $program['time_start'] ?>">
                                         </div>
                                         <i class="ri-subtract-fill"></i>
                                         <div class="display">
                                             <p class="text-center">Program End *</p>
-                                            <input type="time" id="time" name="time_end">
+                                            <input type="time" id="time" name="time_end"
+                                                value="<?php echo $program['time_start'] ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -135,16 +147,18 @@
                                 <div class="date-time gap-3">
                                     <div class="col">
                                         <!-- berhubung priceMaxnya tidak ada inputnya ,aku pake priceMin ditambah 100K -->
-                                        <input class="log-input" type="number" name="priceMin" placeholder="Masukan Kouta">
+                                        <input class="log-input" type="number" name="priceMin"
+                                            value="<?php echo $program['priceMin'] ?>">
                                     </div>
                                     <div class="col">
-                                        <input class="log-input" type="number" name="kuota" placeholder="Masukan Harga">
+                                        <input class="log-input" type="number" name="kuota"
+                                            value="<?php echo $program['kuota'] ?>">
                                     </div>
                                 </div>
                             </div>
                             <hr class=" line">
                             <div class="form-input d-flex flex-row-reverse">
-                                <button class="log-primary-button" type="submit" name="" id="">Simpan</button>
+                                <button class="log-primary-button" type="submit" name="" id="">Ubah</button>
                             </div>
                         </form>
                 </div>

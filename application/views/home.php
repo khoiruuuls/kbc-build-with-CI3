@@ -6,6 +6,7 @@
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/home.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/' . $page_title . '.css'); ?>">
 
 </head>
 
@@ -71,7 +72,7 @@
             </div>
             <div class="row our-gap">
                 <?php foreach ($service as $item) : ?>
-                <div class=" card-our-service col">
+                <div class=" card card-our-service col">
                     <div class="icon-frame">
                         <i class="<?php echo $item->icon ?>"></i>
                     </div>
@@ -108,9 +109,12 @@
                 </div>
                 <?php foreach ($consultant as $item) : ?>
                 <div class="card card-our-consultant col">
-                    <img src="<?php echo base_url('assets/img/consultant/' . $item->photo) ?>" alt="">
-                    <h6><?php echo $item->name ?></h6>
-                    <p><?php echo $item->profesi ?></p>
+                    <a href="<?php echo 'detail-consultant/' . $item->id ?>"
+                        class="d-flex flex-column align-items-center justify-content-center">
+                        <img src="<?php echo base_url('assets/img/consultant/' . $item->photo) ?>" alt="">
+                        <h6 class="pt-2"><?php echo $item->name ?></h6>
+                        <p class=""><?php echo $item->profesi ?></p>
+                    </a>
                 </div>
                 <?php endforeach; ?>
                 <div class="box-icon">
@@ -155,7 +159,7 @@
             </div>
             <div class="row program-gap">
                 <?php foreach ($program as $item) : ?>
-                <a href="<?php echo 'homecontroller/detailProgram/' . $item->id ?>">
+                <a href="<?php echo 'detail-program/' . $item->id ?>">
                     <div class="card card-our-program">
                         <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
                         <div class="our-program-text">
@@ -311,6 +315,9 @@
 
     <?php $this->load->view("_partials/footer.php") ?>
 
+
+    <!-- Javascript -->
+    <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
 </body>
 
 </html>

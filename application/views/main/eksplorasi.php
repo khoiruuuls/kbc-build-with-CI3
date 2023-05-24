@@ -55,7 +55,7 @@
                         </div>
                         <div class="row program-gap-all">
                             <?php foreach ($program as $item) : ?>
-                            <a href="<?php echo 'homecontroller/detailProgram/' . $item->id ?>">
+                            <a href="<?php echo 'detail-program/' . $item->id ?>">
                                 <div class="card card-our-program">
                                     <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
                                     <div class="our-program-text">

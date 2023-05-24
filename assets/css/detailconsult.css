@@ -317,3 +317,9 @@
 .hello {
 	border: 2px solid black;
 }
+
+.user-img {
+	clip-path: circle();
+	object-fit: cover;
+	width: 70px;
+}

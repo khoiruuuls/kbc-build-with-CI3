@@ -18,3 +18,5 @@ $route['blog'] = 'HomeController/blog';
 $route['consultation'] = 'HomeController/consultation';
 $route['eksplorasi'] = 'HomeController/eksplorasi';
 $route['detail/program'] = 'HomeController/detailProgram';
+$route['detail-program/(:num)'] = 'HomeController/detailProgram/$1';
+$route['detail-consultant/(:num)'] = 'HomeController/detail/$1';

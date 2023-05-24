@@ -19,34 +19,6 @@
                 </li>
                 <a href="<?php echo site_url('./eksplorasi') ?>" class="nav__link">Eksplorasi</a>
                 </li>
-
-                <!-- DROPDOWN -->
-                <!-- <li class="dropdown__item">
-                    <div class="nav__link dropdown__button">
-                        Program
-                        <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                    </div>
-                    <div class="dropdown__container">
-                        <div class="dropdown__content">
-                            <div class="dropdown__group">
-                                <i class="ri-group-line"></i>
-                                <a href="<?php echo site_url('./consultation') ?>"><span class="dropdown__title">
-                                        Training</span></a>
-                            </div>
-                            <div class="dropdown__group">
-                                <i class="ri-open-arm-line"></i>
-                                <a href="<?php echo site_url('./eksplorasi') ?>">
-                                    <span class="dropdown__title">Pelatihan</span>
-                                </a>
-                            </div>
-                            <div class="dropdown__group">
-                            <i class="ri-parent-line"></i>
-                                <span class="dropdown__title">Consulting</span>
-                            </div>
-                        </div>
-                    </div>
-                </li> -->
-
                 <li>
                     <a href="<?php echo site_url('./consultation') ?>" class="nav__link">Consultant</a>
                 </li>
@@ -62,21 +34,21 @@
 
         <div class="button__navbar">
             <?php if (isset($user['name']) ? $user['name'] : '' != null) : ?>
-                <a href="<?php echo site_url('auth/user-profile') ?>" class="user-login">
-                    <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="" />
-                    <p><?= isset($user['name']) ? $user['name'] : '' ?></p>
-                </a>
+            <a href="<?php echo site_url('auth/user-profile') ?>" class="user-login">
+                <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="" />
+                <p><?= isset($user['name']) ? $user['name'] : '' ?></p>
+            </a>
             <?php else : ?>
-                <a href="<?php echo site_url('auth/sign-in') ?>">
-                    <button class="log-secondary-button">
-                        Masuk
-                    </button>
-                </a>
-                <a href="<?php echo site_url('auth/sign-up') ?>">
-                    <button class="log-primary-button">
-                        Registrasi
-                    </button>
-                </a>
+            <a href="<?php echo site_url('auth/sign-in') ?>">
+                <button class="log-secondary-button">
+                    Masuk
+                </button>
+            </a>
+            <a href="<?php echo site_url('auth/sign-up') ?>">
+                <button class="log-primary-button">
+                    Registrasi
+                </button>
+            </a>
             <?php endif; ?>
         </div>
     </div>

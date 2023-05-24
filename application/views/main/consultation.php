@@ -31,7 +31,7 @@
 
             <div class="row">
                 <?php foreach ($consultant as $item) : ?>
-                <a href="<?php echo site_url('homecontroller/detail/' . $item->id) ?>" class="col-6 col-sm-12 col-lg-6">
+                <a href="<?php echo 'detail-consultant/' . $item->id ?>" class="col-6 col-sm-12 col-lg-6">
                     <div class="card-consultation">
                         <div class="img">
                             <img src="<?php echo base_url('assets/img/consultant/' . $item->photo) ?>" alt="" />
@@ -51,16 +51,16 @@
                                 </div>
                             </div>
                             <div class="mentor-name">
-                                <div class="d-flex gap-3">
+                                <div class="d-flex align-items-center gap-3 my-2">
                                     <i class="ri-user-2-fill"></i>
-                                    <p>Bidang Keahlian</p>
+                                    <p class="m-0">Bidang Keahlian</p>
                                 </div>
-                                <p class="text-property"><?php echo $item->profesi ?></p>
-                                <div class="d-flex gap-3">
+                                <p class="text-property m-0"><?php echo $item->profesi ?></p>
+                                <div class="d-flex align-items-center gap-3 my-2">
                                     <i class="ri-calendar-check-fill"></i>
-                                    <p>Program</p>
+                                    <p class="m-0">Program</p>
                                 </div>
-                                <p>7 Program yang ditampilkan</p>
+                                <p class="m-0">7 Program yang ditawarkan</p>
                             </div>
                         </div>
                     </div>

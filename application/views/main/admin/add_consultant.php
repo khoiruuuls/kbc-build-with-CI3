@@ -31,7 +31,7 @@
                     </div>
                     <h4>Tambah Konsultan</h3>
                         <p>Photo Profile</p>
-                        <form action="<?= base_url() . 'admin/tambah' ?>" enctype="multipart/form-data" method="POST">
+                        <form action="<?= base_url() . 'admin/add_consultant' ?>" enctype="multipart/form-data" method="POST">
                             <div class="form-input">
                                 <div class="upload-container">
                                     <div class="header">
@@ -51,11 +51,13 @@
                                     <p>Nama Lengkap</p>
                                     <input class="log-input" type="text" placeholder="Masukan Nama Lengkap" name="name"
                                         id="">
+                                        <?= form_error('name', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-input">
                                     <p>Alamat</p>
                                     <textarea class="log-input" type="text" placeholder="Masukan Alamat Lengkap"
-                                        name="address" id=""></textarea>
+                                        name="alamat" id=""></textarea>
+                                        <?= form_error('alamat', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                             </div>
                             <hr class="line">
@@ -64,11 +66,13 @@
                                 <div class="form-input">
                                     <p>Email</p>
                                     <input class="log-input" type="text" placeholder="Masukan Email" name="email" id="">
+                                    <?= form_error('email', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-input">
                                     <p>Nomer Whatsapp</p>
                                     <input class="log-input" type="text" placeholder="Masukan Nomer Whatsapp"
-                                        name="no-whatsapp" id="">
+                                        name="no_handphone" id="">
+                                        <?= form_error('no_handphone', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                             </div>
                             <hr class="line">
@@ -78,13 +82,15 @@
                                     <div class="date-time gap-3">
                                         <div class="col">
                                             <p>Spesialisasi</p>
-                                            <input class="log-input" type="number" name="spesialisasi"
+                                            <input class="log-input" type="text" name="spesialisasi"
                                                 placeholder="Masukan Spesialisasi">
+                                                <?= form_error('spesialisasi', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                         <div class="col">
                                             <p>Perusahaan</p>
-                                            <input class="log-input" type="number" name="perusahaan"
+                                            <input class="log-input" type="text" name="perusahaan"
                                                 placeholder="Masukan Perusahaan">
+                                                <?= form_error('perusahaan', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -92,13 +98,15 @@
                                     <div class="date-time gap-3">
                                         <div class="col">
                                             <p>Akun Media Sosial</p>
-                                            <input class="log-input" type="text" name="media-social"
+                                            <input class="log-input" type="text" name="akun_media"
                                                 placeholder="Masukan Akun Media Sosial">
+                                                <?= form_error('akun_media', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                         <div class="col">
                                             <p>Jumlah Klien</p>
-                                            <input class="log-input" type="number" name="klien"
+                                            <input class="log-input" type="number" name="jumlah_client"
                                                 placeholder="Masukan Link Akun">
+                                                <?= form_error('jumlah_client', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                     </div>
                                 </div>

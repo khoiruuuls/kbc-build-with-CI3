@@ -29,16 +29,21 @@
                         <i class="ri-arrow-right-s-line"></i>
                         <p>Kepemimpinan</p>
                     </div>
+                    
                     <h4>Data Program Seminar</h3>
+                    <form action="<?= base_url().'/admin/index' ?>" method="GET">
                         <div class="d-flex justify-content-between">
-                            <div class="search-bar col-6">
-                                <input type="text" class="log-input">
-                                <button class="log-primary-button">Search</button>
-                            </div>
+                            
+                                <div class="search-bar col-6">
+                                    <input type="text" name="search" class="log-input">
+                                    <button class="log-primary-button">Search</button>
+                                </div>
+                            
                             <a href="<?php echo site_url('admin/tambah') ?>" class="log-primary-button text-center">
                                 Tambah
                             </a>
                         </div>
+                    </form>
                         <div class="table--section table my-4">
                             <table>
                                 <thead>

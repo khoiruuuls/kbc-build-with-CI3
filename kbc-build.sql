@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 03:09 AM
+-- Generation Time: May 23, 2023 at 07:27 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -31,18 +31,25 @@ CREATE TABLE `consultant` (
   `id` int(8) NOT NULL,
   `name` varchar(20) NOT NULL,
   `profesi` varchar(20) NOT NULL,
-  `photo` varchar(225) NOT NULL
+  `photo` varchar(225) NOT NULL,
+  `alamat` text NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `no_handphone` varchar(12) NOT NULL,
+  `perusahaan` varchar(100) NOT NULL,
+  `akun_media` varchar(100) NOT NULL,
+  `jumlah_client` int(11) NOT NULL,
+  `spesialisasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `consultant`
 --
 
-INSERT INTO `consultant` (`id`, `name`, `profesi`, `photo`) VALUES
-(0, 'Ruaniwati', 'Coach', 'consultant (1).jpg'),
-(1, 'Andri Eriek', 'Coach', 'consultant (2).jpg'),
-(2, 'Yuliawaty ', 'Psycholog', 'consultant (3).jpg'),
-(3, 'Yuliawaty ', 'Psycholog', 'consultant (3).jpg');
+INSERT INTO `consultant` (`id`, `name`, `profesi`, `photo`, `alamat`, `email`, `no_handphone`, `perusahaan`, `akun_media`, `jumlah_client`, `spesialisasi`) VALUES
+(1, 'Andri Eriek', 'Coach', 'consultant (2).jpg', '', '', '', '', '', 0, ''),
+(2, 'Yuliawaty ', 'Psycholog', 'consultant (3).jpg', '', '', '', '', '', 0, ''),
+(3, 'Yuliawaty ', 'Psycholog', 'consultant (3).jpg', '', '', '', '', '', 0, ''),
+(4, 'Ruaniwati', 'Coach', 'consultant (1).jpg', '', '', '', '', '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -219,6 +226,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `consultant`
+--
+ALTER TABLE `consultant`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `program`

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2023 at 07:27 PM
+-- Generation Time: May 28, 2023 at 12:41 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `kbc-build-1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank`
+--
+
+CREATE TABLE `bank` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `bb/tt` varchar(20) NOT NULL,
+  `nomer` varchar(50) NOT NULL,
+  `name_kartu` varchar(50) NOT NULL,
+  `users_id` int(11) NOT NULL,
+  `cvv` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `bank`
+--
+
+INSERT INTO `bank` (`id`, `name`, `bb/tt`, `nomer`, `name_kartu`, `users_id`, `cvv`) VALUES
+(2, 'BCA', '37/23', '7634762', 'sadam payoda sabilillah', 40, '949');
 
 -- --------------------------------------------------------
 
@@ -163,7 +186,7 @@ CREATE TABLE `users` (
   `id` int(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `no` int(12) NOT NULL,
+  `no` varchar(12) NOT NULL,
   `jenis_kelamin` enum('pria','wanita') DEFAULT NULL,
   `date` date DEFAULT NULL,
   `password` varchar(255) NOT NULL,
@@ -176,15 +199,23 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `password`, `role_id`, `picture`) VALUES
-(1, 'sadam payoda', 'sadampayodaa@gmail.com', 2147483647, NULL, NULL, 'sadam12345', 1, NULL),
-(35, 'Khoirul Fahmi', 'khoirul@gmail.com', 977898390, NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
-(37, 'Fahmi', 'Fahmi13@gmail.com', 2147483647, NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
-(38, 'Fauzan Bakhtiar', 'fauzan123@gmail.com', 2147483647, NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
-(39, 'Sadam PS 1', 'sadam123@gmail.com', 2147483647, NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL);
+(1, 'sadam payoda', 'sadampayodaa@gmail.com', '2147483647', NULL, NULL, 'sadam12345', 1, NULL),
+(35, 'Khoirul Fahmi', 'khoirul@gmail.com', '977898390', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
+(37, 'Fahmi', 'Fahmi13@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
+(38, 'Fauzan Bakhtiar', 'fauzan123@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
+(39, 'Sadam PS 1', 'sadam123@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
+(40, 'oke deh deh', 'sadamlol@gmail.com', '082331770406', 'pria', '2015-04-04', '2dbdfc20899993b3d3d356c6fc22e84d', 1, NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bank`
+--
+ALTER TABLE `bank`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users_id` (`users_id`);
 
 --
 -- Indexes for table `consultant`
@@ -228,6 +259,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bank`
+--
+ALTER TABLE `bank`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `consultant`
 --
 ALTER TABLE `consultant`
@@ -261,11 +298,17 @@ ALTER TABLE `type_sevice`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `bank`
+--
+ALTER TABLE `bank`
+  ADD CONSTRAINT `bank_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `users`

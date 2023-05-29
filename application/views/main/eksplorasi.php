@@ -90,7 +90,6 @@
 
 
     <?php $this->load->view("_partials/footer.php") ?>
-    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

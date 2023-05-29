@@ -3,9 +3,7 @@
         <div class="row">
             <div class="col mb-3">
                 <div class="footer-wrap">
-                    <img
-                        src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png"
-                        alt="" />
+                    <img src="https://kbc.or.id/img/general/KBC-Logo_1594107681.png" alt="" />
                     <p class="body-text">
                         Yayasan niralaba dengan fokus untuk
                         memiliki transformasi pola pikir dalam
@@ -15,10 +13,7 @@
                     </p>
                 </div>
                 <div class="search-bar pt-4">
-                    <input
-                        placeholder="Alamat email anda . . . "
-                        type="text"
-                        class="log-input footer-search" />
+                    <input placeholder="Alamat email anda . . . " type="text" class="log-input footer-search" />
                     <button class="log-primary-button">
                         Subscribe
                     </button>
@@ -77,3 +72,6 @@
         </div>
     </div>
 </section>
+
+<!-- Javascript -->
+<script src="<?php echo base_url('assets/js/main.js'); ?>"></script>

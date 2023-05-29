@@ -12,12 +12,12 @@
                     </div>
                     <h1><?php echo $page_title ?></h1>
                     <p class="body-text">
-                        Suatu praktik pembelajaran yang bertujuan untuk meningkatkan pengetahuan dan keterampilan anggota tim Anda, dengan harapan dapat memberikan kontribusi positif pada produktivitas dan kinerja perusahaan secara keseluruhan.
+                        Suatu praktik pembelajaran yang bertujuan untuk meningkatkan pengetahuan dan keterampilan
+                        anggota tim Anda, dengan harapan dapat memberikan kontribusi positif pada produktivitas dan
+                        kinerja perusahaan secara keseluruhan.
                     </p>
                     <div class="search-bar">
-                        <input
-                            placeholder="Kata kunci, kategori, nama konsultan dsb ..."
-                            type="text"
+                        <input placeholder="Kata kunci, kategori, nama konsultan dsb ..." type="text"
                             class="log-input" />
                         <button class="primary-button">
                             Cari

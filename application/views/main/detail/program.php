@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("_partials/head.php")?> 
-    
+    <?php $this->load->view("_partials/head.php")?>
+
     <link rel="stylesheet" href="<?php echo base_url('assets/css/detail/program.css')?>" />
 </head>
 
@@ -41,7 +41,8 @@
                     </div>
                     <div class="text-period1">
                         <i class='bx bx-calendar'></i>
-                        <p><?= date('d M Y', strtotime($item->dateStart)). " - " . date('d M Y', strtotime($item->dateEnd))?></p>
+                        <p><?= date('d M Y', strtotime($item->dateStart)). " - " . date('d M Y', strtotime($item->dateEnd))?>
+                        </p>
                     </div>
                     <div class="text-period2">
                         <i class='bx bxs-time-five'></i>
@@ -102,7 +103,7 @@
     <?php endforeach; ?>
 
     <?php $this->load->view("_partials/footer.php")?>
-  
+
 </body>
 
 </html>

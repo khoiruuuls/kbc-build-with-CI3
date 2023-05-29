@@ -11,19 +11,27 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        if($this->input->get('search'))
-        {
+        if ($this->input->get('search')) {
             $this->db->like('name', $this->input->get('search'));
             $query = $this->db->get('program');
             $dataProgram = $query->result();
-        }else{
+        } else {
             $this->load->model("ProgramModel");
             $dataProgram = $this->ProgramModel->getProgram();
         }
-        $data['program'] = $dataProgram;
-        $data['page_title'] = 'Dashboard';
-        $data['user']    = $this->db->get_where('users', ['email' =>
-        $this->session->userdata('email')])->row_array();
+
+
+        $this->load->model("ConsultantModel");
+        $dataConsultant = $this->ConsultantModel->getConsultant();
+
+        $data = [
+            'consultant' => $dataConsultant,
+            'program' => $dataProgram,
+            'page_title' => 'Dashboard',
+            'user' => $this->db->get_where('users', ['email' =>
+            $this->session->userdata('email')])->row_array(),
+        ];
+
         $this->load->view('main/admin/index', $data);
     }
 
@@ -119,23 +127,39 @@ class Admin extends CI_Controller
         redirect('admin');
     }
 
+    public function updateConsultant($id)
+    {
+        $this->load->model("ConsultantModel");
+        $this->ConsultantModel->updateConsultant($id);
+        redirect('admin');
+    }
+
     public function delete_row($id)
     {
         $this->load->model("ProgramModel");
         $this->ProgramModel->delete($id);
+
+        return redirect('admin');
+    }
+
+    public function delete_consultant($id)
+    {
+        // hapus consultant
+        $this->load->model("ConsultantModel");
+        $this->ConsultantModel->delete($id);
         return redirect('admin');
     }
 
     public function add_consultant()
     {
 
-        if($this->input->post()){
-            
+        if ($this->input->post()) {
+
             $this->form_validation->set_rules('name', 'name', 'trim|required|is_unique[consultant.name]', [
                 'required' => 'Please input name is required',
                 'is_unique' => 'The Name already exists'
             ]);
-            
+
             $this->form_validation->set_rules('email', 'email', 'trim|required|is_unique[consultant.email]|valid_email', [
                 'required' => 'Please input email is required',
                 'is_unique' => 'The e-mail already exists',
@@ -144,12 +168,12 @@ class Admin extends CI_Controller
             $this->form_validation->set_rules('alamat', 'alamat', 'trim|required', [
                 'required' => 'Please input alamat is required',
             ]);
-            
+
             $this->form_validation->set_rules('no_handphone', 'no_handphone', 'trim|required|numeric', [
                 'required' => 'Please input no_hanphone is required',
                 'numeric' => 'The input you enter is not of type number'
             ]);
-            
+
             $this->form_validation->set_rules('spesialisasi', 'spesialisasi', 'trim|required', [
                 'required' => 'Please input spesialisasi is required',
             ]);
@@ -167,7 +191,7 @@ class Admin extends CI_Controller
             // var_dump($this->form_validation->run());
             // die;
 
-            
+
 
             if ($this->form_validation->run() == TRUE) {
                 if ($_FILES['photo']['name']) {
@@ -195,12 +219,8 @@ class Admin extends CI_Controller
                         $this->db->insert('consultant', $uploadDb);
                         return redirect('admin/index');
                     }
-                    
                 }
-               
             }
-
-
         }
 
         $data = [
@@ -211,5 +231,16 @@ class Admin extends CI_Controller
         ];
 
         $this->load->view('main/admin/add_consultant', $data);
+    }
+
+    public function edit_consultant($id)
+    {
+
+        $this->load->model("ConsultantModel");
+        $data['consultant'] = $this->ConsultantModel->editConsultant($id);
+        $data['page_title'] = 'Edit';
+        $data['user']    = $this->db->get_where('users', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view('main/admin/edit_consultant', $data);
     }
 }

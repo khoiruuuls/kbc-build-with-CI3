@@ -89,3 +89,7 @@ td .draf {
 	border: 1px solid #3b82f6;
 	border-radius: 5px;
 }
+
+.table-head {
+	background-color: var(--primary-color-6);
+}

@@ -70,7 +70,7 @@
 
 @media screen and (max-width: 1118px) {
 	.nav__menu {
-		background-color: var(--body-color);
+		background-color: var(--white-color);
 		position: absolute;
 		left: 0;
 		top: 2.5rem;
@@ -82,8 +82,22 @@
 		opacity: 0;
 		transition: top 0.4s, opacity 0.3s;
 	}
+	#header.show-icon {
+		height: 100vh;
+		background-color: white;
+	}
 
 	#header .button__navbar {
+		display: none;
+	}
+
+	.nav__link:hover {
+		background-color: var(--white-color);
+		color: var(--primary-color-7);
+		position: relative;
+	}
+
+	.nav__link:hover::after {
 		display: none;
 	}
 

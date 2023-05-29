@@ -77,6 +77,11 @@
 	padding: 24px;
 	border-radius: 10px;
 	border: 2px solid var(--gray-color-5);
+	margin: 10px;
+}
+
+.boxku {
+	width: 100%;
 }
 
 #our-service .text-group {

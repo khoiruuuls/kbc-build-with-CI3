@@ -45,10 +45,17 @@
 // 	});
 // });
 
-const selectMenu = document.querySelector(".nav__data");
-const toggleMenu = document.querySelector(".nav__toggle");
+/*=============== SHOW MENU ===============*/
+const showMenu = (toggleId, navId) => {
+	const toggle = document.getElementById(toggleId),
+		nav = document.getElementById(navId);
 
-selectMenu.addEventListener("click", () => {
-	console.log("hello");
-	toggleMenu.classList.add("nav__list");
-});
+	toggle.addEventListener("click", () => {
+		// Agregar clase show-menu a nav menu
+		nav.classList.toggle("show-menu");
+		// Agregar show-icon para mostrar y ocultar el icono del menú
+		toggle.classList.toggle("show-icon");
+	});
+};
+
+showMenu("nav-toggle", "nav-menu");

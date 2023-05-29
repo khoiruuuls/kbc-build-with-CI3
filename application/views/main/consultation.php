@@ -6,7 +6,7 @@
 
 
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
     <link rel="stylesheet" href="./assets/css/consultation.css">
 </head>
 
@@ -72,6 +72,7 @@
     <?php $this->load->view('_partials/pagination.php') ?>
 
     <?php $this->load->view("_partials/footer.php") ?>
+
 </body>
 
 </html>

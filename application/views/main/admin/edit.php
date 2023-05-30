@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <div class="row ">
             <div class="col-3 user-box ">
-                <?php $this->load->view('_partials/sidebar_admin.php') ?>
+                <?php $this->load->view('_partials/sidebar.php') ?>
             </div>
             <div class="col">
                 <div class="container container-consultant">

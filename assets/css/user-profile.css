@@ -49,3 +49,12 @@
 .user-info {
 	padding-top: 20px;
 }
+
+.bank-card {
+	padding: 2rem 1rem;
+	border-bottom: 1px solid var(--gray-color-4);
+}
+
+.bank-card i {
+	color: var(--primary-color-6);
+}

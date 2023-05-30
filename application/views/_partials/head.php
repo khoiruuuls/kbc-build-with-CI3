@@ -21,3 +21,4 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/_partials/navbar.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/_partials/footer.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/_partials/button.css'); ?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/_partials/pagination.css'); ?>">

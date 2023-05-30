@@ -31,7 +31,7 @@
 
             <div class="row">
                 <?php foreach ($consultant as $item) : ?>
-                <a href="<?php echo 'detail-consultant/' . $item->id ?>" class="col-6 col-sm-12 col-lg-6">
+                <a href="<?php echo 'detail-consultant/' . $item->id ?>" class="col-12 col-xs-12 col-sm-12 col-lg-6">
                     <div class="card-consultation">
                         <div class="img">
                             <img src="<?php echo base_url('assets/img/consultant/' . $item->photo) ?>" alt="" />

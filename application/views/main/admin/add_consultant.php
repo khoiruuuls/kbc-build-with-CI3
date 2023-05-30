@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <div class="row ">
             <div class="col-3 user-box ">
-                <?php $this->load->view('_partials/sidebar_admin.php') ?>
+                <?php $this->load->view('_partials/sidebar.php') ?>
             </div>
             <div class="col">
                 <div class="container container-consultant">
@@ -31,7 +31,8 @@
                     </div>
                     <h4>Tambah Konsultan</h3>
                         <p>Photo Profile</p>
-                        <form action="<?= base_url() . 'admin/add_consultant' ?>" enctype="multipart/form-data" method="POST">
+                        <form action="<?= base_url() . 'admin/add_consultant' ?>" enctype="multipart/form-data"
+                            method="POST">
                             <div class="form-input">
                                 <div class="upload-container">
                                     <div class="header">
@@ -51,13 +52,13 @@
                                     <p>Nama Lengkap</p>
                                     <input class="log-input" type="text" placeholder="Masukan Nama Lengkap" name="name"
                                         id="">
-                                        <?= form_error('name', '<p class="text-danger">', '</p>'); ?>
+                                    <?= form_error('name', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-input">
                                     <p>Alamat</p>
                                     <textarea class="log-input" type="text" placeholder="Masukan Alamat Lengkap"
                                         name="alamat" id=""></textarea>
-                                        <?= form_error('alamat', '<p class="text-danger">', '</p>'); ?>
+                                    <?= form_error('alamat', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                             </div>
                             <hr class="line">
@@ -72,7 +73,7 @@
                                     <p>Nomer Whatsapp</p>
                                     <input class="log-input" type="text" placeholder="Masukan Nomer Whatsapp"
                                         name="no_handphone" id="">
-                                        <?= form_error('no_handphone', '<p class="text-danger">', '</p>'); ?>
+                                    <?= form_error('no_handphone', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                             </div>
                             <hr class="line">
@@ -84,13 +85,13 @@
                                             <p>Spesialisasi</p>
                                             <input class="log-input" type="text" name="spesialisasi"
                                                 placeholder="Masukan Spesialisasi">
-                                                <?= form_error('spesialisasi', '<p class="text-danger">', '</p>'); ?>
+                                            <?= form_error('spesialisasi', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                         <div class="col">
                                             <p>Perusahaan</p>
                                             <input class="log-input" type="text" name="perusahaan"
                                                 placeholder="Masukan Perusahaan">
-                                                <?= form_error('perusahaan', '<p class="text-danger">', '</p>'); ?>
+                                            <?= form_error('perusahaan', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -100,13 +101,13 @@
                                             <p>Akun Media Sosial</p>
                                             <input class="log-input" type="text" name="akun_media"
                                                 placeholder="Masukan Akun Media Sosial">
-                                                <?= form_error('akun_media', '<p class="text-danger">', '</p>'); ?>
+                                            <?= form_error('akun_media', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                         <div class="col">
                                             <p>Jumlah Klien</p>
                                             <input class="log-input" type="number" name="jumlah_client"
                                                 placeholder="Masukan Link Akun">
-                                                <?= form_error('jumlah_client', '<p class="text-danger">', '</p>'); ?>
+                                            <?= form_error('jumlah_client', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                     </div>
                                 </div>

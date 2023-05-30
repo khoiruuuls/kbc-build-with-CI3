@@ -2,107 +2,140 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("_partials/head.php")?>
+    <?php $this->load->view("_partials/head.php") ?>
 
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/detail/program.css')?>" />
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/detail/program.css') ?>" />
 </head>
 
 <body>
-    <?php $this->load->view("_partials/navbar.php")?>
+    <?php $this->load->view("_partials/navbar.php") ?>
 
-    <?php foreach($program as $item) : ?>
-    <!-- bagian header -->
-    <section id="header-program">
-        <div class="container-program">
-            <img src="<?php echo base_url('assets/img/program/'.$item->photo)?>" alt="">
-        </div>
-    </section>
-
-    <!-- bagian route -->
-    <section id="header-route">
+    <?php foreach ($program as $item) : ?>
         <div class="container">
-            <div class="route">
+            <div class="route d-flex gap-2 py-4">
                 <p><strong>Program</strong></p>
-                <i class="bi bi-chevron-right"></i>
+                <i class="ri-arrow-right-s-line"></i>
                 <p><strong>Training</strong></p>
-                <i class="bi bi-chevron-right"></i>
+                <i class="ri-arrow-right-s-line"></i>
                 <p>Kepemimpinan</p>
             </div>
-        </div>
-    </section>
-
-    <!-- bagian period -->
-    <section id="header-period">
-        <div class="container">
             <div class="row">
-                <div class="col-lg-7">
-                    <div class="title-period">
-                        <h3><?php echo $item->name?></h3>
-                    </div>
-                    <div class="text-period1">
-                        <i class='bx bx-calendar'></i>
-                        <p><?= date('d M Y', strtotime($item->dateStart)). " - " . date('d M Y', strtotime($item->dateEnd))?>
+                <div class="col-8">
+                    <img class="card-kbc img-program" src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
+                    <div class="pt-5">
+                        <h6 style="color: var(--secondary-color-5)">Profile Konsultan</h6>
+                        <hr class="line">
+                        <p class="body-text">
+                            <?php echo $item->descProgram ?>
                         </p>
                     </div>
-                    <div class="text-period2">
-                        <i class='bx bxs-time-five'></i>
-                        <p>13.00-16.00</p>
+                    <div>
+                        <h6 style="color: var(--secondary-color-5)">Pendaftaran</h6>
+                        <hr class="line">
+                        <p class="body-text">
+                            Pendaftaran dibuka mulai tanggal 05 Februari hingga 15 April 2023. Pendaftaran yang
+                            dilakukan
+                            sebelum tanggal 18 Maret 2023 akan mendapatkan potongan harga sebesar 20% (Hanya berlaku
+                            untuk
+                            yang hybrid).
+                        </p>
                     </div>
-                    <div class="text-period3">
-                        <i class='bx bxs-map'></i>
-                        <p>Online</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 offset-2">
-                    <div class="card-price">
-                        <div class="card-price-content">
-                            <h5>Harga mulai dari</h5>
-                            <p>
-                                <?php if ($item->priceMin == $item->priceMax){
-                                    echo "Rp. " . number_format($item->priceMin);
-                                } else {
-                                    echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
-                                }
-                                ?>
-                            </p>
-                            <div class="button_price">
-                                <a href="" type="submit" class="primary-button">
-                                    Daftar Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div>
+                        <h6 style="color: var(--secondary-color-5)">Syarat &amp; Ketentuan</h6>
+                        <hr class="line">
+                        <ul>
+                            <li style="list-style-type: disc;">
+                                <p class="m-0">
+                                    Alumni SS / SSK (Onsite maupun Blended Learning) atau DTS.
+                                </p>
+                            </li>
 
-    <!-- bagian detail program -->
-    <section id="detail_program" class="section-m1">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="header-detail-prgram">
-                        <div class="title-detail-program">
-                            <h5>Detail Program</h5>
-                            <div class="garis"></div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="text-detail-program">
-                                <p>
-                                    <?php echo $item->descProgram ?>
+                            <li style="list-style-type: disc;">
+                                <p class="m-0">
+                                    Professional maupun pengusaha yang memiliki tim kerja minimal berjumlah 3 orang.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-card">
+                        <h6 style="color: var(--secondary-color-5)">Kata Kunci</h6>
+                        <p class="specialist">Pemasaran</p>
+                        <p class="specialist">Strategi Bisnis</p>
+                        <p class="specialist">Teknologi Informasi</p>
+                        <p class="specialist">Keuangan</p>
+                    </div>
+                </div>
+                <div class="col d-flex flex-column gap-4">
+                    <div class="card card-kbc p-4">
+                        <h6><?php echo $item->name ?></h6>
+                        <hr class="line">
+                        <div class="d-flex gap-3">
+                            <i class="ri-calendar-line"></i>
+                            <div class="flex-row">
+                                <p class="text-title m-0">Tanggal Program</p>
+                                <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
                                 </p>
                             </div>
                         </div>
+                        <div class="d-flex gap-3">
+                            <i class="ri-time-fill"></i>
+                            <div class="flex-row">
+                                <p class="text-title m-0">Waktu Program</p>
+                                <p>09.00 - 15.00 WIB</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <i class="ri-map-pin-line"></i>
+                            <div class="flex-row">
+                                <p class="text-title m-0">Pelaksanaan Program</p>
+                                <p>Online, Onsite (Bandung, Jawa Barat), Hybrid</p>
+                            </div>
+                        </div>
+                        <hr class="line">
+
+                    </div>
+                    <div class="card card-kbc p-4">
+                        <div class="row box-program">
+                            <p class="col text-title text-center pb-2 active">Hybrid</p>
+                            <p class="col text-title text-center pb-2 disable">Online</p>
+                            <p class="col text-title text-center pb-2 disable">Onsite</p>
+                        </div>
+                        <p class="text-title">Kuota tersisa</p>
+                        <p><?php echo $item->kuota ?></p>
+                        <p class="text-title">Harga</p>
+                        <p class="m-0">
+                            <?php if ($item->priceMin == $item->priceMax) {
+                                echo "Rp. " . number_format($item->priceMin);
+                            } else {
+                                echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
+                            }
+                            ?>
+                        </p>
+                        <hr class="line">
+                        <div class="d-flex gap-3">
+                            <i class="ri-error-warning-line"></i>
+                            <p class="body-text">Pendaftaran sebelum tanggal 18 Maret 2023 memperoleh potongan harga
+                                sebesar
+                                20%!</p>
+                        </div>
+                        <div class="row gap-3">
+                            <button class="col log-secondary-button">
+                                <i class="ri-bookmark-line  me-3"></i>
+                                Wishlist
+                            </button>
+                            <button class=" col log-primary-button">Daftar</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
+
 
     <?php endforeach; ?>
 
-    <?php $this->load->view("_partials/footer.php")?>
+    <?php $this->load->view("_partials/footer.php") ?>
 
 </body>
 

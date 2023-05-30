@@ -8,6 +8,12 @@ update dari sadam
 - url : kbc-build/profile (profile) , kbc-build/profile/settingsBank (bank) , kbc-build/profile/password (ubah password)
 
 
+update lagi :
+-tambahan crud seminar tanpa desain frontend
+-search sudah
+-pilihan opsi (semua ,menunggu , aktif , dan draf done, kecuali history belum)
+
+
 ==> mungkin yang lupa password ? di halaman password bakal aku kerjain ntr malem kira kira kalau cepet bsk aku commit ,oke itu aja
 
 

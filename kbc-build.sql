@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 12:41 PM
+-- Generation Time: May 30, 2023 at 07:54 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -139,20 +139,36 @@ INSERT INTO `role` (`id`, `name`) VALUES
 
 CREATE TABLE `seminar` (
   `id` int(11) NOT NULL,
+  `consultant_id` int(20) DEFAULT NULL,
   `name` varchar(30) NOT NULL,
-  `content` text NOT NULL,
-  `price` int(8) NOT NULL,
-  `photo` varchar(255) NOT NULL
+  `sub_title` varchar(255) DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `speaker` varchar(100) DEFAULT NULL,
+  `date_start` date DEFAULT NULL,
+  `date_end` date DEFAULT NULL,
+  `time_start` time DEFAULT NULL,
+  `time_end` time DEFAULT NULL,
+  `price` int(8) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `type` enum('Hybrid','Offline','Online') DEFAULT NULL,
+  `status` enum('menunggu','active','draf') DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `contact_person` varchar(255) DEFAULT NULL,
+  `kuota` int(11) DEFAULT NULL,
+  `lokasi` varchar(255) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `kota` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `seminar`
 --
 
-INSERT INTO `seminar` (`id`, `name`, `content`, `price`, `photo`) VALUES
-(1, 'Kingdom Financial Kids', 'When kids leave home, they face some heavy financial responsibilities, including creating a budget and choosing the right investments for their long-term goals. Much of the time, however, they’re woefully unprepared for those challenges.\r\n\r\nMany kids grow up in households where parents simply aren’t comfortable talking about money. And in much of the country, they’re not required to get a financial education at school, either. That’s why, according to a 2019 study by Experian, as many as 76% of Gen Z respondents said they wished they had been able to take a financial education class.\r\n1\r\n And in 2022, the Investopedia Financial Literacy Survey found that only one in four Gen Zers feel that they understand the stock market well enough to explain how it works to a friend.\r\n\r\nThe good news is that there are plenty of great money-related resources for kids on the Internet and on library bookshelves—you just need to know where to look. Here are some of our faves when it comes to teaching children the basic financial skills they’ll need and, even more importantly, down the road as independent adults. ', 1500000, './assets/img/program/1.jpeg'),
-(2, 'Workshop Lifting Up', 'Several years ago my spouse and I built our second new home. It is a process that we greatly enjoy in spite of the fact that it can be more than a little stressful. When building a new home there are a lot of decisions to be made. These decisions include selecting a builder, a floor plan, the type of exterior you want (brick, siding, stucco, for example), selecting your flooring, fixtures, and lighting, and on and on it goes. Some people prefer to buy an existing home because they find this plethora of decisions overwhelming. However, my spouse and I prefer making these decisions ourselves so that we can get exactly what we want and so we can watch our empty lot be transformed into a home.\r\n\r\nOne of the advantages to building your own home is that you can directly and easily observe the quality going into it. Our first area of concern is the foundation. After our foundation is poured we look at it to assess whether it looks level and is free of any defects. We all know that a good foundation is critical. Without it, the quality of the rest of the construction can be irrelevant. Once we have a good foundation in place, we continue to monitor the construction. We take note of the quality of the materials being used as well as the quality of the framing job, plumbing, drywall, etc. Once the construction is completed and the buyers move into the house, the builder’s job is finished but the homeowner’s job is really just beginning because the house has to be maintained.\r\n\r\nRelated\r\nSurvey Types\r\n\r\n', 1250000, './assets/img/program/2.jpeg'),
-(3, 'Building Business Through Peop', 'Several years ago my spouse and I built our second new home. It is a process that we greatly enjoy in spite of the fact that it can be more than a little stressful. When building a new home there are a lot of decisions to be made. These decisions include selecting a builder, a floor plan, the type of exterior you want (brick, siding, stucco, for example), selecting your flooring, fixtures, and lighting, and on and on it goes. Some people prefer to buy an existing home because they find this plethora of decisions overwhelming. However, my spouse and I prefer making these decisions ourselves so that we can get exactly what we want and so we can watch our empty lot be transformed into a home.\r\n\r\nOne of the advantages to building your own home is that you can directly and easily observe the quality going into it. Our first area of concern is the foundation. After our foundation is poured we look at it to assess whether it looks level and is free of any defects. We all know that a good foundation is critical. Without it, the quality of the rest of the construction can be irrelevant. Once we have a good foundation in place, we continue to monitor the construction. We take note of the quality of the materials being used as well as the quality of the framing job, plumbing, drywall, etc. Once the construction is completed and the buyers move into the house, the builder’s job is finished but the homeowner’s job is really just beginning because the house has to be maintained.\r\n\r\nRelated\r\nSurvey Types\r\n', 2500000, './assets/img/program/3.jpeg');
+INSERT INTO `seminar` (`id`, `consultant_id`, `name`, `sub_title`, `content`, `speaker`, `date_start`, `date_end`, `time_start`, `time_end`, `price`, `photo`, `type`, `status`, `link`, `contact_person`, `kuota`, `lokasi`, `alamat`, `kota`) VALUES
+(1, 0, 'Kingdom Financial Kids', '', 'When kids leave home, they face some heavy financial responsibilities, including creating a budget and choosing the right investments for their long-term goals. Much of the time, however, they’re woefully unprepared for those challenges.\r\n\r\nMany kids grow up in households where parents simply aren’t comfortable talking about money. And in much of the country, they’re not required to get a financial education at school, either. That’s why, according to a 2019 study by Experian, as many as 76% of Gen Z respondents said they wished they had been able to take a financial education class.\r\n1\r\n And in 2022, the Investopedia Financial Literacy Survey found that only one in four Gen Zers feel that they understand the stock market well enough to explain how it works to a friend.\r\n\r\nThe good news is that there are plenty of great money-related resources for kids on the Internet and on library bookshelves—you just need to know where to look. Here are some of our faves when it comes to teaching children the basic financial skills they’ll need and, even more importantly, down the road as independent adults. ', '', NULL, NULL, '00:00:00', '00:00:00', 1500000, './assets/img/program/1.jpeg', '', 'menunggu', '', '', NULL, NULL, NULL, NULL),
+(2, 0, 'Workshop Lifting Up', '', 'Several years ago my spouse and I built our second new home. It is a process that we greatly enjoy in spite of the fact that it can be more than a little stressful. When building a new home there are a lot of decisions to be made. These decisions include selecting a builder, a floor plan, the type of exterior you want (brick, siding, stucco, for example), selecting your flooring, fixtures, and lighting, and on and on it goes. Some people prefer to buy an existing home because they find this plethora of decisions overwhelming. However, my spouse and I prefer making these decisions ourselves so that we can get exactly what we want and so we can watch our empty lot be transformed into a home.\r\n\r\nOne of the advantages to building your own home is that you can directly and easily observe the quality going into it. Our first area of concern is the foundation. After our foundation is poured we look at it to assess whether it looks level and is free of any defects. We all know that a good foundation is critical. Without it, the quality of the rest of the construction can be irrelevant. Once we have a good foundation in place, we continue to monitor the construction. We take note of the quality of the materials being used as well as the quality of the framing job, plumbing, drywall, etc. Once the construction is completed and the buyers move into the house, the builder’s job is finished but the homeowner’s job is really just beginning because the house has to be maintained.\r\n\r\nRelated\r\nSurvey Types\r\n\r\n', '', NULL, NULL, '00:00:00', '00:00:00', 1250000, './assets/img/program/2.jpeg', '', 'menunggu', '', '', NULL, NULL, NULL, NULL),
+(8, 0, 'dvjq', 'jfbjw', NULL, NULL, '2023-05-03', '2023-05-16', '13:37:00', '13:35:00', 111, NULL, 'Online', 'draf', 'jd cjcj', NULL, 22, NULL, NULL, NULL),
+(9, 0, 'dvjq', 'wnkwn', NULL, NULL, '2023-05-03', '2023-05-09', '14:15:00', '16:15:00', 21, '', 'Online', 'menunggu', 'hvvh', NULL, 233, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -286,7 +302,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `seminar`
 --
 ALTER TABLE `seminar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `type_sevice`

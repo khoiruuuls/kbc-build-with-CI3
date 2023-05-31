@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <div class="row ">
             <div class="col-3 user-box ">
-                <?php $this->load->view('_partials/sidebar_admin.php') ?>
+                <?php $this->load->view('_partials/sidebar.php') ?>
             </div>
             <div class="col">
                 <div class="container container-consultant">
@@ -61,7 +61,8 @@
                             </div>
                             <div class="form-input">
                                 <p>Deskripsi</p>
-                                <textarea class="log-input" type="text" placeholder="Masukan Deskripsi" style="height: 300px" name="descProgram" id=""></textarea>
+                                <textarea class="log-input" type="text" placeholder="Masukan Deskripsi"
+                                    style="height: 300px" name="descProgram" id=""></textarea>
                             </div>
                             <hr class="line">
                             <div class="form-input">
@@ -98,7 +99,8 @@
                             </div>
                             <div class="form-input">
                                 <p>URL Streaming</p>
-                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="url" id="">
+                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="url"
+                                    id="">
                             </div>
                             <hr class="line">
                             <div class="form-input">
@@ -135,7 +137,8 @@
                                 <div class="date-time gap-3">
                                     <div class="col">
                                         <!-- berhubung priceMaxnya tidak ada inputnya ,aku pake priceMin ditambah 100K -->
-                                        <input class="log-input" type="number" name="priceMin" placeholder="Masukan Kouta">
+                                        <input class="log-input" type="number" name="priceMin"
+                                            placeholder="Masukan Kouta">
                                     </div>
                                     <div class="col">
                                         <input class="log-input" type="number" name="kuota" placeholder="Masukan Harga">

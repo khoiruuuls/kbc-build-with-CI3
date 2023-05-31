@@ -7,6 +7,7 @@
 	--header-height: 4.5rem;
 	/*.5rem = 8px | 1rem = 16px ...*/
 	--body-font: "Manrope";
+	--larger-font-size: 1.25rem;
 	--large-font-size: 1rem;
 	--normal-font-size: 0.875rem;
 	--small-font-size: 0.813rem;
@@ -144,7 +145,7 @@ h5 {
 }
 
 h6 {
-	font-size: 1.563rem;
+	font-size: 1.5rem;
 	font-weight: var(--font-bold);
 	line-height: var(--line-normal);
 }
@@ -269,6 +270,29 @@ li {
 
 .line {
 	border: 1px solid var(--gray-color-7);
+}
+
+.card-kbc {
+	border: 2px solid var(--gray-color-4);
+	border-radius: 10px;
+}
+
+.sub-card :where(h6, p) {
+	color: var(--black-color);
+}
+
+.specialist {
+	border: 1px solid var(--primary-color-5);
+	border-radius: 10px;
+	padding: 4px 12px;
+	display: inline-block;
+	color: var(--primary-color-9);
+	background-color: var(--primary-color-1);
+}
+
+p.text-title {
+	font-size: var(--large-font-size);
+	font-weight: var(--font-bold);
 }
 
 /* Input and Textarea Style */
@@ -500,78 +524,4 @@ textarea:focus {
 	.accordion-text li p {
 		width: 98%;
 	}
-}
-
-/* ----------- PAGINATION SECTION ----------- */
-
-#pagination {
-	padding: 20px;
-}
-
-#pagination :where(.container, .button, .links, .link) {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	column-gap: 12px;
-}
-
-#pagination .button {
-	border: none;
-}
-
-#pagination .button i {
-	pointer-events: none;
-}
-
-#pagination .button i::before {
-	vertical-align: -0.2rem;
-	-webkit-text-stroke: 1px;
-}
-
-#pagination .button:disabled {
-	color: var(--gray-color-3);
-	background-color: var(--white-color);
-	pointer-events: none;
-}
-
-#pagination .button,
-#pagination .link {
-	height: 45px;
-	width: 45px;
-	font-size: 20px;
-	color: var(--gray-color-5);
-	background-color: var(--white-color);
-	outline: 1px solid;
-	border-radius: 6px;
-	cursor: pointer;
-}
-
-#pagination .button {
-	color: var(--white-color);
-	background-color: var(--secondary-color-7);
-}
-
-#pagination .links {
-	column-gap: 12px;
-}
-
-#pagination .link {
-	text-decoration: none;
-}
-
-#pagination .button:hover,
-#pagination .link:hover {
-	color: var(--white-color);
-	background: var(--secondary-color-7);
-}
-
-#pagination .link.active {
-	outline: 2px solid var(--secondary-color-3);
-	background: var(--gray-color-2);
-}
-
-#pagination .link.active:hover {
-	color: var(--gray-color-5);
-	outline: 2px solid var(--secondary-color-3);
-	background: var(--gray-color-2);
 }

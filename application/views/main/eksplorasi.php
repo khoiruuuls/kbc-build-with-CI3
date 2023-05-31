@@ -28,13 +28,69 @@
                             <h6>Filter</h6>
                         </div>
                         <div class="filter-sub">
-                            <div class="filter-name filter-display">
-                                <h6>Tipe Program</h6>
-                                <i class="ri-arrow-down-s-fill"></i>
-                            </div>
-                            <div class="filter-name filter-display">
-                                <h6>Tipe Program</h6>
-                                <i class="ri-arrow-down-s-fill"></i>
+                            <div class="accordion">
+                                <div class="accordion-text">
+                                    <ul class="faq-text">
+                                        <li>
+                                            <div class="question-arrow active">
+                                                <span class="question" style="color: var(--black-color)">Tipe
+                                                    Program</span>
+                                                <i class="ri-arrow-up-s-fill arrow"></i>
+                                            </div>
+                                            <p>Consulting</p>
+                                            <hr class="line">
+                                        </li>
+                                        <li>
+                                            <div class="question-arrow">
+                                                <span class="question" style="color: var(--black-color)">Pelaksanaan
+                                                    Program</span>
+                                                <i class="ri-arrow-up-s-fill arrow"></i>
+                                            </div>
+                                            <p class="body-text">
+                                                JavaScript is a text-based programming
+                                                language used both on the client-side and
+                                                server-side that allows you to make web pages
+                                                interactive
+                                            </p>
+                                            <hr class="line">
+                                        </li>
+                                        <li>
+                                            <div class="question-arrow">
+                                                <span class="question" style="color: var(--black-color)">Kategori
+                                                    Topik</span>
+                                                <i class="ri-arrow-up-s-fill arrow"></i>
+                                            </div>
+                                            <p class="body-text">
+                                                Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Rerum, labore.
+                                            </p>
+                                            <hr class="line">
+                                        </li>
+                                        <li>
+                                            <div class="question-arrow">
+                                                <span class="question" style="color: var(--black-color)">Waktu
+                                                    Pelaksanaan</span>
+                                                <i class="ri-arrow-up-s-fill arrow"></i>
+                                            </div>
+                                            <p class="body-text">
+                                                Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Saepe, repudiandae!
+                                            </p>
+                                            <hr class="line">
+                                        </li>
+                                        <li>
+                                            <div class="question-arrow">
+                                                <span class="question" style="color: var(--black-color)">Harga</span>
+                                                <i class="ri-arrow-up-s-fill arrow"></i>
+                                            </div>
+                                            <p class="body-text">
+                                                Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Saepe, repudiandae!
+                                            </p>
+                                            <hr class="line">
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,34 +111,31 @@
                         </div>
                         <div class="row program-gap-all">
                             <?php foreach ($program as $item) : ?>
-                            <a href="<?php echo 'detail-program/' . $item->id ?>">
-                                <div class="card card-our-program">
-                                    <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
-                                    <div class="our-program-text">
-                                        <span><?= $item->type ?></span>
-                                        <h6><?= $item->name ?></h6>
-                                        <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
-                                        </p>
-                                        <span class="text-capitalize">
-                                            <?php if ($item->priceMin == $item->priceMax) {
+                                <a href="<?php echo 'detail-program/' . $item->id ?>">
+                                    <div class="card card-our-program">
+                                        <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
+                                        <div class="our-program-text">
+                                            <span><?= $item->type ?></span>
+                                            <h6><?= $item->name ?></h6>
+                                            <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
+                                            </p>
+                                            <span class="text-capitalize">
+                                                <?php if ($item->priceMin == $item->priceMax) {
                                                     echo "Rp. " . number_format($item->priceMin);
                                                 } else {
                                                     echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
                                                 }
                                                 ?>
-                                        </span>
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
                             <?php endforeach; ?>
                         </div>
                     </div>
+                    <?php $this->load->view('_partials/pagination.php') ?>
                 </div>
             </div>
-
-            <?php $this->load->view('_partials/pagination.php') ?>
-        </div>
-        </div>
         </div>
     </section>
 

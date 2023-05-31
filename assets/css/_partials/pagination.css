@@ -1,0 +1,74 @@
+/* ----------- PAGINATION SECTION ----------- */
+
+#pagination {
+	padding: 20px;
+}
+
+#pagination :where(.container, .button, .links, .link) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 12px;
+}
+
+#pagination .button {
+	border: none;
+}
+
+#pagination .button i {
+	pointer-events: none;
+}
+
+#pagination .button i::before {
+	vertical-align: -0.2rem;
+	-webkit-text-stroke: 1px;
+}
+
+#pagination .button:disabled {
+	color: var(--gray-color-3);
+	background-color: var(--white-color);
+	pointer-events: none;
+}
+
+#pagination .button,
+#pagination .link {
+	height: 40px;
+	width: 40px;
+	font-size: var(--large-font-size);
+	font-weight: var(--font-semi-bold);
+	color: var(--gray-color-5);
+	background-color: var(--white-color);
+	outline: 1px solid;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+#pagination .button {
+	color: var(--white-color);
+	background-color: var(--secondary-color-7);
+}
+
+#pagination .links {
+	column-gap: 12px;
+}
+
+#pagination .link {
+	text-decoration: none;
+}
+
+#pagination .button:hover,
+#pagination .link:hover {
+	color: var(--white-color);
+	background: var(--secondary-color-7);
+}
+
+#pagination .link.active {
+	outline: 2px solid var(--secondary-color-3);
+	background: var(--gray-color-2);
+}
+
+#pagination .link.active:hover {
+	color: var(--gray-color-5);
+	outline: 2px solid var(--secondary-color-3);
+	background: var(--gray-color-2);
+}

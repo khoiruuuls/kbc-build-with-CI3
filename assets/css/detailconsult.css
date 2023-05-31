@@ -60,18 +60,6 @@
 	font-weight: var(--font-medium);
 }
 
-.sub-card :where(h6, p) {
-	color: var(--black-color);
-}
-
-.specialist {
-	border: 1px solid var(--primary-color-5);
-	border-radius: 10px;
-	padding: 4px 12px;
-	display: inline-block;
-	color: var(--primary-color-9);
-	background-color: var(--primary-color-1);
-}
 .edu-certif {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);

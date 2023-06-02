@@ -53,19 +53,19 @@
             </p>
 
             <div class="social-media">
-                <button>
+                <button class="btn-social-footer">
                     <i class="ri-phone-fill"></i>
                 </button>
-                <button>
+                <button class="btn-social-footer">
                     <i class="ri-mail-line"></i>
                 </button>
-                <button>
+                <button class="btn-social-footer">
                     <i class="ri-facebook-fill"></i>
                 </button>
-                <button>
+                <button class="btn-social-footer">
                     <i class="ri-youtube-line"></i>
                 </button>
-                <button>
+                <button class="btn-social-footer">
                     <i class="ri-instagram-line"></i>
                 </button>
             </div>

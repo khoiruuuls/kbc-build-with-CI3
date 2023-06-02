@@ -1,19 +1,16 @@
 # kbc-build-with-CI3
 
-update dari sadam 
-- database bertambah 1 yaitu bank 
-- nambah controller yaitu profile
-- nambah views di main/profile
-- tambah 3 page yaitu ,page untuk edit profile , page untuk bank menambah bank , dan page mengubah password
-- url : kbc-build/profile (profile) , kbc-build/profile/settingsBank (bank) , kbc-build/profile/password (ubah password)
+update dari khoirul
 
+- penambahan kolom di database sesuai dengan kolom kolom yang ada pada detail consultant
+- penambahan halaman detail pembayaran dan detail pesanan
+- penambahan my program dan wishlist pada halaman profile
+- on progress website responsive
 
-update lagi :
--tambahan crud seminar tanpa desain frontend
--search sudah
--pilihan opsi (semua ,menunggu , aktif , dan draf done, kecuali history belum)
+yang perlu dikembangkan lagi
 
-
-==> mungkin yang lupa password ? di halaman password bakal aku kerjain ntr malem kira kira kalau cepet bsk aku commit ,oke itu aja
+- user dapat memilih program
+- halaman detail belum per program
+- user dapat memilih program dan kemudian disimpan pada user profile my program
 
 misal ada salah kabari bang

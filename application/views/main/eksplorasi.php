@@ -109,10 +109,11 @@
                             <p>Menampilkan 9 dari 89 Program</p>
                             <p>Urutkan Berdasarkan Waktu</p>
                         </div>
-                        <div class="row program-gap-all">
+                        <div class="row gy-3">
                             <?php foreach ($program as $item) : ?>
+                            <div class="col-md-4 col">
                                 <a href="<?php echo 'detail-program/' . $item->id ?>">
-                                    <div class="card card-our-program">
+                                    <div class="card card-kbc">
                                         <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
                                         <div class="our-program-text">
                                             <span><?= $item->type ?></span>
@@ -121,15 +122,16 @@
                                             </p>
                                             <span class="text-capitalize">
                                                 <?php if ($item->priceMin == $item->priceMax) {
-                                                    echo "Rp. " . number_format($item->priceMin);
-                                                } else {
-                                                    echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
-                                                }
-                                                ?>
+                                                        echo "Rp. " . number_format($item->priceMin);
+                                                    } else {
+                                                        echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
+                                                    }
+                                                    ?>
                                             </span>
                                         </div>
                                     </div>
                                 </a>
+                            </div>
                             <?php endforeach; ?>
                         </div>
                     </div>

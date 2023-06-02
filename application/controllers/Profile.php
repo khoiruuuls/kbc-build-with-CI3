@@ -8,6 +8,7 @@ class Profile extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->helper('text');
     }
 
     public function index()
@@ -145,5 +146,24 @@ class Profile extends CI_Controller
         $data['user'] = $this->db->get_where('users', array('name' => $this->session->userdata('name')))->row_array();
         $data['page_title'] = 'Ubah Password';
         $this->load->view('main/profile/password', $data);
+    }
+
+    public function wishlist()
+    {
+        $this->load->model("ProgramModel");
+        $data['program'] = $this->ProgramModel->getProgram();
+        $data['page_title'] = 'Wishlist';
+        $data['user']    = $this->db->get_where('users', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view('main/profile/wishlist', $data);
+    }
+    public function myprogram()
+    {
+        $this->load->model("ProgramModel");
+        $data['program'] = $this->ProgramModel->getProgram();
+        $data['page_title'] = 'My Program';
+        $data['user']    = $this->db->get_where('users', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view('main/profile/myprogram', $data);
     }
 }

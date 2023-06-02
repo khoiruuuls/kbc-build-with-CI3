@@ -35,7 +35,7 @@
 	background: var(--primary-color-7);
 }
 
-#footer .social-media i {
+.social-media i {
 	color: var(--white-color);
 }
 
@@ -57,11 +57,11 @@
 	height: 52px;
 }
 
-#footer .social-media {
+.social-media {
 	display: flex;
 }
 
-#footer .social-media button {
+.social-media .btn-social-footer {
 	margin-left: 8px;
 	width: 40px;
 	height: 40px;
@@ -73,7 +73,6 @@
 	text-decoration: none;
 	border: 1px solid var(--secondary-color-4);
 	border-radius: 90px;
-	color: rgb(40, 144, 241);
 	transition: color 0.3s 0.1s ease-out;
 }
 
@@ -84,12 +83,12 @@
 	align-items: center;
 }
 
-#footer .social-media {
+.social-media {
 	display: flex;
 	align-items: center;
 }
 
-#footer .social-media button:hover {
+.social-media button:hover {
 	background-color: var(--secondary-color-4);
 	transition: color 0.3s 0.1s ease-out;
 	color: white;

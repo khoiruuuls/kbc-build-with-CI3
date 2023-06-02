@@ -20,3 +20,15 @@ $route['eksplorasi'] = 'HomeController/eksplorasi';
 $route['detail/program'] = 'HomeController/detailProgram';
 $route['detail-program/(:num)'] = 'HomeController/detailProgram/$1';
 $route['detail-consultant/(:num)'] = 'HomeController/detail/$1';
+
+
+
+
+$route['detail-pesanan'] = 'HomeController/pesanan';
+$route['pembayaran'] = 'HomeController/pembayaran';
+
+
+
+
+$route['wishlist'] = 'Profile/wishlist';
+$route['profile/my-program'] = 'Profile/myprogram';

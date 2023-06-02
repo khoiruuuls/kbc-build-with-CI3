@@ -35,7 +35,7 @@
         <div class="container">
             <div class="list-partner my-3">
                 <?php for ($i = 1; $i <= 8; $i++) { ?>
-                    <img src="<?php echo base_url('assets/img/partner/partner (' . $i . ').jpg') ?>" alt="">
+                <img src="<?php echo base_url('assets/img/partner/partner (' . $i . ').jpg') ?>" alt="">
                 <?php } ?>
             </div>
         </div>
@@ -70,9 +70,10 @@
                 <h6 class="mt-3">Tim Kami Bekerja Sama Untuk Merancang Strategi</h6>
                 <h6>yang Tepat Guna Meningkatkan Performa Bisnis Anda.</h6>
             </div>
-            <div class="our-gap row gy-4">
+            <div class="row gy-4">
                 <?php foreach ($service as $item) : ?>
-                    <div class="card-our-service col">
+                <div class="col-md-4 col-12">
+                    <div class="card-our-service">
                         <div class="icon-frame">
                             <i class="<?php echo $item->icon ?>"></i>
                         </div>
@@ -86,6 +87,7 @@
                             Eksplor Lebih Lengkap
                         </button>
                     </div>
+                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -108,13 +110,16 @@
                     <i class="ri-arrow-left-line"></i>
                 </div>
                 <?php foreach ($consultant as $item) : ?>
-                    <div class="card card-our-consultant col">
-                        <a href="<?php echo 'detail-consultant/' . $item->id ?>" class="d-flex flex-column align-items-center justify-content-center">
+                <div class="col">
+                    <div class="card card-our-consultant">
+                        <a href="<?php echo 'detail-consultant/' . $item->id ?>"
+                            class="d-flex flex-column align-items-center justify-content-center">
                             <img src="<?php echo base_url('assets/img/consultant/' . $item->photo) ?>" alt="">
                             <h6 class="pt-2"><?php echo $item->name ?></h6>
                             <p class=""><?php echo $item->profesi ?></p>
                         </a>
                     </div>
+                </div>
                 <?php endforeach; ?>
                 <div class="box-icon">
                     <i class="ri-arrow-right-line"></i>
@@ -156,10 +161,11 @@
                     <p class="detail-text">Lihat Selengkapnya</p>
                 </a>
             </div>
-            <div class="row program-gap">
+            <div class="row gy-3">
                 <?php foreach ($program as $item) : ?>
+                <div class="col-md-3 col">
                     <a href="<?php echo 'detail-program/' . $item->id ?>">
-                        <div class="card card-our-program">
+                        <div class="card card-kbc">
                             <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
                             <div class="our-program-text">
                                 <span><?= $item->type ?></span>
@@ -168,15 +174,16 @@
                                 </p>
                                 <span class="text-capitalize">
                                     <?php if ($item->priceMin == $item->priceMax) {
-                                        echo "Rp. " . number_format($item->priceMin);
-                                    } else {
-                                        echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
-                                    }
-                                    ?>
+                                            echo "Rp. " . number_format($item->priceMin);
+                                        } else {
+                                            echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
+                                        }
+                                        ?>
                                 </span>
                             </div>
                         </div>
                     </a>
+                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -205,7 +212,7 @@
                                 <p>Khoirul</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 5; $i++) { ?>
-                                        <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -225,7 +232,7 @@
                                 <p>Khoirul</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 5; $i++) { ?>
-                                        <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -245,7 +252,7 @@
                                 <p>Khoirul</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 4; $i++) { ?>
-                                        <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
                                     <?php } ?>
                                 </div>
                             </div>

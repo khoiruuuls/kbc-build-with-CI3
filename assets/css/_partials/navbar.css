@@ -66,6 +66,10 @@
 	opacity: 0;
 }
 
+a.nav-hide {
+	display: none;
+}
+
 /* Navigation for mobile devices */
 
 @media screen and (max-width: 1118px) {
@@ -89,6 +93,10 @@
 
 	#header .button__navbar {
 		display: none;
+	}
+
+	#header li a.nav-hide {
+		display: inherit;
 	}
 
 	.nav__link:hover {
@@ -294,6 +302,10 @@
 		display: flex;
 		column-gap: 3rem;
 		height: 100%;
+	}
+
+	li:nth-last-child(-n + 3) {
+		margin-right: 0;
 	}
 
 	ul.nav__list {

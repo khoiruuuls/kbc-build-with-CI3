@@ -77,4 +77,21 @@ class HomeController extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $this->load->view('main/detail/program', $data);
     }
+
+    public function pesanan()
+    {
+
+        $data['page_title'] = 'Detail Pesanan';
+        $data['user']    = $this->db->get_where('users', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view('main/detail/pesanan', $data);
+    }
+    public function pembayaran()
+    {
+
+        $data['page_title'] = 'Detail Pesanan';
+        $data['user']    = $this->db->get_where('users', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $this->load->view('main/detail/pembayaran', $data);
+    }
 }

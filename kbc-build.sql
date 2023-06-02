@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 07:54 AM
+-- Generation Time: Jun 02, 2023 at 06:57 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,8 +18,27 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kbc-build-1`
+-- Database: `kbc-build`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bahasa`
+--
+
+CREATE TABLE `bahasa` (
+  `BahasaID` int(8) NOT NULL,
+  `Nama` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bahasa`
+--
+
+INSERT INTO `bahasa` (`BahasaID`, `Nama`) VALUES
+(1, 'Inggris'),
+(2, 'Prancis');
 
 -- --------------------------------------------------------
 
@@ -54,11 +73,17 @@ CREATE TABLE `consultant` (
   `id` int(8) NOT NULL,
   `name` varchar(20) NOT NULL,
   `profesi` varchar(20) NOT NULL,
+  `profile` text NOT NULL,
   `photo` varchar(225) NOT NULL,
   `alamat` text NOT NULL,
   `email` varchar(100) NOT NULL,
   `no_handphone` varchar(12) NOT NULL,
+  `link_group` varchar(255) NOT NULL,
+  `bahasa` varchar(20) NOT NULL,
   `perusahaan` varchar(100) NOT NULL,
+  `sertifikasi` varchar(255) NOT NULL,
+  `sertif_start` date DEFAULT NULL,
+  `sertif_end` date DEFAULT NULL,
   `akun_media` varchar(100) NOT NULL,
   `jumlah_client` int(11) NOT NULL,
   `spesialisasi` varchar(50) NOT NULL
@@ -68,11 +93,30 @@ CREATE TABLE `consultant` (
 -- Dumping data for table `consultant`
 --
 
-INSERT INTO `consultant` (`id`, `name`, `profesi`, `photo`, `alamat`, `email`, `no_handphone`, `perusahaan`, `akun_media`, `jumlah_client`, `spesialisasi`) VALUES
-(1, 'Andri Eriek', 'Coach', 'consultant (2).jpg', '', '', '', '', '', 0, ''),
-(2, 'Yuliawaty ', 'Psycholog', 'consultant (3).jpg', '', '', '', '', '', 0, ''),
-(3, 'Yuliawaty ', 'Psycholog', 'consultant (3).jpg', '', '', '', '', '', 0, ''),
-(4, 'Ruaniwati', 'Coach', 'consultant (1).jpg', '', '', '', '', '', 0, '');
+INSERT INTO `consultant` (`id`, `name`, `profesi`, `profile`, `photo`, `alamat`, `email`, `no_handphone`, `link_group`, `bahasa`, `perusahaan`, `sertifikasi`, `sertif_start`, `sertif_end`, `akun_media`, `jumlah_client`, `spesialisasi`) VALUES
+(1, 'Andri Eriek', 'Coach', 'memimpin perusahaan menjadi salah satu perusahaan e-commerce terbesar di dunia. Bezos lahir pada tanggal 12 Januari 1964 di Albuquerque, New Mexico, Amerika Serikat. Ia belajar di Princeton University dan lulus dengan gelar sarjana ilmu komputer dan teknik listrik. Setelah lulus, Bezos bekerja di Wall Street sebelum mendirikan Amazon pada tahun 1994. Ia memegang posisi CEO hingga Juli 2021, ketika dia menyerahkan jabatan tersebut kepada Andy Jassy.', 'consultant (2).jpg', 'Jl Tubagus Ismail III/3, Jawa Barat', 'Andrieriek@gmail.com', '+62 889-8608', '', 'Inggris', 'Google. Inc', '', NULL, NULL, '@erik123', 123, 'Pajak'),
+(2, 'Yuliawaty ', 'Psycholog', 'Setelah menyelesaikan studi di University of Pennsylvania, ia mendirikan Zip2, sebuah perusahaan perangkat lunak yang menjual sistem manajemen media untuk perusahaan media. Setelah sukses dengan Zip2, ia mendirikan perusahaan pembayaran online X.com, yang kemudian berkembang menjadi PayPal. Pada tahun 2002, PayPal diakuisisi oleh eBay, dan Musk fokus pada proyek-proyek ruang angkasa dan mobil listrik. Dia mendirikan SpaceX pada tahun 2002 dan Tesla Motors pada tahun 2003. Sejak itu, ia terus menjadi tokoh terkemuka dalam inovasi teknologi.', 'consultant (3).jpg', ' Jl Bugangan VIII 203, Jawa Tengah', 'yuliawaty@gmail.com', '+62 830-5480', '0', '', 'Facebook', '', NULL, NULL, '@yuliawaty ', 450, 'Bahasa Inggris'),
+(3, 'Yuliawaty ', 'Psycholog', 'Setelah menggantikan Steve Jobs pada tahun 2011, ia terus memimpin Apple dan meneruskan inovasi perusahaan. Cook lahir pada tanggal 1 November 1960 di Mobile, Alabama, Amerika Serikat. Ia belajar di Auburn University dan kemudian mendapatkan gelar MBA dari Duke University. Sebelum bergabung dengan Apple, Cook bekerja di beberapa perusahaan teknologi terkenal seperti IBM dan Compaq. Setelah bergabung dengan Apple pada tahun 1998, ia memegang berbagai posisi penting seperti COO sebelum akhirnya diangkat menjadi CEO.', 'consultant (3).jpg', 'Jl Raya Bogor Km 30, Dki Jakarta', '', '', '0', '', '', '', NULL, NULL, '', 0, ''),
+(4, 'Ruaniwati', 'Coach', 'memperoleh gelar sarjana dalam teknik metalurgi. Setelah itu, ia melanjutkan pendidikan di Stanford University di mana ia mendapatkan gelar MBA dan MS dalam teknik material. Pichai bergabung dengan Google pada tahun 2004 dan memainkan peran penting dalam pengembangan produk seperti Google Toolbar, Google Chrome, dan sistem operasi Android. Pada tahun 2015, ia diangkat menjadi CEO Google dan kemudian, setelah restrukturisasi perusahaan pada tahun 2019, menjadi CEO Alphabet Inc.', 'consultant (1).jpg', ' Jl. Ahmad Yani no 806, Jawa Barat', 'ruaniwati@gmail.com', '+62 837-4749', '0', 'Inggris', 'Kopi Kenangan', '', NULL, NULL, '@ruaniwati', 1900, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `consultant_bahasa`
+--
+
+CREATE TABLE `consultant_bahasa` (
+  `ConsultantID` int(8) NOT NULL,
+  `BahasaID` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `consultant_bahasa`
+--
+
+INSERT INTO `consultant_bahasa` (`ConsultantID`, `BahasaID`) VALUES
+(1, 1),
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -216,15 +260,22 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `password`, `role_id`, `picture`) VALUES
 (1, 'sadam payoda', 'sadampayodaa@gmail.com', '2147483647', NULL, NULL, 'sadam12345', 1, NULL),
+(2, 'admin', 'admin@gmail.com', '977898390', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
 (35, 'Khoirul Fahmi', 'khoirul@gmail.com', '977898390', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
 (37, 'Fahmi', 'Fahmi13@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
 (38, 'Fauzan Bakhtiar', 'fauzan123@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
-(39, 'Sadam PS 1', 'sadam123@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
+(39, 'Sadam PS 1', 'sadam123@gmail.com', '2147483647', NULL, '2006-12-18', 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
 (40, 'oke deh deh', 'sadamlol@gmail.com', '082331770406', 'pria', '2015-04-04', '2dbdfc20899993b3d3d356c6fc22e84d', 1, NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bahasa`
+--
+ALTER TABLE `bahasa`
+  ADD PRIMARY KEY (`BahasaID`);
 
 --
 -- Indexes for table `bank`
@@ -240,6 +291,13 @@ ALTER TABLE `consultant`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `consultant_bahasa`
+--
+ALTER TABLE `consultant_bahasa`
+  ADD UNIQUE KEY `ConsultantID` (`ConsultantID`,`BahasaID`),
+  ADD KEY `BahasaID` (`BahasaID`);
+
+--
 -- Indexes for table `program`
 --
 ALTER TABLE `program`
@@ -249,12 +307,6 @@ ALTER TABLE `program`
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `seminar`
---
-ALTER TABLE `seminar`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -275,10 +327,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bahasa`
+--
+ALTER TABLE `bahasa`
+  MODIFY `BahasaID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `bank`
 --
 ALTER TABLE `bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `consultant`
@@ -297,12 +355,6 @@ ALTER TABLE `program`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `seminar`
---
-ALTER TABLE `seminar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `type_sevice`
@@ -325,6 +377,14 @@ ALTER TABLE `users`
 --
 ALTER TABLE `bank`
   ADD CONSTRAINT `bank_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `consultant_bahasa`
+--
+ALTER TABLE `consultant_bahasa`
+  ADD CONSTRAINT `consultant_bahasa_ibfk_1` FOREIGN KEY (`ConsultantID`) REFERENCES `consultant` (`id`),
+  ADD CONSTRAINT `consultant_bahasa_ibfk_2` FOREIGN KEY (`ConsultantID`) REFERENCES `consultant` (`id`),
+  ADD CONSTRAINT `consultant_bahasa_ibfk_3` FOREIGN KEY (`BahasaID`) REFERENCES `bahasa` (`BahasaID`);
 
 --
 -- Constraints for table `users`

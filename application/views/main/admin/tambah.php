@@ -57,7 +57,14 @@
                             </div>
                             <div class="form-input">
                                 <p>Konsultan</p>
-                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="" id="">
+                                <select name="consultant_id" id="consultant_id" class="log-input select-dropdown">
+                                    <option value="">Select Consultant</option>
+                                    <?php foreach ($consultants as $consultant) : ?>
+                                    <option value="<?php echo $consultant->id; ?>"
+                                        title="<?php echo $consultant->name; ?>"><?php echo $consultant->name; ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="form-input">
                                 <p>Deskripsi</p>

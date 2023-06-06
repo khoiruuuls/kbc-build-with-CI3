@@ -59,4 +59,21 @@ class ProgramModel extends CI_MOdel
         $this->db->where('id', $this->input->post('id'), true);
         $this->db->update('program', $data);
     }
+
+    public function countConsultantsByProgramId($programId)
+    {
+        $this->db->select('COUNT(consultant.id) AS consultant_count');
+        $this->db->from('program');
+        $this->db->join('consultant', 'program.consultant_id = consultant.id');
+        $this->db->where('program.id', $programId);
+        $query = $this->db->get();
+        $result = $query->row();
+
+        return $result->consultant_count;
+    }
+
+    public function getProgramCount()
+    {
+        return $this->db->count_all('program');
+    }
 }

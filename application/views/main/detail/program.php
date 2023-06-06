@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="col d-flex flex-column gap-4">
-                <div class="card card-kbc p-4">
+                <div class="card card-kbc p-4 icon">
                     <h6><?php echo $item->name ?></h6>
                     <hr class="line">
                     <div class="d-flex gap-3">
@@ -94,7 +94,28 @@
                         </div>
                     </div>
                     <hr class="line">
-
+                    <p>Diselenggarakan Oleh</p>
+                    <div class="d-flex gap-3 align-items-center">
+                        <?php if (!empty($consultants)) : ?>
+                        <?php foreach ($consultants as $consultant) : ?>
+                        <img class="img-profile"
+                            src="<?php echo base_url() . 'assets/img/consultant/' . $consultant->photo ?>"></img>
+                        <div class="flex-column">
+                            <p class="m-0 pb-1 fw-bolder"><?php echo $consultant->name; ?></p>
+                            <div class="d-flex gap-4">
+                                <div class="  star-user">
+                                    <?php for ($i = 0; $i < 5; $i++) { ?>
+                                    <i class="ri-star-fill"></i>
+                                    <?php } ?>
+                                </div>
+                                <p class="m-0">4.9 dari 5.0</p>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                        <?php else : ?>
+                        <p class="m-0">Tidak Ada</p>
+                        <?php endif; ?>
+                    </div>
                 </div>
                 <div class="card card-kbc p-4">
                     <div class="row box-program">

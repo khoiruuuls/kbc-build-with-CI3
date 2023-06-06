@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2023 at 06:57 AM
+-- Generation Time: Jun 07, 2023 at 01:40 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -28,17 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bahasa` (
-  `BahasaID` int(8) NOT NULL,
-  `Nama` varchar(20) NOT NULL
+  `id` int(8) NOT NULL,
+  `bahasa_name` varchar(50) NOT NULL,
+  `consultant_id` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bahasa`
 --
 
-INSERT INTO `bahasa` (`BahasaID`, `Nama`) VALUES
-(1, 'Inggris'),
-(2, 'Prancis');
+INSERT INTO `bahasa` (`id`, `bahasa_name`, `consultant_id`) VALUES
+(7, 'English', 1),
+(8, 'Indonesian', 1),
+(9, 'Spanish', 1),
+(10, 'English', 2),
+(11, 'French', 2),
+(12, 'German', 2),
+(16, 'Chinese', 4);
 
 -- --------------------------------------------------------
 
@@ -61,7 +67,8 @@ CREATE TABLE `bank` (
 --
 
 INSERT INTO `bank` (`id`, `name`, `bb/tt`, `nomer`, `name_kartu`, `users_id`, `cvv`) VALUES
-(2, 'BCA', '37/23', '7634762', 'sadam payoda sabilillah', 40, '949');
+(2, 'BCA', '37/23', '7634762', 'sadam payoda sabilillah', 40, '949'),
+(10, 'BCA', '113123', '1232131', 'BCA', 39, '123123');
 
 -- --------------------------------------------------------
 
@@ -79,44 +86,50 @@ CREATE TABLE `consultant` (
   `email` varchar(100) NOT NULL,
   `no_handphone` varchar(12) NOT NULL,
   `link_group` varchar(255) NOT NULL,
-  `bahasa` varchar(20) NOT NULL,
   `perusahaan` varchar(100) NOT NULL,
   `sertifikasi` varchar(255) NOT NULL,
   `sertif_start` date DEFAULT NULL,
   `sertif_end` date DEFAULT NULL,
   `akun_media` varchar(100) NOT NULL,
   `jumlah_client` int(11) NOT NULL,
-  `spesialisasi` varchar(50) NOT NULL
+  `spesialisasi` varchar(50) NOT NULL,
+  `program_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `consultant`
 --
 
-INSERT INTO `consultant` (`id`, `name`, `profesi`, `profile`, `photo`, `alamat`, `email`, `no_handphone`, `link_group`, `bahasa`, `perusahaan`, `sertifikasi`, `sertif_start`, `sertif_end`, `akun_media`, `jumlah_client`, `spesialisasi`) VALUES
-(1, 'Andri Eriek', 'Coach', 'memimpin perusahaan menjadi salah satu perusahaan e-commerce terbesar di dunia. Bezos lahir pada tanggal 12 Januari 1964 di Albuquerque, New Mexico, Amerika Serikat. Ia belajar di Princeton University dan lulus dengan gelar sarjana ilmu komputer dan teknik listrik. Setelah lulus, Bezos bekerja di Wall Street sebelum mendirikan Amazon pada tahun 1994. Ia memegang posisi CEO hingga Juli 2021, ketika dia menyerahkan jabatan tersebut kepada Andy Jassy.', 'consultant (2).jpg', 'Jl Tubagus Ismail III/3, Jawa Barat', 'Andrieriek@gmail.com', '+62 889-8608', '', 'Inggris', 'Google. Inc', '', NULL, NULL, '@erik123', 123, 'Pajak'),
-(2, 'Yuliawaty ', 'Psycholog', 'Setelah menyelesaikan studi di University of Pennsylvania, ia mendirikan Zip2, sebuah perusahaan perangkat lunak yang menjual sistem manajemen media untuk perusahaan media. Setelah sukses dengan Zip2, ia mendirikan perusahaan pembayaran online X.com, yang kemudian berkembang menjadi PayPal. Pada tahun 2002, PayPal diakuisisi oleh eBay, dan Musk fokus pada proyek-proyek ruang angkasa dan mobil listrik. Dia mendirikan SpaceX pada tahun 2002 dan Tesla Motors pada tahun 2003. Sejak itu, ia terus menjadi tokoh terkemuka dalam inovasi teknologi.', 'consultant (3).jpg', ' Jl Bugangan VIII 203, Jawa Tengah', 'yuliawaty@gmail.com', '+62 830-5480', '0', '', 'Facebook', '', NULL, NULL, '@yuliawaty ', 450, 'Bahasa Inggris'),
-(3, 'Yuliawaty ', 'Psycholog', 'Setelah menggantikan Steve Jobs pada tahun 2011, ia terus memimpin Apple dan meneruskan inovasi perusahaan. Cook lahir pada tanggal 1 November 1960 di Mobile, Alabama, Amerika Serikat. Ia belajar di Auburn University dan kemudian mendapatkan gelar MBA dari Duke University. Sebelum bergabung dengan Apple, Cook bekerja di beberapa perusahaan teknologi terkenal seperti IBM dan Compaq. Setelah bergabung dengan Apple pada tahun 1998, ia memegang berbagai posisi penting seperti COO sebelum akhirnya diangkat menjadi CEO.', 'consultant (3).jpg', 'Jl Raya Bogor Km 30, Dki Jakarta', '', '', '0', '', '', '', NULL, NULL, '', 0, ''),
-(4, 'Ruaniwati', 'Coach', 'memperoleh gelar sarjana dalam teknik metalurgi. Setelah itu, ia melanjutkan pendidikan di Stanford University di mana ia mendapatkan gelar MBA dan MS dalam teknik material. Pichai bergabung dengan Google pada tahun 2004 dan memainkan peran penting dalam pengembangan produk seperti Google Toolbar, Google Chrome, dan sistem operasi Android. Pada tahun 2015, ia diangkat menjadi CEO Google dan kemudian, setelah restrukturisasi perusahaan pada tahun 2019, menjadi CEO Alphabet Inc.', 'consultant (1).jpg', ' Jl. Ahmad Yani no 806, Jawa Barat', 'ruaniwati@gmail.com', '+62 837-4749', '0', 'Inggris', 'Kopi Kenangan', '', NULL, NULL, '@ruaniwati', 1900, '');
+INSERT INTO `consultant` (`id`, `name`, `profesi`, `profile`, `photo`, `alamat`, `email`, `no_handphone`, `link_group`, `perusahaan`, `sertifikasi`, `sertif_start`, `sertif_end`, `akun_media`, `jumlah_client`, `spesialisasi`, `program_id`) VALUES
+(1, 'Andri Eriek', 'Coach', 'memimpin perusahaan menjadi salah satu perusahaan e-commerce terbesar di dunia. Bezos lahir pada tanggal 12 Januari 1964 di Albuquerque, New Mexico, Amerika Serikat. Ia belajar di Princeton University dan lulus dengan gelar sarjana ilmu komputer dan teknik listrik. Setelah lulus, Bezos bekerja di Wall Street sebelum mendirikan Amazon pada tahun 1994. Ia memegang posisi CEO hingga Juli 2021, ketika dia menyerahkan jabatan tersebut kepada Andy Jassy.', 'consultant (2).jpg', 'Jl Tubagus Ismail III/3, Jawa Barat', 'Andrieriek@gmail.com', '+62 889-8608', '', 'Google. Inc', '', NULL, NULL, '@erik123', 123, 'Pajak', 14),
+(2, 'Yuliawaty ', 'Psycholog', 'Setelah menyelesaikan studi di University of Pennsylvania, ia mendirikan Zip2, sebuah perusahaan perangkat lunak yang menjual sistem manajemen media untuk perusahaan media. Setelah sukses dengan Zip2, ia mendirikan perusahaan pembayaran online X.com, yang kemudian berkembang menjadi PayPal. Pada tahun 2002, PayPal diakuisisi oleh eBay, dan Musk fokus pada proyek-proyek ruang angkasa dan mobil listrik. Dia mendirikan SpaceX pada tahun 2002 dan Tesla Motors pada tahun 2003. Sejak itu, ia terus menjadi tokoh terkemuka dalam inovasi teknologi.', 'consultant (3).jpg', ' Jl Bugangan VIII 203, Jawa Tengah', 'yuliawaty@gmail.com', '+62 830-5480', '0', 'Facebook', '', NULL, NULL, '@yuliawaty ', 450, 'Bahasa Inggris', 3),
+(4, 'Ruaniwati', 'Coach', 'memperoleh gelar sarjana dalam teknik metalurgi. Setelah itu, ia melanjutkan pendidikan di Stanford University di mana ia mendapatkan gelar MBA dan MS dalam teknik material. Pichai bergabung dengan Google pada tahun 2004 dan memainkan peran penting dalam pengembangan produk seperti Google Toolbar, Google Chrome, dan sistem operasi Android. Pada tahun 2015, ia diangkat menjadi CEO Google dan kemudian, setelah restrukturisasi perusahaan pada tahun 2019, menjadi CEO Alphabet Inc.', 'consultant (1).jpg', ' Jl. Ahmad Yani no 806, Jawa Barat', 'ruaniwati@gmail.com', '+62 837-4749', '0', 'Kopi Kenangan', '', NULL, NULL, '@ruaniwati', 1900, '', 1),
+(8, 'Fahmi', 'consultant', '', 'KBC_Build3.png', 'Jalanin aja dulu', 'khotak@gmail.com', '098909890989', '', 'Maxy', '', NULL, NULL, 'Ig', 1234, 'gak ada', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `consultant_bahasa`
+-- Table structure for table `pengalaman`
 --
 
-CREATE TABLE `consultant_bahasa` (
-  `ConsultantID` int(8) NOT NULL,
-  `BahasaID` int(8) NOT NULL
+CREATE TABLE `pengalaman` (
+  `id` int(8) NOT NULL,
+  `pengalaman_name` varchar(50) NOT NULL,
+  `date_start` date DEFAULT NULL,
+  `date_end` date DEFAULT NULL,
+  `consultant_id` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `consultant_bahasa`
+-- Dumping data for table `pengalaman`
 --
 
-INSERT INTO `consultant_bahasa` (`ConsultantID`, `BahasaID`) VALUES
-(1, 1),
-(1, 2);
+INSERT INTO `pengalaman` (`id`, `pengalaman_name`, `date_start`, `date_end`, `consultant_id`) VALUES
+(1, 'Bank Indonesia', '2013-12-11', '2023-12-12', 1),
+(2, 'PT. Forisa Nusapersada', '2023-07-03', '2023-09-13', 1),
+(3, 'PT. Kalbe Farma Tbk', '2022-10-06', '2023-12-12', 1),
+(4, 'Bank Indonesia', '2022-10-17', '2023-12-04', 2),
+(5, 'PT. Bank Central Asia', '2023-08-21', '2023-12-12', 2);
 
 -- --------------------------------------------------------
 
@@ -142,19 +155,23 @@ CREATE TABLE `program` (
   `alamat` varchar(100) DEFAULT NULL,
   `kota` varchar(100) DEFAULT NULL,
   `photo` varchar(255) NOT NULL,
-  `kuota` int(20) DEFAULT NULL
+  `kuota` int(20) DEFAULT NULL,
+  `consultant_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `program`
 --
 
-INSERT INTO `program` (`id`, `name`, `tag`, `type`, `descProgram`, `priceMin`, `priceMax`, `dateStart`, `dateEnd`, `time_start`, `time_end`, `mode`, `url`, `lokasi`, `alamat`, `kota`, `photo`, `kuota`) VALUES
-(1, 'Shifting Up: Tranforming Your Business', '', 'Consulting', 'The word “transformation” gets thrown around a lot these days, but it can have different meanings for different individuals and companies. In a world of \nunprecedented disruption and market turbulence, transformation today revolves around the need to generate new value—to unlock new opportunities, to drive new growth, to deliver new efficiencies. \nAll transformations require you to rethink how your enterprise creates value today and in the future. In other words, all transformations require you to think big. Why? Because incremental improvement \nis not enough to win in today’s exponentially \ndisrupted business environment. Your organization \nrequires sustained growth in the face of near \nconstant disruption, and sustained growth requires \nagile reinvention. It’s not enough to win today. You \nhave to be able to continue to evolve in the future', 2500000, 3500000, '2023-03-23', '2023-05-23', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (1).jpg', 0),
-(2, 'Transformasi Dimulai Dari Pemimpin', '', 'Training', 'Gaya kepemimpinan transformasional, menurut Indeed, adalah cara seorang pemimpin memotivasi dan memberdayakan orang-orang di bawah tanggung jawabnya untuk bekerja sama mewujudkan visi perusahaan.\r\n\r\nSemua itu dicapainya tanpa micromanaging. Seorang pemimpin transformasional justru memberikan anggotanya ruang lebih untuk mengasah berbagai skill yang mereka perlukan di tempat kerja.\r\n\r\nKeleluasaan tersebut memungkinkan mereka menjadi lebih kreatif berinovasi menemukan solusi baru untuk masalah lama, serta mampu melihat ke masa depan.\r\n\r\nDengan begitu, setiap karyawan memiliki kekuasaan untuk membuat keputusan dan bertindak sesuai kebutuhan dalam setiap pekerjaannya.\r\n\r\nLewat tempaan kepemimpinan transformasional, anggota menunjukkan tingkat kepuasan kerja dan komitmen yang tinggi. Mereka juga cenderung memiliki cara pandang baru dan sense of belonging yang lebih kuat. \r\n\r\nPada akhirnya, upaya transformasi ini memungkinkan pemimpin menciptakan budaya dan lingkungan kerja yang sehat, efektif, serta efisien bagi semua. ', 500000, 1250000, '2023-05-03', '2023-06-26', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (2).jpg', 0),
-(3, 'Kingdom Financial for Kids Program', '', 'Coaching', 'As homeschoolers, we all know that a well-rounded education contains more than just the 3 R’s. In fact, in my home, it’s well known that all children are required to have a basic understanding of life skills that my husband and I feel are necessary. A big one for us is money management and money skills. We want to ensure our kids graduate with a basic understanding of what money is, why it’s necessary, and how to use it properly. And while my plan was to wait a little while longer, when my daughter and I learned of The Complete Starter Kit from The Kingdom Code we just knew we wanted to review their money management program, from a Biblical perspective.', 1500000, 1500000, '2023-06-24', '2023-07-01', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (3).jpg', 0),
-(4, 'Sukses Sejati Blended Learning', '', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (4).jpg', 0),
-(14, 'Sukses Sejati Blended Learning', '', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (4).jpg', 0);
+INSERT INTO `program` (`id`, `name`, `tag`, `type`, `descProgram`, `priceMin`, `priceMax`, `dateStart`, `dateEnd`, `time_start`, `time_end`, `mode`, `url`, `lokasi`, `alamat`, `kota`, `photo`, `kuota`, `consultant_id`) VALUES
+(1, 'Shifting Up: Tranforming Your Business', '', 'Consulting', 'The word “transformation” gets thrown around a lot these days, but it can have different meanings for different individuals and companies. In a world of \nunprecedented disruption and market turbulence, transformation today revolves around the need to generate new value—to unlock new opportunities, to drive new growth, to deliver new efficiencies. \nAll transformations require you to rethink how your enterprise creates value today and in the future. In other words, all transformations require you to think big. Why? Because incremental improvement \nis not enough to win in today’s exponentially \ndisrupted business environment. Your organization \nrequires sustained growth in the face of near \nconstant disruption, and sustained growth requires \nagile reinvention. It’s not enough to win today. You \nhave to be able to continue to evolve in the future', 2500000, 3500000, '2023-03-23', '2023-05-23', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (1).jpg', 0, 4),
+(2, 'Transformasi Dimulai Dari Pemimpin', '', 'Training', 'Gaya kepemimpinan transformasional, menurut Indeed, adalah cara seorang pemimpin memotivasi dan memberdayakan orang-orang di bawah tanggung jawabnya untuk bekerja sama mewujudkan visi perusahaan.\r\n\r\nSemua itu dicapainya tanpa micromanaging. Seorang pemimpin transformasional justru memberikan anggotanya ruang lebih untuk mengasah berbagai skill yang mereka perlukan di tempat kerja.\r\n\r\nKeleluasaan tersebut memungkinkan mereka menjadi lebih kreatif berinovasi menemukan solusi baru untuk masalah lama, serta mampu melihat ke masa depan.\r\n\r\nDengan begitu, setiap karyawan memiliki kekuasaan untuk membuat keputusan dan bertindak sesuai kebutuhan dalam setiap pekerjaannya.\r\n\r\nLewat tempaan kepemimpinan transformasional, anggota menunjukkan tingkat kepuasan kerja dan komitmen yang tinggi. Mereka juga cenderung memiliki cara pandang baru dan sense of belonging yang lebih kuat. \r\n\r\nPada akhirnya, upaya transformasi ini memungkinkan pemimpin menciptakan budaya dan lingkungan kerja yang sehat, efektif, serta efisien bagi semua. ', 500000, 1250000, '2023-05-03', '2023-06-26', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (2).jpg', 0, 4),
+(3, 'Kingdom Financial for Kids Program', '', 'Coaching', 'As homeschoolers, we all know that a well-rounded education contains more than just the 3 R’s. In fact, in my home, it’s well known that all children are required to have a basic understanding of life skills that my husband and I feel are necessary. A big one for us is money management and money skills. We want to ensure our kids graduate with a basic understanding of what money is, why it’s necessary, and how to use it properly. And while my plan was to wait a little while longer, when my daughter and I learned of The Complete Starter Kit from The Kingdom Code we just knew we wanted to review their money management program, from a Biblical perspective.', 1500000, 1500000, '2023-06-24', '2023-07-01', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (3).jpg', 0, 1),
+(4, 'Sukses Sejati Blended Learning', '', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (4).jpg', 0, NULL),
+(14, 'Sukses Sejati Blended Learning 1', '', 'consultan', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', '00:00:00', '00:00:00', 'online', '', NULL, NULL, NULL, 'our-program (4).jpg', 12, 2),
+(18, 'Kursus Pelatihan Pajak', 'Pajak', 'Seminar', 'Jasa pelatihan pajak ini ditujukan untuk meningkatkan pengetahuan dan keterampilan perpajakan pada wajib pajak di perusahaan dan masyarakat pada umumnya.', 120000, 120000, '2023-06-07', '2023-06-22', NULL, NULL, 'online', 'https://www.google.com/search?q=program+pelatihan+pajak&oq=program+pelatihan+pajak&aqs=edge..69i57j0', 'Gedung Pakuwon', 'Jakarta Selatan', 'Jakarta Selatan', '', 1234, 8),
+(19, 'Kursus Pelatihan Pajak', 'Pajak', 'Seminar', 'Jasa pelatihan pajak ini ditujukan untuk meningkatkan pengetahuan dan keterampilan perpajakan pada wajib pajak di perusahaan dan masyarakat pada umumnya.', 120000, 120000, '2023-06-07', '2023-06-22', NULL, NULL, 'online', 'https://www.google.com/search?q=program+pelatihan+pajak&oq=program+pelatihan+pajak&aqs=edge..69i57j0', 'Gedung Pakuwon', 'Jakarta Selatan', 'Jakarta Selatan', 'hello.jpg', 1234, 8),
+(20, 'Hello', 'Hello', 'consultan', 'HelloHelloHelloHelloHellov', 123, 100123, '2023-06-22', '2023-06-26', '18:30:00', '14:36:00', 'online', 'Hello', NULL, NULL, NULL, 'KBC_Build5.png', 1234, 1);
 
 -- --------------------------------------------------------
 
@@ -217,6 +234,56 @@ INSERT INTO `seminar` (`id`, `consultant_id`, `name`, `sub_title`, `content`, `s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sertifikasi`
+--
+
+CREATE TABLE `sertifikasi` (
+  `id` int(8) NOT NULL,
+  `sertifikasi_name` varchar(50) NOT NULL,
+  `date_start` date DEFAULT NULL,
+  `date_end` date DEFAULT NULL,
+  `consultant_id` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sertifikasi`
+--
+
+INSERT INTO `sertifikasi` (`id`, `sertifikasi_name`, `date_start`, `date_end`, `consultant_id`) VALUES
+(1, 'Master of Technology Education', '2023-06-08', '2023-06-07', 1),
+(2, 'Certified Behavioral Analyst', '2023-06-21', '2023-06-14', 1),
+(3, 'Master Trainer - Future Digital Skills Certificati', '2017-06-15', '2023-06-15', 1),
+(4, 'Master Trainer - Future Digital Skills Certificati', '2016-06-17', '2023-06-14', 2),
+(5, 'Human Capital Strategy', '2017-06-16', '2023-06-14', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `spesialisasi`
+--
+
+CREATE TABLE `spesialisasi` (
+  `id` int(8) NOT NULL,
+  `spesialisasi_name` varchar(50) NOT NULL,
+  `consultant_id` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `spesialisasi`
+--
+
+INSERT INTO `spesialisasi` (`id`, `spesialisasi_name`, `consultant_id`) VALUES
+(1, 'Pemasaran', 1),
+(2, 'Strategi Bisnis', 1),
+(3, 'Teknologi Informasi', 1),
+(4, 'Keuangan', 2),
+(5, 'Sumber Daya Manusia', 2),
+(8, 'Operasional & Bisnis', 2),
+(9, 'Operasional & Bisnis', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `type_sevice`
 --
 
@@ -260,7 +327,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `password`, `role_id`, `picture`) VALUES
 (1, 'sadam payoda', 'sadampayodaa@gmail.com', '2147483647', NULL, NULL, 'sadam12345', 1, NULL),
-(2, 'admin', 'admin@gmail.com', '977898390', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
+(2, 'Admin', 'admin@gmail.com', '977898390', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
 (35, 'Khoirul Fahmi', 'khoirul@gmail.com', '977898390', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
 (37, 'Fahmi', 'Fahmi13@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
 (38, 'Fauzan Bakhtiar', 'fauzan123@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
@@ -275,7 +342,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `pass
 -- Indexes for table `bahasa`
 --
 ALTER TABLE `bahasa`
-  ADD PRIMARY KEY (`BahasaID`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `bahasa_ibfk_1` (`consultant_id`);
 
 --
 -- Indexes for table `bank`
@@ -288,26 +356,42 @@ ALTER TABLE `bank`
 -- Indexes for table `consultant`
 --
 ALTER TABLE `consultant`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_consultant_program` (`program_id`);
 
 --
--- Indexes for table `consultant_bahasa`
+-- Indexes for table `pengalaman`
 --
-ALTER TABLE `consultant_bahasa`
-  ADD UNIQUE KEY `ConsultantID` (`ConsultantID`,`BahasaID`),
-  ADD KEY `BahasaID` (`BahasaID`);
+ALTER TABLE `pengalaman`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_consultant_pengalaman_id` (`consultant_id`);
 
 --
 -- Indexes for table `program`
 --
 ALTER TABLE `program`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_program_consultant` (`consultant_id`);
 
 --
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sertifikasi`
+--
+ALTER TABLE `sertifikasi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_consultant_sertifikasi_id` (`consultant_id`);
+
+--
+-- Indexes for table `spesialisasi`
+--
+ALTER TABLE `spesialisasi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_consultant_spesialisasi_id` (`consultant_id`) USING BTREE;
 
 --
 -- Indexes for table `type_sevice`
@@ -330,31 +414,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bahasa`
 --
 ALTER TABLE `bahasa`
-  MODIFY `BahasaID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `bank`
 --
 ALTER TABLE `bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `consultant`
 --
 ALTER TABLE `consultant`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `pengalaman`
+--
+ALTER TABLE `pengalaman`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `sertifikasi`
+--
+ALTER TABLE `sertifikasi`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `spesialisasi`
+--
+ALTER TABLE `spesialisasi`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `type_sevice`
@@ -373,18 +475,50 @@ ALTER TABLE `users`
 --
 
 --
+-- Constraints for table `bahasa`
+--
+ALTER TABLE `bahasa`
+  ADD CONSTRAINT `bahasa_ibfk_1` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_consultant_id` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`);
+
+--
 -- Constraints for table `bank`
 --
 ALTER TABLE `bank`
   ADD CONSTRAINT `bank_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `consultant_bahasa`
+-- Constraints for table `consultant`
 --
-ALTER TABLE `consultant_bahasa`
-  ADD CONSTRAINT `consultant_bahasa_ibfk_1` FOREIGN KEY (`ConsultantID`) REFERENCES `consultant` (`id`),
-  ADD CONSTRAINT `consultant_bahasa_ibfk_2` FOREIGN KEY (`ConsultantID`) REFERENCES `consultant` (`id`),
-  ADD CONSTRAINT `consultant_bahasa_ibfk_3` FOREIGN KEY (`BahasaID`) REFERENCES `bahasa` (`BahasaID`);
+ALTER TABLE `consultant`
+  ADD CONSTRAINT `fk_consultant_program` FOREIGN KEY (`program_id`) REFERENCES `program` (`id`);
+
+--
+-- Constraints for table `pengalaman`
+--
+ALTER TABLE `pengalaman`
+  ADD CONSTRAINT `fk_consultant_pengalaman_id` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pengalaman_ibfk_1` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`);
+
+--
+-- Constraints for table `program`
+--
+ALTER TABLE `program`
+  ADD CONSTRAINT `fk_program_consultant` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`);
+
+--
+-- Constraints for table `sertifikasi`
+--
+ALTER TABLE `sertifikasi`
+  ADD CONSTRAINT `fk_consultant_sertifikasi_id` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `sertifikasi_ibfk_1` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`);
+
+--
+-- Constraints for table `spesialisasi`
+--
+ALTER TABLE `spesialisasi`
+  ADD CONSTRAINT `fk_consultant_spesialiasi_id` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `spesialisasi_ibfk_1` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`);
 
 --
 -- Constraints for table `users`

@@ -21,7 +21,7 @@
     <section id="our-program">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-3 filter-box stiky">
+                <div class="col-md-3 filter-box stiky">
                     <div class="filter-top">
                         <div class="filter-title filter-display">
                             <i class="ri-equalizer-line"></i>
@@ -103,7 +103,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-9">
                     <div class="container-fluid">
                         <div class="header-card">
                             <p>Menampilkan 9 dari 89 Program</p>
@@ -111,27 +111,27 @@
                         </div>
                         <div class="row gy-3">
                             <?php foreach ($program as $item) : ?>
-                            <div class="col-md-4 col">
-                                <a href="<?php echo 'detail-program/' . $item->id ?>">
-                                    <div class="card card-kbc">
-                                        <img src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
-                                        <div class="our-program-text">
-                                            <span><?= $item->type ?></span>
-                                            <h6><?= $item->name ?></h6>
-                                            <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
-                                            </p>
-                                            <span class="text-capitalize">
-                                                <?php if ($item->priceMin == $item->priceMax) {
+                                <div class="col-md-4">
+                                    <a href="<?php echo 'detail-program/' . $item->id ?>">
+                                        <div class="card card-kbc">
+                                            <img class="img-pr object-fit-sm-contain" src="<?php echo base_url('assets/img/program/' . $item->photo) ?>" alt="">
+                                            <div class="our-program-text">
+                                                <span><?= $item->type ?></span>
+                                                <h6 style="height: 60px"><?= $item->name ?></h6>
+                                                <p><?= date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
+                                                </p>
+                                                <span class="text-capitalize">
+                                                    <?php if ($item->priceMin == $item->priceMax) {
                                                         echo "Rp. " . number_format($item->priceMin);
                                                     } else {
                                                         echo "Rp. " . number_format($item->priceMin) . " - " . "Rp." . number_format($item->priceMax);
                                                     }
                                                     ?>
-                                            </span>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
+                                    </a>
+                                </div>
                             <?php endforeach; ?>
                         </div>
                     </div>

@@ -2,15 +2,8 @@
 
 update dari khoirul
 
-- penambahan kolom di database sesuai dengan kolom kolom yang ada pada detail consultant
-- penambahan halaman detail pembayaran dan detail pesanan
-- penambahan my program dan wishlist pada halaman profile
-- on progress website responsive
-
-yang perlu dikembangkan lagi
-
-- user dapat memilih program
-- halaman detail belum per program
-- user dapat memilih program dan kemudian disimpan pada user profile my program
+- penambahan one to many dari consultant ke program
+- responsive design on progress
+- fix add function pada admin saat penambahan program dan consultant
 
 misal ada salah kabari bang

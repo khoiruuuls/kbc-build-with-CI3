@@ -315,10 +315,24 @@ button.btn-social {
 	transition: color 0.3s 0.1s ease-out;
 }
 
+.icon i {
+	color: var(--secondary-color-5);
+}
+
+img.img-profile {
+	clip-path: circle();
+	width: 60px;
+}
+
+img.img-pr {
+	max-height: 293.734px;
+}
+
 /* Input and Textarea Style */
 
 input.log-input,
-textarea {
+textarea,
+select.log-input {
 	width: 100%;
 	padding: 12px 20px;
 	font-weight: var(--font-medium);

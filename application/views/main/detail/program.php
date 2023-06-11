@@ -142,12 +142,12 @@
                             20%!</p>
                     </div>
                     <div class="row justify-content-between">
-                        <a class="col" href="<?php echo site_url() . 'detail-pesanan' ?>">
-                            <button class="col log-secondary-button" style="width: 100%">
+                        <form class="col" method="POST" action="<?= base_url().'wishlist/addWishlist' ?>" >
+                            <button value="<?= $item->id ?>" name="program_id" class="col log-secondary-button" style="width: 100%">
                                 <i class="ri-bookmark-line me-2"></i>
                                 Wishlist
                             </button>
-                        </a>
+                        </form>
                         <a class="col" href="<?php echo site_url() . 'detail-pesanan' ?>">
                             <button class=" log-primary-button" style="width: 100%">Daftar</button>
                         </a>

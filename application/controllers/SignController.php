@@ -94,13 +94,16 @@ class SignController extends CI_Controller
             ));
             if ($pengecekan->row()) {
                 $this->session->set_userdata([
+                    'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
                     'role_id' => $user->role_id
                 ]);
                 if ($user->role_id == 1) {
                     return redirect(site_url('./'));
-                } else {
+                } elseif($user->role_id == 3){
+                    return redirect('dashboard');
+                }else {
                     return redirect('admin');
                 }
             }

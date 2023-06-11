@@ -80,7 +80,15 @@
                                 <td><?= $item->name ?></td>
                                 <td><?= $item->date_start ?></td>
                                 <td>
-                                    <p class="menunggu"><?= $item->status ?></p>
+                                    <?php if ($item->status == 'menunggu') : ?>
+                                        <p class="menunggu"><?= $item->status ?></p>
+                                    <?php elseif ($item->status == 'aktif') : ?>
+                                        <p class="aktif"><?= $item->status ?></p>
+                                    <?php elseif ($item->status == 'draf') : ?>
+                                        <p class="draf"><?= $item->status ?></p>
+                                    <?php else : ?>
+                                        <p class="lainnya"><?= $item->status ?></p>
+                                    <?php endif; ?>
                                 </td>
                                 <td>
                                     <div id="button-table">

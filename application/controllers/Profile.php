@@ -151,8 +151,16 @@ class Profile extends CI_Controller
     public function wishlist()
     {
         $this->load->model("ProgramModel");
-        $data['program'] = $this->ProgramModel->getProgram();
+        $query = $this->db->select('*')
+                            ->from('program')
+                            ->join('wishlist', 'wishlist.program_id = program.id')
+                            ->join('users','wishlist.user_id = users.id')
+                            ->where('users.id',$this->session->userdata('id'))
+                            ->get();
+        // var_dump($query->result_array());
+        // die; 
         $data['page_title'] = 'Wishlist';
+        $data['program'] = $query->result();
         $data['user']    = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->load->view('main/profile/wishlist', $data);

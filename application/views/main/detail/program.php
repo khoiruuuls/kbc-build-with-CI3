@@ -144,26 +144,24 @@
                                 20%!</p>
                         </div>
                         <div class="row justify-content-between">
-                            <a class="col-6" href="<?php echo site_url() . 'detail-pesanan' ?>">
-                                <button class="col log-secondary-button" style="width: 100%">
+                            <form class="col" method="POST" action="<?= base_url() . 'wishlist/addWishlist' ?>">
+                                <button value="<?= $item->id ?>" name="program_id" class="col log-secondary-button" style="width: 100%">
                                     <i class="ri-bookmark-line me-2"></i>
                                     Wishlist
                                 </button>
-                            </a>
-                            <a class="col-6" href="<?php echo site_url('pesanan/' . $item->id) ?>">
-                                <button class="log-primary-button" style="width: 100%">Daftar</button>
+                            </form>
+                            <a class="col" href="<?php echo site_url() . 'detail-pesanan' ?>">
+                                <button class=" log-primary-button" style="width: 100%">Daftar</button>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div>
 
+        <?php endforeach; ?>
 
-    <?php endforeach; ?>
-
-    <?php $this->load->view("_partials/footer.php") ?>
+        <?php $this->load->view("_partials/footer.php") ?>
 
 </body>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2023 at 01:40 AM
+-- Generation Time: Jun 11, 2023 at 10:41 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -79,6 +79,7 @@ INSERT INTO `bank` (`id`, `name`, `bb/tt`, `nomer`, `name_kartu`, `users_id`, `c
 CREATE TABLE `consultant` (
   `id` int(8) NOT NULL,
   `name` varchar(20) NOT NULL,
+  `users_id` int(11) NOT NULL,
   `profesi` varchar(20) NOT NULL,
   `profile` text NOT NULL,
   `photo` varchar(225) NOT NULL,
@@ -100,11 +101,11 @@ CREATE TABLE `consultant` (
 -- Dumping data for table `consultant`
 --
 
-INSERT INTO `consultant` (`id`, `name`, `profesi`, `profile`, `photo`, `alamat`, `email`, `no_handphone`, `link_group`, `perusahaan`, `sertifikasi`, `sertif_start`, `sertif_end`, `akun_media`, `jumlah_client`, `spesialisasi`, `program_id`) VALUES
-(1, 'Andri Eriek', 'Coach', 'memimpin perusahaan menjadi salah satu perusahaan e-commerce terbesar di dunia. Bezos lahir pada tanggal 12 Januari 1964 di Albuquerque, New Mexico, Amerika Serikat. Ia belajar di Princeton University dan lulus dengan gelar sarjana ilmu komputer dan teknik listrik. Setelah lulus, Bezos bekerja di Wall Street sebelum mendirikan Amazon pada tahun 1994. Ia memegang posisi CEO hingga Juli 2021, ketika dia menyerahkan jabatan tersebut kepada Andy Jassy.', 'consultant (2).jpg', 'Jl Tubagus Ismail III/3, Jawa Barat', 'Andrieriek@gmail.com', '+62 889-8608', '', 'Google. Inc', '', NULL, NULL, '@erik123', 123, 'Pajak', 14),
-(2, 'Yuliawaty ', 'Psycholog', 'Setelah menyelesaikan studi di University of Pennsylvania, ia mendirikan Zip2, sebuah perusahaan perangkat lunak yang menjual sistem manajemen media untuk perusahaan media. Setelah sukses dengan Zip2, ia mendirikan perusahaan pembayaran online X.com, yang kemudian berkembang menjadi PayPal. Pada tahun 2002, PayPal diakuisisi oleh eBay, dan Musk fokus pada proyek-proyek ruang angkasa dan mobil listrik. Dia mendirikan SpaceX pada tahun 2002 dan Tesla Motors pada tahun 2003. Sejak itu, ia terus menjadi tokoh terkemuka dalam inovasi teknologi.', 'consultant (3).jpg', ' Jl Bugangan VIII 203, Jawa Tengah', 'yuliawaty@gmail.com', '+62 830-5480', '0', 'Facebook', '', NULL, NULL, '@yuliawaty ', 450, 'Bahasa Inggris', 3),
-(4, 'Ruaniwati', 'Coach', 'memperoleh gelar sarjana dalam teknik metalurgi. Setelah itu, ia melanjutkan pendidikan di Stanford University di mana ia mendapatkan gelar MBA dan MS dalam teknik material. Pichai bergabung dengan Google pada tahun 2004 dan memainkan peran penting dalam pengembangan produk seperti Google Toolbar, Google Chrome, dan sistem operasi Android. Pada tahun 2015, ia diangkat menjadi CEO Google dan kemudian, setelah restrukturisasi perusahaan pada tahun 2019, menjadi CEO Alphabet Inc.', 'consultant (1).jpg', ' Jl. Ahmad Yani no 806, Jawa Barat', 'ruaniwati@gmail.com', '+62 837-4749', '0', 'Kopi Kenangan', '', NULL, NULL, '@ruaniwati', 1900, '', 1),
-(8, 'Fahmi', 'consultant', '', 'KBC_Build3.png', 'Jalanin aja dulu', 'khotak@gmail.com', '098909890989', '', 'Maxy', '', NULL, NULL, 'Ig', 1234, 'gak ada', NULL);
+INSERT INTO `consultant` (`id`, `name`, `users_id`, `profesi`, `profile`, `photo`, `alamat`, `email`, `no_handphone`, `link_group`, `perusahaan`, `sertifikasi`, `sertif_start`, `sertif_end`, `akun_media`, `jumlah_client`, `spesialisasi`, `program_id`) VALUES
+(1, 'Andri Eriek', 41, 'Coach', 'memimpin perusahaan menjadi salah satu perusahaan e-commerce terbesar di dunia. Bezos lahir pada tanggal 12 Januari 1964 di Albuquerque, New Mexico, Amerika Serikat. Ia belajar di Princeton University dan lulus dengan gelar sarjana ilmu komputer dan teknik listrik. Setelah lulus, Bezos bekerja di Wall Street sebelum mendirikan Amazon pada tahun 1994. Ia memegang posisi CEO hingga Juli 2021, ketika dia menyerahkan jabatan tersebut kepada Andy Jassy.', 'consultant (2).jpg', 'Jl Tubagus Ismail III/3, Jawa Barat', 'Andrieriek@gmail.com', '+62 889-8608', '9', 'Google. Inc', '', NULL, NULL, '@erik123', 123, 'Pajak', 14),
+(2, 'Yuliawaty ', 42, 'Psycholog', 'Setelah menyelesaikan studi di University of Pennsylvania, ia mendirikan Zip2, sebuah perusahaan perangkat lunak yang menjual sistem manajemen media untuk perusahaan media. Setelah sukses dengan Zip2, ia mendirikan perusahaan pembayaran online X.com, yang kemudian berkembang menjadi PayPal. Pada tahun 2002, PayPal diakuisisi oleh eBay, dan Musk fokus pada proyek-proyek ruang angkasa dan mobil listrik. Dia mendirikan SpaceX pada tahun 2002 dan Tesla Motors pada tahun 2003. Sejak itu, ia terus menjadi tokoh terkemuka dalam inovasi teknologi.', 'consultant (3).jpg', ' Jl Bugangan VIII 203, Jawa Tengah', 'yuliawaty@gmail.com', '+62 830-5480', '0', 'Facebook', '', NULL, NULL, '@yuliawaty ', 450, 'Bahasa Inggris', 3),
+(4, 'Ruaniwati', 43, 'Coach', 'memperoleh gelar sarjana dalam teknik metalurgi. Setelah itu, ia melanjutkan pendidikan di Stanford University di mana ia mendapatkan gelar MBA dan MS dalam teknik material. Pichai bergabung dengan Google pada tahun 2004 dan memainkan peran penting dalam pengembangan produk seperti Google Toolbar, Google Chrome, dan sistem operasi Android. Pada tahun 2015, ia diangkat menjadi CEO Google dan kemudian, setelah restrukturisasi perusahaan pada tahun 2019, menjadi CEO Alphabet Inc.', 'consultant (1).jpg', ' Jl. Ahmad Yani no 806, Jawa Barat', 'ruaniwati@gmail.com', '+62 837-4749', '0', 'Kopi Kenangan', '', NULL, NULL, '@ruaniwati', 1900, '', 1),
+(8, 'Fahmi', 44, 'consultant', '', 'KBC_Build3.png', 'Jalanin aja dulu', 'khotak@gmail.com', '098909890989', '90', 'Maxy', '', NULL, NULL, 'Ig', 1234, 'gak ada', NULL);
 
 -- --------------------------------------------------------
 
@@ -190,7 +191,8 @@ CREATE TABLE `role` (
 
 INSERT INTO `role` (`id`, `name`) VALUES
 (1, 'user'),
-(2, 'admin');
+(2, 'admin'),
+(3, 'consultant\r\n');
 
 -- --------------------------------------------------------
 
@@ -313,7 +315,7 @@ CREATE TABLE `users` (
   `id` int(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `no` varchar(12) NOT NULL,
+  `no` varchar(12) DEFAULT NULL,
   `jenis_kelamin` enum('pria','wanita') DEFAULT NULL,
   `date` date DEFAULT NULL,
   `password` varchar(255) NOT NULL,
@@ -332,7 +334,31 @@ INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `pass
 (37, 'Fahmi', 'Fahmi13@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
 (38, 'Fauzan Bakhtiar', 'fauzan123@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
 (39, 'Sadam PS 1', 'sadam123@gmail.com', '2147483647', NULL, '2006-12-18', 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
-(40, 'oke deh deh', 'sadamlol@gmail.com', '082331770406', 'pria', '2015-04-04', '2dbdfc20899993b3d3d356c6fc22e84d', 1, NULL);
+(40, 'oke deh deh', 'sadamlol@gmail.com', '082331770406', 'pria', '2015-04-04', '2dbdfc20899993b3d3d356c6fc22e84d', 1, NULL),
+(41, 'Andri Eriek', 'erik@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
+(42, 'Yuliawaty \r\n', 'yuli@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d\r\n', 3, NULL),
+(43, 'Ruaniwati\r\n', 'rua@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d\r\n', 3, NULL),
+(44, 'Fahmi', 'fahmi@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `program_id` int(11) DEFAULT NULL,
+  `seminar_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `user_id`, `program_id`, `seminar_id`) VALUES
+(1, 40, 3, NULL);
 
 --
 -- Indexes for dumped tables
@@ -407,6 +433,12 @@ ALTER TABLE `users`
   ADD KEY `role_id` (`role_id`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -444,7 +476,7 @@ ALTER TABLE `program`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sertifikasi`
@@ -468,7 +500,13 @@ ALTER TABLE `type_sevice`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

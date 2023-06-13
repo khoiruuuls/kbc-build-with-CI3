@@ -24,8 +24,10 @@ $route['detail-consultant/(:num)'] = 'HomeController/detail/$1';
 
 
 
-$route['pesanan/(:any)'] = 'HomeController/pesanan/$1';
-$route['pembayaran/(:any)'] = 'HomeController/pembayaran/$1';
+$route['detail-pesanan'] = 'HomeController/pesanan';
+$route['pembayaran'] = 'HomeController/pembayaran';
+// $route['consultation'] = 'Wishlist/addWishlist';
+$route['dashboard'] = 'HomeController/dashboard';
 
 
 

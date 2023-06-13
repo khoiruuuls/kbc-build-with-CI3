@@ -126,4 +126,35 @@ class HomeController extends CI_Controller
         ];
         $this->load->view('main/detail/pembayaran', $data);
     }
+
+    public function dashboard()
+    {
+        if($this->session->userdata())
+        {
+            if($this->session->userdata('role_id') == 3){
+                $query = $this->db->select('consultant.*')
+                                    ->from('consultant')
+                                    ->join('users','consultant.users_id = users.id')
+                                    ->where('users.id',$this->session->userdata('id'))
+                                    ->get()->result_array();
+                
+                
+                $feildProfil = ['profesi','profile','photo','alamat','no_handphone','link_group','perusahaan','sertifikasi','sertif_start','sertif_end','akun_media'];
+                // var_dump($query);
+                // var_dump($query[0][$feildProfil[1]]);
+                $persenProfile = 0;
+                for ($i=0; $i < count($feildProfil); $i++) { 
+                    if($query[0][$feildProfil[$i]] != NULL){
+                        $persenProfile++;
+                    }
+                }
+                
+                $data['profile'] = $persenProfile;
+
+                return $this->load->view('main/dashboard/index',$data);
+            }
+        }
+        return redirect(site_url('./'));
+
+    }
 }

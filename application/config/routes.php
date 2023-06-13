@@ -24,8 +24,8 @@ $route['detail-consultant/(:num)'] = 'HomeController/detail/$1';
 
 
 
-$route['detail-pesanan'] = 'HomeController/pesanan';
-$route['pembayaran'] = 'HomeController/pembayaran';
+$route['pesanan/(:any)'] = 'HomeController/pesanan/$1';
+$route['pembayaran/(:any)'] = 'HomeController/pembayaran/$1';
 
 
 

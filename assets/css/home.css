@@ -42,17 +42,115 @@
 	font-size: 16px;
 }
 
+@media (max-width: 1118px) {
+	/* Adjust styles for screens up to 480px width */
+	#home img {
+		object-position: right;
+	}
+
+	#home .headline h3,
+	#home .headline span {
+		font-size: 40px;
+	}
+
+	#home .headline {
+		padding: 20px;
+		position: absolute;
+		top: 50%;
+		left: 30%;
+		transform: translate(-50%, -50%);
+	}
+
+	/* Other styles for smaller screens */
+}
+
+@media (max-width: 990px) {
+	/* Adjust styles for screens up to 480px width */
+	#home img {
+		object-position: left;
+	}
+
+	#home .headline h3,
+	#home .headline span {
+		font-size: 40px;
+	}
+
+	#home .headline {
+		padding: 20px;
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@media (max-width: 480px) {
+	/* Adjust styles for screens up to 480px width */
+	#home img {
+		object-position: left;
+	}
+
+	#home .headline h3,
+	#home .headline span {
+		font-size: 30px;
+	}
+
+	#home .headline p {
+		margin: 15px 0;
+		font-size: 12px;
+	}
+
+	#home .headline {
+		padding: 20px;
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	/* Other styles for smaller screens */
+}
+
 #partnerku .list-partner {
 	display: grid;
 	justify-items: center;
 	align-items: center;
 	grid-template-columns: repeat(8, 1fr);
+	gap: 20px; /* Add some gap between partner logos */
 }
+
+/* Responsive styles */
+@media (max-width: 1118px) {
+	#partnerku .list-partner {
+		grid-template-columns: repeat(
+			4,
+			1fr
+		); /* Show 4 partners per row on smaller screens */
+	}
+}
+
+@media (max-width: 480px) {
+	#partnerku .list-partner {
+		grid-template-columns: repeat(
+			2,
+			1fr
+		); /* Show 2 partners per row on even smaller screens */
+	}
+}
+
+/* #partnerku .list-partner {
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	grid-template-columns: repeat(8, 1fr);
+} */
 
 #about-us .frame {
 	border-radius: 8px;
-	width: 500px;
-	height: 280px;
+	width: 100%;
+	height: 300px;
 }
 
 :where(
@@ -151,6 +249,24 @@
 	width: 100%;
 	height: 500px;
 	object-fit: cover;
+}
+
+@media (max-width: 768px) {
+	#testimoni .card-testimoni:not(:first-child) {
+		display: none;
+	}
+
+	#testimoni .testimoni-user {
+		padding-inline: 10px;
+	}
+
+	#testimoni .testimoni-user img {
+		width: 40px;
+	}
+
+	#testimoni .testimoni-user p {
+		font-size: 14px;
+	}
 }
 
 #tobe-consultant .tobe-consultant-box,

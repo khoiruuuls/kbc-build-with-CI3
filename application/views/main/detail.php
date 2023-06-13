@@ -146,7 +146,9 @@
                         <?php if (!empty($pengalamans)) : ?>
                             <?php foreach ($pengalamans as $item) : ?>
                                 <div class="col-md-6 col-12 mb-4 d-flex gap-3 edu-certif ">
-                                    <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="">
+                                    <div class="icon-wrap rounded-circle">
+                                        <i class="ri-building-line"></i>
+                                    </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="fw-bold"><?php echo $item->pengalaman_name ?></h6>
                                         <p class="m-0">

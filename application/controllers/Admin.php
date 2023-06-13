@@ -182,6 +182,8 @@ class Admin extends CI_Controller
         $data['page_title'] = 'Tambah Konsultan';
         $this->load->model('ConsultantModel');
         $data['consultants'] = $this->ConsultantModel->getConsultant();
+        $this->load->model('ConsultantModel');
+        $data['bahasa_options'] = $this->ConsultantModel->getBahasaOptions();
         $this->load->view('main/admin/tambah', $data);
     }
 
@@ -227,8 +229,10 @@ class Admin extends CI_Controller
         return redirect('admin');
     }
 
+
     public function add_consultant()
     {
+        $this->load->model("ConsultantModel");
 
         if ($this->input->post()) {
 
@@ -250,13 +254,6 @@ class Admin extends CI_Controller
                 'required' => 'Please input no_hanphone is required',
                 'numeric' => 'The input you enter is not of type number'
             ]);
-
-            $this->form_validation->set_rules('spesialisasi', 'spesialisasi', 'trim|required', [
-                'required' => 'Please input spesialisasi is required',
-            ]);
-            $this->form_validation->set_rules('perusahaan', 'perusahaan', 'trim|required', [
-                'required' => 'Please input perusahaan is required',
-            ]);
             $this->form_validation->set_rules('jumlah_client', 'jumlah_client', 'trim|required|numeric', [
                 'required' => 'Please input jumlah_client is required',
                 'numeric' => 'The input you enter is not of type number'
@@ -264,39 +261,6 @@ class Admin extends CI_Controller
             $this->form_validation->set_rules('akun_media', 'akun_media', 'trim|required', [
                 'required' => 'Please input akun_media is required',
             ]);
-
-            // var_dump($this->form_validation->run());
-            // die;
-
-
-            // if ($this->form_validation->run() == TRUE) {
-            //     if ($_FILES['photo']['name']) {
-            //         $config['upload_path'] = 'assets/img/consultant/';
-            //         $config['allowed_types'] = 'jpg|png|jpeg';
-            //         $config['max_size'] = 2048;
-            //         $config['filename'] = $_FILES['photo']['name'];
-
-            //         $this->load->library('upload', $config);
-
-            //         if ($this->upload->do_upload('photo')) {
-
-            //             $uploadDb = [
-            //                 'photo' => $this->upload->data('file_name'),
-            //                 'name' => htmlspecialchars($this->input->post('name'), true),
-            //                 'profesi' => 'consultant',
-            //                 'alamat' => htmlspecialchars($this->input->post('alamat'), true),
-            //                 'email' => htmlspecialchars($this->input->post('email'), true),
-            //                 'no_handphone' => $this->input->post('no_handphone'),
-            //                 'perusahaan' => htmlspecialchars($this->input->post('perusahaan'), true),
-            //                 'spesialisasi' => htmlspecialchars($this->input->post('spesialisasi'), true),
-            //                 'akun_media' => htmlspecialchars($this->input->post('akun_media'), true),
-            //                 'jumlah_client' => $this->input->post('jumlah_client'),
-            //             ];
-            //             $this->db->insert('consultant', $uploadDb);
-            //             return redirect('admin/index');
-            //         }
-            //     }
-            // }
 
             if ($this->form_validation->run() == TRUE) {
                 if ($_FILES['photo']['name']) {
@@ -309,20 +273,87 @@ class Admin extends CI_Controller
                     $this->upload->initialize($config);
 
                     if ($this->upload->do_upload('photo')) {
+
                         $uploadDb = [
 
                             'photo' => $this->upload->data('file_name'),
                             'name' => htmlspecialchars($this->input->post('name'), true),
+                            'profile' => htmlspecialchars($this->input->post('profile'), true),
                             'profesi' => 'consultant',
                             'alamat' => htmlspecialchars($this->input->post('alamat'), true),
                             'email' => htmlspecialchars($this->input->post('email'), true),
                             'no_handphone' => $this->input->post('no_handphone'),
-                            'perusahaan' => htmlspecialchars($this->input->post('perusahaan'), true),
-                            'spesialisasi' => htmlspecialchars($this->input->post('spesialisasi'), true),
                             'akun_media' => htmlspecialchars($this->input->post('akun_media'), true),
                             'jumlah_client' => $this->input->post('jumlah_client'),
                         ];
+
                         $this->db->insert('consultant', $uploadDb);
+                        $consultant_id = $this->db->insert_id();
+
+                        $bahasa = $this->input->post('bahasa');
+                        if (!empty($bahasa)) {
+                            $bahasa_data = array();
+                            foreach ($bahasa as $bahasa_item) {
+                                $bahasa_data[] = array(
+                                    'consultant_id' => $consultant_id,
+                                    'bahasa_name' => $bahasa_item
+                                );
+                            }
+
+                            $this->db->insert_batch('bahasa', $bahasa_data);
+                        }
+
+                        $spesialisasi = $this->input->post('spesialisasi');
+                        if (!empty($spesialisasi)) {
+                            $spesialisasi_data = array();
+                            foreach ($spesialisasi as $spesialisasi_item) {
+                                $spesialisasi_data[] = array(
+                                    'consultant_id' => $consultant_id,
+                                    'spesialisasi_name' => $spesialisasi_item
+                                );
+                            }
+
+                            $this->db->insert_batch('spesialisasi', $spesialisasi_data);
+                        }
+
+                        $sertifikasi = $this->input->post('sertifikasi');
+                        $startDates = $this->input->post('start_date');
+                        $endDates = $this->input->post('end_date');
+
+                        if (!empty($sertifikasi)) {
+                            $sertifikasi_data = array();
+
+                            foreach ($sertifikasi as $index => $sertifikasi_item) {
+                                $sertifikasi_data[] = array(
+                                    'consultant_id' => $consultant_id,
+                                    'sertifikasi_name' => $sertifikasi_item,
+                                    'date_start' => isset($startDates[$index]) ? $startDates[$index] : null,
+                                    'date_end' => isset($endDates[$index]) ? $endDates[$index] : null
+                                );
+                            }
+
+                            $this->db->insert_batch('sertifikasi', $sertifikasi_data);
+                        }
+
+                        $pengalaman = $this->input->post('pengalaman');
+                        $startDates = $this->input->post('start_date');
+                        $endDates = $this->input->post('end_date');
+
+                        if (!empty($pengalaman)) {
+                            $pengalaman_data = array();
+
+                            foreach ($pengalaman as $index => $pengalaman_item) {
+                                $pengalaman_data[] = array(
+                                    'consultant_id' => $consultant_id,
+                                    'pengalaman_name' => $pengalaman_item,
+                                    'date_start' => isset($startDates[$index]) ? $startDates[$index] : null,
+                                    'date_end' => isset($endDates[$index]) ? $endDates[$index] : null
+                                );
+                            }
+
+                            $this->db->insert_batch('pengalaman', $pengalaman_data);
+                        }
+
                         return redirect('admin/index');
                     }
                 }
@@ -334,7 +365,8 @@ class Admin extends CI_Controller
             'page_title' => 'Tambah Konsultan',
             'user' => $this->db->get_where('users', [
                 'email' => $this->session->userdata('email')
-            ])->row_array()
+            ])->row_array(),
+            'bahasa_options' => $this->ConsultantModel->getBahasaOptions()
         ];
 
         $this->load->view('main/admin/add_consultant', $data);

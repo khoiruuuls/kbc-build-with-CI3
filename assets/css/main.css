@@ -328,6 +328,21 @@ img.img-pr {
 	max-height: 293.734px;
 }
 
+.card-our-service {
+	border-radius: 10px;
+	border: 2px solid var(--gray-color-5);
+}
+
+.title-home {
+	color: var(--secondary-color-5);
+	font-weight: bolder;
+	text-transform: uppercase;
+}
+
+.title {
+	font-size: var(--larger-font-size);
+}
+
 /* Input and Textarea Style */
 
 input.log-input,
@@ -345,6 +360,19 @@ input.log-input:focus,
 textarea:focus {
 	outline: none !important;
 	border: 2px solid var(--primary-color-5);
+}
+
+.icon-wrap {
+	width: 50px; /* Adjust the width and height to set the desired size of the icon wrap */
+	height: 50px;
+	border: 2px solid transparent; /* Add the border style */
+	background-color: var(--primary-color-1); /* Add the border style */
+	font-size: 30px; /* Adjust the font size */
+	padding: 30px; /* Add the padding */
+	color: #fff; /* Add your desired icon color */
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 /* Post Header */

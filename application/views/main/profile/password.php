@@ -14,11 +14,11 @@
         <div class="container-fluid">
             <div class="row user-container">
                 <?php $this->load->view('_partials/navbar.php') ?>
-                <div class="col-4 user-box bg-slide">
+                <div class="col-md-3 col-12 user-box bg-slide">
                     <?php $this->load->view('_partials/sidebar.php') ?>
                 </div>
 
-                <div class="col">
+                <div class="col-md-9 col-12">
                     <div class="container section-pb1">
                         <div class="user-header">
                             <h4>Ubah Kata Sandi</h4>

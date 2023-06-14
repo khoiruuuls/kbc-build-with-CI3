@@ -5,7 +5,7 @@
     <?php $this->load->view("_partials/head.php") ?>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?php echo ('assets/css/_partials/consultant.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/_partials/consultant.css'); ?>">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="col">
                     <div class="container-content">
-                        <div class="consultant-header">
+                        <div class="konsultan-header">
                             <h1>Selamat datang <?= $this->session->userdata('name') ?></h1>
                             <p>dashboard consultant</p>
                         </div>

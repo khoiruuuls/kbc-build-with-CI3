@@ -13,4 +13,8 @@ update dari sadam
 - wishlist sudah bisa di tambah oleh user 
 - penambahan tabel wishlist
 
+update dari fadli
+- Revisi beranda section hero, penambahan section visi-misi, menambah kalimat who we are di section about-us
+- Menambahkan navbar dan sidebar pada dashboard
+
 misal ada salah kabari bang

@@ -469,3 +469,16 @@ td .part {
     background-color: var(--primary-color-4);
     color: white;
 }
+
+/*=============== DASHBOARD ===============*/
+.konsultan-header h1 {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 140%;
+    /* identical to box height, or 56px */
+
+
+    color: #000000;
+}

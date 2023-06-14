@@ -14,7 +14,7 @@
 
     <?php $this->load->view("_partials/navbar_consultant.php") ?>
     <?php $this->load->view("_partials/sidebar_consultant.php") ?>
-
+    
     <section id="main-section">
         <!-- Content Utama -->
         <div class="main">
@@ -22,7 +22,7 @@
                 <p>My Program</p>
             </div>
             <div class="header-main-title">
-                <h3>Data Program Saya</h3>
+                <h3>Data Program <?= $consul[0]->name ?></h3>
             </div>
             <div class="search-add-program-main">
                 <div id="search-program-main">
@@ -47,18 +47,18 @@
                     </div>
                 </div>
                 <div id="add-program-main">
-                    <a href="" type="submit" class=""><i class="ri-add-line"></i>
+                    <a href="<?= base_url(),'seminar/tambah'?>" type="submit" class=""><i class="ri-add-line"></i>
                         Tambah Program
                     </a>
                 </div>
             </div>
             <div class="kategori-main">
                 <ul>
-                    <li class="active-main">Semua</li>
-                    <li>Aktif</li>
-                    <li>Draft</li>
-                    <li>Menunggu</li>
-                    <li>History</li>
+                    <li class=" <?= ($nav === "all") ? 'active-main' : ' '  ?>"><a href="<?= base_url().'seminar' ?>">ALL</a></li>
+                    <li class=" <?= ($nav === "aktif") ? 'active-main' : ' '  ?>"><a href="<?= base_url().'seminar?opsi=aktif' ?>">Aktif</a> </li>
+                    <li class=" <?= ($nav === "draf") ? 'active-main' : ' '  ?>"><a href="<?= base_url().'seminar?opsi=draf' ?>">Draft</a> </li>
+                    <li class=" <?= ($nav === "menunggu") ? 'active-main' : ' '  ?>"><a href="<?= base_url().'seminar?opsi=menunggu' ?>">Menunggu</a> </li>
+                    <li><a href=""></a> History</li>
                 </ul>
             </div>
             <div class="table-main">

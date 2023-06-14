@@ -14,29 +14,42 @@ class Seminar extends CI_Controller {
 
     public function index()
     {
-        if(isset($_GET['search'])){
-            $this->db->like('name', $this->input->get('search'));
-            $query = $this->db->get('seminar');
-            // $data['seminars'] = $query->result()
-        }elseif($this->input->get('opsi')){
-            $this->db->where('status',$this->input->get('opsi'));
-            $query = $this->db->get('seminar');
-        }else{
-            $query = $this->db->select('id,name,date_start ,status,photo')
-                                ->from('seminar')
-                                ->where('consultant_id', 0)
-                                ->get();
+        if($this->session->userdata('role_id') == 3){
 
+            if(isset($_GET['search'])){
+                $this->db->like('name', $this->input->get('search'));
+                $query = $this->db->get('seminar');
+                $navAktif = 'all';
+                // $data['seminars'] = $query->result()
+            }elseif($this->input->get('opsi')){
+                $this->db->where('status',$this->input->get('opsi'));
+                $query = $this->db->get('seminar');
+                $navAktif = $this->input->get('opsi');
+                
+            }else{
+                $query = $this->db->select('id,name,date_start ,status,photo')
+                                    ->from('seminar')
+                                    ->where('users_id', $this->session->userdata('id'))
+                                    ->get();
+                $navAktif = 'all';
+    
+            }
+    
+            $dataConsul = $this->db->select('*')
+                                    ->from('users')
+                                    ->where('id',$this->session->userdata('id'))
+                                    ->get();
+    
+                // var_dump($query->result());
+            
+    
+    
+            $data['consul'] = $dataConsul->result();
+            $data['nav'] = $navAktif;
+            $data['seminar'] = $query->result();
+            return $this->load->view('main/seminar/index', $data);
         }
-
-            // var_dump($query->result());
-        
-
-
-        
-
-        $data['seminar'] = $query->result();
-        return $this->load->view('main/seminar/index', $data);
+        return redirect(site_url('./'));
     }
 
     public function hapus()

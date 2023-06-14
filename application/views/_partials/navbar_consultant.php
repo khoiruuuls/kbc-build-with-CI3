@@ -12,7 +12,7 @@
                     <a href="#"><i class="ri-notification-2-line"></i></a>
                     <div class="line"></div>
                     <a href="#"><i class="ri-account-circle-line"></i></a>
-                    <p>Consultan 1</p>
+                    <p><?= $consul[0]->name ?></p>
                 </div>
                 <!-- <div id="login">
                     <a href="login.html">

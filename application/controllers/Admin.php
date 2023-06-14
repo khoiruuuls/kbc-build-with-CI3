@@ -11,28 +11,40 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        if ($this->input->get('search')) {
-            $this->db->like('name', $this->input->get('search'));
-            $query = $this->db->get('program');
-            $dataProgram = $query->result();
-        } else {
-            $this->load->model("ProgramModel");
-            $dataProgram = $this->ProgramModel->getProgram();
+        if($this->session->userdata('role_id') == 2){
+
+            if ($this->input->get('search')) {
+                $this->db->like('name', $this->input->get('search'));
+                $query = $this->db->get('program');
+                $dataProgram = $query->result();
+            } else {
+                $this->load->model("ProgramModel");
+                $dataProgram = $this->ProgramModel->getProgram();
+            }
+
+            if ($this->input->get('search1')) {
+                $this->db->like('name', $this->input->get('search1'));
+                $query = $this->db->get('consultant');
+                $dataConsultant = $query->result();
+            } else {
+                $this->load->model("ConsultantModel");
+                $dataConsultant = $this->ConsultantModel->getConsultant();
+            }
+    
+    
+            
+    
+            $data = [
+                'consultant' => $dataConsultant,
+                'program' => $dataProgram,
+                'page_title' => 'Dashboard',
+                'user' => $this->db->get_where('users', ['email' =>
+                $this->session->userdata('email')])->row_array(),
+            ];
+    
+            return $this->load->view('main/admin/index', $data);
         }
-
-
-        $this->load->model("ConsultantModel");
-        $dataConsultant = $this->ConsultantModel->getConsultant();
-
-        $data = [
-            'consultant' => $dataConsultant,
-            'program' => $dataProgram,
-            'page_title' => 'Dashboard',
-            'user' => $this->db->get_where('users', ['email' =>
-            $this->session->userdata('email')])->row_array(),
-        ];
-
-        $this->load->view('main/admin/index', $data);
+        return redirect(site_url('./'));
     }
 
     // public function tambah()

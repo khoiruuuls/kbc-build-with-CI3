@@ -42,17 +42,17 @@
 	font-size: 16px;
 } */
 
-#hero {
+#home {
 	height: 592px;
 	background: linear-gradient(90deg, #BE8511 -12.81%, rgba(190, 133, 17, 0) 91.6%);
 	/* opacity: 0.2; */
 }
 
-#hero .headline {
+#home .headline {
 	margin-top: 146px;
 }
 
-#hero .headline h3 {
+#home .headline h3 {
 	font-family: var(--body-font);
 	font-weight: var(--font-bold);
 	font-size: 58px;
@@ -63,11 +63,11 @@
 	color: var(--gray-color-8);
 }
 
-#hero .headline h3 strong {
+#home .headline h3 strong {
 	color: var(--secondary-color-5);
 }
 
-#hero .text-hero p {
+#home .text-hero p {
 	font-family: var(--body-font);
 	font-weight: var(--font-medium);
 	font-size: 18px;
@@ -82,23 +82,23 @@
 	color: var(--gray-color-6);
 }
 
-#hero .container-hero {
-	margin-top: 48px;
+#home .container-home {
+	margin-top: 38px;
 	margin-left: 100px;
 	position: relative;
 	width: 463px;
-	height: 500px;
+	height: 550px;
 	/* Sesuaikan dengan ukuran poligon */
 }
 
-#hero .background-svg {
+#home .background-svg {
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: -1;
 }
 
-#hero .image {
+#home .image {
 	margin-left: 50px;
 	position: relative;
 	width: 100%;
@@ -210,6 +210,10 @@
 	border-radius: 8px;
 	width: 100%;
 	height: 300px;
+}
+
+#about-us {
+	margin-top: 100px;
 }
 
 #visi-misi {

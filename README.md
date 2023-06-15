@@ -11,4 +11,8 @@ update dari sadam
 - wishlist sudah bisa di tambah oleh user 
 - penambahan tabel wishlist
 
+update dari fadli
+- Revisi beranda, edit section home, hapus section partnerku, penambahan who we are di section about us,    penamabahan section hubungi kami
+- menambahkan navbar dan sidebar pada dashboard
+
 misal ada salah kabari bang

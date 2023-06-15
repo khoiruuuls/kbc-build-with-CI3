@@ -13,7 +13,7 @@
 <body>
     <?php $this->load->view("_partials/navbar.php") ?>
 
-    <section id="hero">
+    <section id="home">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="container-hero">
+                    <div class="container-home">
                         <svg class="background-svg" width="463" height="460" viewBox="0 0 463 460" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.4" d="M177.945 458.417C171.023 460.192 163.681 458.14 158.683 453.034L6.51009 297.568C1.51196 292.462 -0.382341 285.077 1.54077 278.196L60.0913 68.6778C62.0145 61.7962 67.4628 56.4632 74.384 54.6878L285.107 0.635221C292.028 -1.14016 299.371 0.911775 304.369 6.01806L456.542 161.483C461.54 166.59 463.434 173.974 461.511 180.856L402.96 390.374C401.037 397.256 395.589 402.589 388.668 404.364L177.945 458.417Z" fill="url(#paint0_linear_4136_49434)" />
                             <defs>

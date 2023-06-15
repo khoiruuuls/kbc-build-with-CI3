@@ -76,4 +76,10 @@ class ProgramModel extends CI_MOdel
     {
         return $this->db->count_all('program');
     }
+
+    public function getProgramById($id)
+    {
+        $query = $this->db->get_where('program', ['id' => $id]);
+        return $query->row();
+    }
 }

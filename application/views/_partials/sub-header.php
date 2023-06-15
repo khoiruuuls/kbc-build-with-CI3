@@ -1,7 +1,7 @@
 <section id="header-post" class="img-seminar ">
     <div class="header-post-wrap">
         <div class="container">
-            <div class="row  col-6">
+            <div class="row col-md-6 col-12">
                 <div class="header-post-box">
                     <div class="route">
                         <p><strong>Beranda</strong></p>
@@ -17,8 +17,7 @@
                         kinerja perusahaan secara keseluruhan.
                     </p>
                     <div class="search-bar">
-                        <input placeholder="Kata kunci, kategori, nama konsultan dsb ..." type="text"
-                            class="log-input" />
+                        <input placeholder="Kata kunci, kategori, nama konsultan dsb ..." type="text" class="log-input" />
                         <button class="primary-button">
                             Cari
                         </button>

@@ -110,4 +110,18 @@ class ConsultantModel extends CI_MOdel
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function getBahasaOptions()
+    {
+        $query = $this->db->get('bahasa');
+        $options = array();
+
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $options[$row->id] = $row->bahasa_name;
+            }
+        }
+
+        return $options;
+    }
 }

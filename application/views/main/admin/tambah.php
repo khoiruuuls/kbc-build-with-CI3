@@ -16,10 +16,10 @@
 
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-3 user-box ">
+            <div class="col-12 col-md-3 user-box ">
                 <?php $this->load->view('_partials/sidebar.php') ?>
             </div>
-            <div class="col">
+            <div class="col-12 col-md-9">
                 <div class="container container-consultant">
                     <div class="route d-flex gap-2">
                         <p><strong>Program</strong></p>
@@ -57,19 +57,17 @@
                             </div>
                             <div class="form-input">
                                 <p>Konsultan</p>
-                                <select name="consultant_id" id="consultant_id" class="log-input select-dropdown">
-                                    <option value="">Select Consultant</option>
+                                <select name="consultant_id" id="consultant_id" class="log-input form-select">
+                                    <option style=" margin-left: 10px;" value="">Select Consultant</option>
                                     <?php foreach ($consultants as $consultant) : ?>
-                                    <option value="<?php echo $consultant->id; ?>"
-                                        title="<?php echo $consultant->name; ?>"><?php echo $consultant->name; ?>
-                                    </option>
+                                        <option value="<?php echo $consultant->id; ?>" title="<?php echo $consultant->name; ?>"><?php echo $consultant->name; ?>
+                                        </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="form-input">
                                 <p>Deskripsi</p>
-                                <textarea class="log-input" type="text" placeholder="Masukan Deskripsi"
-                                    style="height: 300px" name="descProgram" id=""></textarea>
+                                <textarea class="log-input" type="text" placeholder="Masukan Deskripsi" style="height: 300px" name="descProgram" id=""></textarea>
                             </div>
                             <hr class="line">
                             <div class="form-input">
@@ -106,8 +104,7 @@
                             </div>
                             <div class="form-input">
                                 <p>URL Streaming</p>
-                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="url"
-                                    id="">
+                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="url" id="">
                             </div>
                             <hr class="line">
                             <div class="form-input">
@@ -144,8 +141,7 @@
                                 <div class="date-time gap-3">
                                     <div class="col">
                                         <!-- berhubung priceMaxnya tidak ada inputnya ,aku pake priceMin ditambah 100K -->
-                                        <input class="log-input" type="number" name="priceMin"
-                                            placeholder="Masukan Kouta">
+                                        <input class="log-input" type="number" name="priceMin" placeholder="Masukan Kouta">
                                     </div>
                                     <div class="col">
                                         <input class="log-input" type="number" name="kuota" placeholder="Masukan Harga">

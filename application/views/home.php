@@ -79,7 +79,7 @@
     <section id="about-us">
         <div class="container">
             <div class="row display-default my-5">
-                <div class="col">
+                <div class="col-md-6 col-12">
                     <iframe class="frame" src="https://www.youtube.com/embed/Vrl5dYPf82E" allowfullscreen></iframe>
                 </div>
                 <div class="col">
@@ -183,7 +183,7 @@
         </div>
     </section>
 
-    <section id="our-consultant" class="section-p1">
+    <!-- <section id="our-consultant" class="section-p1">
         <div class="container my-5">
             <div class="my-5 title-box">
                 <div>
@@ -215,7 +215,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="tobe-consultant">
         <div class="title-box">
@@ -390,8 +390,8 @@
                 <span class="text-uppercase text-white">Testimoni</span>
                 <h6 class="mt-3">Apa yang Dikatakan Oleh Klien Kami?</h6>
             </div>
-            <div class="row our-gap">
-                <div class="card card-testimoni col">
+            <div class="row gx-4 gy-4">
+                <div class="card card-testimoni col-md-4">
                     <img src="<?php echo base_url('assets/img/svg/double-quote.svg') ?>" alt="">
                     <div class="testimoni-text text-gap">
                         <p class="body-text">Sangat terkesan dengan event pelatihan bisnis ini! Sangat informatif dan
@@ -411,7 +411,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-testimoni col">
+                <div class="card card-testimoni col-md-4">
                     <img src="<?php echo base_url('assets/img/svg/double-quote.svg') ?>" alt="">
                     <div class="testimoni-text text-gap">
                         <p class="body-text">Sangat terkesan dengan event pelatihan bisnis ini! Sangat informatif dan
@@ -431,7 +431,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-testimoni col">
+                <div class="card card-testimoni col-md-4">
                     <img src="<?php echo base_url('assets/img/svg/double-quote.svg') ?>" alt="">
                     <div class="testimoni-text text-gap">
                         <p class="body-text">Sangat terkesan dengan event pelatihan bisnis ini! Sangat informatif dan
@@ -452,6 +452,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </section>
 
@@ -460,15 +462,16 @@
             <div class="my-3">
                 <span>Blog & Artikel</span>
                 <h6 class="mt-3">Informasi Terbaru Tentang Produk dan Layanan Kami</h6>
-                <h6>untuk Memenuhi Kebutuhan Kisnis Anda.</h6>
+                <h6>untuk Memenuhi Kebutuhan Bisnis Anda.</h6>
             </div>
             <div class="row display-default my-5">
-                <div class="col">
-                    <img src="<?php echo base_url('assets/img/blog/headline-blog.jpg') ?>" alt="">
+                <div class="col-md-6">
+                    <img src="<?php echo base_url('assets/img/blog/headline-blog.jpg') ?>" alt="" class="img-fluid">
+
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <p>23 Juni - 30 Juli 2023</p>
-                    <h6 class="body-text">Merancang Strategi Kebenaran : Kisah Stanley</h6>
+                    <h6 class="body-text">Merancang Strategi Kebenaran: Kisah Stanley</h6>
                     <p class="body-text">Namanya mudah diingat orang, Stanley. Pendidikannya mudah dilupakan orang,
                         lulusan Sekolah Menengah Kejuruan. Perawakannya mudah dilecehkan, karena kurus, pendek dan tidak
                         menunjukkan profil 'macho' sehingga dikejar para gadis. Namun gaya bicara dan semangatnya tak
@@ -476,8 +479,32 @@
                     <a href="<?php echo base_url('') ?>" class="link-text">Baca Selengkapnya</a>
                 </div>
             </div>
-            <div class="row our-gap">
-                <div class="card card-blog col">
+
+            <div class="row gy-4">
+                <?php foreach ($service as $item) : ?>
+                    <div class="col-md-4 col-12">
+                        <div class="card-our-service">
+                            <img class="w-100" src="<?php echo base_url('assets/img/blog/blog (1).jpg') ?>" alt="">
+                            <div class="p-4">
+                                <div class="text-group">
+                                    <p>23 Juni - 30 Juli 2023</p>
+                                    <h6 class="title">Transformasi Dimulai Dari Pemimpin</h6>
+                                    <p class="body-text">
+                                        Setelah mengenyam pendidikan dan pelatihan di Jepang selama lebih 12 tahun, ia
+                                        berketetapan hati kembali ke Indonesia pada tahun 1996.
+                                    </p>
+                                </div>
+                                <a class="title-home" href="#">
+                                    Eksplor Lebih Lengkap
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <!-- <div class="row gx-5">
+                <div class="card card-blog col-md-4">
                     <img src="<?php echo base_url('assets/img/blog/blog (1).jpg') ?>" alt="">
                     <div class="blog-text">
                         <p>23 Juni - 30 Juli 2023</p>
@@ -487,7 +514,7 @@
                         <a href="<?php echo base_url('') ?>" class="link-text">Baca Selengkapnya</a>
                     </div>
                 </div>
-                <div class="card card-blog col">
+                <div class="card card-blog col-md-4">
                     <img src="<?php echo base_url('assets/img/blog/blog (2).jpg') ?>" alt="">
                     <div class="blog-text">
                         <p>23 Juni - 30 Juli 2023</p>
@@ -497,19 +524,52 @@
                         <a href="<?php echo base_url('') ?>" class="link-text">Baca Selengkapnya</a>
                     </div>
                 </div>
-                <div class="card card-blog col">
+                <div class="card card-blog col-md-4">
                     <img src="<?php echo base_url('assets/img/blog/blog (3).jpg') ?>" alt="">
                     <div class="blog-text">
                         <p>23 Juni - 30 Juli 2023</p>
-                        <h6>Shifting Up: Tranforming Your Business</h6>
+                        <h6>Shifting Up: Transforming Your Business</h6>
                         <p class="body-text">Setelah mengenyam pendidikan dan pelatihan di Jepang selama lebih 12 tahun,
                             ia berketetapan hati kembali ke Indonesia pada tahun 1996.</p>
                         <a href="<?php echo base_url('') ?>" class="link-text">Baca Selengkapnya</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
+
+    <!-- <section class="section-pb1">
+        <div class="container my-5">
+            <div class="my-5">
+                <span class="title-home">Testimoni</span>
+                <h6 class="mt-3">Tim Kami Bekerja Sama Untuk Merancang Strategi</h6>
+                <h6>yang Tepat Guna Meningkatkan Performa Bisnis Anda.</h6>
+            </div>
+            <div class="row gy-4">
+                <?php foreach ($service as $item) : ?>
+                <div class="col-md-4 col-12">
+                    <div class="card-our-service">
+                        <img class="w-100" src="<?php echo base_url('assets/img/blog/blog (1).jpg') ?>" alt="">
+                        <div class="p-4">
+                            <div class="text-group">
+                                <p>23 Juni - 30 Juli 2023</p>
+                                <h6 class="title">Transformasi Dimulai Dari Pemimpin</h6>
+                                <p class="body-text">
+                                    Setelah mengenyam pendidikan dan pelatihan di Jepang selama lebih 12 tahun, ia
+                                    berketetapan hati kembali ke Indonesia pada tahun 1996.
+                                </p>
+                            </div>
+                            <a class="title-home" href="#">
+                                Eksplor Lebih Lengkap
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section> -->
+
 
     <?php $this->load->view("_partials/footer.php") ?>
 </body>

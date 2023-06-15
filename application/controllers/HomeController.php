@@ -39,7 +39,6 @@ class HomeController extends CI_Controller
     public function consultation()
     {
         $this->load->model("ConsultantModel");
-        $this->load->model("ConsultantModel");
         $this->load->model("ProgramModel");
 
         $data = [
@@ -87,11 +86,11 @@ class HomeController extends CI_Controller
         $this->load->model("ProgramModel");
         $this->load->model("ConsultantModel");
         $data = [
+            'user' => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             'program' => $this->ProgramModel->selectWhereProgram($id),
+            'page_title' => 'Detail Program',
             'consultants' => $this->ConsultantModel->getConsultantsByProgramId($id), // Retrieve consultants associated with the program
             'consultant_count' => $this->ProgramModel->countConsultantsByProgramId($id), // Count of consultants
-            'page_title' => 'Program',
-            'users' => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array()
         ];
         $this->load->view('main/detail/program', $data);
     }
@@ -107,18 +106,21 @@ class HomeController extends CI_Controller
         $this->load->view('main/seminar', $data);
     }
 
-    public function pesanan()
+    public function pesanan($id)
     {
+        $this->load->model("ProgramModel");
         $data = [
+            'user' => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
+            'program' => $this->ProgramModel->selectWhereProgram($id),
             'page_title' => 'Detail Pesanan',
-            'users' => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array()
         ];
         $this->load->view('main/detail/pesanan', $data);
     }
-    public function pembayaran()
+    public function pembayaran($id)
     {
-
+        $this->load->model("ProgramModel");
         $data = [
+            'program' => $this->ProgramModel->selectWhereProgram($id),
             'page_title' => 'Detail Pesanan',
             'users' => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array()
         ];

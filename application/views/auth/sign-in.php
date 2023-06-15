@@ -42,7 +42,7 @@
                     <div class="log-with text-center">
                         <p>Atau masuk dengan menggunakan:</p>
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-6">
                                 <a href="login-google.php">
                                     <button class="log-secondary-button gap-3">
                                         <i class="ri-google-fill"></i>
@@ -50,7 +50,7 @@
                                     </button>
                                 </a>
                             </div>
-                            <div class="col-sm">
+                            <div class="col-6">
                                 <a href="login-facebook.php" class">
                                     <button class="log-secondary-button gap-3">
                                         <i class="ri-facebook-circle-fill"></i>
@@ -60,11 +60,9 @@
                             </div>
                         </div>
                     </div>
-                    <p class="quest-account text-center">Belum memiliki akun? <a
-                            href="<?php echo base_url('auth/sign-up') ?>" class=" link-text">Register
+                    <p class="quest-account text-center">Belum memiliki akun? <a href="<?php echo base_url('auth/sign-up') ?>" class=" link-text">Register
                             Akun</a> </p>
                 </div>
-
             </div>
         </div>
     </div>

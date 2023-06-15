@@ -17,10 +17,10 @@
 
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-3 user-box ">
+            <div class="col-md-3 col-12 user-box ">
                 <?php $this->load->view('_partials/sidebar.php') ?>
             </div>
-            <div class="col">
+            <div class="col-md-9 col-12">
                 <div class="container container-consultant">
                     <div class="route d-flex gap-2">
                         <p><strong>Program</strong></p>
@@ -58,32 +58,32 @@
                                 <tbody>
                                     <?php $no = 1;
                                     foreach ($program as $item) : ?>
-                                    <tr>
-                                        <td><?php echo $no++ ?></td>
-                                        <td><?php echo $item->name ?></td>
-                                        <td><?php echo date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
-                                        </td>
-                                        <td>
-                                            <p class="menunggu">Menunggu</p>
-                                        </td>
-                                        <td class="d-flex justify-content-between">
-                                            <a href="<?php echo site_url(). 'detail-program/' . $item->id ?>">
-                                                <button class="edit">
-                                                    <i class="ri-eye-line"></i>
-                                                </button>
-                                            </a>
-                                            <a href="<?php echo site_url('admin/edit/' . $item->id) ?>">
-                                                <button class="warning">
-                                                    <i class="ri-edit-line"></i>
-                                                </button>
-                                            </a>
-                                            <a href="<?php echo site_url('admin/delete_row/' . $item->id) ?>">
-                                                <button class="delete">
-                                                    <i class="ri-delete-bin-5-line"></i>
-                                                </button>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td><?php echo $no++ ?></td>
+                                            <td><?php echo $item->name ?></td>
+                                            <td><?php echo date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
+                                            </td>
+                                            <td>
+                                                <p class="menunggu">Menunggu</p>
+                                            </td>
+                                            <td class="d-flex justify-content-between">
+                                                <a href="<?php echo site_url() . 'detail-program/' . $item->id ?>">
+                                                    <button class="edit">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="<?php echo site_url('admin/edit/' . $item->id) ?>">
+                                                    <button class="warning">
+                                                        <i class="ri-edit-line"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="<?php echo site_url('admin/delete_row/' . $item->id) ?>">
+                                                    <button class="delete">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -97,8 +97,7 @@
                                 <input type="text" class="log-input">
                                 <button class="log-primary-button">Search</button>
                             </div>
-                            <a href="<?php echo site_url('admin/add_consultant') ?>"
-                                class="log-primary-button text-center">
+                            <a href="<?php echo site_url('admin/add_consultant') ?>" class="log-primary-button text-center">
                                 Tambah
                             </a>
                         </div>
@@ -118,31 +117,31 @@
                                 <tbody>
                                     <?php $no = 1;
                                     foreach ($consultant as $item) : ?>
-                                    <tr>
-                                        <td><?php echo $no++ ?></td>
-                                        <td><?php echo $item->name ?></td>
-                                        <td><?php echo $item->profesi ?></td>
-                                        <td><?php echo $item->perusahaan ?></td>
-                                        <td><?php echo $item->jumlah_client ?></td>
-                                        <td><?php echo $item->no_handphone ?></td>
-                                        <td class="d-flex justify-content-between">
-                                            <a href="<?php echo site_url() . 'detail-consultant/' . $item->id ?>">
-                                                <button class="edit">
-                                                    <i class="ri-eye-line"></i>
-                                                </button>
-                                            </a>
-                                            <a href="<?php echo site_url('admin/edit_consultant/' . $item->id) ?>">
-                                                <button class="warning">
-                                                    <i class="ri-edit-line"></i>
-                                                </button>
-                                            </a>
-                                            <a href="<?php echo site_url('admin/delete_consultant/' . $item->id); ?>">
-                                                <button class="delete">
-                                                    <i class="ri-delete-bin-5-line"></i>
-                                                </button>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td><?php echo $no++ ?></td>
+                                            <td><?php echo $item->name ?></td>
+                                            <td><?php echo $item->profesi ?></td>
+                                            <td><?php echo $item->perusahaan ?></td>
+                                            <td><?php echo $item->jumlah_client ?></td>
+                                            <td><?php echo $item->no_handphone ?></td>
+                                            <td class="d-flex justify-content-between">
+                                                <a href="<?php echo site_url() . 'detail-consultant/' . $item->id ?>">
+                                                    <button class="edit">
+                                                        <i class="ri-eye-line"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="<?php echo site_url('admin/edit_consultant/' . $item->id) ?>">
+                                                    <button class="warning">
+                                                        <i class="ri-edit-line"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="<?php echo site_url('admin/delete_consultant/' . $item->id); ?>">
+                                                    <button class="delete">
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>

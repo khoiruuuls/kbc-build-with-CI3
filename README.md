@@ -13,4 +13,10 @@ update dari sadam
 - di admin nambah function seach buat program sama search buat konsultan , admin/index udah ku kasi hak akses jadi kalau mo login pake akun admin
 - feild konsultant_id diganti jadi users_id di tabel seminar
 
+update sadam
+-crud program bisa create edit dan delete + upload foto
+-terus sama crud consultant juga sama 
+
+kalau misal ada foto yang gak terakupload bisa bilang bang soalnya susah disitunya ,tapi bismillah tetep terinput
+
 misal ada salah kabari bang

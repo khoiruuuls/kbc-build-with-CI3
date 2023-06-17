@@ -33,6 +33,7 @@
                         <form action="<?= base_url() . 'admin/update/' . $program['id'] ?>"
                             enctype="multipart/form-data" method="POST">
                             <input type="hidden" name="id" value="<?php echo $program['id']; ?>">
+                            <input type="hidden" name="foto" value="<?= $program['photo'] ?>">
                             <div class="form-input">
                                 <div class="upload-container">
                                     <div class="header">
@@ -43,7 +44,7 @@
                                             <i class="ri-close-fill"></i>
                                         </label>
                                     </div>
-                                    <input id="file" name="photo" type="file">
+                                    <input id="file" name="photo" type="file" >
                                 </div>
                             </div>
                             <div class="form-input">
@@ -60,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="form-input">
-                                <p>Konsultan</p>
+                                <p>Type</p>
                                 <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="" id=""
                                     value="<?php echo $program['type'] ?>">
                             </div>

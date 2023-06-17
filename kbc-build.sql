@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2023 at 10:41 AM
+-- Generation Time: Jun 17, 2023 at 03:32 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -78,36 +78,37 @@ INSERT INTO `bank` (`id`, `name`, `bb/tt`, `nomer`, `name_kartu`, `users_id`, `c
 
 CREATE TABLE `consultant` (
   `id` int(8) NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
   `users_id` int(11) NOT NULL,
-  `profesi` varchar(20) NOT NULL,
-  `profile` text NOT NULL,
-  `photo` varchar(225) NOT NULL,
-  `alamat` text NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `profesi` varchar(20) DEFAULT NULL,
+  `profile` text DEFAULT NULL,
+  `photo` varchar(225) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `no_handphone` varchar(12) NOT NULL,
-  `link_group` varchar(255) NOT NULL,
-  `perusahaan` varchar(100) NOT NULL,
-  `sertifikasi` varchar(255) NOT NULL,
+  `link_group` varchar(255) DEFAULT NULL,
+  `perusahaan` varchar(100) DEFAULT NULL,
+  `sertifikasi` varchar(255) DEFAULT NULL,
   `sertif_start` date DEFAULT NULL,
   `sertif_end` date DEFAULT NULL,
-  `akun_media` varchar(100) NOT NULL,
-  `jumlah_client` int(11) NOT NULL,
+  `akun_media` varchar(100) DEFAULT NULL,
+  `jumlah_client` int(11) DEFAULT NULL,
   `spesialisasi` varchar(50) NOT NULL,
   `program_id` int(11) DEFAULT NULL,
-  `provinsi` varchar(50) NOT NULL,
-  `kota` varchar(50) NOT NULL,
+  `provinsi` varchar(100) DEFAULT NULL,
+  `kota` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `consultant`
 --
 
-INSERT INTO `consultant` (`id`, `name`, `users_id`, `profesi`, `profile`, `photo`, `alamat`, `email`, `no_handphone`, `link_group`, `perusahaan`, `sertifikasi`, `sertif_start`, `sertif_end`, `akun_media`, `jumlah_client`, `spesialisasi`, `program_id`,`provinsi`,`kota`) VALUES
-(1, 'Andri Eriek', 41, 'Coach', 'memimpin perusahaan menjadi salah satu perusahaan e-commerce terbesar di dunia. Bezos lahir pada tanggal 12 Januari 1964 di Albuquerque, New Mexico, Amerika Serikat. Ia belajar di Princeton University dan lulus dengan gelar sarjana ilmu komputer dan teknik listrik. Setelah lulus, Bezos bekerja di Wall Street sebelum mendirikan Amazon pada tahun 1994. Ia memegang posisi CEO hingga Juli 2021, ketika dia menyerahkan jabatan tersebut kepada Andy Jassy.', 'consultant (2).jpg', 'Jl Tubagus Ismail III/3, Jawa Barat', 'Andrieriek@gmail.com', '+62 889-8608', '9', 'Google. Inc', '', NULL, NULL, '@erik123', 123, 'Pajak', 14, NULL,NULL),
-(2, 'Yuliawaty ', 42, 'Psycholog', 'Setelah menyelesaikan studi di University of Pennsylvania, ia mendirikan Zip2, sebuah perusahaan perangkat lunak yang menjual sistem manajemen media untuk perusahaan media. Setelah sukses dengan Zip2, ia mendirikan perusahaan pembayaran online X.com, yang kemudian berkembang menjadi PayPal. Pada tahun 2002, PayPal diakuisisi oleh eBay, dan Musk fokus pada proyek-proyek ruang angkasa dan mobil listrik. Dia mendirikan SpaceX pada tahun 2002 dan Tesla Motors pada tahun 2003. Sejak itu, ia terus menjadi tokoh terkemuka dalam inovasi teknologi.', 'consultant (3).jpg', ' Jl Bugangan VIII 203, Jawa Tengah', 'yuliawaty@gmail.com', '+62 830-5480', '0', 'Facebook', '', NULL, NULL, '@yuliawaty ', 450, 'Bahasa Inggris', 3,NULL,NULL),
-(4, 'Ruaniwati', 43, 'Coach', 'memperoleh gelar sarjana dalam teknik metalurgi. Setelah itu, ia melanjutkan pendidikan di Stanford University di mana ia mendapatkan gelar MBA dan MS dalam teknik material. Pichai bergabung dengan Google pada tahun 2004 dan memainkan peran penting dalam pengembangan produk seperti Google Toolbar, Google Chrome, dan sistem operasi Android. Pada tahun 2015, ia diangkat menjadi CEO Google dan kemudian, setelah restrukturisasi perusahaan pada tahun 2019, menjadi CEO Alphabet Inc.', 'consultant (1).jpg', ' Jl. Ahmad Yani no 806, Jawa Barat', 'ruaniwati@gmail.com', '+62 837-4749', '0', 'Kopi Kenangan', '', NULL, NULL, '@ruaniwati', 1900, '', 1,NULL,NULL),
-(8, 'Fahmi', 44, 'consultant', '', 'KBC_Build3.png', 'Jalanin aja dulu', 'khotak@gmail.com', '098909890989', '90', 'Maxy', '', NULL, NULL, 'Ig', 1234, 'gak ada', NULL,NULL,NULL);
+INSERT INTO `consultant` (`id`, `name`, `users_id`, `profesi`, `profile`, `photo`, `alamat`, `email`, `no_handphone`, `link_group`, `perusahaan`, `sertifikasi`, `sertif_start`, `sertif_end`, `akun_media`, `jumlah_client`, `spesialisasi`, `program_id`, `provinsi`, `kota`) VALUES
+(1, 'Andri Eriek', 41, 'Coach', 'memimpin perusahaan menjadi salah satu perusahaan e-commerce terbesar di dunia. Bezos lahir pada tanggal 12 Januari 1964 di Albuquerque, New Mexico, Amerika Serikat. Ia belajar di Princeton University dan lulus dengan gelar sarjana ilmu komputer dan teknik listrik. Setelah lulus, Bezos bekerja di Wall Street sebelum mendirikan Amazon pada tahun 1994. Ia memegang posisi CEO hingga Juli 2021, ketika dia menyerahkan jabatan tersebut kepada Andy Jassy.', 'consultant (2).jpg', 'Jl Tubagus Ismail III/3, Jawa Barat', 'Andrieriek@gmail.com', '+62 889-8608', '9', 'Google. Inc', '', NULL, NULL, '@erik123', 123, 'Pajak', 14, NULL, NULL),
+(2, 'Yuliawaty ', 42, 'Psycholog', 'Setelah menyelesaikan studi di University of Pennsylvania, ia mendirikan Zip2, sebuah perusahaan perangkat lunak yang menjual sistem manajemen media untuk perusahaan media. Setelah sukses dengan Zip2, ia mendirikan perusahaan pembayaran online X.com, yang kemudian berkembang menjadi PayPal. Pada tahun 2002, PayPal diakuisisi oleh eBay, dan Musk fokus pada proyek-proyek ruang angkasa dan mobil listrik. Dia mendirikan SpaceX pada tahun 2002 dan Tesla Motors pada tahun 2003. Sejak itu, ia terus menjadi tokoh terkemuka dalam inovasi teknologi.', 'consultant (3).jpg', ' Jl Bugangan VIII 203, Jawa Tengah', 'yuliawaty@gmail.com', '+62 830-5480', '0', 'Facebook', '', NULL, NULL, '@yuliawaty ', 450, 'Bahasa Inggris', 3, NULL, NULL),
+(4, 'Ruaniwati', 43, 'Coach', 'memperoleh gelar sarjana dalam teknik metalurgi. Setelah itu, ia melanjutkan pendidikan di Stanford University di mana ia mendapatkan gelar MBA dan MS dalam teknik material. Pichai bergabung dengan Google pada tahun 2004 dan memainkan peran penting dalam pengembangan produk seperti Google Toolbar, Google Chrome, dan sistem operasi Android. Pada tahun 2015, ia diangkat menjadi CEO Google dan kemudian, setelah restrukturisasi perusahaan pada tahun 2019, menjadi CEO Alphabet Inc.', 'consultant (1).jpg', ' Jl. Ahmad Yani no 806, Jawa Barat', 'ruaniwati@gmail.com', '+62 837-4749', '0', 'Kopi Kenangan', '', NULL, NULL, '@ruaniwati', 1900, '', 1, NULL, NULL),
+(8, 'Fahmi', 44, 'consultant', '', 'KBC_Build3.png', 'Jalanin aja dulu', 'khotak@gmail.com', '098909890989', '90', 'Maxy', '', NULL, NULL, 'Ig', 1234, 'gak ada', NULL, NULL, NULL),
+(9, 'sadam haho', 51, '', '', '', '', '', '02384803840', '', '', '', NULL, NULL, '', 0, '', NULL, 'SUMATERA BARAT', NULL);
 
 -- --------------------------------------------------------
 
@@ -230,10 +231,10 @@ CREATE TABLE `seminar` (
 --
 
 INSERT INTO `seminar` (`id`, `users_id`, `name`, `sub_title`, `content`, `speaker`, `date_start`, `date_end`, `time_start`, `time_end`, `price`, `photo`, `type`, `status`, `link`, `contact_person`, `kuota`, `lokasi`, `alamat`, `kota`) VALUES
-(1, 44, 'Kingdom Financial Kids', '', 'When kids leave home, they face some heavy financial responsibilities, including creating a budget and choosing the right investments for their long-term goals. Much of the time, however, they’re woefully unprepared for those challenges.\r\n\r\nMany kids grow up in households where parents simply aren’t comfortable talking about money. And in much of the country, they’re not required to get a financial education at school, either. That’s why, according to a 2019 study by Experian, as many as 76% of Gen Z respondents said they wished they had been able to take a financial education class.\r\n1\r\n And in 2022, the Investopedia Financial Literacy Survey found that only one in four Gen Zers feel that they understand the stock market well enough to explain how it works to a friend.\r\n\r\nThe good news is that there are plenty of great money-related resources for kids on the Internet and on library bookshelves—you just need to know where to look. Here are some of our faves when it comes to teaching children the basic financial skills they’ll need and, even more importantly, down the road as independent adults. ', '', NULL, NULL, '00:00:00', '00:00:00', 1500000, './assets/img/program/1.jpeg', '', 'menunggu', '', '', NULL, NULL, NULL, NULL),
-(2, 44, 'Workshop Lifting Up', '', 'Several years ago my spouse and I built our second new home. It is a process that we greatly enjoy in spite of the fact that it can be more than a little stressful. When building a new home there are a lot of decisions to be made. These decisions include selecting a builder, a floor plan, the type of exterior you want (brick, siding, stucco, for example), selecting your flooring, fixtures, and lighting, and on and on it goes. Some people prefer to buy an existing home because they find this plethora of decisions overwhelming. However, my spouse and I prefer making these decisions ourselves so that we can get exactly what we want and so we can watch our empty lot be transformed into a home.\r\n\r\nOne of the advantages to building your own home is that you can directly and easily observe the quality going into it. Our first area of concern is the foundation. After our foundation is poured we look at it to assess whether it looks level and is free of any defects. We all know that a good foundation is critical. Without it, the quality of the rest of the construction can be irrelevant. Once we have a good foundation in place, we continue to monitor the construction. We take note of the quality of the materials being used as well as the quality of the framing job, plumbing, drywall, etc. Once the construction is completed and the buyers move into the house, the builder’s job is finished but the homeowner’s job is really just beginning because the house has to be maintained.\r\n\r\nRelated\r\nSurvey Types\r\n\r\n', '', NULL, NULL, '00:00:00', '00:00:00', 1250000, './assets/img/program/2.jpeg', '', 'menunggu', '', '', NULL, NULL, NULL, NULL),
-(8, 44, 'dvjq', 'jfbjw', NULL, NULL, '2023-05-03', '2023-05-16', '13:37:00', '13:35:00', 111, NULL, 'Online', 'draf', 'jd cjcj', NULL, 22, NULL, NULL, NULL),
-(9, 44, 'dvjq', 'wnkwn', NULL, NULL, '2023-05-03', '2023-05-09', '14:15:00', '16:15:00', 21, '', 'Online', 'menunggu', 'hvvh', NULL, 233, NULL, NULL, NULL);
+(1, 50, 'Kingdom Financial Kids', '', 'When kids leave home, they face some heavy financial responsibilities, including creating a budget and choosing the right investments for their long-term goals. Much of the time, however, they’re woefully unprepared for those challenges.\r\n\r\nMany kids grow up in households where parents simply aren’t comfortable talking about money. And in much of the country, they’re not required to get a financial education at school, either. That’s why, according to a 2019 study by Experian, as many as 76% of Gen Z respondents said they wished they had been able to take a financial education class.\r\n1\r\n And in 2022, the Investopedia Financial Literacy Survey found that only one in four Gen Zers feel that they understand the stock market well enough to explain how it works to a friend.\r\n\r\nThe good news is that there are plenty of great money-related resources for kids on the Internet and on library bookshelves—you just need to know where to look. Here are some of our faves when it comes to teaching children the basic financial skills they’ll need and, even more importantly, down the road as independent adults. ', '', NULL, NULL, '00:00:00', '00:00:00', 1500000, './assets/img/program/1.jpeg', '', 'menunggu', '', '', NULL, NULL, NULL, NULL),
+(2, 50, 'Workshop Lifting Up', '', 'Several years ago my spouse and I built our second new home. It is a process that we greatly enjoy in spite of the fact that it can be more than a little stressful. When building a new home there are a lot of decisions to be made. These decisions include selecting a builder, a floor plan, the type of exterior you want (brick, siding, stucco, for example), selecting your flooring, fixtures, and lighting, and on and on it goes. Some people prefer to buy an existing home because they find this plethora of decisions overwhelming. However, my spouse and I prefer making these decisions ourselves so that we can get exactly what we want and so we can watch our empty lot be transformed into a home.\r\n\r\nOne of the advantages to building your own home is that you can directly and easily observe the quality going into it. Our first area of concern is the foundation. After our foundation is poured we look at it to assess whether it looks level and is free of any defects. We all know that a good foundation is critical. Without it, the quality of the rest of the construction can be irrelevant. Once we have a good foundation in place, we continue to monitor the construction. We take note of the quality of the materials being used as well as the quality of the framing job, plumbing, drywall, etc. Once the construction is completed and the buyers move into the house, the builder’s job is finished but the homeowner’s job is really just beginning because the house has to be maintained.\r\n\r\nRelated\r\nSurvey Types\r\n\r\n', '', NULL, NULL, '00:00:00', '00:00:00', 1250000, './assets/img/program/2.jpeg', '', 'menunggu', '', '', NULL, NULL, NULL, NULL),
+(8, 50, 'dvjq', 'jfbjw', NULL, NULL, '2023-05-03', '2023-05-16', '13:37:00', '13:35:00', 111, NULL, 'Online', 'draf', 'jd cjcj', NULL, 22, NULL, NULL, NULL),
+(9, 50, 'dvjq', 'wnkwn', NULL, NULL, '2023-05-03', '2023-05-09', '14:15:00', '16:15:00', 21, '', 'Online', 'menunggu', 'hvvh', NULL, 233, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -331,7 +332,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `password`, `role_id`, `picture`) VALUES
 (1, 'sadam payoda', 'sadampayodaa@gmail.com', '2147483647', NULL, NULL, 'sadam12345', 1, NULL),
-(2, 'Admin', 'admin@gmail.com', '977898390', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
+(2, 'Admin', 'admin@gmail.com', '977898390', NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d\n', 2, NULL),
 (35, 'Khoirul Fahmi', 'khoirul@gmail.com', '977898390', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 2, NULL),
 (37, 'Fahmi', 'Fahmi13@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
 (38, 'Fauzan Bakhtiar', 'fauzan123@gmail.com', '2147483647', NULL, NULL, 'c93ccd78b2076528346216b3b2f701e6', 1, NULL),
@@ -340,7 +341,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `pass
 (41, 'Andri Eriek', 'erik@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
 (42, 'Yuliawaty \r\n', 'yuli@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d\r\n', 3, NULL),
 (43, 'Ruaniwati\r\n', 'rua@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d\r\n', 3, NULL),
-(44, 'Fahmi', 'fahmi@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL);
+(44, 'Fahmi', 'fahmi@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
+(50, 'sadam haho', 'haha@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
+(51, 'teshaha', 'sadamh@gmail.com', '082331770406', NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
+(56, 'ekkqen', 'dnvnr@gmail.com', NULL, NULL, NULL, '', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -408,6 +412,12 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `seminar`
+--
+ALTER TABLE `seminar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sertifikasi`
 --
 ALTER TABLE `sertifikasi`
@@ -448,7 +458,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `bahasa`
 --
 ALTER TABLE `bahasa`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `bank`
@@ -460,7 +470,7 @@ ALTER TABLE `bank`
 -- AUTO_INCREMENT for table `consultant`
 --
 ALTER TABLE `consultant`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pengalaman`
@@ -472,7 +482,7 @@ ALTER TABLE `pengalaman`
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -481,16 +491,22 @@ ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `seminar`
+--
+ALTER TABLE `seminar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `sertifikasi`
 --
 ALTER TABLE `sertifikasi`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `spesialisasi`
 --
 ALTER TABLE `spesialisasi`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `type_sevice`
@@ -502,7 +518,7 @@ ALTER TABLE `type_sevice`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
@@ -544,7 +560,7 @@ ALTER TABLE `pengalaman`
 -- Constraints for table `program`
 --
 ALTER TABLE `program`
-  ADD CONSTRAINT `fk_program_consultant` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`);
+  ADD CONSTRAINT `program_ibfk_1` FOREIGN KEY (`consultant_id`) REFERENCES `consultant` (`id`);
 
 --
 -- Constraints for table `sertifikasi`

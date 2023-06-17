@@ -79,7 +79,7 @@
                                                         <i class="ri-edit-line"></i>
                                                     </button>
                                                 </a>
-                                                <a href="<?php echo site_url('admin/delete_row/' . $item->id) ?>">
+                                                <a href="<?php echo site_url('admin/delete/' . $item->id) ?>">
                                                     <button class="delete">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>

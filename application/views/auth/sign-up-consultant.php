@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/auth.css'); ?>">
 </head>
 <body>
-    
+
     <div class="container-fluid ">
         <div class="row dflex flex-row-reverse ">   
             <div class="col-sm p-0">
@@ -32,93 +32,90 @@
                         <h4>Registrasi Akun</h4>
                         <p>Selamat datang! Silakan isi formulir pendaftaran di bawah ini untuk membuat akun Anda.</p>
                     </div>
-                    <div class="form-log">
-                        <div class="form-input">
-                            <p>Nama Lengkap</p>
-                            <input class="log-input" type="text" placeholder="Masukkan Nama Lengkap" >
-                        </div>
-                        <div class="form-input">
-                            <p>Bidang Keahlian</p>
-                            <input class="log-input" type="text" placeholder="Masukkan Nama Lengkap" >
-                        </div>
-                        <div class="form-input">
-                            <p>Provinsi Domisili</p>
-                            <div class="select-menu">
-                                <div class="select-btn">
-                                    <span class="sBtn-text log-input form-select">Masukan Provinsi Domisili Anda</span>
-                                </div>
-                                <ul class="options log-input">
-                                    <li class="option">
-                                        <span class="option-text">Jambi</span>
-                                    </li>
-                                    <li class="option">
-                                        <span class="option-text">Jakarta</span>
-                                    </li>
-                                    <li class="option">
-                                        <span class="option-text">Jawa Barat</span>
-                                    </li>
-                                    <li class="option">
-                                        <span class="option-text">Jawa Tengah</span>
-                                    </li>
-                                    <li class="option">
-                                        <span class="option-text">Jawa Timur</span>
-                                    </li>
-                                </ul>
+                    <form action="<?= base_url().'SignController/signupConsultant' ?>" method="post">
+                        <div class="form-log">
+                            <div class="form-input">
+                                <p>Nama Lengkap</p>
+                                <input class="log-input" name="name" type="text" placeholder="Masukkan Nama Lengkap" >
+                                <?= form_error('name', '<p class="text-danger">', '</p>'); ?>
                             </div>
-                        </div>
-                        <div class="form-input">
-                            <p>Kota Domisili</p>
-                            <div class="select-menuCity">
-                                <div class="select-btnCity">
-                                    <span class="sBtn-textCity log-input form-select">Masukan Kota Domisili Anda</span>
-                                </div>
-                                <ul class="optionsCity log-input">
-                                    <li class="optionCity">
-                                        <span class="option-textCity">Jakarta Barat</span>
-                                    </li>
-                                    <li class="optionCity">
-                                        <span class="option-textCity">Jakarta Pusat</span>
-                                    </li>
-                                    <li class="optionCity">
-                                        <span class="option-textCity">Jakarta Selatan</span>
-                                    </li>
-                                    <li class="optionCity">
-                                        <span class="option-textCity">Jakarta Timur</span>
-                                    </li>
-                                    <li class="optionCity">
-                                        <span class="option-textCity">Jakarta Utara</span>
-                                    </li>
-                                </ul>
+                            <div class="form-input">
+                                <p>Bidang Keahlian</p>
+                                <input class="log-input" name="spesialisasi" type="text" placeholder="Masukkan Nama Lengkap" >
+                                <?= form_error('spesialisasi', '<p class="text-danger">', '</p>'); ?>
                             </div>
-                        </div>  
-                        <div class="form-input">
-                            <p>Email</p>
-                            <input class="log-input" type="text" placeholder="Masukkan Email" >
+                            <div class="form-input">
+                                <p>Provinsi Domisili</p>
+                                <div class="select-menu">
+                                    <div class="select-btn">
+                                        <!-- <span class="sBtn-text log-input form-select">Masukan Provinsi Domisili Anda</span> -->
+                                        <select name="provinsi" required class="sBtn-text log-input form-select" >
+                                            <option value="ACEH">Masukan Provinsi Domisili anda</option>
+                                            <?php foreach($provinsi as $item): ?>
+                                                <option value="<?= $item['name'] ?>"><?= $item['name'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <p>Kota Domisili</p>
+                                <div class="select-menuCity">
+                                    <div class="select-btnCity">
+                                        <span class="sBtn-textCity log-input form-select">Masukan Kota Domisili Anda</span>
+                                    </div>
+                                    <ul class="optionsCity log-input">
+                                        <li class="optionCity">
+                                            <span class="option-textCity">Jakarta Barat</span>
+                                        </li>
+                                        <li class="optionCity">
+                                            <span class="option-textCity">Jakarta Pusat</span>
+                                        </li>
+                                        <li class="optionCity">
+                                            <span class="option-textCity">Jakarta Selatan</span>
+                                        </li>
+                                        <li class="optionCity">
+                                            <span class="option-textCity">Jakarta Timur</span>
+                                        </li>
+                                        <li class="optionCity">
+                                            <span class="option-textCity">Jakarta Utara</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>  
+                            <div class="form-input">
+                                <p>Email</p>
+                                <input class="log-input" name="email" type="text" placeholder="Masukkan Email" >
+                                <?= form_error('email', '<p class="text-danger">', '</p>'); ?>
+                            </div>
+                            <div class="form-input">
+                                <p>Nomor Whatsapp</p>
+                                <input class="log-input" name="no_handphone" type="number" placeholder="Masukkan Nomor Whatsapp" >
+                                <?= form_error('no_handphone', '<p class="text-danger">', '</p>'); ?>
+                            </div>
+                            <div class="form-input">
+                                <p>Password</p>
+                                <input class="log-input" name="password" type="password" placeholder="Masukkan Password" >
+                                <?= form_error('password', '<p class="text-danger">', '</p>'); ?>
+                            </div>
+                            <div class="form-input">
+                                <p>Konfirmasi Password</p>
+                                <input class="log-input" type="password" name="konfirmasi" placeholder="Masukkan Ulang Password" >
+                                <?= form_error('konfirmasi', '<p class="text-danger">', '</p>'); ?>
+                            </div>
+                            <div class="checkbox-input">
+                                <input class="checkbox-pop" name="cek" type="checkbox" id="check2"/>
+                                <p>Membuat akun berarti Anda setuju dengan 
+                                    <a class="link-text">Syarat Layanan</a>,
+                                    <a class="link-text">Kebijakan Privasi</a>, dan 
+                                    <a class="link-text">Pengaturan Notifikasi</a> bawaan kami.
+                                </p>
+                            </div>
+                            
+                            <button type="submit" class="log-primary-button">Registrasi akun</button>
+                            
                         </div>
-                        <div class="form-input">
-                            <p>Nomor Whatsapp</p>
-                            <input class="log-input" type="text" placeholder="Masukkan Nomor Whatsapp" >
-                        </div>
-                        <div class="form-input">
-                            <p>Password</p>
-                            <input class="log-input" type="password" placeholder="Masukkan Password" >
-                        </div>
-                        <div class="form-input">
-                            <p>Konfirmasi Password</p>
-                            <input class="log-input" type="password" placeholder="Masukkan Ulang Password" >
-                        </div>
-                        <div class="checkbox-input">
-                            <input class="checkbox-pop" type="checkbox" id="check2"/>
-                            <p>Membuat akun berarti Anda setuju dengan 
-                                <a class="link-text">Syarat Layanan</a>,
-                                <a class="link-text">Kebijakan Privasi</a>, dan 
-                                <a class="link-text">Pengaturan Notifikasi</a> bawaan kami.
-                            </p>
-                        </div>
-                        <a href="index.php">
-                            <button class="log-primary-button">Registrasi akun</button>
-                        </a>
-                    </div>
+                    </form>
                     <div class="log-with text-center">
                         <p>Atau registrasi dengan menggunakan:</p>
                         <div class="row">

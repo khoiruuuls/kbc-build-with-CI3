@@ -31,12 +31,14 @@
                     </div>
 
                     <h4>Data Program Seminar</h3>
-                        <form action="<?= base_url() . '/admin/index' ?>" method="GET">
+                        <form action="<?= base_url() . 'admin/index' ?>" method="GET">
                             <div class="d-flex justify-content-between">
 
                                 <div class="search-bar col-6">
-                                    <input type="text" name="search" class="log-input">
-                                    <button class="log-primary-button">Search</button>
+                                    <form action="<?= base_url().'admin/index' ?>" method="get">
+                                        <input type="text" name="search" class="log-input">
+                                        <button type="submit"  class="log-primary-button">Search</button>
+                                    </form>
                                 </div>
 
                                 <a href="<?php echo site_url('admin/tambah') ?>" class="log-primary-button text-center">
@@ -77,7 +79,7 @@
                                                         <i class="ri-edit-line"></i>
                                                     </button>
                                                 </a>
-                                                <a href="<?php echo site_url('admin/delete_row/' . $item->id) ?>">
+                                                <a href="<?php echo site_url('admin/delete/' . $item->id) ?>">
                                                     <button class="delete">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>
@@ -94,8 +96,10 @@
                     <h4>Data Konsultan</h3>
                         <div class="d-flex justify-content-between">
                             <div class="search-bar col-6">
-                                <input type="text" class="log-input">
-                                <button class="log-primary-button">Search</button>
+                                <form action="<?= base_url().'admin/index' ?>" method="get">
+                                    <input type="text" name="search1" class="log-input">
+                                    <button type="submit"  class="log-primary-button">Search</button>
+                                </form>
                             </div>
                             <a href="<?php echo site_url('admin/add_consultant') ?>" class="log-primary-button text-center">
                                 Tambah

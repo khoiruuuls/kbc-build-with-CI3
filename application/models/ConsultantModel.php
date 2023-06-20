@@ -53,9 +53,37 @@ class ConsultantModel extends CI_MOdel
     }
     public function updateConsultant()
     {
+        if($this->input->post('photo') == $this->input->post('foto') || $this->input->post('photo') == NULL){
+            $newFileName = $this->input->post('foto');
+            
+        }else{
+
+            if ($_FILES['photo']['name']) {
+                
+                $fileExtension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION); // Ekstensi file
+                $allowedExtensions = array('jpg', 'jpeg', 'png');
+                if(in_array($fileExtension,$allowedExtensions)){
+
+                    $targetDir = "assets/img/consultant/"; // Direktori tujuan tempat menyimpan file yang diunggah
+
+                    $newFileName = uniqid() . '.' . $fileExtension;
+                    $targetFile = $targetDir . $newFileName;
+                    if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
+                        $hapusFileLama = "assets/img/consultant/".$this->input->post('foto');
+                        unlink($hapusFileLama);
+
+                       
+                    } 
+                        
+                }
+
+                
+                
+            }
+        }
 
         $data = [
-            'photo' => $this->upload->data('file_name'),
+            'photo' => $newFileName,
             'name' => htmlspecialchars($this->input->post('name'), true),
             'profesi' => 'consultant',
             'alamat' => htmlspecialchars($this->input->post('alamat'), true),

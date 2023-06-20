@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <?php $this->load->view("_partials/navbar_admin.php") ?>
-
+    <?php $this->load->view("_partials/navbar_admin.php");
+    // var_dump($consultant) ?>
+    
     <div class="container-fluid">
         <div class="row ">
             <div class="col-12 col-md-3 user-box ">
@@ -56,15 +57,32 @@
                                 </div>
                             </div>
                             <div class="form-input">
-                                <p>Konsultan</p>
-                                <select name="consultant_id" id="consultant_id" class="log-input form-select">
-                                    <option style=" margin-left: 10px;" value="">Select Consultant</option>
-                                    <?php foreach ($consultants as $consultant) : ?>
-                                        <option value="<?php echo $consultant->id; ?>" title="<?php echo $consultant->name; ?>"><?php echo $consultant->name; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <p>Type</p>
+                                <input class="log-input" type="text" placeholder="Masukan Type" name="type" id="">
                             </div>
+                            
+                            <?php if($consultant != null) :?>
+                                <div class="form-input">
+                                    <p>Konsultan</p>
+                                    <select name="users_id" id="users_id" class="log-input form-select">
+                                        <option style=" margin-left: 10px;" value="">Select Consultant</option>
+                                        <?php foreach ($consultant as $consultants) : ?>
+                                            <option value="<?= $consultants->id; ?>" ><?= $consultants->name; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            <?php else : ?>
+                                <?php 
+                                $id = $this->db->select('id')
+                                                ->from('consultant')
+                                                ->where('users_id',$this->session->userdata('id'))
+                                                ->get()->result();    
+                                
+                                ?>
+                                <input type="hidden" name="users_id" value="<?= $id[0]->id ?>">
+                            <?php endif ;?>
+
                             <div class="form-input">
                                 <p>Deskripsi</p>
                                 <textarea class="log-input" type="text" placeholder="Masukan Deskripsi" style="height: 300px" name="descProgram" id=""></textarea>

@@ -31,9 +31,10 @@
                     </div>
                     <h4>Edit Konsultan</h3>
                         <p>Photo Profile</p>
-                        <form action="<?= base_url() . 'admin/updateConsultant/' . $consultant['id'] ?>"
+                        <form action="<?= base_url() . 'admin/updateConsultant'?>"
                             enctype="multipart/form-data" method="POST">
                             <input type="hidden" name="id" value="<?php echo $consultant['id']; ?>">
+                            <input type="hidden" name="foto" value="<?= $consultant['photo']; ?>">
                             <div class="form-input">
                                 <div class="upload-container">
                                     <div class="header">
@@ -57,8 +58,8 @@
                                 </div>
                                 <div class="form-input">
                                     <p>Alamat</p>
-                                    <textarea class="log-input" type="text" placeholder="Masukan Alamat Lengkap"
-                                        name="alamat" id=""></textarea>
+                                    <textarea class="log-input"  type="text" placeholder="Masukan Alamat Lengkap"
+                                        name="alamat" value="<?= $consultant['alamat'] ?>" id=""></textarea>
                                     <?= form_error('alamat', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                             </div>

@@ -35,158 +35,95 @@ class Admin extends CI_Controller
         $this->load->view('main/admin/index', $data);
     }
 
-    // public function tambah()
-    // {
-    //     // $this->load->view('main/admin/index');
-    //     if ($this->input->post()) {
-    //         //rules
-    //         // 'numeric' => 'The input you enter is not of type number'
-    //         $this->form_validation->set_rules('name', 'name', 'trim|required', [
-    //             'required' => 'Please input name is required',
-    //         ]);
-    //         $this->form_validation->set_rules('tag', 'tag', 'trim|required', [
-    //             'required' => 'Please input tag is required',
-    //         ]);
-    //         $this->form_validation->set_rules('descProgram', 'descProgram', 'trim|required', [
-    //             'required' => 'Please input descProgram is required',
-    //         ]);
-
-    //         $this->form_validation->set_rules('url', 'url', 'trim|required', [
-    //             'required' => 'Please input url is required',
-    //         ]);
-
-    //         $this->form_validation->set_rules('priceMin', 'priceMin', 'trim|required', [
-    //             'required' => 'Please input priceMin is required',
-    //         ]);
-    //         $this->form_validation->set_rules('kuota', 'kuota', 'trim|required', [
-    //             'required' => 'Please input kuota is required',
-    //         ]);
-    //         // var_dump($_FILES);
-    //         // die;
-    //         if ($this->form_validation->run() == TRUE) {
-    //             // return 'tes';
-    //             $priceMax = $this->input->post('priceMin') + 100000;
-    //             if ($_FILES['photo']['name']) {
-    //                 $config['upload_path'] = 'assets/img/program/';
-    //                 $config['allowed_types'] = 'jpg|png|jpeg';
-    //                 $config['max_size'] = 2048;
-    //                 $config['file_name'] = $_FILES['photo']['name'];
-
-    //                 $this->load->library('upload', $config);
-
-    //                 if ($this->upload->do_upload('photo')) {
-
-    //                     $uploadDb = [
-    //                         'photo' => $this->upload->data('file_name'),
-    //                         'name' => htmlspecialchars($this->input->post('name'), true),
-    //                         'tag' => htmlspecialchars($this->input->post('tag'), true),
-    //                         'type' => htmlspecialchars($this->input->post('type'), true),
-    //                         'descProgram' => htmlspecialchars($this->input->post('descProgram'), true),
-    //                         'priceMin' => htmlspecialchars($this->input->post('priceMin'), true),
-    //                         'priceMax' => $priceMax,
-    //                         'dateStart' => htmlspecialchars($this->input->post('date_start'), true),
-    //                         'dateEnd' => htmlspecialchars($this->input->post('date_end'), true),
-    //                         'time_start' => htmlspecialchars($this->input->post('time_start'), true),
-    //                         'time_end' => htmlspecialchars($this->input->post('time_end'), true),
-    //                         'mode' => 'online',
-    //                         'url' => htmlspecialchars($this->input->post('url'), true),
-    //                         'lokasi' => null,
-    //                         'alamat' => null,
-    //                         'kota' => null,
-    //                         'kuota' => htmlspecialchars($this->input->post('kuota'), true),
-    //                     ];
-    //                     $this->db->insert('program', $uploadDb);
-    //                     return redirect('admin/index');
-    //                 }
-    //                 echo 'gak upload';
-    //             }
-    //             echo 'gak daoer';
-    //         }
-    //     }
-    //     $data['user']    = $this->db->get_where('users', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['page_title'] = 'Tambah Konsultan';
-    //     $this->load->view('main/admin/tambah', $data);
-    // }
-
     public function tambah()
     {
-        $this->load->library('upload');
-        $this->config->load('upload', true);
-
+        // $this->load->view('main/admin/index');
         if ($this->input->post()) {
-            // Form validation rules
-            $this->form_validation->set_rules('name', 'Name', 'trim|required');
-            $this->form_validation->set_rules('tag', 'Tag', 'trim|required');
-            $this->form_validation->set_rules('descProgram', 'Description', 'trim|required');
-            $this->form_validation->set_rules('url', 'URL', 'trim|required');
-            $this->form_validation->set_rules('priceMin', 'Minimum Price', 'trim|required');
-            $this->form_validation->set_rules(
-                'kuota',
-                'Quota',
-                'trim|required'
-            );
+            // var_dump($this->input->post());die;
+            $this->form_validation->set_rules('name', 'name', 'trim|required', [
+                'required' => 'Please input name is required',
+            ]);
+            $this->form_validation->set_rules('tag', 'tag', 'trim|required', [
+                'required' => 'Please input tag is required',
+            ]);
+            $this->form_validation->set_rules('descProgram', 'descProgram', 'trim|required', [
+                'required' => 'Please input descProgram is required',
+            ]);
 
+            $this->form_validation->set_rules('url', 'url', 'trim|required', [
+                'required' => 'Please input url is required',
+            ]);
+
+            $this->form_validation->set_rules('priceMin', 'priceMin', 'trim|required', [
+                'required' => 'Please input priceMin is required',
+            ]);
+            $this->form_validation->set_rules('kuota', 'kuota', 'trim|required', [
+                'required' => 'Please input kuota is required',
+            ]);
+            // var_dump($_FILES);
+            // die;
             if ($this->form_validation->run() == TRUE) {
-                $priceMin = $this->input->post('priceMin');
-                $priceMax = $priceMin + 100000;
-                $consultantID = $this->input->post('consultant_id');
-
+                // return 'tes';
+                $priceMax = $this->input->post('priceMin') + 100000;
                 if ($_FILES['photo']['name']) {
-                    $uploadConfig = $this->config->item('upload');
-                    $this->upload->initialize($uploadConfig);
+                    
+                    $fileExtension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION); // Ekstensi file
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+                    if(in_array($fileExtension,$allowedExtensions)){
 
-                    if ($this->upload->do_upload('photo')) {
-                        $uploadData = $this->upload->data();
+                        $targetDir = "assets/img/program/"; // Direktori tujuan tempat menyimpan file yang diunggah
+    
+                        $newFileName = uniqid() . '.' . $fileExtension;
+                        $targetFile = $targetDir . $newFileName;
+                        if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
+                            
+                            $uploadDb = [
+                                'photo' => $newFileName,
+                                'name' => htmlspecialchars($this->input->post('name'), true),
+                                'tag' => htmlspecialchars($this->input->post('tag'), true),
+                                'type' => htmlspecialchars($this->input->post('type'), true),
+                                'descProgram' => htmlspecialchars($this->input->post('descProgram'), true),
+                                'priceMin' => htmlspecialchars($this->input->post('priceMin'), true),
+                                'priceMax' => $priceMax,
+                                'dateStart' => htmlspecialchars($this->input->post('date_start'), true),
+                                'dateEnd' => htmlspecialchars($this->input->post('date_end'), true),
+                                'time_start' => htmlspecialchars($this->input->post('time_start'), true),
+                                'time_end' => htmlspecialchars($this->input->post('time_end'), true),
+                                'mode' => 'online',
+                                'url' => htmlspecialchars($this->input->post('url'), true),
+                                'lokasi' => null,
+                                'alamat' => null,
+                                'kota' => null,
+                                'kuota' => htmlspecialchars($this->input->post('kuota'), true),
+                                'consultant_id' => $this->input->post('users_id')
+                            ];
+                            $this->db->insert('program', $uploadDb);
+                            return redirect('admin/index');
+                            } 
+                            echo 'tempat eror';
+                        }
 
-                        $insertData = [
-                            'photo' => $uploadData['file_name'],
-                            'name' => htmlspecialchars($this->input->post('name'), true),
-                            'tag' => htmlspecialchars(
-                                $this->input->post('tag'),
-                                true
-                            ),
-                            'type' => htmlspecialchars($this->input->post('type'), true),
-                            'descProgram' => htmlspecialchars(
-                                $this->input->post('descProgram'),
-                                true
-                            ),
-                            'priceMin' => $priceMin,
-                            'priceMax' => $priceMax,
-                            'dateStart' => htmlspecialchars($this->input->post('date_start'), true),
-                            'dateEnd' => htmlspecialchars($this->input->post('date_end'), true),
-                            'time_start' => htmlspecialchars($this->input->post('time_start'), true),
-                            'time_end' => htmlspecialchars($this->input->post('time_end'), true),
-                            'mode' => 'online',
-                            'url' => htmlspecialchars($this->input->post('url'), true),
-                            'lokasi' => null,
-                            'alamat' => null,
-                            'kota' => null,
-                            'kuota' => htmlspecialchars($this->input->post('kuota'), true),
-                            'consultant_id' => $consultantID,
-                        ];
-
-                        $this->db->insert('program', $insertData);
-                        redirect('admin/index');
-                    } else {
-                        $uploadError = $this->upload->display_errors();
-                        echo $uploadError;
-                    }
-                } else {
-                    echo 'No file selected.';
+                    
+                    echo 'gak upload';
                 }
+                echo 'gak daoer';
             }
         }
-
-        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        if($this->session->userdata('role_id') == 2)
+        {
+            $konsul = $this->db->select('id,name')
+                        ->from('consultant')
+                        ->get()
+                        ->result();
+        }else{
+            $konsul = null;
+        }
+        $data['consultant'] = $konsul;
+        $data['user']    = $this->db->get_where('users', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $data['page_title'] = 'Tambah Konsultan';
-        $this->load->model('ConsultantModel');
-        $data['consultants'] = $this->ConsultantModel->getConsultant();
-        $this->load->model('ConsultantModel');
-        $data['bahasa_options'] = $this->ConsultantModel->getBahasaOptions();
         $this->load->view('main/admin/tambah', $data);
     }
-
 
     public function edit($id)
     {
@@ -201,40 +138,188 @@ class Admin extends CI_Controller
 
     public function update($id)
     {
-        $this->load->model("ProgramModel");
-        $this->ProgramModel->updateProgram($id);
-        redirect('admin');
+        if($id){
+            if($this->input->post())
+            {
+                $this->form_validation->set_rules('name', 'name', 'trim|required', [
+                    'required' => 'Please input name is required',
+                ]);
+                $this->form_validation->set_rules('tag', 'tag', 'trim|required', [
+                    'required' => 'Please input tag is required',
+                ]);
+                $this->form_validation->set_rules('descProgram', 'descProgram', 'trim|required', [
+                    'required' => 'Please input descProgram is required',
+                ]);
+    
+                $this->form_validation->set_rules('url', 'url', 'trim|required', [
+                    'required' => 'Please input url is required',
+                ]);
+    
+                $this->form_validation->set_rules('priceMin', 'priceMin', 'trim|required', [
+                    'required' => 'Please input priceMin is required',
+                ]);
+                $this->form_validation->set_rules('kuota', 'kuota', 'trim|required', [
+                    'required' => 'Please input kuota is required',
+                ]);
+                if ($this->form_validation->run() == TRUE) {
+                    // return 'tes';
+                    $priceMax = $this->input->post('priceMin') + 100000;
+                    if($_FILES['photo']['name']== $this->input->post('foto') || $_FILES['photo']['name'] == NULL){
+                        $newFileName = $this->input->post('foto');
+                        
+                    }else{
+
+                        if ($_FILES['photo']['name']) {
+                            
+                            $fileExtension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION); // Ekstensi file
+                            $allowedExtensions = array('jpg', 'jpeg', 'png');
+                            if(in_array($fileExtension,$allowedExtensions)){
+        
+                                $targetDir = "assets/img/program/"; // Direktori tujuan tempat menyimpan file yang diunggah
+            
+                                $newFileName = uniqid() . '.' . $fileExtension;
+                                $targetFile = $targetDir . $newFileName;
+                                if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
+                                    $hapusFileLama = "assets/img/program/".$this->input->post('foto');
+                                    unlink($hapusFileLama);
+
+                                   
+                                } 
+                                    
+                            }
+        
+                            
+                            
+                        }
+                    }
+                    $uploadDb = [
+                        'photo' => $newFileName,
+                        'name' => htmlspecialchars($this->input->post('name'), true),
+                        'tag' => htmlspecialchars($this->input->post('tag'), true),
+                        'type' => htmlspecialchars($this->input->post('type'), true),
+                        'descProgram' => htmlspecialchars($this->input->post('descProgram'), true),
+                        'priceMin' => htmlspecialchars($this->input->post('priceMin'), true),
+                        'priceMax' => $priceMax,
+                        'dateStart' => htmlspecialchars($this->input->post('date_start'), true),
+                        'dateEnd' => htmlspecialchars($this->input->post('date_end'), true),
+                        'time_start' => htmlspecialchars($this->input->post('time_start'), true),
+                        'time_end' => htmlspecialchars($this->input->post('time_end'), true),
+                        'mode' => 'online',
+                        'url' => htmlspecialchars($this->input->post('url'), true),
+                        'lokasi' => null,
+                        'alamat' => null,
+                        'kota' => null,
+                        'kuota' => htmlspecialchars($this->input->post('kuota'), true),
+                        
+                    ];
+                    $this->db->where('id', $id);
+                    $this->db->update('program', $uploadDb);
+                    return redirect('admin/index');
+                    
+                }   
+            }
+        }
     }
 
-    public function updateConsultant($id)
+    public function updateConsultant()
     {
-        $this->load->model("ConsultantModel");
-        $this->ConsultantModel->updateConsultant($id);
-        redirect('admin');
+        // var_dump($_FILES['']);
+        // die;
+        if($_FILES['photo']['name'] == $this->input->post('foto') || $_FILES['photo']['name'] == NULL){
+            // echo 'gagal';
+            // die;
+            $newFileName = $this->input->post('foto');
+            
+        }else{
+            // echo 'berhasil';
+            // die;
+
+            if ($_FILES['photo']['name']) {
+                
+                $fileExtension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION); // Ekstensi file
+                $allowedExtensions = array('jpg', 'jpeg', 'png');
+                if(in_array($fileExtension,$allowedExtensions)){
+
+                    $targetDir = "assets/img/consultant/"; // Direktori tujuan tempat menyimpan file yang diunggah
+
+                    $newFileName = uniqid() . '.' . $fileExtension;
+                    $targetFile = $targetDir . $newFileName;
+                    if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
+                        $hapusFileLama = "assets/img/consultant/".$this->input->post('foto');
+                        unlink($hapusFileLama);
+
+                       
+                    } 
+                    
+                        
+                }
+
+                
+                
+            }
+        }
+
+        $data = [
+            'photo' => $newFileName,
+            'name' => htmlspecialchars($this->input->post('name'), true),
+            'profesi' => 'consultant',
+            'alamat' => htmlspecialchars($this->input->post('alamat'), true),
+            'email' => htmlspecialchars($this->input->post('email'), true),
+            'no_handphone' => $this->input->post('no_handphone'),
+            'perusahaan' => htmlspecialchars($this->input->post('perusahaan'), true),
+            'spesialisasi' => htmlspecialchars($this->input->post('spesialisasi'), true),
+            'akun_media' => htmlspecialchars($this->input->post('akun_media'), true),
+            'jumlah_client' => $this->input->post('jumlah_client'),
+        ];
+        $this->db->where('id', $this->input->post('id'), true);
+        $this->db->update('consultant', $data);
+
+        return redirect('admin/index');
     }
 
-    public function delete_row($id)
+    public function delete($id)
     {
-        $this->load->model("ProgramModel");
-        $this->ProgramModel->delete($id);
-
-        return redirect('admin');
+        $photo = $this->db->select("photo")
+                            ->from('program')
+                            ->where('id',$id)
+                            ->get()
+                            ->result();
+        // var_dump($photo[0]->photo);die;
+        $path = 'assets/img/program/'.$photo[0]->photo;
+        if(file_exists($path)){
+            unlink($path);
+            $this->db->where('id',$id);
+            $this->db->delete('program');
+            return redirect('admin/index');
+        }
+        return redirect('admin/index');
     }
 
     public function delete_consultant($id)
     {
         // hapus consultant
-        $this->load->model("ConsultantModel");
-        $this->ConsultantModel->delete($id);
-        return redirect('admin');
+        $photo = $this->db->select("photo")
+                            ->from('consultant')
+                            ->where('id',$id)
+                            ->get()
+                            ->result();
+        // var_dump($photo[0]->photo);die;
+        $path = 'assets/img/consultant/'.$photo[0]->photo;
+        if(file_exists($path)){
+            unlink($path);
+            $this->db->where('id',$id);
+            $this->db->delete('consultant');
+            return redirect('admin/index');
+        }
+        return redirect('admin/index');
     }
-
 
     public function add_consultant()
     {
-        $this->load->model("ConsultantModel");
 
         if ($this->input->post()) {
+            // $i = 1;
+            // var_dump($this->input->post('bahasa')[$i]);die;
 
             $this->form_validation->set_rules('name', 'name', 'trim|required|is_unique[consultant.name]', [
                 'required' => 'Please input name is required',
@@ -254,6 +339,9 @@ class Admin extends CI_Controller
                 'required' => 'Please input no_hanphone is required',
                 'numeric' => 'The input you enter is not of type number'
             ]);
+
+           
+            
             $this->form_validation->set_rules('jumlah_client', 'jumlah_client', 'trim|required|numeric', [
                 'required' => 'Please input jumlah_client is required',
                 'numeric' => 'The input you enter is not of type number'
@@ -261,117 +349,131 @@ class Admin extends CI_Controller
             $this->form_validation->set_rules('akun_media', 'akun_media', 'trim|required', [
                 'required' => 'Please input akun_media is required',
             ]);
-
+            
+            // var_dump($this->form_validation->run());
+            // die;
+            
+            
             if ($this->form_validation->run() == TRUE) {
                 if ($_FILES['photo']['name']) {
-                    $config['upload_path'] = 'assets/img/consultant/';
-                    $config['allowed_types'] = 'jpg|png|jpeg';
-                    $config['max_size'] = 2048;
-                    $config['file_name'] = $_FILES['photo']['name'];
+                    
+                    $fileExtension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION); // Ekstensi file
+                    $allowedExtensions = array('jpg', 'jpeg', 'png');
+                    if(in_array($fileExtension,$allowedExtensions)){
 
-                    $this->load->library('upload');
-                    $this->upload->initialize($config);
+                        $targetDir = "assets/img/consultant/"; // Direktori tujuan tempat menyimpan file yang diunggah
+    
+                        $newFileName = uniqid() . '.' . $fileExtension;
+                        $targetFile = $targetDir . $newFileName;
+                        if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
+                            // echo 'berhasil';
+                            // die;
+                            $this->db->insert('users',[
+                                'name' => htmlspecialchars($this->input->post('name'), true),
+                                'email' => htmlspecialchars($this->input->post('email'), true),
+                                'role_id' => 3
+                            ]);
 
-                    if ($this->upload->do_upload('photo')) {
+                            $user = $this->db->select('id,name')
+                                            ->from('users')
+                                            ->where('name',$this->input->post('name'))
+                                            ->get()
+                                            ->result_array();
 
-                        $uploadDb = [
+                            $uploadConsultant = [
+                                'photo' => $newFileName,
+                                'name' => htmlspecialchars($this->input->post('name'), true),
+                                'users_id' => $user[0]['id'],
+                                'profesi' => 'consultant',
+                                'profile' => htmlspecialchars($this->input->post('profile'), true),
+                                'alamat' => htmlspecialchars($this->input->post('alamat'), true),
+                                'email' => htmlspecialchars($this->input->post('email'), true),
+                                'no_handphone' => htmlspecialchars($this->input->post('no_handphone'), true),
+                                'akun_media' => htmlspecialchars($this->input->post('akun_media'), true),
+                                'jumlah_client' => htmlspecialchars($this->input->post('jumlah_client'), true),
+                                // 'spesifikasi' => htmlspecialchars($this->input->post('spesifikasi'), true),
+                            ];
+                            $this->db->insert('consultant', $uploadConsultant);
+                            // echo 'berhasil';
+                            // die;
 
-                            'photo' => $this->upload->data('file_name'),
-                            'name' => htmlspecialchars($this->input->post('name'), true),
-                            'profile' => htmlspecialchars($this->input->post('profile'), true),
-                            'profesi' => 'consultant',
-                            'alamat' => htmlspecialchars($this->input->post('alamat'), true),
-                            'email' => htmlspecialchars($this->input->post('email'), true),
-                            'no_handphone' => $this->input->post('no_handphone'),
-                            'akun_media' => htmlspecialchars($this->input->post('akun_media'), true),
-                            'jumlah_client' => $this->input->post('jumlah_client'),
-                        ];
-
-                        $this->db->insert('consultant', $uploadDb);
-                        $consultant_id = $this->db->insert_id();
-
-                        $bahasa = $this->input->post('bahasa');
-                        if (!empty($bahasa)) {
-                            $bahasa_data = array();
-                            foreach ($bahasa as $bahasa_item) {
-                                $bahasa_data[] = array(
-                                    'consultant_id' => $consultant_id,
-                                    'bahasa_name' => $bahasa_item
-                                );
+                            $consultant = $this->db->select('id,name')
+                                                    ->from('consultant')
+                                                    ->where('name',$this->input->post('name'))
+                                                    ->get()
+                                                    ->result_array();
+                            
+                            if($this->input->post('bahasa') != NUll){
+                                for ($i=0; $i < count($this->input->post('bahasa')) ; $i++) { 
+                                    $this->db->insert('bahasa',[
+                                        'bahasa_name' => $this->input->post('bahasa')[$i],
+                                        'consultant_id' => $consultant[0]['id']
+                                    ]);
+                                    
+                                }
                             }
 
-                            $this->db->insert_batch('bahasa', $bahasa_data);
-                        }
-
-                        $spesialisasi = $this->input->post('spesialisasi');
-                        if (!empty($spesialisasi)) {
-                            $spesialisasi_data = array();
-                            foreach ($spesialisasi as $spesialisasi_item) {
-                                $spesialisasi_data[] = array(
-                                    'consultant_id' => $consultant_id,
-                                    'spesialisasi_name' => $spesialisasi_item
-                                );
+                            if($this->input->post('spesialisasi') != NULL){
+                                for ($i=0; $i < count($this->input->post('spesialisasi')) ; $i++) { 
+                                    $this->db->insert('spesialisasi',[
+                                        'spesialisasi_name' => $this->input->post('spesialisasi')[$i],
+                                        'consultant_id' => $consultant[0]['id']
+                                    ]);
+                                    
+                                }
                             }
 
-                            $this->db->insert_batch('spesialisasi', $spesialisasi_data);
-                        }
+                            // echo 'berhasil';
+                            // die;
 
-                        $sertifikasi = $this->input->post('sertifikasi');
-                        $startDates = $this->input->post('start_date');
-                        $endDates = $this->input->post('end_date');
-
-                        if (!empty($sertifikasi)) {
-                            $sertifikasi_data = array();
-
-                            foreach ($sertifikasi as $index => $sertifikasi_item) {
-                                $sertifikasi_data[] = array(
-                                    'consultant_id' => $consultant_id,
-                                    'sertifikasi_name' => $sertifikasi_item,
-                                    'date_start' => isset($startDates[$index]) ? $startDates[$index] : null,
-                                    'date_end' => isset($endDates[$index]) ? $endDates[$index] : null
-                                );
+                            if($this->input->post('sertifikasi') != NULL){
+                                for ($i=0; $i < count($this->input->post('sertifikasi')) ; $i++) { 
+                                    $this->db->insert('sertifikasi',[
+                                        'sertifikasi_name' => $this->input->post('sertifikasi')[$i],
+                                        'date_start' => $this->input->post('start_date')[$i],
+                                        'date_end' => $this->input->post('end_date')[$i],
+                                        'consultant_id' => $consultant[0]['id']
+                                    ]);
+                                    
+                                }
                             }
 
-                            $this->db->insert_batch('sertifikasi', $sertifikasi_data);
-                        }
-
-                        $pengalaman = $this->input->post('pengalaman');
-                        $startDates = $this->input->post('start_date');
-                        $endDates = $this->input->post('end_date');
-
-                        if (!empty($pengalaman)) {
-                            $pengalaman_data = array();
-
-                            foreach ($pengalaman as $index => $pengalaman_item) {
-                                $pengalaman_data[] = array(
-                                    'consultant_id' => $consultant_id,
-                                    'pengalaman_name' => $pengalaman_item,
-                                    'date_start' => isset($startDates[$index]) ? $startDates[$index] : null,
-                                    'date_end' => isset($endDates[$index]) ? $endDates[$index] : null
-                                );
+                            if($this->input->post('pengalaman') != NULL){
+                                for ($i=0; $i < count($this->input->post('pengalaman')) ; $i++) { 
+                                    $this->db->insert('pengalaman',[
+                                        'pengalaman_name' => $this->input->post('pengalaman')[$i],
+                                        'date_start' => $this->input->post('start_pengalaman_date')[$i],
+                                        'date_end' => $this->input->post('end_pengalaman_date')[$i],
+                                        'consultant_id' => $consultant[0]['id']
+                                    ]);
+                                    
+                                }
                             }
+                            
+                            // echo 'berhasil';
+                            // die;
 
-                            $this->db->insert_batch('pengalaman', $pengalaman_data);
+
+                            return redirect('admin/index');
+                            } 
+                            
                         }
 
-                        return redirect('admin/index');
-                    }
+                    
+                    
                 }
             }
         }
-
 
         $data = [
             'page_title' => 'Tambah Konsultan',
             'user' => $this->db->get_where('users', [
                 'email' => $this->session->userdata('email')
-            ])->row_array(),
-            'bahasa_options' => $this->ConsultantModel->getBahasaOptions()
+            ])->row_array()
         ];
 
         $this->load->view('main/admin/add_consultant', $data);
     }
-
 
     public function edit_consultant($id)
     {

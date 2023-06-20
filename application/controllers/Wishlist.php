@@ -19,5 +19,7 @@ class Wishlist extends CI_Controller {
 
         return redirect(site_url('./'));
     }
+
+    
     
 }

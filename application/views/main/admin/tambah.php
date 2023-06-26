@@ -35,14 +35,15 @@
                             <div class="form-input">
                                 <div class="upload-container">
                                     <div class="header">
-                                        <img src="" alt="">
+                                    <img id="preview" src="#" alt="Preview Image" style="display: none;
+                                    max-height: 200px;">
                                         <label for="file" class="footer">
                                             <i class="ri-link"></i>
                                             <p class="m-0">Upload file</p>
                                             <i class="ri-close-fill"></i>
                                         </label>
                                     </div>
-                                    <input id="file" name="photo" type="file">
+                                    <input id="file" name="photo" type="file" onchange="previewImage(event)">
                                 </div>
                             </div>
                             <div class="form-input">
@@ -90,10 +91,11 @@
                             <hr class="line">
                             <div class="form-input">
                                 <p>Lokasi</p>
-                                <div class="row text-center ">
-                                    <div class="col type active">Online</div>
-                                    <div class="col type">Offline</div>
-                                    <div class="col type">Hybrid</div>
+                                <div class="row text-center">
+                                    <!-- <button class="col type "></button> -->
+                                    <button type="button" onclick="changeInput('online')" class="col type active">Online</button>
+                                    <button type="button" onclick="changeInput('offline')" class="col type">Offline</button>
+                                    <button type="button" onclick="changeInput('hybrid')" class="col type">Hybrid</button>
                                 </div>
 
                                 <!-- nilai type consultan/training -->
@@ -120,10 +122,29 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="form-input">
-                                <p>URL Streaming</p>
-                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="url" id="">
+                            <div id="onlineInput" style="display: none;">
+                                <div class="form-input">
+                                    <!-- <input type="hidden" name="mode" value="online"> -->
+                                    <p>URL Streaming</p>
+                                    <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="url" id="">
+                                </div>
                             </div>
+                            <div id="offlineInput" style="display: none;">
+                                <!-- <input type="hidden" name="mode" value="online"> -->
+                                <div class="form-input">
+                                    <p>Tempat</p>
+                                    <input class="log-input" type="text" placeholder="Masukan Nama Tempat kota" name="tempat" id="">
+                                </div>
+                                <div class="form-input">
+                                    <p>Alamat</p>
+                                    <input class="log-input" type="text" placeholder="Masukan Nama alamat" name="alamat" id="">
+                                </div>
+                                <div class="form-input">
+                                    <p>Kota</p>
+                                    <input class="log-input" type="text" placeholder="Masukan Nama kota" name="kota" id="">
+                                </div>
+                            </div>
+                            
                             <hr class="line">
                             <div class="form-input">
                                 <p>Tanggal & Waktu</p>
@@ -154,15 +175,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <input id="mode" type="hidden" name="mode" value="">
                             <div class="form-input">
                                 <p>Kuota & Harga</p>
                                 <div class="date-time gap-3">
                                     <div class="col">
                                         <!-- berhubung priceMaxnya tidak ada inputnya ,aku pake priceMin ditambah 100K -->
-                                        <input class="log-input" type="number" name="priceMin" placeholder="Masukan Kouta">
+                                        <input class="log-input" type="number" name="priceMin" placeholder="Masukan harga minimal">
                                     </div>
                                     <div class="col">
-                                        <input class="log-input" type="number" name="kuota" placeholder="Masukan Harga">
+                                        <input class="log-input" type="number" name="priceMax" placeholder="Masukan Harga maksimal">
+                                    </div>
+                                    <div class="col">
+                                        <input class="log-input" type="number" name="kuota" placeholder="Masukan kuota">
                                     </div>
                                 </div>
                             </div>
@@ -175,6 +200,45 @@
             </div>
         </div>
     </div>
+    <script>
+        function changeInput(data) {
+            
+            
+            
+            document.getElementById("onlineInput").style.display = "none";
+            document.getElementById("offlineInput").style.display = "none";
+            // document.getElementById("hybridInput").style.display = "none";
+
+            
+            if ( data === "online") {
+                document.getElementById("onlineInput").style.display = "block";
+                document.getElementById("mode").value = 'online';
+            } else if (data === "offline") {
+                document.getElementById("offlineInput").style.display = "block";
+                document.getElementById("mode").value = 'offline';
+            } else if (data === "hybrid") {
+                document.getElementById("offlineInput").style.display = "block";
+                document.getElementById("onlineInput").style.display = "block";
+                document.getElementById("mode").value = 'hybrid';
+                
+                // document.getElementById("hybridInput").style.display = "block";
+            }
+
+        }
+
+        function previewImage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+
+            reader.onload = function(){
+                var preview = document.getElementById('preview');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
 
 </body>
 

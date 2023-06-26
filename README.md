@@ -19,4 +19,8 @@ update sadam
 
 kalau misal ada foto yang gak terakupload bisa bilang bang soalnya susah disitunya ,tapi bismillah tetep terinput
 
+
+update sadam lagi
+- crud program sudah bisa pilih mode
+- alert delete
 misal ada salah kabari bang

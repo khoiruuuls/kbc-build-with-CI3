@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/_partials/sidebar.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/admin/home.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/admin/dashboard.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/admin/alert.css'); ?>">
 
 </head>
 
@@ -79,11 +80,9 @@
                                                         <i class="ri-edit-line"></i>
                                                     </button>
                                                 </a>
-                                                <a href="<?php echo site_url('admin/delete/' . $item->id) ?>">
-                                                    <button class="delete">
+                                                <button onclick="deleteProgram('<?= $item->id ?>','<?= $item->name ?>')" type="submit" class="delete">
                                                         <i class="ri-delete-bin-5-line"></i>
-                                                    </button>
-                                                </a>
+                                                </button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -139,22 +138,46 @@
                                                         <i class="ri-edit-line"></i>
                                                     </button>
                                                 </a>
-                                                <a href="<?php echo site_url('admin/delete_consultant/' . $item->id); ?>">
-                                                    <button class="delete">
+                                            
+                                                    <button onclick="deleteData('<?= $item->id ?>','<?= $item->name ?>')" type="submit" class="delete">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>
-                                                </a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
+                        
+                       
                         <?php $this->load->view('_partials/pagination.php') ?>
                 </div>
             </div>
         </div>
 
         </ y>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+        function deleteData(data,name) {
+            var confirmation = confirm("Apakah Anda yakin ingin menghapus data consultant '" + name + "'?");
+            if (confirmation) {
+                window.location.href = "<?= base_url('admin/delete_consultant'); ?>?data=" + encodeURIComponent(data);
+                
+            }
+        }
+        function deleteProgram(data,name) {
+            var confirmation = confirm("Apakah Anda yakin ingin menghapus data program '" + name + "'?");
+            if (confirmation) {
+                window.location.href = "<?= base_url('admin/delete'); ?>?data=" + encodeURIComponent(data);
+                
+            }
+        }
+</script>
+
+
+
+
+
+
 
 </html>

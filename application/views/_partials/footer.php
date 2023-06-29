@@ -21,10 +21,10 @@
             </div>
 
             <div class="col-8 col-md-2 mb-4">
-                <h5>Layanan</h5>
-                <p>Konsultasi</p>
-                <p>Pelatihan</p>
-                <p>Pelatihan Berkelompok</p>
+                <h5>Layanan Kami</h5>
+                <p>Training</p>
+                <p>Coaching dan Mentoring</p>
+                <p>Consulting</p>
             </div>
 
             <div class="col-6 col-md-2 mb-4">

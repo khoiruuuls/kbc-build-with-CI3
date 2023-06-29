@@ -22,7 +22,7 @@
                         <h3>untuk <strong>Shifting Up</strong> ?</h3>
                         <div class="text-hero">
                             <p class="body-text">
-                                Anda dapat belajar langsung dari para professional di industri teknologi, dan juga banyak aktifitas seru yang bisa kamu ikuti.
+                                Mengoptimalkan Potensi Bisnis Anda dengan Konsultan Profesional dalam Menghadapi Tantangan Bisnis Kompleks
                             </p>
                             <button class="primary-button">
                                 Eksplore Sekarang
@@ -157,8 +157,8 @@
         <div class="container my-5">
             <div class="my-5">
                 <span>Layanan Kami</span>
-                <h6 class="mt-3">Tim Kami Bekerja Sama Untuk Merancang Strategi</h6>
-                <h6>yang Tepat Guna Meningkatkan Performa Bisnis Anda.</h6>
+                <h6 class="mt-3">Konsultan di Build dapat Menolong Anda Untuk</h6>
+                <h6>Meningkatkan Perfoma Bisnis Anda</h6>
             </div>
             <div class="row gy-4">
                 <?php foreach ($service as $item) : ?>
@@ -183,21 +183,26 @@
         </div>
     </section>
 
-    <!-- <section id="our-consultant" class="section-p1">
+    <section id="our-consultant" class="section-p1">
         <div class="container my-5">
             <div class="my-5 title-box">
                 <div>
                     <span>Konsultan Kami</span>
-                    <h6 class="mt-3">Para Ahli dalam Bidangnya yang Berdedikasi Untuk </h6>
-                    <h6>Memberikan Layanan Terbaik Kepada Anda.</h6>
+                    <h6 class="mt-3">Konsultasikan Keluhan Anda pada Kami! Anda Dapat </h6>
+                    <h6>Berdiskusi & Sharing Terkait Hal yang Belum Anda Ketahui.</h6>
                 </div>
                 <a href="<?php echo site_url('./consultation') ?>">
                     <p class="detail-text">Lihat Semua Konsultan</p>
                 </a>
             </div>
             <div class="row our-gap display-default">
-                <div class="box-icon">
-                    <i class="ri-arrow-left-line"></i>
+                <div class="consultant-icon">
+                    <div class="box-icon">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>
+                    <div class="box-icon">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
                 </div>
                 <?php foreach ($consultant as $item) : ?>
                     <div class="col">
@@ -210,24 +215,20 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <div class="box-icon">
-                    <i class="ri-arrow-right-line"></i>
-                </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <section id="tobe-consultant">
         <div class="title-box">
             <img src="<?php echo base_url('assets/img/tobe-consultant.jpg') ?>" alt="">
             <div class="container tobe-consultant-box">
-                <div class="col-md-6">
-                    <h5>Tertarik Bergabung Menjadi Konsultan?</h5>
+                <div class="col-md-5">
+                    <h5>Bergabung Menjadi Konsultan?</h5>
                     <div class="text-hero mt-3">
                         <p class="body-text">
-                            Dengan menjadi konsultan kami, Anda memiliki kesempatan untuk berkontribusi dalam membantu
-                            bisnis dan pelanggan kami, serta mengembangkan karir Anda dalam bisnis. Segera bergabung
-                            dengan kami dan jadilah bagian dari tim ahli kami yang berdedikasi dan berpengalaman
+                            Dengan bergabung di Build, anda memiliki kesempatan untuk
+                            berkontribusi terhadap bisnis pelanggan kami. Gabung sekarang dan jadilah bagian dari tim ahli Build
                         </p>
                     </div>
                     <a href="https://bit.ly/ProfilKonsultanBuild">
@@ -278,109 +279,6 @@
         </div>
     </section>
 
-    <section id="help">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="title-help">
-                        <h6>Perlu Bantuan Memilih Program Sesuai Kebutuhan Bisnis Anda?</h6>
-                        <p>Jika Anda memiliki pertanyaan atau memerlukan saran terkait program yang cocok dengan kebutuhan Anda, kami siap membantu. Tim kami dengan senang hati akan memberikan informasi dan panduan yang Anda perlukan.</p>
-                    </div>
-                    <button class="primary-button">
-                        Hubungi Kami
-                    </button>
-                </div>
-                <div class="col-lg-5">
-                    <!-- <div id="circle-help">
-                        <svg class="background-svg" width="317" height="317" viewBox="0 0 317 317" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="158.501" cy="158.658" r="158.342" fill="#EBC96A" />
-                        </svg>
-                        <img src="<?php echo base_url('assets/img/help.png') ?>" alt="">
-                    </div> -->
-                    <div class="blob-ctr">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="80%" id="blobSvg1" filter="blur(0.4px)" style="opacity: 1" transform="rotate(60)">
-                            <defs>
-                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="
-													stop-color: rgb(
-														197,
-														191,
-														191
-													);
-												"></stop>
-                                    <stop offset="100%" style="
-													stop-color: rgb(
-														87,
-														76,
-														76
-													);
-												"></stop>
-                                </linearGradient>
-                            </defs>
-                            <path id="blob" fill="url(#gradient1)" style="opacity: 0.56">
-                                <animate attributeName="d" dur="11000ms" repeatCount="indefinite" values="M390.7302,319.10952Q360.37524,388.21905,284.62068,409.39959Q208.86612,430.58014,161.11156,373.20082Q113.35701,315.8215,88.46857,238.04463Q63.58014,160.26776,136.76776,117.04463Q209.95537,73.8215,303.79007,69.52027Q397.62476,65.21905,409.35497,157.60952Q421.08517,250,390.7302,319.10952Z;M388.67097,319.27849Q360.55699,388.55699,291.23441,379.72688Q221.91183,370.89678,145.00645,354.28387Q68.10108,337.67097,71.32903,251.33548Q74.55699,165,142.39247,119.95591Q210.22796,74.91183,286.12043,91.61398Q362.0129,108.31613,389.39892,179.15806Q416.78495,250,388.67097,319.27849Z;M429.79847,339.54154Q392.67727,429.08308,294.97368,455.00137Q197.27008,480.91966,143.94598,403.56786Q90.62188,326.21607,83.52769,246.22992Q76.43351,166.24376,136.8518,92.77008Q197.27008,19.29641,287.1482,55Q377.02632,90.70359,421.97299,170.3518Q466.91966,250,429.79847,339.54154Z;M400,314Q352,378,277,420Q202,462,143,396Q84,330,66.5,241.5Q49,153,125.5,97.5Q202,42,298.5,55Q395,68,421.5,159Q448,250,400,314Z;M390.7302,319.10952Q360.37524,388.21905,284.62068,409.39959Q208.86612,430.58014,161.11156,373.20082Q113.35701,315.8215,88.46857,238.04463Q63.58014,160.26776,136.76776,117.04463Q209.95537,73.8215,303.79007,69.52027Q397.62476,65.21905,409.35497,157.60952Q421.08517,250,390.7302,319.10952Z">
-                                </animate>
-                            </path>
-                        </svg>
-
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="25%" id="blobSvg2" filter="blur(3.2px)" style="opacity: 1" transform="rotate(60)">
-                            <defs>
-                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="
-													stop-color: rgb(
-														197,
-														191,
-														191
-													);
-												"></stop>
-                                    <stop offset="100%" style="
-													stop-color: rgb(
-														0,
-														0,
-														0
-													);
-												"></stop>
-                                </linearGradient>
-                            </defs>
-                            <path id="S" fill="url(#gradient2)" style="opacity: 0.56">
-                                <animate attributeName="d" dur="11000ms" repeatCount="indefinite" values="M390.7302,319.10952Q360.37524,388.21905,284.62068,409.39959Q208.86612,430.58014,161.11156,373.20082Q113.35701,315.8215,88.46857,238.04463Q63.58014,160.26776,136.76776,117.04463Q209.95537,73.8215,303.79007,69.52027Q397.62476,65.21905,409.35497,157.60952Q421.08517,250,390.7302,319.10952Z;M388.67097,319.27849Q360.55699,388.55699,291.23441,379.72688Q221.91183,370.89678,145.00645,354.28387Q68.10108,337.67097,71.32903,251.33548Q74.55699,165,142.39247,119.95591Q210.22796,74.91183,286.12043,91.61398Q362.0129,108.31613,389.39892,179.15806Q416.78495,250,388.67097,319.27849Z;M429.79847,339.54154Q392.67727,429.08308,294.97368,455.00137Q197.27008,480.91966,143.94598,403.56786Q90.62188,326.21607,83.52769,246.22992Q76.43351,166.24376,136.8518,92.77008Q197.27008,19.29641,287.1482,55Q377.02632,90.70359,421.97299,170.3518Q466.91966,250,429.79847,339.54154Z;M400,314Q352,378,277,420Q202,462,143,396Q84,330,66.5,241.5Q49,153,125.5,97.5Q202,42,298.5,55Q395,68,421.5,159Q448,250,400,314Z;M390.7302,319.10952Q360.37524,388.21905,284.62068,409.39959Q208.86612,430.58014,161.11156,373.20082Q113.35701,315.8215,88.46857,238.04463Q63.58014,160.26776,136.76776,117.04463Q209.95537,73.8215,303.79007,69.52027Q397.62476,65.21905,409.35497,157.60952Q421.08517,250,390.7302,319.10952Z">
-                                </animate>
-                            </path>
-                        </svg>
-
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="40%" id="blobSvg3" filter="blur(3.2px)" style="opacity: 1" transform="rotate(16)">
-                            <defs>
-                                <linearGradient id="gradient3" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="
-													stop-color: rgb(
-														139,
-														126,
-														116
-													);
-												"></stop>
-                                    <stop offset="100%" style="
-													stop-color: rgb(
-														0,
-														0,
-														0
-													);
-												"></stop>
-                                </linearGradient>
-                            </defs>
-                            <path id="blob" fill="url(#gradient3)" style="opacity: 0.28">
-                                <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M415.01911,310.8863Q439.5452,371.7726,388.0904,405.2945Q336.6356,438.8164,280.7726,433.452Q224.9096,428.08761,185.95759,398.74511Q147.00559,369.40261,129.05219,330.15471Q111.09878,290.9068,102.89189,247.863Q94.68499,204.8192,97.4315,140.3164Q100.17801,75.81361,160.4068,60.51771Q220.6356,45.22181,275.226,60.1356Q329.8164,75.04939,372.9534,109.3658Q416.0904,143.6822,403.29171,196.8411Q390.49301,250,415.01911,310.8863Z;M409,303.5Q416,357,378,402Q340,447,282,439Q224,431,187,398.5Q150,366,105.5,335.5Q61,305,45,245Q29,185,59,124.5Q89,64,152.5,40Q216,16,265,63.5Q314,111,383,115.5Q452,120,427,185Q402,250,409,303.5Z;M394.89432,291.86359Q379.96349,333.72718,354.5999,379.04899Q329.23631,424.37079,274.96542,439.22911Q220.69452,454.08742,185.59462,409.0927Q150.49472,364.09798,125.7075,328.96349Q100.92028,293.82901,59.42363,237.80355Q17.92698,181.77809,66.30163,137.5999Q114.67627,93.42171,168.36359,75.4145Q222.05091,57.4073,282.76369,51.5999Q343.47647,45.7925,374.93276,97.57444Q406.38905,149.35639,408.1071,199.67819Q409.82516,250,394.89432,291.86359Z;M437.20545,311.82292Q441.89352,373.64584,380.77431,387.66608Q319.65509,401.68633,271.82754,416.34317Q224,431,184.22569,401.27431Q144.45139,371.54861,81.45601,344.74769Q18.46064,317.94676,58.87153,261.64584Q99.28242,205.34491,102.46413,144.38253Q105.64584,83.42014,164.05961,69.5926Q222.47338,55.76506,274.24769,69.97338Q326.02199,84.18171,376.989,109.95139Q427.95601,135.72107,430.23669,192.86053Q432.51737,250,437.20545,311.82292Z;M415.01911,310.8863Q439.5452,371.7726,388.0904,405.2945Q336.6356,438.8164,280.7726,433.452Q224.9096,428.08761,185.95759,398.74511Q147.00559,369.40261,129.05219,330.15471Q111.09878,290.9068,102.89189,247.863Q94.68499,204.8192,97.4315,140.3164Q100.17801,75.81361,160.4068,60.51771Q220.6356,45.22181,275.226,60.1356Q329.8164,75.04939,372.9534,109.3658Q416.0904,143.6822,403.29171,196.8411Q390.49301,250,415.01911,310.8863Z">
-                                </animate>
-                            </path>
-                        </svg>
-                        <div class="tagline">
-                            <img src="<?php echo base_url('assets/img/help.png') ?>" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="testimoni">
         <div class="layer">
             <img src="<?php echo base_url('assets/img/testimoni.jpg') ?>" alt="">
@@ -388,7 +286,7 @@
         <div class="container testimoni-box">
             <div class="my-5 text-white">
                 <span class="text-uppercase text-white">Testimoni</span>
-                <h6 class="mt-3">Apa yang Dikatakan Oleh Klien Kami?</h6>
+                <h6 class="mt-3">Kesan Setelah Join Menggunakan KBC Build</h6>
             </div>
             <div class="row gx-4 gy-4">
                 <div class="card card-testimoni col-md-4">
@@ -399,9 +297,9 @@
                             dapat langsung saya terapkan di bisnis saya. Saya sangat merekomendasikan event ini bagi
                             siapa saja yang ingin meningkatkan kinerja bisnis mereka!</p>
                         <div class="display-default testimoni-user text-gap">
-                            <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="">
+                            <img src="<?php echo base_url('assets/img/testimoni/testimoni1.png') ?>" alt="">
                             <div class="box-user">
-                                <p>Khoirul</p>
+                                <p>Adrian Yahya</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 5; $i++) { ?>
                                         <i class="ri-star-fill"></i>
@@ -414,14 +312,11 @@
                 <div class="card card-testimoni col-md-4">
                     <img src="<?php echo base_url('assets/img/svg/double-quote.svg') ?>" alt="">
                     <div class="testimoni-text text-gap">
-                        <p class="body-text">Sangat terkesan dengan event pelatihan bisnis ini! Sangat informatif dan
-                            bermanfaat bagi bisnis saya. Pembicaranya ahli dan memberikan banyak wawasan dan tips yang
-                            dapat langsung saya terapkan di bisnis saya. Saya sangat merekomendasikan event ini bagi
-                            siapa saja yang ingin meningkatkan kinerja bisnis mereka!</p>
+                        <p class="body-text">Saya sangat senang telah menghadiri event konsultasi bisnis ini. Para ahli yang mengisi acara ini sangat ramah, mereka memberikan saran dan solusi untuk masalah bisnis saya. Saya belajar banyak dari diskusi dan sharing pengalaman dari peserta lainnya juga. Event ini sangat bermanfaat dan saya sangat merekomendasikannya.</p>
                         <div class="display-default testimoni-user text-gap">
-                            <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="">
+                            <img src="<?php echo base_url('assets/img/testimoni/testimoni2.png') ?>" alt="">
                             <div class="box-user">
-                                <p>Khoirul</p>
+                                <p>Aleesha Indira</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 5; $i++) { ?>
                                         <i class="ri-star-fill"></i>
@@ -434,14 +329,11 @@
                 <div class="card card-testimoni col-md-4">
                     <img src="<?php echo base_url('assets/img/svg/double-quote.svg') ?>" alt="">
                     <div class="testimoni-text text-gap">
-                        <p class="body-text">Sangat terkesan dengan event pelatihan bisnis ini! Sangat informatif dan
-                            bermanfaat bagi bisnis saya. Pembicaranya ahli dan memberikan banyak wawasan dan tips yang
-                            dapat langsung saya terapkan di bisnis saya. Saya sangat merekomendasikan event ini bagi
-                            siapa saja yang ingin meningkatkan kinerja bisnis mereka!</p>
+                        <p class="body-text">Saya belajar banyak tentang manajemen keuangan dan strategi bisnis yang dapat membantu bisnis saya tumbuh dan berkembang. Para pembicara sangat berpengetahuan dan banyak memberikan banyak contoh nyata dalam pengalaman mereka sendiri. Event ini sangat bermanfaat dan saya sangat merekomendasikannya.</p>
                         <div class="display-default testimoni-user text-gap">
-                            <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="">
+                            <img src="<?php echo base_url('assets/img/testimoni/testimoni3.png') ?>" alt="">
                             <div class="box-user">
-                                <p>Khoirul</p>
+                                <p>Dean Robert</p>
                                 <div class="star-user">
                                     <?php for ($i = 0; $i < 4; $i++) { ?>
                                         <i class="ri-star-fill"></i>
@@ -452,8 +344,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
 

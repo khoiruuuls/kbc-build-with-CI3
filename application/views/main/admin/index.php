@@ -32,12 +32,12 @@
                     </div>
 
                     <h4>Data Program Seminar</h3>
-                        <form action="<?= base_url() . 'admin/index' ?>" method="GET">
+                        <form id="search" method="POST">
                             <div class="d-flex justify-content-between">
 
                                 <div class="search-bar col-6">
                                     <form action="<?= base_url().'admin/index' ?>" method="get">
-                                        <input type="text" name="search" class="log-input">
+                                        <input type="text" id="searchProgram" name="search" class="log-input">
                                         <button type="submit"  class="log-primary-button">Search</button>
                                     </form>
                                 </div>
@@ -47,7 +47,7 @@
                                 </a>
                             </div>
                         </form>
-                        <div>
+                        <div id="resultProgram">
                             <table class="table my-4">
                                 <thead class="table-head">
                                     <tr>
@@ -66,9 +66,16 @@
                                             <td><?php echo $item->name ?></td>
                                             <td><?php echo date('d M Y', strtotime($item->dateStart)) . " - " . date('d M Y', strtotime($item->dateEnd)) ?>
                                             </td>
-                                            <td>
-                                                <p class="menunggu">Menunggu</p>
-                                            </td>
+                                            <?php if($item->status == 'menunggu'): ?>
+                                                <td>
+                                                    <p class="menunggu">Menunggu</p>
+                                                </td>
+                                            <?php else : ?>
+                                                <td>
+                                                    <p class="active">active</p>
+                                                </td>
+                                            <?php endif;?>
+
                                             <td class="d-flex justify-content-between">
                                                 <a href="<?php echo site_url() . 'detail-program/' . $item->id ?>">
                                                     <button class="edit">
@@ -89,6 +96,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        
                         <?php $this->load->view('_partials/pagination.php') ?>
                 </div>
                 <div class="container container-consultant">
@@ -150,7 +158,7 @@
                         </div>
                         
                        
-                        <?php $this->load->view('_partials/pagination.php') ?>
+                        
                 </div>
             </div>
         </div>
@@ -172,7 +180,24 @@
                 
             }
         }
-</script>
+        $(document).ready(function() {
+            $('#searchProgram').on('input', function() {
+                var searchProgram = $(this).val();
+
+                $.ajax({
+                    url: '<?= base_url('admin/searchProgram'); ?>', 
+                    method: 'post',
+                    data: { searchProgram: searchProgram },
+                    success: function(response) {
+                        $('#resultProgram').html(response);
+                    }
+                });
+            });
+        });
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 

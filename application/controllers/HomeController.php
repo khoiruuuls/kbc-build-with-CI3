@@ -7,9 +7,11 @@ class HomeController extends CI_Controller
     {
         $this->load->model("ConsultantModel");
         $this->load->model("SeminarModel");
-        $this->load->model("ProgramModel");
+        $this->load->model("KuotaProgramModel");
+        $this->load->model('ProgramModel');
+        // var_dump($this->KuotaProgramModel->programKuotaCount());die;
         $data = [
-            'program' => $this->ProgramModel->get4Program(),
+            'program' => $this->KuotaProgramModel->programKuotaCount(),
             'consultant' => $this->ConsultantModel->get3Consultant(),
             'service' => $this->ProgramModel->typeService(),
             'page_title' => 'Home',

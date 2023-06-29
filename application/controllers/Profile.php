@@ -17,6 +17,7 @@ class Profile extends CI_Controller
         if (!$this->session->userdata('name')) {
             return redirect(site_url('./'));
         }
+        
         if ($this->input->post()) {
 
             if ($this->input->post('name') == $this->session->userdata('name')) {
@@ -65,11 +66,15 @@ class Profile extends CI_Controller
                 return redirect(site_url('./'));
             }
         }
-        $data['user'] = $this->db->get_where('users', array('name' => $this->session->userdata('name')))->row_array();
-        $data['page_title'] = 'Ubah Profile';
-
-
-        $this->load->view('main/profile/index', $data);
+        if($this->session->userdata('role_id') == 1){
+            
+            $data['user'] = $this->db->get_where('users', array('name' => $this->session->userdata('name')))->row_array();
+            $data['page_title'] = 'Ubah Profile';
+    
+    
+            $this->load->view('main/profile/index', $data);
+        }
+        return redirect(site_url('./'));
     }
 
 

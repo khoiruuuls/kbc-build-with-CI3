@@ -161,7 +161,7 @@ class SignController extends CI_Controller
                 if ($user->role_id == 1) {
                     return redirect(site_url('./'));
                 } elseif($user->role_id == 3){
-                    return redirect('dashboard');
+                    return redirect('admin');
                 }else {
                     return redirect('admin');
                 }

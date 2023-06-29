@@ -11,24 +11,67 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        if($this->session->userdata()){
+        if($this->session->userdata('role_id') == 3 || $this->session->userdata('role_id') == 2 ){
 
-            if ($this->input->get('search')) {
-                $this->db->like('name', $this->input->get('search'));
-                $query = $this->db->get('program');
-                $dataProgram = $query->result();
-            } else {
-                $this->load->model("ProgramModel");
-                $dataProgram = $this->ProgramModel->getProgram();
+            $this->load->library('pagination');
+            if($this->session->userdata('role_id') == 3){
+                $consultantId = $this->db->select('id')
+                                ->from('consultant')
+                                ->where('users_id',$this->session->userdata('id'))
+                                ->get()->result();
+                $program = $this->db->select('*')->from('program')->where('consultant_id',$consultantId[0]->id)->count_all_results();
+
+            }else{
+                $program = $this->db->count_all('program');
             }
-    
-    
+            
+            $config['base_url'] = base_url().'Admin/index';
+            
+            $config['total_rows'] = $program; 
+            $config['per_page'] = 5;
+            $choice = $config['total_rows'] / $config['per_page']; 
+            $config['uri_segment'] = 3; 
+            $config['num_links'] = floor($choice); 
+            $config['full_tag_open'] = '<div class="container"><button class="button prevNext" id="prev" disabled><i class="bi bi-chevron-left"></i></button><div class="links">';
+            $config['full_tag_close'] = '</div><button class="button prevNext" id="next"><i class="bi bi-chevron-right"></i></button></div>';
+            $config['first_link'] = '';
+            $config['last_link'] = '';
+            $config['first_tag_open'] = '';
+            $config['first_tag_close'] = '';
+            $config['prev_link'] = '';
+            $config['prev_tag_open'] = '';
+            $config['prev_tag_close'] = '';
+            $config['next_link'] = '';
+            $config['next_tag_open'] = '';
+            $config['next_tag_close'] = '';
+            $config['last_tag_open'] = '';
+            $config['last_tag_close'] = '';
+            $config['cur_tag_open'] = '<a href="#" class="link active">';
+            $config['cur_tag_close'] = '</a>';
+            $config['num_tag_open'] = '<a href="#" class="link">';
+            $config['num_tag_close'] = '</a>';
+            
+            $this->pagination->initialize($config);
+
+            $this->load->model("ProgramModel");
+                
+            $offset = ($this->uri->segment($config['uri_segment'])) ? $this->uri->segment($config['uri_segment']) : 0;
+            // $data['users'] = $this->db->limit($config['per_page'], $offset)->get('users')->result();
+
+            
             $this->load->model("ConsultantModel");
-            $dataConsultant = $this->ConsultantModel->getConsultant();
-    
+            if($this->session->userdata('role_id') == 2){
+                $dataConsultant = $this->ConsultantModel->getConsultant();
+                $resultProgram = $this->db->limit($config['per_page'], $offset)->get('program')->result();
+            }else{
+                $resultProgram = $this->db->select('*')->from('program')->where('consultant_id',$consultantId[0]->id)->limit($config['per_page'], $offset)->get()->result();
+                $dataConsultant = $this->ConsultantModel->getConsultantRole($this->session->userdata('id'));
+            }
+            // var_dump($resultProgram);die;
             $data = [
+                
                 'consultant' => $dataConsultant,
-                'program' => $dataProgram,
+                'program' =>  $resultProgram,
                 'page_title' => 'Dashboard',
                 'user' => $this->db->get_where('users', ['email' =>
                 $this->session->userdata('email')])->row_array(),
@@ -36,6 +79,47 @@ class Admin extends CI_Controller
     
             $this->load->view('main/admin/index', $data);
         }
+    }
+
+    public function statusProgram()
+    {
+        if($this->session->userdata('role_id') == 2){
+            if($this->input->post('program_id')){
+                $this->db->where('id', $this->input->post('program_id'));
+                $this->db->update('program', [
+                    'status' => 'aktif'
+                ]);
+            }
+
+        }
+        return redirect('admin/index');
+
+    }
+    
+    public function searchProgram()
+    {
+        if($this->session->userdata('role_id') == 3 ||$this->session->userdata('role_id') == 2){
+            $searchTerm = $this->input->post('searchProgram');
+            if($this->session->userdata('role_id') == 3){
+                $consultantId = $this->db->select('id')
+                                    ->from('consultant')
+                                    ->where('users_id',$this->session->userdata('id'))
+                                    ->get()->result();
+                $query = $this->db->like('name',$searchTerm)->where('consultant_id',$consultantId[0]->id)->get('program');
+                
+            }else{
+                $this->db->like('name', $searchTerm);
+                $query = $this->db->get('program');
+    
+            }
+                   
+            $data['results'] = $query->result();
+    
+            
+            $this->load->view('main/admin/searchProgram', $data);
+
+        }
+        return redirect(site_url('./'));
     }
 
     public function tambah()
@@ -291,7 +375,8 @@ class Admin extends CI_Controller
 
     public function updateConsultant()
     {
-        // var_dump($_FILES['']);
+        // var_dump($this->input->post('sertifikasi'));
+        // var_dump($this->input->post('sertifikasiOld'));
         // die;
         if($_FILES['photo']['name'] == $this->input->post('foto') || $_FILES['photo']['name'] == NULL){
             // echo 'gagal';
@@ -326,21 +411,143 @@ class Admin extends CI_Controller
                 
             }
         }
+        // $dataSertifikasiDelete = [];
+        // for ($i=0; $i < count($this->input->post('sertifikasi')); $i++) { 
+        //     for ($j=0; $j < count($this->input->post('sertifikasiOld')) ; $j++) { 
+        //         if($this->input->post('sertifikasi')[$i] == $this->input->post('sertifikasiOld')[$j] ){
+        //             $dataSertifikasiDelete = $this->input->post('sertifikasi');
+        //         }
+        //     }
+        // }
+        $dataBaruSerti = array_diff($this->input->post('sertifikasi'),$this->input->post('sertifikasiOld'));
+        $dataSertiDelete = array_diff($this->input->post('sertifikasiOld'),$this->input->post('sertifikasi'));
+        $dataPengaDelete = array_diff($this->input->post('pengalamanOld'),$this->input->post('pengalaman'));
+        // $dataBaruPenga1 = array_diff($this->input->post('pengalamanOld'),$this->input->post('pengalaman'));
+        $dataBaruPenga = array_diff($this->input->post('pengalaman'),$this->input->post('pengalamanOld'));
 
+        
+        // $dataBedaPenga = null;
+        // $dataBedaSerti = [];
+
+        // if (!empty($dataBaruPenga)) {
+        //     $dataBedaPenga = reset($dataBaruPenga);
+        // }
+
+        // if (!empty($dataBaruSerti)) {
+        //     $dataBedaSerti = reset($dataBaruSerti);
+        // }
+        // var_dump($dataPengaDelete);
+        // var_dump($dataBaruSerti);die;
+        
         $data = [
             'photo' => $newFileName,
             'name' => htmlspecialchars($this->input->post('name'), true),
-            'profesi' => 'consultant',
+            // 'users_id' => $user[0]['id'],
+            // 'profesi' => 'consultant',
+            'profile' => htmlspecialchars($this->input->post('profile'), true),
             'alamat' => htmlspecialchars($this->input->post('alamat'), true),
             'email' => htmlspecialchars($this->input->post('email'), true),
-            'no_handphone' => $this->input->post('no_handphone'),
-            'perusahaan' => htmlspecialchars($this->input->post('perusahaan'), true),
-            'spesialisasi' => htmlspecialchars($this->input->post('spesialisasi'), true),
+            'no_handphone' => htmlspecialchars($this->input->post('no_handphone'), true),
             'akun_media' => htmlspecialchars($this->input->post('akun_media'), true),
-            'jumlah_client' => $this->input->post('jumlah_client'),
+            'jumlah_client' => htmlspecialchars($this->input->post('jumlah_client'), true),
+                                // 'spesifikasi' => htmlspecialchars($this->input->post('spesifikasi'), true)
         ];
+
+
+
+        // $data = [
+        //     'photo' => $newFileName,
+        //     'name' => htmlspecialchars($this->input->post('name'), true),
+        //     'profesi' => 'consultant',
+        //     'alamat' => htmlspecialchars($this->input->post('alamat'), true),
+        //     'email' => htmlspecialchars($this->input->post('email'), true),
+        //     'no_handphone' => $this->input->post('no_handphone'),
+        //     'perusahaan' => htmlspecialchars($this->input->post('perusahaan'), true),
+        //     'spesialisasi' => htmlspecialchars($this->input->post('spesialisasi'), true),
+        //     'akun_media' => htmlspecialchars($this->input->post('akun_media'), true),
+        //     'jumlah_client' => $this->input->post('jumlah_client'),
+        // ];
         $this->db->where('id', $this->input->post('id'), true);
         $this->db->update('consultant', $data);
+
+        // var_dump($dataPengaDelete);die;
+        // var_dump($this->input->post('bahasa'));die;
+        if($this->input->post('bahasa') != NUll){
+            for ($i=0; $i < count($this->input->post('bahasa')) ; $i++) { 
+                $this->db->insert('bahasa',[
+                    'bahasa_name' => $this->input->post('bahasa')[$i],
+                    'consultant_id' => $this->input->post('id')
+                ]);
+                
+            }
+        }
+        if($this->input->post('bahasaOld') != NUll){
+            for ($i=0; $i < count($this->input->post('bahasaOld')) ; $i++) { 
+                $this->db->where('id',$this->input->post('bahasaOld')[$i]);
+                $this->db->delete('bahasa');
+                
+            }
+        }
+
+        if($this->input->post('spesialisasiOld') != NUll){
+            for ($i=0; $i < count($this->input->post('spesialisasiOld')) ; $i++) { 
+                $this->db->where('id',$this->input->post('spesialisasiOld')[$i]);
+                $this->db->delete('spesialisasi');
+                
+            }
+        }
+
+        if($this->input->post('spesialisasi') != NUll){
+            for ($i=0; $i < count($this->input->post('spesialisasi')) ; $i++) { 
+                $this->db->insert('spesialisasi',[
+                    'spesialisasi_name' => $this->input->post('spesialisasi')[$i],
+                    'consultant_id' => $this->input->post('id')
+                ]);
+                
+            }
+        }
+        if($dataSertiDelete != NULL){
+            for ($i=3; $i < count($dataSertiDelete) + 3 ; $i++) { 
+                $this->db->where('sertifikasi_name',$dataSertiDelete[$i]);
+                $this->db->delete('sertifikasi');
+            }
+        }
+        
+
+        if($dataBaruSerti != NUll ){
+            for ($i=3; $i < count($dataBaruSerti) + 3  ; $i++) { 
+                $this->db->insert('sertifikasi',[
+                    'sertifikasi_name' => $dataBaruSerti[$i],
+                    'date_start' => $this->input->post('start_date')[$i - 3],
+                    'date_end' => $this->input->post('end_date')[$i - 3],
+                    'consultant_id' => $this->input->post('id')
+                ]);
+                
+            }
+        }
+
+        if($dataPengaDelete != NULL){
+            for ($i=3; $i < count($dataPengaDelete) + 3 ; $i++) { 
+                $this->db->where('pengalaman_name',$dataPengaDelete[$i]);
+                $this->db->delete('pengalaman');
+            }
+        }
+
+        if($dataBaruPenga != NUll ){
+            for ($i=3; $i < count($dataBaruPenga) + 3 ; $i++) { 
+                $this->db->insert('pengalaman',[
+                    'pengalaman_name' => $dataBaruPenga[$i],
+                    'date_start' => $this->input->post('start_pengalaman_date')[$i - 3],
+                    'date_end' => $this->input->post('end_pengalaman_date')[$i - 3],
+                    'consultant_id' => $this->input->post('id')
+                ]);
+                
+            }
+        }
+
+        
+        
+        
 
         return redirect('admin/index');
     }
@@ -421,6 +628,8 @@ class Admin extends CI_Controller
                 'is_unique' => 'The Name already exists'
             ]);
 
+            
+
             $this->form_validation->set_rules('email', 'email', 'trim|required|is_unique[consultant.email]|valid_email', [
                 'required' => 'Please input email is required',
                 'is_unique' => 'The e-mail already exists',
@@ -466,6 +675,7 @@ class Admin extends CI_Controller
                             $this->db->insert('users',[
                                 'name' => htmlspecialchars($this->input->post('name'), true),
                                 'email' => htmlspecialchars($this->input->post('email'), true),
+                                'password' => md5($this->input->post('password'),true),
                                 'role_id' => 3
                             ]);
 
@@ -572,10 +782,36 @@ class Admin extends CI_Controller
 
     public function edit_consultant($id)
     {
+        $bahasa =$this->db->select('bahasa.*')
+                    ->from('consultant')
+                    ->join('bahasa', 'consultant.id = bahasa.consultant_id')
+                    ->where('bahasa.consultant_id',$id)
+                    ->get();
+        
+        $spesialisasi =$this->db->select('spesialisasi.*')
+                    ->from('consultant')
+                    ->join('spesialisasi', 'consultant.id = spesialisasi.consultant_id')
+                    ->where('spesialisasi.consultant_id',$id)
+                    ->get();
+        // var_dump($bahasa->result());die;
+        $sertifikasi =$this->db->select('sertifikasi.*')
+                    ->from('consultant')
+                    ->join('sertifikasi', 'consultant.id = sertifikasi.consultant_id')
+                    ->where('sertifikasi.consultant_id',$id)
+                    ->get();
 
+        $pengalaman =$this->db->select('pengalaman.*')
+                    ->from('consultant')
+                    ->join('pengalaman', 'consultant.id = pengalaman.consultant_id')
+                    ->where('pengalaman.consultant_id',$id)
+                    ->get();
         $this->load->model("ConsultantModel");
         $data['consultant'] = $this->ConsultantModel->editConsultant($id);
         $data['page_title'] = 'Edit';
+        $data['bahasaCons'] = $bahasa->result();
+        $data['spesialisasiCons'] = $spesialisasi->result();
+        $data['sertifikasiCons'] = $sertifikasi->result();
+        $data['pengalamanCons'] = $pengalaman->result(); 
         $data['user']    = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->load->view('main/admin/edit_consultant', $data);

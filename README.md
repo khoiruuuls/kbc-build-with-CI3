@@ -24,4 +24,8 @@ update sadam
 kalau misal ada foto yang gak terakupload bisa bilang bang soalnya susah disitunya ,tapi bismillah tetep terinput
 >>>>>>> e2e6c547d0f7da4eb27d557c6c8f9d76b2e8a235
 
+
+update sadam lagi
+- crud program sudah bisa pilih mode
+- alert delete
 misal ada salah kabari bang

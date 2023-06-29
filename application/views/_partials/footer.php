@@ -75,3 +75,5 @@
 
 <!-- Javascript -->
 <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-yipd4F1xPZgsq21rsfl8eNkqssw8+nsvwHtzWjPakI5q9NF+RDR/KZNk7D9lJ4vtK2TyyF7WluTIHbFKhVxGcA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js" integrity="sha512-cmS1E2Je5Ve85BhjleMdSG5h/O4ohD49cZsh3+rCHUqFkE5dgmGS6MHEOjjUb2Lm4r3npzOHD2zi6Wjmi7e7Cg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

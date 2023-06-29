@@ -82,14 +82,14 @@
                             <i class="ri-time-fill"></i>
                             <div class="flex-row">
                                 <p class="text-title m-0">Waktu Program</p>
-                                <p>09.00 - 15.00 WIB</p>
+                                <p><?= $item->time_start ?> - <?= $item->time_end ?> WIB</p>
                             </div>
                         </div>
                         <div class="d-flex gap-3">
                             <i class="ri-map-pin-line"></i>
                             <div class="flex-row">
                                 <p class="text-title m-0">Pelaksanaan Program</p>
-                                <p>Online, Onsite (Bandung, Jawa Barat), Hybrid</p>
+                                <p> Secara <?= $item->mode?></p>
                             </div>
                         </div>
                         <hr class="line">
@@ -120,10 +120,21 @@
                         </div>
                     </div>
                     <div class="card card-kbc p-4">
+                        
                         <div class="row box-program">
-                            <p class="col text-title text-center pb-2 active">Hybrid</p>
-                            <p class="col text-title text-center pb-2 disable">Online</p>
-                            <p class="col text-title text-center pb-2 disable">Onsite</p>
+                            <?php if($item->mode == 'online'): ?>
+                                <p class="col text-title text-center pb-2 disable">Hybrid</p>
+                                <p class="col text-title text-center pb-2 active">Online</p>
+                                <p class="col text-title text-center pb-2 disable">Offline</p>
+                            <?php elseif($item->mode == 'offline') :?>
+                                <p class="col text-title text-center pb-2 disable">Hybrid</p>
+                                <p class="col text-title text-center pb-2 disable">Online</p>
+                                <p class="col text-title text-center pb-2 active">Offline</p>
+                            <?php else: ?>
+                                <p class="col text-title text-center pb-2 active">Hybrid</p>
+                                <p class="col text-title text-center pb-2 disable">Online</p>
+                                <p class="col text-title text-center pb-2 disable">Offline</p>
+                            <?php endif; ?>
                         </div>
                         <p class="text-title">Kuota tersisa</p>
                         <p><?php echo $item->kuota ?></p>
@@ -144,6 +155,7 @@
                                 20%!</p>
                         </div>
                         <div class="row justify-content-between">
+                            <?php if($this->session->userdata('role_id') == 1): ?>
                             <form class="col" method="POST" action="<?= base_url() . 'wishlist/addWishlist' ?>">
                                 <button value="<?= $item->id ?>" name="program_id" class="col log-secondary-button" style="width: 100%">
                                     <i class="ri-bookmark-line me-2"></i>
@@ -153,6 +165,7 @@
                             <a class="col" href="<?php echo site_url() . 'detail-pesanan' ?>">
                                 <button class=" log-primary-button" style="width: 100%">Daftar</button>
                             </a>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,10 @@ update dari khoirul
 - responsive design on progress
 - fix add function pada admin saat penambahan program dan consultant
 
+update dari fadli 
+- Revisi page beranda
+- menambahkan navbar dan sidebar di page dashboard konsultan
+
 update dari sadam
 
 - penambahan feild di consultant yaitu kota dan provinsi karna di login consultant ada inputnya
@@ -18,6 +22,7 @@ update sadam
 -terus sama crud consultant juga sama 
 
 kalau misal ada foto yang gak terakupload bisa bilang bang soalnya susah disitunya ,tapi bismillah tetep terinput
+>>>>>>> e2e6c547d0f7da4eb27d557c6c8f9d76b2e8a235
 
 
 update sadam lagi

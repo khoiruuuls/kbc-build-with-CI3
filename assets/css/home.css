@@ -1,4 +1,4 @@
-#home {
+/* #home {
 	position: relative;
 }
 
@@ -26,10 +26,10 @@
 #home .headline span {
 	font-size: 58px;
 	font-weight: var(--font-bold);
-	color: var(--primary-color-7);
+	color: var(--gray-color-8);
 }
 
-#home .headline span {
+#home .headline strong {
 	color: var(--secondary-color-5);
 }
 
@@ -40,72 +40,172 @@
 #home .headline p {
 	margin: 35px 0 30px 0;
 	font-size: 16px;
+} */
+
+#home {
+	height: 592px;
+	background: linear-gradient(90deg, #BE8511 -12.81%, rgba(190, 133, 17, 0) 91.6%);
+	/* opacity: 0.2; */
 }
 
-@media (max-width: 1118px) {
+#home .headline {
+	margin-top: 146px;
+}
+
+#home .headline h3 {
+	font-family: var(--body-font);
+	font-weight: var(--font-bold);
+	font-size: 58px;
+	line-height: 66px;
+
+	/* Gray/08 */
+
+	color: var(--gray-color-8);
+}
+
+#home .headline h3 strong {
+	color: var(--secondary-color-5);
+}
+
+#home .text-hero p {
+	font-family: var(--body-font);
+	font-weight: var(--font-medium);
+	font-size: 16px;
+	line-height: 160%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	/* or 26px */
+
+
+	/* Gray/06 */
+
+	color: var(--gray-color-6);
+}
+
+#home .container-home {
+	margin-top: 38px;
+	margin-left: 100px;
+	position: relative;
+	width: 463px;
+	height: 550px;
+	/* Sesuaikan dengan ukuran poligon */
+}
+
+#home .background-svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+#home .image {
+	margin-left: 50px;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+
 	/* Adjust styles for screens up to 480px width */
-	#home img {
-		object-position: right;
+	#home {
+		width: 100%;
+	}
+
+	#home .container-home {
+		margin-top: 38px;
+		margin-left: 30px;
+		position: relative;
+		width: 463px;
+		height: 550px;
+		/* Sesuaikan dengan ukuran poligon */
 	}
 
 	#home .headline h3,
-	#home .headline span {
-		font-size: 40px;
-	}
-
-	#home .headline {
-		padding: 20px;
-		position: absolute;
-		top: 50%;
-		left: 30%;
-		transform: translate(-50%, -50%);
+	#home .headline strong {
+		font-size: 48px;
 	}
 
 	/* Other styles for smaller screens */
 }
 
 @media (max-width: 990px) {
+
 	/* Adjust styles for screens up to 480px width */
-	#home img {
-		object-position: left;
+	#home {
+		width: 100%;
+	}
+
+	#home .container-home {
+		margin-left: 400px;
+		position: relative;
+		width: 363px;
+		height: 450px;
+	}
+
+	#home .background-svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 400px;
 	}
 
 	#home .headline h3,
-	#home .headline span {
-		font-size: 40px;
+	#home .headline strong {
+		font-size: 48px;
+	}
+
+	#home .text-hero p {
+		max-width: 450px;
+		font-size: 14px;
 	}
 
 	#home .headline {
 		padding: 20px;
 		width: 100%;
 		position: absolute;
-		top: 50%;
+		top: 35%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
 }
 
 @media (max-width: 480px) {
+
 	/* Adjust styles for screens up to 480px width */
-	#home img {
-		object-position: left;
+	#home {
+		height: 992px;
+		background: linear-gradient(90deg, #BE8511 -12.81%, rgba(190, 133, 17, 0) 91.6%);
+		/* opacity: 0.2; */
+		width: 100%;
+	}
+
+	#home .container-home {
+		/* margin-top: 400px; */
+		margin-left: 10px;
+		position: relative;
+		width: 363px;
+		height: 450px;
+		/* Sesuaikan dengan ukuran poligon */
 	}
 
 	#home .headline h3,
-	#home .headline span {
-		font-size: 30px;
+	#home .headline strong {
+		font-size: 44px;
 	}
 
 	#home .headline p {
 		margin: 15px 0;
-		font-size: 12px;
+		font-size: 14px;
 	}
 
 	#home .headline {
 		padding: 20px;
 		width: 100%;
 		position: absolute;
-		top: 50%;
+		top: 120%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
@@ -118,34 +218,26 @@
 	justify-items: center;
 	align-items: center;
 	grid-template-columns: repeat(8, 1fr);
-	gap: 20px; /* Add some gap between partner logos */
+	gap: 20px;
+	/* Add some gap between partner logos */
 }
 
 /* Responsive styles */
 @media (max-width: 1118px) {
 	#partnerku .list-partner {
-		grid-template-columns: repeat(
-			4,
-			1fr
-		); /* Show 4 partners per row on smaller screens */
+		grid-template-columns: repeat(4,
+				1fr);
+		/* Show 4 partners per row on smaller screens */
 	}
 }
 
 @media (max-width: 480px) {
 	#partnerku .list-partner {
-		grid-template-columns: repeat(
-			2,
-			1fr
-		); /* Show 2 partners per row on even smaller screens */
+		grid-template-columns: repeat(2,
+				1fr);
+		/* Show 2 partners per row on even smaller screens */
 	}
 }
-
-/* #partnerku .list-partner {
-	display: grid;
-	justify-items: center;
-	align-items: center;
-	grid-template-columns: repeat(8, 1fr);
-} */
 
 #about-us .frame {
 	border-radius: 8px;
@@ -153,15 +245,167 @@
 	height: 300px;
 }
 
-:where(
-		#about-us,
-		#our-service,
-		#our-consultant,
-		#our-program,
-		#blog,
-		#testimoni
-	)
-	span {
+#about-us {
+	margin-top: 100px;
+}
+
+@media (max-width: 990px) {
+	#about-us {
+		margin-bottom: -300px;
+		width: 100%;
+	}
+}
+
+#visi-misi {
+	margin-top: 121px;
+	margin-bottom: 25.55px;
+}
+
+#visi-misi .box-visi-misi {
+	margin-top: 275px;
+}
+
+#title-visi,
+#title-misi {
+	display: flex;
+}
+
+#title-visi .line-visi,
+#title-misi .line-misi {
+	width: 45px;
+	height: 0px;
+	margin-top: 15px;
+	margin-left: -20px;
+
+	/* Secondary/05 */
+
+	border: 3px solid var(--secondary-color-5);
+	transform: rotate(-90deg);
+	border-radius: 12px;
+}
+
+#title-visi h6,
+#title-misi h6 {
+	font-family: var(--body-font);
+	font-weight: var(--font-bold);
+	font-size: 32px;
+	line-height: 140%;
+	/* identical to box height, or 45px */
+
+
+	/* Gray/08 */
+
+	color: var(--gray-color-8);
+}
+
+#text-visi p,
+#text-misi p {
+	font-family: var(--body-font);
+	font-weight: var(--font-medium);
+	font-size: 16px;
+	line-height: 160%;
+	margin-top: 32px;
+	/* or 26px */
+
+
+	/* Gray/05 */
+
+	color: var(--gray-color-5);
+}
+
+#text-misi p strong {
+	color: var(--secondary-color-5);
+}
+
+#text-misi .text-misi-role1,
+#text-misi .text-misi-role2,
+#text-misi .text-misi-role3 {
+	display: flex;
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+#text-misi .number {
+	width: 44px;
+	height: 44px;
+
+	/* Primary/01 */
+
+	background: #F7EED2;
+	border-radius: 100px
+}
+
+#text-misi .number p {
+	font-family: var(--body-font);
+	font-weight: var(--font-bold);
+	font-weight: var(--font-medium);
+	font-size: 24px;
+	line-height: 160%;
+	margin-top: -0px;
+	margin-left: 15px;
+	/* or 38px */
+
+
+	/* Secondary/05 */
+
+	color: var(--secondary-color-5);
+}
+
+#text-misi .number-bold {
+	font-weight: var(--font-bold);
+}
+
+#text-misi .text-number p {
+	font-family: var(--body-font);
+	font-size: 16px;
+	line-height: 160%;
+	margin-top: -8px;
+	/* identical to box height, or 26px */
+
+
+	/* Gray/05 */
+
+	color: var(--gray-color-5);
+}
+
+#visi-misi img {
+	width: 470px;
+}
+
+@media (max-width: 990px) {
+	#visi-misi {
+		width: 100%;
+	}
+
+	#visi-misi img {
+		width: 70%;
+		margin-left: 100px;
+	}
+}
+
+@media (max-width: 480px) {
+	#visi-misi {
+		width: 100%;
+	}
+
+	#visi-misi img {
+		margin-left: 50px;
+		width: 80%;
+	}
+}
+
+@media (max-width: 480px) {
+	#our-service .my-5 h6 {
+		font-size: 18px;
+	}
+}
+
+:where(#about-us,
+	#our-service,
+	#our-consultant,
+	#our-program,
+	#blog,
+	#testimoni) span {
 	font-weight: bold;
 	color: var(--secondary-color-5);
 	text-transform: uppercase;
@@ -201,14 +445,67 @@
 	font-size: 40px;
 }
 
+@media (max-width: 990px) {
+
+	/* Adjust styles for screens up to 480px width */
+	#our-consultant .title-box h6 {
+		font-size: 20px;
+	}
+
+	#our-consultant .detail-text {
+		margin-bottom: -300px;
+		margin-left: -695px;
+		font-size: 16px;
+	}
+
+	#our-consultant .card-our-consultant h6 {
+		font-size: 16px;
+	}
+
+	#our-consultant .card-our-consultant p {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 480px) {
+
+	/* Adjust styles for screens up to 480px width */
+	#our-consultant .title-box h6 {
+		font-size: 16px;
+	}
+
+	#our-consultant .detail-text {
+		font-size: 12px;
+		margin-bottom: -100px;
+		margin-left: -455px;
+	}
+
+	#our-consultant .card-our-consultant h6 {
+		font-size: 18px;
+	}
+
+	#our-consultant .card-our-consultant p {
+		font-size: 14px;
+	}
+
+	#our-consultant .card-our-consultant {
+		width: 300px;
+		margin-left: 80px;
+		margin-bottom: 20px;
+	}
+}
+
+#our-consultant .consultant-icon {
+	display: flex;
+	justify-content: right;
+	margin-bottom: 30px;
+}
+
 #our-consultant .box-icon {
 	width: 40px;
 	height: 40px;
 	border-radius: 8px;
 	border: 2px solid var(--gray-color-4);
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	cursor: pointer;
 }
 
@@ -251,9 +548,37 @@
 	object-fit: cover;
 }
 
-@media (max-width: 768px) {
-	#testimoni .card-testimoni:not(:first-child) {
+@media (max-width: 990px) {
+	#our-program .title-box h6 {
+		font-size: 20px;
+	}
+
+	#our-program .detail-text {
+		font-size: 16px;
+		margin-bottom: -100px;
+		margin-left: -695px;
+	}
+}
+
+@media (max-width: 480px) {
+	#our-program .title-box h6 {
+		font-size: 16px;
+	}
+
+	#our-program .detail-text {
+		font-size: 12px;
+		margin-bottom: -100px;
+		margin-left: -455px;
+	}
+}
+
+@media (max-width: 990px) {
+	/* #testimoni .card-testimoni:not(:first-child) {
 		display: none;
+	} */
+
+	#testimoni .layer {
+		height: 1200px;
 	}
 
 	#testimoni .testimoni-user {
@@ -266,6 +591,44 @@
 
 	#testimoni .testimoni-user p {
 		font-size: 14px;
+	}
+}
+
+@media (max-width: 480px) {
+	/* #testimoni .card-testimoni:not(:first-child) {
+		display: none;
+	} */
+
+	#testimoni .layer {
+		height: 1700px;
+	}
+
+	#testimoni .testimoni-user {
+		padding-inline: 10px;
+	}
+
+	#testimoni .testimoni-user img {
+		width: 40px;
+	}
+
+	#testimoni .testimoni-user p {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 990px) {
+	#blog .col-md-6 h6 {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 480px) {
+	#blog .my-3 h6 {
+		font-size: 16px;
+	}
+
+	#blog .col-md-6 h6 {
+		font-size: 20px;
 	}
 }
 
@@ -305,6 +668,16 @@
 	position: relative;
 }
 
+#testimoni .testimoni-text {
+	padding: 5px;
+	width: 250px;
+	/* Lebar kontainer teks */
+	overflow: hidden;
+	/* Mengatur overflow ke hidden */
+	text-overflow: ellipsis;
+	/* Menampilkan titik elipsis (...) jika teks melebihi lebar kontainer */
+}
+
 #testimoni .layer img {
 	width: 100%;
 	height: 100vh;
@@ -317,6 +690,8 @@
 #testimoni .card-testimoni {
 	padding: 30px;
 	border-radius: 10px;
+	width: 300px;
+	margin-left: 50px;
 }
 
 #testimoni .card-testimoni img {

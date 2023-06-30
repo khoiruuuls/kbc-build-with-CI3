@@ -165,7 +165,15 @@
                             <a class="col" href="<?php echo site_url() . 'detail-pesanan' ?>">
                                 <button class=" log-primary-button" style="width: 100%">Daftar</button>
                             </a>
-                            <?php endif ?>
+                            <?php elseif($this->session->userdata('role_id') == 2) : ?>
+                                <?php if($item->status == 'menunggu') : ?>
+                                    <form class="col" method="POST" action="<?= base_url() . 'Admin/statusProgram' ?>">
+                                        <button value="<?= $item->id ?>" name="program_id" class="col log-secondary-button" style="width: 100%">
+                                            Aktifkan program
+                                        </button>
+                                    </form>
+                                <?php endif ; ?>
+                            <?php endif ;?>
                         </div>
                     </div>
                 </div>

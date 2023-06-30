@@ -53,6 +53,11 @@
                                     <?= form_error('name', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-input">
+                                    <p>Password</p>
+                                    <input class="log-input" type="text" placeholder="Masukan Password" name="password" >
+                                    <?= form_error('password', '<p class="text-danger">', '</p>'); ?>
+                                </div>
+                                <div class="form-input">
                                     <p>Profile Konsultan</p>
                                     <textarea class="log-input" type="text" placeholder="Masukan Profile Konsultan" name="profile" id=""></textarea>
                                     <?= form_error('alamat', '<p class="text-danger">', '</p>'); ?>

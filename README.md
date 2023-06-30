@@ -23,4 +23,25 @@ kalau misal ada foto yang gak terakupload bisa bilang bang soalnya susah disitun
 update sadam lagi
 - crud program sudah bisa pilih mode
 - alert delete
+
+
+
+
+Update penutup project dari sadam
+
+==DARI SISI WEB==
+- revisi consultant pada tambah 
+- revisi consultant pada edit
+- revisi di beranda menampilkan program di urutkan berdasarkan banyaknya user yang ikut
+- Membuat pagination menjadi berfungsi tapi desainnya agak ancur ,jadi gatau ngaturnya
+- search pada program ku jadikan real time tapi yang consultan tidak
+- di detil program atau program.php khusus login sebagai admin disitu ada button baru yaitu aktifkan ,artinya mengaktifkan program consul soalnya kan di status di tabel semuanya menunggu
+- terus itu kita kalau jadi consultant di page admin itu cuma nampilin data program dari consultant yang login dan data consultantnya itu sendiri , nanti abang bisa coba
+
+==DARI SISI DATABASE==
+- penambahan feild pada tabel consultant yaitu status , status ini yang nantinya yang nentuin menunggu atau aktif
+- terus di tabel users itu abang wajib pake punyaku soalnya data nya banyak , nah data data itu yang nentuin urutan program di page home / beranda
+- tabel tambahan yaitu kuota_program , fungsinya agar tahu urutan program yang paling banyak diikuti , istilahnya yang sudah join 
+
+
 misal ada salah kabari bang

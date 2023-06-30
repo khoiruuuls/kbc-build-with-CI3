@@ -13,6 +13,19 @@ class ConsultantModel extends CI_MOdel
         $query = $this->db->get('consultant');
         return $query->result();
     }
+
+    public function getConsultantRole($id)
+    {
+        $consultant = $this->db->select('*')
+                                ->from('consultant')
+                                ->where('users_id',$id)
+                                ->get()->result();
+        // $result = $this->db->select('*')
+        //                     ->from('program')
+        //                     ->where('consultant_id',$consultantId[0]->id)
+        //                     ->get()->result();
+        return $consultant;
+    }
     public function selectWhereConsultant($id)
     {
         $this->db->where('id', $id);

@@ -5,8 +5,7 @@ update dari khoirul
 - fix add function pada admin saat penambahan program dan consultant
 
 update dari fadli 
-- Revisi page beranda
-- menambahkan navbar dan sidebar di page dashboard konsultan
+- Revisi hide register dan membuat frame fix foto agar ukuran foto tidak mengikuti besaran foto aslinya
 
 update dari sadam
 

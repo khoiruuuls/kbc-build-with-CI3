@@ -49,4 +49,9 @@ Update penutup project dari sadam
 - tabel tambahan yaitu kuota_program , fungsinya agar tahu urutan program yang paling banyak diikuti , istilahnya yang sudah join 
 
 
+
+- update sadam
+
+-revisi program , consultant ,dan database
+
 misal ada salah kabari bang

@@ -19,6 +19,8 @@
             <div class="col-3 user-box ">
                 <?php $this->load->view('_partials/sidebar.php') ?>
             </div>
+            
+
             <div class="col">
                 <div class="container container-consultant">
                     <div class="route d-flex gap-2">
@@ -29,7 +31,15 @@
                         <p>Kepemimpinan</p>
                     </div>
                     <h4>Edit Program</h3>
-                        <p>Info Dasar</p>
+                    <?php if ($this->session->flashdata('error_message')): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <h4> Kesalahan Input
+                                <?= $this->session->flashdata('error_message'); ?>
+                            </h4>
+                        
+                        </div>
+                    <?php endif; ?>
+                    <p>Info Dasar</p>
                         <form action="<?= base_url() . 'admin/update/' . $program['id'] ?>"
                             enctype="multipart/form-data" method="POST">
                             <input type="hidden" name="id" value="<?php echo $program['id']; ?>">
@@ -54,15 +64,40 @@
                             </div>
                             <div class="form-input">
                                 <p>Tag</p>
+                                <div id="input-tag-Container">
+                                    <?php foreach($tag_option as $tagOld) : ?>
+                                        <input type="hidden" name="tagOld[]" value="<?= $tagOld->id ?>">
+                                    <?php endforeach; ?>
+                                    <div class="row mb-4">
+                                        <?php foreach ($tag_option as $tag) : ?>
+                                            <div class="col-6 mb-3" id="container-<?php echo $tag->id; ?>">
+                                                <div class="d-flex gap-3"> 
+                                                    <input type="text" name="tag[]" value="<?php echo $tag->tag; ?>" class="log-input select-dropdown" multiple>
+                                                    
+                                                    <a href="#" class="deleteTagLink log-primary-button" data-container-id="<?php echo $tag->id; ?>">Delete</a>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <div class="row">
+                                    <!-- <?php foreach ($tags as $tag) : ?>
+                                            <div class="col-6">
+                                                <div class="d-flex gap-3 mb-2"> 
+                                                    <input type="text" name="tag[]" value="<?= $tag; ?>" class="log-input select-dropdown" multiple>
+                                                    <button type="button" class="deleteTagButton log-primary-button">Delete</button>
+                                                    </div>
+                                            </div>
+                                        <?php endforeach; ?> -->
+                                    </div>
+                                </div>
                                 <div class="d-flex gap-3">
-                                    <input class="log-input" type="text" placeholder="Masukan Tag" name="tag" id=""
-                                        value="<?php echo $program['tag'] ?>">
-                                    <button class="log-primary-button">Tambah</button>
+                                    <input type="text" id="new-tag-Input" class="log-input" placeholder="Masukan tag">
+                                    <button class="log-primary-button" type="button" id="add-tag-Button">Add</button>
                                 </div>
                             </div>
                             <div class="form-input">
                                 <p>Type</p>
-                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="" id=""
+                                <input class="log-input" type="text" placeholder="Masukan Nama Konsultan" name="type" id=""
                                     value="<?php echo $program['type'] ?>">
                             </div>
                             <div class="form-input">
@@ -217,6 +252,76 @@
             }
 
         }
+    document.addEventListener("DOMContentLoaded", function() {
+        var deleteLinks = document.getElementsByClassName("deleteTagLink");
+
+        for (var i = 0; i < deleteLinks.length; i++) {
+            deleteLinks[i].addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var containerId = this.getAttribute("data-container-id");
+                var container = document.getElementById("container-" + containerId);
+
+                if (container) {
+                    container.remove();
+                }
+            });
+        }
+    });
+    document
+            .getElementById("add-tag-Button")
+            .addEventListener("click", function () {
+                var newInput = document.getElementById("new-tag-Input");
+                var newValue = newInput.value.trim();
+
+                if (newValue !== "") {
+                    var inputContainer = document.getElementById("input-tag-Container");
+
+                    // Check if there are any existing rows
+                    var rows = inputContainer.getElementsByClassName("row");
+                    var lastRow = rows.length > 0 ? rows[rows.length - 1] : null;
+
+                    // Create a new row if the last row is already filled with two columns
+                    if (!lastRow || lastRow.children.length === 2) {
+                        var newRowDiv = document.createElement("div");
+                        newRowDiv.classList.add("row");
+                        inputContainer.appendChild(newRowDiv);
+                        lastRow = newRowDiv;
+                    }
+
+                    var newColDiv = document.createElement("div");
+                    newColDiv.classList.add("col-6");
+
+                    var newField = document.createElement("div");
+                    newField.classList.add("d-flex", "gap-3", "mb-2");
+
+                    var Input = document.createElement("input");
+                    Input.type = "text";
+                    Input.name = "tag[]";
+                    Input.value = newValue;
+                    Input.classList.add("log-input", "select-dropdown");
+
+                    var deleteButton = document.createElement("button");
+                    deleteButton.type = "button";
+                    deleteButton.classList.add("delete-Button", "log-primary-button");
+                    deleteButton.textContent = "Delete";
+
+                    newField.appendChild(Input);
+                    newField.appendChild(deleteButton);
+                    newColDiv.appendChild(newField);
+                    lastRow.appendChild(newColDiv);
+
+                    newInput.value = "";
+                }
+            });
+
+        document
+            .getElementById("input-tag-Container")
+            .addEventListener("click", function (event) {
+                if (event.target.classList.contains("delete-Button")) {
+                    event.target.parentElement.parentElement.remove();
+                }
+            });
     </script>
 
 </body>

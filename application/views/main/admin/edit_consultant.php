@@ -30,6 +30,13 @@
                         <p>Kepemimpinan</p>
                     </div>
                     <h4>Edit Konsultan</h3>
+                    <?php if ($this->session->flashdata('photo')): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <h4> Kesalahan Input
+                                <?= $this->session->flashdata('photo'); ?>
+                            </h4>
+                        </div>
+                    <?php endif; ?>
                         <p>Photo Profile</p>
                         <form action="<?= base_url() . 'admin/updateConsultant' ?>" enctype="multipart/form-data" method="POST">
                             <div class="form-input">
@@ -169,8 +176,7 @@
                                 <h6>Sertifikasi</h6>
                                 <div id="input-sertifikasi-Container">
                                     <?php foreach($sertifikasiCons as $sertifikasiOld) : ?>
-                                        <input type="hidden" name="sertifikasiOldId[]" value="<?= $sertifikasiOld->id ?>">
-                                        <input type="hidden" name="sertifikasiOld[]" value="<?= $sertifikasiOld->sertifikasi_name ?>">
+                                        <input type="hidden" name="sertifikasiOld[]" value="<?= $sertifikasiOld->id ?>">
                                     <?php endforeach; ?> 
                                     <div class="row mb-4">
                                         <?php foreach ($sertifikasiCons as $sertifikasi) : ?>
@@ -199,17 +205,9 @@
                                             <?php endforeach; ?> -->
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-column gap-3">
-                                        <input type="text" id="new-sertifikasi-Input" class="log-input" placeholder="Masukan sertifikasi">
-                                        <div class="d-flex gap-3">
-                                            <div class="input-group">
-                                                <input type="date" id="start-date" class="log-input">
-                                            </div>
-                                            <div class="input-group">
-                                                <input type="date" id="end-date" class="log-input">
-                                            </div>
-                                            <button class="log-primary-button" type="button" id="add-sertifikasi-Button">Add</button>
-                                        </div>
+                                    <div class="d-flex gap-3">
+                                        <input type="text" id="new-sertifikasi-Input" class="log-input" placeholder="Masukan Sertifikasi">
+                                        <button class="log-primary-button" type="button" id="add-sertifikasi-Button">Add</button>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +265,7 @@
     <script src="<?php echo base_url('assets/js/admin.js') ?>"></script>
     <script>
         
-        document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
         var deleteLinks = document.getElementsByClassName("deleteBahasaLink");
 
         for (var i = 0; i < deleteLinks.length; i++) {

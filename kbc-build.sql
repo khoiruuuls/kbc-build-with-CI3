@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2023 at 04:34 PM
+-- Generation Time: Jul 03, 2023 at 08:52 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -104,7 +104,7 @@ INSERT INTO `consultant` (`id`, `name`, `users_id`, `profesi`, `profile`, `photo
 (4, 'Ruaniwati', 43, 'Coach', 'memperoleh gelar sarjana dalam teknik metalurgi. Setelah itu, ia melanjutkan pendidikan di Stanford University di mana ia mendapatkan gelar MBA dan MS dalam teknik material. Pichai bergabung dengan Google pada tahun 2004 dan memainkan peran penting dalam pengembangan produk seperti Google Toolbar, Google Chrome, dan sistem operasi Android. Pada tahun 2015, ia diangkat menjadi CEO Google dan kemudian, setelah restrukturisasi perusahaan pada tahun 2019, menjadi CEO Alphabet Inc.', 'consultant (1).jpg', ' Jl. Ahmad Yani no 806, Jawa Barat', 'ruaniwati@gmail.com', '+62 837-4749', '0', 'Kopi Kenangan', '', NULL, NULL, '@ruaniwati', 1900, '', 1, NULL, NULL),
 (8, 'Fahmi', 44, 'consultant', '', 'KBC_Build3.png', 'Jalanin aja dulu', 'khotak@gmail.com', '098909890989', '90', 'Maxy', '', NULL, NULL, 'Ig', 1234, 'gak ada', NULL, NULL, NULL),
 (9, 'sadam haho', 51, '', '', '', '', '', '02384803840', '', '', '', NULL, NULL, '', 0, '', NULL, 'SUMATERA BARAT', NULL),
-(15, 'sadam haho', 50, NULL, NULL, NULL, NULL, NULL, '0404004', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL);
+(15, 'sadam haho', 50, NULL, '', '64a2694ec54ef.png', '', '', '0404004', NULL, NULL, NULL, NULL, NULL, '', 0, '', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -385,7 +385,6 @@ INSERT INTO `program` (`id`, `name`, `tag`, `type`, `descProgram`, `priceMin`, `
 (2, 'Transformasi Dimulai Dari Pemimpin', '', 'Training', 'Gaya kepemimpinan transformasional, menurut Indeed, adalah cara seorang pemimpin memotivasi dan memberdayakan orang-orang di bawah tanggung jawabnya untuk bekerja sama mewujudkan visi perusahaan.\r\n\r\nSemua itu dicapainya tanpa micromanaging. Seorang pemimpin transformasional justru memberikan anggotanya ruang lebih untuk mengasah berbagai skill yang mereka perlukan di tempat kerja.\r\n\r\nKeleluasaan tersebut memungkinkan mereka menjadi lebih kreatif berinovasi menemukan solusi baru untuk masalah lama, serta mampu melihat ke masa depan.\r\n\r\nDengan begitu, setiap karyawan memiliki kekuasaan untuk membuat keputusan dan bertindak sesuai kebutuhan dalam setiap pekerjaannya.\r\n\r\nLewat tempaan kepemimpinan transformasional, anggota menunjukkan tingkat kepuasan kerja dan komitmen yang tinggi. Mereka juga cenderung memiliki cara pandang baru dan sense of belonging yang lebih kuat. \r\n\r\nPada akhirnya, upaya transformasi ini memungkinkan pemimpin menciptakan budaya dan lingkungan kerja yang sehat, efektif, serta efisien bagi semua. ', 500000, 1250000, '2023-05-03', '2023-06-26', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (2).jpg', 0, 4, 'aktif'),
 (3, 'Kingdom Financial for Kids Program', '', 'Coaching', 'As homeschoolers, we all know that a well-rounded education contains more than just the 3 R’s. In fact, in my home, it’s well known that all children are required to have a basic understanding of life skills that my husband and I feel are necessary. A big one for us is money management and money skills. We want to ensure our kids graduate with a basic understanding of what money is, why it’s necessary, and how to use it properly. And while my plan was to wait a little while longer, when my daughter and I learned of The Complete Starter Kit from The Kingdom Code we just knew we wanted to review their money management program, from a Biblical perspective.', 1500000, 1500000, '2023-06-24', '2023-07-01', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (3).jpg', 0, 1, 'menunggu'),
 (4, 'Sukses Sejati Blended Learning', '', 'Training', 'Sukses Sejati ini modelnya Blended Learning, dengan menggunakan aplikasi keren Gnowbe, semua bahan disampaikan disana, kita bisa mempelajarinya sendiri. Selain itu kami dibuatkan WhatsApp Group dan Telegram Group bersama dengan Fasilitator. Dan setiap satu atau dua minggu ada pertemuan yang disebut Saturday Together. \r\n\r\nSelama mengikuti ini saya banyak mendapatkan bahan super menarik untuk memperkaya dan memperkuat entrepreneurship terutama di dalam Tuhan Yesus, sang pemilik hidup kita. \r\n\r\nMateri-materi yang sangat berarti saya dapatkan diantaranya konsep GLORY dan 6 Harta yang harus kita ketahui lebih dalam. Semua ini semakin memperkuat pemahaman dan keyakinan saya, bahwa semua dalam hidup saya adalah untuk Tuhan sang pemilik hidup, termasuk juga bisnis dan usaha yang Tuhan ijinkan saya kelola selama ini.', 1500000, 1650000, '2023-06-24', '2023-07-08', NULL, NULL, 'online', NULL, NULL, NULL, NULL, 'our-program (4).jpg', 0, 1, 'menunggu'),
-(18, 'Kursus Pelatihan Pajak', 'Pajak', 'Seminar', 'Jasa pelatihan pajak ini ditujukan untuk meningkatkan pengetahuan dan keterampilan perpajakan pada wajib pajak di perusahaan dan masyarakat pada umumnya.', 120000, 120000, '2023-06-07', '2023-06-22', NULL, NULL, 'online', 'https://www.google.com/search?q=program+pelatihan+pajak&oq=program+pelatihan+pajak&aqs=edge..69i57j0', 'Gedung Pakuwon', 'Jakarta Selatan', 'Jakarta Selatan', '', 1234, 8, 'menunggu'),
 (19, 'Kursus Pelatihan Pajak', 'Pajak', 'Seminar', 'Jasa pelatihan pajak ini ditujukan untuk meningkatkan pengetahuan dan keterampilan perpajakan pada wajib pajak di perusahaan dan masyarakat pada umumnya.', 120000, 120000, '2023-06-07', '2023-06-22', NULL, NULL, 'online', 'https://www.google.com/search?q=program+pelatihan+pajak&oq=program+pelatihan+pajak&aqs=edge..69i57j0', 'Gedung Pakuwon', 'Jakarta Selatan', 'Jakarta Selatan', 'hello.jpg', 1234, 8, 'menunggu'),
 (20, 'Hello', 'Hello', 'consultan', 'HelloHelloHelloHelloHellov', 123, 100123, '2023-06-22', '2023-06-26', '18:30:00', '14:36:00', 'online', 'Hello', NULL, NULL, NULL, 'KBC_Build5.png', 1234, 15, 'menunggu');
 
@@ -457,8 +456,6 @@ INSERT INTO `seminar` (`id`, `users_id`, `name`, `sub_title`, `content`, `speake
 CREATE TABLE `sertifikasi` (
   `id` int(8) NOT NULL,
   `sertifikasi_name` varchar(50) NOT NULL,
-  `date_start` date DEFAULT NULL,
-  `date_end` date DEFAULT NULL,
   `consultant_id` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -466,10 +463,10 @@ CREATE TABLE `sertifikasi` (
 -- Dumping data for table `sertifikasi`
 --
 
-INSERT INTO `sertifikasi` (`id`, `sertifikasi_name`, `date_start`, `date_end`, `consultant_id`) VALUES
-(1, 'Master of Technology Education', '2023-06-08', '2023-06-07', 1),
-(2, 'Certified Behavioral Analyst', '2023-06-21', '2023-06-14', 1),
-(3, 'Master Trainer - Future Digital Skills Certificati', '2017-06-15', '2023-06-15', 1);
+INSERT INTO `sertifikasi` (`id`, `sertifikasi_name`, `consultant_id`) VALUES
+(1, 'Master of Technology Education', 1),
+(2, 'Certified Behavioral Analyst', 1),
+(3, 'Master Trainer - Future Digital Skills Certificati', 1);
 
 -- --------------------------------------------------------
 
@@ -491,6 +488,18 @@ INSERT INTO `spesialisasi` (`id`, `spesialisasi_name`, `consultant_id`) VALUES
 (73, 'Pemasaran', 1),
 (74, 'Strategi Bisnis', 1),
 (75, 'Motivasi', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tag`
+--
+
+CREATE TABLE `tag` (
+  `id` int(11) NOT NULL,
+  `tag` varchar(100) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -547,7 +556,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `no`, `jenis_kelamin`, `date`, `pass
 (41, 'Andri Eriek', 'erik@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
 (43, 'Ruaniwati\r\n', 'rua@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d\r\n', 3, NULL),
 (44, 'Fahmi', 'fahmi@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
-(50, 'sadam haho', 'haha@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
+(50, 'sadam haho', 'haha@gmail.com', NULL, NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 2, NULL),
 (51, 'teshaha', 'sadamh@gmail.com', '082331770406', NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d', 3, NULL),
 (56, 'ekkqen', 'dnvnr@gmail.com', NULL, NULL, NULL, '', 3, NULL),
 (57, 'anin', 'anin@gmail.com', '039284380', NULL, NULL, '2dbdfc20899993b3d3d356c6fc22e84d\r\n', 2, NULL),
@@ -694,6 +703,12 @@ ALTER TABLE `spesialisasi`
   ADD KEY `fk_consultant_spesialisasi_id` (`consultant_id`) USING BTREE;
 
 --
+-- Indexes for table `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `type_sevice`
 --
 ALTER TABLE `type_sevice`
@@ -720,7 +735,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `bahasa`
 --
 ALTER TABLE `bahasa`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `bank`
@@ -732,7 +747,7 @@ ALTER TABLE `bank`
 -- AUTO_INCREMENT for table `consultant`
 --
 ALTER TABLE `consultant`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `kuota_program`
@@ -744,13 +759,13 @@ ALTER TABLE `kuota_program`
 -- AUTO_INCREMENT for table `pengalaman`
 --
 ALTER TABLE `pengalaman`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -768,13 +783,19 @@ ALTER TABLE `seminar`
 -- AUTO_INCREMENT for table `sertifikasi`
 --
 ALTER TABLE `sertifikasi`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 
 --
 -- AUTO_INCREMENT for table `spesialisasi`
 --
 ALTER TABLE `spesialisasi`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+
+--
+-- AUTO_INCREMENT for table `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `type_sevice`
@@ -786,7 +807,7 @@ ALTER TABLE `type_sevice`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `wishlist`

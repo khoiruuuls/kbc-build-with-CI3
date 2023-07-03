@@ -44,6 +44,9 @@
                                     </div>
                                     <input id="file" name="photo" type="file">
                                 </div>
+                                <?php if($this->session->flashdata('photo')): ?>
+                                    <p class="text-danger">'<?= $this->session->flashdata('photo') ?> '</p>
+                                <?php endif; ?>
                             </div>
                             <div class="card-consultant">
                                 <h6>Informasi Dasar</h6>
@@ -54,7 +57,7 @@
                                 </div>
                                 <div class="form-input">
                                     <p>Password</p>
-                                    <input class="log-input" type="text" placeholder="Masukan Password" name="password" >
+                                    <input class="log-input" type="password" placeholder="Masukan Password" name="password" >
                                     <?= form_error('password', '<p class="text-danger">', '</p>'); ?>
                                 </div>
                                 <div class="form-input">
@@ -96,6 +99,11 @@
                                             <p>Jumlah Klien</p>
                                             <input class="log-input" type="number" name="jumlah_client" placeholder="Masukan Link Akun">
                                             <?= form_error('jumlah_client', '<p class="text-danger">', '</p>'); ?>
+                                        </div>
+                                        <div class="col">
+                                            <p>Perusahaan</p>
+                                            <input class="log-input" type="text" name="perusahaan" placeholder="Masukan Akun Media Sosial">
+                                            <?= form_error('perusahaan', '<p class="text-danger">', '</p>'); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -155,17 +163,9 @@
                                             <?php endforeach; ?> -->
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-column gap-3">
+                                    <div class="d-flex gap-3">
                                         <input type="text" id="new-sertifikasi-Input" class="log-input" placeholder="Masukan sertifikasi">
-                                        <div class="d-flex gap-3">
-                                            <div class="input-group">
-                                                <input type="date" id="start-date" class="log-input">
-                                            </div>
-                                            <div class="input-group">
-                                                <input type="date" id="end-date" class="log-input">
-                                            </div>
-                                            <button class="log-primary-button" type="button" id="add-sertifikasi-Button">Add</button>
-                                        </div>
+                                        <button class="log-primary-button" type="button" id="add-sertifikasi-Button">Add</button>
                                     </div>
                                 </div>
                             </div>

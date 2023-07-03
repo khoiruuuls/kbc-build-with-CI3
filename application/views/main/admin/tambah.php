@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/home.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/_partials/sidebar.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/admin/home.css'); ?>">
-
+    
 </head>
 
 <body>
@@ -30,6 +30,14 @@
                         <p>Kepemimpinan</p>
                     </div>
                     <h4>Tambah Program</h3>
+                    <?php if ($this->session->flashdata('error')): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <h4> Kesalahan Input : </h4>
+                            <?= $this->session->flashdata('error'); ?>
+                            
+                        </div>
+                    <?php endif; ?>
+                    
                         <p>Info Dasar</p>
                         <form action="<?= base_url() . 'admin/tambah' ?>" enctype="multipart/form-data" method="POST">
                             <div class="form-input">
@@ -49,13 +57,27 @@
                             <div class="form-input">
                                 <p>Judul</p>
                                 <input class="log-input" type="text" placeholder="Masukan Judul" name="name" id="">
+                                <?= form_error('name', '<p class="text-danger">', '</p>'); ?>
                             </div>
                             <div class="form-input">
                                 <p>Tag</p>
-                                <div class="d-flex gap-3">
-                                    <input class="log-input" type="text" placeholder="Masukan Tag" name="tag" id="">
-                                    <button class="log-primary-button">Tambah</button>
+                                <div id="input-tag-Container">
+                                    <div class="row">
+                                    <!-- <?php foreach ($tag_options as $tag) : ?>
+                                            <div class="col-6">
+                                                <div class="d-flex gap-3 mb-2"> 
+                                                    <input type="text" name="tag[]" value="<?= $tag; ?>" class="log-input select-dropdown" multiple>
+                                                    <button type="button" class="deleteTagButton log-primary-button">Delete</button>
+                                                    </div>
+                                            </div>
+                                        <?php endforeach; ?> -->
+                                    </div>
                                 </div>
+                                <div class="d-flex gap-3">
+                                    <input type="text" id="new-tag-Input" class="log-input" placeholder="Masukan tag">
+                                    <button class="log-primary-button" type="button" id="add-tag-Button">Add</button>
+                                </div>
+                                
                             </div>
                             <div class="form-input">
                                 <p>Type</p>
@@ -87,6 +109,7 @@
                             <div class="form-input">
                                 <p>Deskripsi</p>
                                 <textarea class="log-input" type="text" placeholder="Masukan Deskripsi" style="height: 300px" name="descProgram" id=""></textarea>
+                                <?= form_error('descProgram', '<p class="text-danger">', '</p>'); ?>
                             </div>
                             <hr class="line">
                             <div class="form-input">
@@ -182,12 +205,15 @@
                                     <div class="col">
                                         <!-- berhubung priceMaxnya tidak ada inputnya ,aku pake priceMin ditambah 100K -->
                                         <input class="log-input" type="number" name="priceMin" placeholder="Masukan harga minimal">
+                                        <?= form_error('priceMin', '<p class="text-danger">', '</p>'); ?>
                                     </div>
                                     <div class="col">
                                         <input class="log-input" type="number" name="priceMax" placeholder="Masukan Harga maksimal">
+                                        <?= form_error('priceMax', '<p class="text-danger">', '</p>'); ?>
                                     </div>
                                     <div class="col">
                                         <input class="log-input" type="number" name="kuota" placeholder="Masukan kuota">
+                                        <?= form_error('kuota', '<p class="text-danger">', '</p>'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -200,6 +226,7 @@
             </div>
         </div>
     </div>
+    
     <script>
         function changeInput(data) {
             
@@ -238,7 +265,65 @@
 
             reader.readAsDataURL(input.files[0]);
         }
+
+        //tag
+        document
+            .getElementById("add-tag-Button")
+            .addEventListener("click", function () {
+                var newInput = document.getElementById("new-tag-Input");
+                var newValue = newInput.value.trim();
+
+                if (newValue !== "") {
+                    var inputContainer = document.getElementById("input-tag-Container");
+
+                    // Check if there are any existing rows
+                    var rows = inputContainer.getElementsByClassName("row");
+                    var lastRow = rows.length > 0 ? rows[rows.length - 1] : null;
+
+                    // Create a new row if the last row is already filled with two columns
+                    if (!lastRow || lastRow.children.length === 2) {
+                        var newRowDiv = document.createElement("div");
+                        newRowDiv.classList.add("row");
+                        inputContainer.appendChild(newRowDiv);
+                        lastRow = newRowDiv;
+                    }
+
+                    var newColDiv = document.createElement("div");
+                    newColDiv.classList.add("col-6");
+
+                    var newField = document.createElement("div");
+                    newField.classList.add("d-flex", "gap-3", "mb-2");
+
+                    var Input = document.createElement("input");
+                    Input.type = "text";
+                    Input.name = "tag[]";
+                    Input.value = newValue;
+                    Input.classList.add("log-input", "select-dropdown");
+
+                    var deleteButton = document.createElement("button");
+                    deleteButton.type = "button";
+                    deleteButton.classList.add("delete-Button", "log-primary-button");
+                    deleteButton.textContent = "Delete";
+
+                    newField.appendChild(Input);
+                    newField.appendChild(deleteButton);
+                    newColDiv.appendChild(newField);
+                    lastRow.appendChild(newColDiv);
+
+                    newInput.value = "";
+                }
+            });
+
+        document
+            .getElementById("input-tag-Container")
+            .addEventListener("click", function (event) {
+                if (event.target.classList.contains("delete-Button")) {
+                    event.target.parentElement.parentElement.remove();
+                }
+            });
+
     </script>
+    
 
 </body>
 

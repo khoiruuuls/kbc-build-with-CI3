@@ -12,17 +12,30 @@ class Admin extends CI_Controller
     public function index()
     {
         if($this->session->userdata('role_id') == 3 || $this->session->userdata('role_id') == 2 ){
-
+            // var_dump($this->input->post('program'));
             $this->load->library('pagination');
             if($this->session->userdata('role_id') == 3){
                 $consultantId = $this->db->select('id')
                                 ->from('consultant')
                                 ->where('users_id',$this->session->userdata('id'))
                                 ->get()->result();
-                $program = $this->db->select('*')->from('program')->where('consultant_id',$consultantId[0]->id)->count_all_results();
+                if($this->input->post('program')){
+                    $program = $this->db->like('name',$this->input->post('program'))->where('consultant_id',$consultantId[0]->id)->get('program')->num_rows();
+                }else{
+                    $program = $this->db->select('*')->from('program')->where('consultant_id',$consultantId[0]->id)->count_all_results();
+                    
+                }
+                
+                
 
             }else{
-                $program = $this->db->count_all('program');
+                if($this->input->post('program')){
+                    $program = $this->db->like('name',$this->input->post('program'))->get('program')->num_rows();
+                   
+                }else{
+                    $program = $this->db->count_all('program');
+                    
+                }
             }
             
             $config['base_url'] = base_url().'Admin/index';
@@ -62,9 +75,19 @@ class Admin extends CI_Controller
             $this->load->model("ConsultantModel");
             if($this->session->userdata('role_id') == 2){
                 $dataConsultant = $this->ConsultantModel->getConsultant();
-                $resultProgram = $this->db->limit($config['per_page'], $offset)->get('program')->result();
+                if($this->input->post('program')){
+                    $resultProgram = $this->db->like('name',$this->input->post('program'))->limit($config['per_page'], $offset)->get('program')->result();
+                }else{
+                    $resultProgram = $this->db->limit($config['per_page'], $offset)->get('program')->result();
+                    
+                }
             }else{
-                $resultProgram = $this->db->select('*')->from('program')->where('consultant_id',$consultantId[0]->id)->limit($config['per_page'], $offset)->get()->result();
+                if($this->input->post('program')){
+                    $resultProgram = $this->db->like('name',$this->input->post('program'))->where('consultant_id',$consultantId[0]->id)->limit($config['per_page'], $offset)->get('program')->result();
+                }else{
+                    
+                    $resultProgram = $this->db->select('*')->from('program')->where('consultant_id',$consultantId[0]->id)->limit($config['per_page'], $offset)->get()->result();
+                }
                 $dataConsultant = $this->ConsultantModel->getConsultantRole($this->session->userdata('id'));
             }
             // var_dump($resultProgram);die;
@@ -126,13 +149,14 @@ class Admin extends CI_Controller
     {
         // $this->load->view('main/admin/index');
         if ($this->input->post()) {
-            // var_dump($this->input->post());die;
-            $this->form_validation->set_rules('name', 'name', 'trim|required', [
+
+            // var_dump($this->input->post('tagValues'));die;
+            $this->form_validation->set_rules('name', 'name', 'trim|required|is_unique[program.name]', [
                 'required' => 'Please input name is required',
             ]);
-            $this->form_validation->set_rules('tag', 'tag', 'trim|required', [
-                'required' => 'Please input tag is required',
-            ]);
+            // $this->form_validation->set_rules('tag', 'tag', 'trim|required', [
+            //     'required' => 'Please input tag is required',
+            // ]);
             $this->form_validation->set_rules('descProgram', 'descProgram', 'trim|required', [
                 'required' => 'Please input descProgram is required',
             ]);
@@ -150,37 +174,37 @@ class Admin extends CI_Controller
             $this->form_validation->set_rules('kuota', 'kuota', 'trim|required', [
                 'required' => 'Please input kuota is required',
             ]);
-            if($this->input->post('priceMin') < $this->input->post('priceMax')){
-
-                if($this->input->post('mode') == 'online'){
-                    $url = htmlspecialchars($this->input->post('url'));
-                    $lokasi = null;
-                    $alamat = null;
-                    $kota = null;
-                    // echo 'online';
-                    // die;
-                }else if($this->input->post('mode') == 'offline'){
-                    $url = null;
-                    $lokasi = htmlspecialchars($this->input->post('tempat'));
-                    $alamat = htmlspecialchars($this->input->post('alamat'));
-                    $kota = htmlspecialchars($this->input->post('kota'));
-                    // echo 'offline';
-                    // die;
-                }else if($this->input->post('mode') == 'hybrid'){
-                    $url = htmlspecialchars($this->input->post('url'));
-                    $lokasi = htmlspecialchars($this->input->post('tempat'));
-                    $alamat = htmlspecialchars($this->input->post('alamat'));
-                    $kota = htmlspecialchars($this->input->post('kota'));
-                    // echo 'hy';
-                    // die;
-                }
-                // var_dump(htmlspecialchars($this->input->post('url')));
-                // die;
-
-                
-                
-    
-                if ($this->form_validation->run() == TRUE) {
+            // var_dump(htmlspecialchars($this->input->post('url')));
+            // die;
+            
+            
+            
+            
+            if ($this->form_validation->run() == TRUE) {
+                if($this->input->post('priceMin') < $this->input->post('priceMax')){
+        
+                    if($this->input->post('mode') == 'online'){
+                            $url = htmlspecialchars($this->input->post('url'));
+                            $lokasi = null;
+                            $alamat = null;
+                            $kota = null;
+                            // echo 'online';
+                            // die;
+                    }else if($this->input->post('mode') == 'offline'){
+                            $url = null;
+                            $lokasi = htmlspecialchars($this->input->post('tempat'));
+                            $alamat = htmlspecialchars($this->input->post('alamat'));
+                            $kota = htmlspecialchars($this->input->post('kota'));
+                            // echo 'offline';
+                            // die;
+                    }else if($this->input->post('mode') == 'hybrid'){
+                            $url = htmlspecialchars($this->input->post('url'));
+                            $lokasi = htmlspecialchars($this->input->post('tempat'));
+                            $alamat = htmlspecialchars($this->input->post('alamat'));
+                            $kota = htmlspecialchars($this->input->post('kota'));
+                            // echo 'hy';
+                            // die;
+                    }
                     // return 'tes';
                    
                     if ($_FILES['photo']['name']) {
@@ -198,7 +222,6 @@ class Admin extends CI_Controller
                                 $uploadDb = [
                                     'photo' => $newFileName,
                                     'name' => htmlspecialchars($this->input->post('name'), true),
-                                    'tag' => htmlspecialchars($this->input->post('tag'), true),
                                     'type' => htmlspecialchars($this->input->post('type'), true),
                                     'descProgram' => htmlspecialchars($this->input->post('descProgram'), true),
                                     'priceMin' => $this->input->post('priceMin'),
@@ -216,21 +239,44 @@ class Admin extends CI_Controller
                                     'consultant_id' => $this->input->post('users_id')
                                 ];
                                 $this->db->insert('program', $uploadDb);
+                                
+
+                                $query = $this->db->select('id')->from('program')->where('name',$this->input->post('name'))->get()->result();
+                                if(count($this->input->post('tag')) > 0){
+                                    for ($i=0; $i < count($this->input->post('tag')) ; $i++) { 
+                                        $this->db->insert('tag',[
+                                            'tag' => $this->input->post('tag')[$i],
+                                            'program_id' => $query[0]->id
+                                        ]);
+                                    }
+
+                                }
+                                $this->session->set_flashdata('success','Data berhasil di tambah');
                                 return redirect('admin/index');
                                 } 
-                                echo 'tempat eror';
+                                
+                    
+                            }else{
+                                // $this->session->set_flashdata('photo', );
+                                $error = "Your photo file does not match the extension, it must be png, jpg and jpge";
                             }
-    
                         
-                        echo 'gak upload';
+                    }else{
+                        $error = "You haven't added a photo yet";
+                        // $this->session->set_flashdata('photo', );
                     }
-                    echo 'gak daoer';
+                    
+                }else{
+                    
+                    $error = "the minimum price cannot be more than the maximum price";
                 }
+                // $this->session->set_flashdata('error1',validation_errors());
             }
-            echo 'melebihi max';
-            die;
+                // $this->session->set_flashdata('photo',);
+            
             
         }
+        // $this->session->set_flashdata('error_message', validation_errors());
         if($this->session->userdata('role_id') == 2)
         {
             $konsul = $this->db->select('id,name')
@@ -240,6 +286,10 @@ class Admin extends CI_Controller
         }else{
             $konsul = null;
         }
+        if(isset($error)){
+            $this->session->set_flashdata('error',$error);
+        }
+        
         $data['consultant'] = $konsul;
         $data['user']    = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -253,6 +303,7 @@ class Admin extends CI_Controller
         $this->load->model("ProgramModel");
         $data['program'] = $this->ProgramModel->editProgram($id);
         $data['page_title'] = 'Edit';
+        $data['tag_option'] = $this->db->select('*')->from('tag')->where('program_id',$id)->get()->result();
         $data['user']    = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->load->view('main/admin/edit', $data);
@@ -268,16 +319,16 @@ class Admin extends CI_Controller
                 $this->form_validation->set_rules('name', 'name', 'trim|required', [
                     'required' => 'Please input name is required',
                 ]);
-                $this->form_validation->set_rules('tag', 'tag', 'trim|required', [
-                    'required' => 'Please input tag is required',
-                ]);
+                // $this->form_validation->set_rules('tag', 'tag', 'trim|required', [
+                //     'required' => 'Please input tag is required',
+                // ]);
                 $this->form_validation->set_rules('descProgram', 'descProgram', 'trim|required', [
                     'required' => 'Please input descProgram is required',
                 ]);
     
-                $this->form_validation->set_rules('url', 'url', 'trim|required', [
-                    'required' => 'Please input url is required',
-                ]);
+                // $this->form_validation->set_rules('url', 'url', 'trim|required', [
+                //     'required' => 'Please input url is required',
+                // ]);
     
                 $this->form_validation->set_rules('priceMin', 'priceMin', 'trim|required', [
                     'required' => 'Please input priceMin is required',
@@ -289,6 +340,7 @@ class Admin extends CI_Controller
                 $this->form_validation->set_rules('kuota', 'kuota', 'trim|required', [
                     'required' => 'Please input kuota is required',
                 ]);
+                // var_dump($this->form_validation->run());die;
                 if ($this->form_validation->run() == TRUE) {
                     // return 'tes';
                     if($this->input->post('mode') == 'online'){
@@ -332,8 +384,10 @@ class Admin extends CI_Controller
                                 $newFileName = uniqid() . '.' . $fileExtension;
                                 $targetFile = $targetDir . $newFileName;
                                 if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
-                                    $hapusFileLama = "assets/img/program/".$this->input->post('foto');
-                                    unlink($hapusFileLama);
+                                    if($this->input->post('foto') != null){
+                                        $hapusFileLama = "assets/img/program/".$this->input->post('foto');
+                                        unlink($hapusFileLama);
+                                    }
 
                                    
                                 } 
@@ -347,7 +401,6 @@ class Admin extends CI_Controller
                     $uploadDb = [
                         'photo' => $newFileName,
                         'name' => htmlspecialchars($this->input->post('name'), true),
-                        'tag' => htmlspecialchars($this->input->post('tag'), true),
                         'type' => htmlspecialchars($this->input->post('type'), true),
                         'descProgram' => htmlspecialchars($this->input->post('descProgram'), true),
                         'priceMin' => htmlspecialchars($this->input->post('priceMin'), true),
@@ -366,11 +419,31 @@ class Admin extends CI_Controller
                     ];
                     $this->db->where('id', $id);
                     $this->db->update('program', $uploadDb);
+
+                    if($this->input->post('tag') != NUll){
+                        for ($i=0; $i < count($this->input->post('tag')) ; $i++) { 
+                            $this->db->insert('tag',[
+                                'tag' => $this->input->post('tag')[$i],
+                                'program_id' => $this->input->post('id')
+                            ]);
+                            
+                        }
+                    }
+                    if($this->input->post('tagOld') != NUll){
+                        for ($i=0; $i < count($this->input->post('tagOld')) ; $i++) { 
+                            $this->db->where('id',$this->input->post('tagOld')[$i]);
+                            $this->db->delete('tag');
+                            
+                        }
+                    }
+                    $this->session->set_flashdata('success','Data berhasil di edit');
                     return redirect('admin/index');
                     
                 }   
             }
         }
+        $this->session->set_flashdata('error_message', validation_errors());
+        return redirect('admin/edit/'.$id);
     }
 
     public function updateConsultant()
@@ -398,8 +471,10 @@ class Admin extends CI_Controller
                     $newFileName = uniqid() . '.' . $fileExtension;
                     $targetFile = $targetDir . $newFileName;
                     if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
-                        $hapusFileLama = "assets/img/consultant/".$this->input->post('foto');
-                        unlink($hapusFileLama);
+                        if($this->input->post('foto') != NULL){
+                            $hapusFileLama = "assets/img/consultant/".$this->input->post('foto');
+                            unlink($hapusFileLama);
+                        }
 
                        
                     } 
@@ -419,11 +494,15 @@ class Admin extends CI_Controller
         //         }
         //     }
         // }
-        $dataBaruSerti = array_diff($this->input->post('sertifikasi'),$this->input->post('sertifikasiOld'));
-        $dataSertiDelete = array_diff($this->input->post('sertifikasiOld'),$this->input->post('sertifikasi'));
-        $dataPengaDelete = array_diff($this->input->post('pengalamanOld'),$this->input->post('pengalaman'));
-        // $dataBaruPenga1 = array_diff($this->input->post('pengalamanOld'),$this->input->post('pengalaman'));
-        $dataBaruPenga = array_diff($this->input->post('pengalaman'),$this->input->post('pengalamanOld'));
+        
+        if($this->input->post('pengalaman') != NULL && $this->input->post('pengalamanOld') != NULL){
+            
+            $dataPengaDelete = array_diff($this->input->post('pengalamanOld'),$this->input->post('pengalaman'));
+            // $dataBaruPenga1 = array_diff($this->input->post('pengalamanOld'),$this->input->post('pengalaman'));
+            $dataBaruPenga = array_diff($this->input->post('pengalaman'),$this->input->post('pengalamanOld'));
+        
+        }
+        // var_dump($dataPengaDelete);die;
 
         
         // $dataBedaPenga = null;
@@ -506,49 +585,45 @@ class Admin extends CI_Controller
                 
             }
         }
-        if($dataSertiDelete != NULL){
-            for ($i=3; $i < count($dataSertiDelete) + 3 ; $i++) { 
-                $this->db->where('sertifikasi_name',$dataSertiDelete[$i]);
-                $this->db->delete('sertifikasi');
-            }
-        }
-        
-
-        if($dataBaruSerti != NUll ){
-            for ($i=3; $i < count($dataBaruSerti) + 3  ; $i++) { 
+        if($this->input->post('sertifikasi') != NUll){
+            for ($i=0; $i < count($this->input->post('sertifikasi')) ; $i++) { 
                 $this->db->insert('sertifikasi',[
-                    'sertifikasi_name' => $dataBaruSerti[$i],
-                    'date_start' => $this->input->post('start_date')[$i - 3],
-                    'date_end' => $this->input->post('end_date')[$i - 3],
+                    'sertifikasi_name' => $this->input->post('sertifikasi')[$i],
                     'consultant_id' => $this->input->post('id')
                 ]);
                 
             }
         }
 
+        if($this->input->post('sertifikasiOld') != NUll){
+            for ($i=0; $i < count($this->input->post('sertifikasiOld')) ; $i++) { 
+                $this->db->where('id',$this->input->post('sertifikasiOld')[$i]);
+                $this->db->delete('sertifikasi');
+                
+            }
+        }
+        
+        $pengaBaru = count($this->input->post('pengalamanOld')) - count($dataPengaDelete);
         if($dataPengaDelete != NULL){
-            for ($i=3; $i < count($dataPengaDelete) + 3 ; $i++) { 
+            
+            for ($i=0; $i < count($dataPengaDelete) + 1 ; $i++) { 
                 $this->db->where('pengalaman_name',$dataPengaDelete[$i]);
                 $this->db->delete('pengalaman');
             }
         }
 
         if($dataBaruPenga != NUll ){
-            for ($i=3; $i < count($dataBaruPenga) + 3 ; $i++) { 
+            for ($i=$pengaBaru; $i < count($dataBaruPenga) + $pengaBaru ; $i++) { 
                 $this->db->insert('pengalaman',[
                     'pengalaman_name' => $dataBaruPenga[$i],
-                    'date_start' => $this->input->post('start_pengalaman_date')[$i - 3],
-                    'date_end' => $this->input->post('end_pengalaman_date')[$i - 3],
+                    'date_start' => $this->input->post('start_pengalaman_date')[$i - $pengaBaru],
+                    'date_end' => $this->input->post('end_pengalaman_date')[$i - $pengaBaru],
                     'consultant_id' => $this->input->post('id')
                 ]);
                 
             }
         }
-
-        
-        
-        
-
+        $this->session->set_flashdata('success','Data berhasil di edit');
         return redirect('admin/index');
     }
 
@@ -565,8 +640,17 @@ class Admin extends CI_Controller
         if(file_exists($path)){
             unlink($path);
         }
+        $tag = $this->db->select('tag.id')
+                        ->from('tag')
+                        ->join('program', 'tag.program_id = program.id')
+                        ->where('program.id', $this->input->get('data'))->get()->result();
+        for ($i=0; $i < count($tag) ; $i++) { 
+            $this->db->where('id',$tag[$i]->id);
+            $this->db->delete('tag'); 
+        }
         $this->db->where('id',$this->input->get('data'));
         $this->db->delete('program');
+        $this->session->set_flashdata('success','Data berhasil di hapus');
         return redirect('admin/index');
     }
 
@@ -584,7 +668,7 @@ class Admin extends CI_Controller
                                 ->where('id',$photo[0]->users_id)
                                 ->get()
                                 ->result();
-        $programDelete = $this->db->select('id')
+        $programDelete = $this->db->select('id,photo')
                                     ->from('program')
                                     ->where('consultant_id',$this->input->get('data'))
                                     ->get()
@@ -592,6 +676,7 @@ class Admin extends CI_Controller
         // var_dump($programDelete[0]->id);die;
         // var_dump($photo[0]->photo);die;
         $path = 'assets/img/consultant/'.$photo[0]->photo;
+        // var_dump($programDelete);die;
         
         if(file_exists($path)){
             unlink($path);
@@ -602,17 +687,38 @@ class Admin extends CI_Controller
             // $this->db->delete('consultant');
             // return redirect('admin/index');
         }
+        
         if(count($programDelete) > 0){
+            $tag = [];
             for ($i=0; $i < count($programDelete); $i++) { 
+                $tag[] = $this->db->select('tag.id')
+                        ->from('tag')
+                        ->join('program', 'tag.program_id = program.id')
+                        ->where('program.id', $programDelete[$i]->id)->get()->result();
+                
+                
+                if(file_exists('assets/img/program/'.$programDelete[$i]->photo)){
+                    unlink('assets/img/program/'.$programDelete[$i]->photo);
+                }
                 $this->db->where('id',$programDelete[$i]->id);
                 $this->db->delete('program');
             }
+            for ($j=0; $j < count($tag) ; $j++) { 
+                for ($k=0; $k < count($tag[$j]); $k++) { 
+                    // var_dump($tag[$j][$k]->id);
+                    $this->db->where('id',$tag[$j][$k]->id);
+                    $this->db->delete('tag');   
+                }
+                
+            }
+            // var_dump($tag);die;
         }
         $this->db->where('id',$userId[0]->id);
         $this->db->delete('users');
 
         $this->db->where('id',$this->input->get('data'));
         $this->db->delete('consultant');
+        $this->session->set_flashdata('success','Data berhasil di delete');
         return redirect('admin/index');
     }
 
@@ -642,6 +748,10 @@ class Admin extends CI_Controller
             $this->form_validation->set_rules('no_handphone', 'no_handphone', 'trim|required|numeric', [
                 'required' => 'Please input no_hanphone is required',
                 'numeric' => 'The input you enter is not of type number'
+            ]);
+
+            $this->form_validation->set_rules('perusahaan', 'perusahaan', 'trim|required', [
+                'required' => 'Please input perusahaan is required',
             ]);
 
            
@@ -675,7 +785,7 @@ class Admin extends CI_Controller
                             $this->db->insert('users',[
                                 'name' => htmlspecialchars($this->input->post('name'), true),
                                 'email' => htmlspecialchars($this->input->post('email'), true),
-                                'password' => md5($this->input->post('password'),true),
+                                'password' => md5($this->input->post('password')),
                                 'role_id' => 3
                             ]);
 
@@ -694,6 +804,7 @@ class Admin extends CI_Controller
                                 'alamat' => htmlspecialchars($this->input->post('alamat'), true),
                                 'email' => htmlspecialchars($this->input->post('email'), true),
                                 'no_handphone' => htmlspecialchars($this->input->post('no_handphone'), true),
+                                'perusahaan' => htmlspecialchars($this->input->post('perusahaan'), true),
                                 'akun_media' => htmlspecialchars($this->input->post('akun_media'), true),
                                 'jumlah_client' => htmlspecialchars($this->input->post('jumlah_client'), true),
                                 // 'spesifikasi' => htmlspecialchars($this->input->post('spesifikasi'), true),
@@ -735,8 +846,6 @@ class Admin extends CI_Controller
                                 for ($i=0; $i < count($this->input->post('sertifikasi')) ; $i++) { 
                                     $this->db->insert('sertifikasi',[
                                         'sertifikasi_name' => $this->input->post('sertifikasi')[$i],
-                                        'date_start' => $this->input->post('start_date')[$i],
-                                        'date_end' => $this->input->post('end_date')[$i],
                                         'consultant_id' => $consultant[0]['id']
                                     ]);
                                     
@@ -757,15 +866,19 @@ class Admin extends CI_Controller
                             
                             // echo 'berhasil';
                             // die;
-
-
+                            $this->session->set_flashdata('success','Data berhasil di tambah');
                             return redirect('admin/index');
                             } 
+                            
+                        }else{
+                            $this->session->set_flashdata('photo', "Your photo file does not match the extension, it must be png, jpg and jpge");
                             
                         }
 
                     
                     
+                }else{
+                    $this->session->set_flashdata('photo', "You haven't added a photo yet");
                 }
             }
         }
@@ -776,6 +889,7 @@ class Admin extends CI_Controller
                 'email' => $this->session->userdata('email')
             ])->row_array()
         ];
+        
 
         $this->load->view('main/admin/add_consultant', $data);
     }

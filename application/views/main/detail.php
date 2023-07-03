@@ -181,18 +181,7 @@
                             <?php foreach ($sertifikasis as $item) : ?>
                                 <div class="col-md-6 col-12 mb-4 d-flex gap-3 edu-certif ">
                                     <div class="d-flex flex-column edu-certif  justify-content-center">
-                                        <h6 class="fw-bold"><?php echo $item->sertifikasi_name ?></h6>
-                                        <p class="m-0">
-                                            <?php
-                                            $dateStart = new DateTime($item->date_start);
-                                            $dateEnd = new DateTime($item->date_end);
-
-                                            $interval = $dateStart->diff($dateEnd);
-                                            $months = ($interval->format('%y') * 12) + $interval->format('%m');
-
-                                            echo date('d F Y', strtotime($item->date_start)) . ' - ' . date('d F Y', strtotime($item->date_end));
-                                            echo '<span> (' . $months . ' Bulan)</span>'; ?>
-                                        </p>
+                                        <h6 class="fw-bold">- <?php echo $item->sertifikasi_name ?></h6>
                                     </div>
                                 </div>
                             <?php endforeach; ?>

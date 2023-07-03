@@ -32,12 +32,20 @@
                     </div>
 
                     <h4>Data Program Seminar</h3>
+                    <?php if ($this->session->flashdata('success')): ?>
+                        <div class="alert alert-success" role="alert">
+                            <h4> 
+                                <?= $this->session->flashdata('success'); ?>
+                            </h4>
+                            
+                        </div>
+                    <?php endif; ?>
                         <form id="search" method="POST">
                             <div class="d-flex justify-content-between">
 
                                 <div class="search-bar col-6">
-                                    <form action="<?= base_url().'admin/index' ?>" method="get">
-                                        <input type="text" id="searchProgram" name="search" class="log-input">
+                                    <form action="<?= base_url().'admin/index' ?>" method="POST">
+                                        <input type="text"  name="program" class="log-input">
                                         <button type="submit"  class="log-primary-button">Search</button>
                                     </form>
                                 </div>
@@ -47,7 +55,7 @@
                                 </a>
                             </div>
                         </form>
-                        <div id="resultProgram">
+                        <div >
                             <table class="table my-4">
                                 <thead class="table-head">
                                     <tr>
@@ -99,8 +107,13 @@
                         
                         <?php $this->load->view('_partials/pagination.php') ?>
                 </div>
-                <div class="container container-consultant">
-                    <h4>Data Konsultan</h3>
+                <div class="container container-consultant pb-5">
+                    <?php if($this->session->userdata('role_id') == 3): ?>
+                        <h4>Data Konsultan Anda</h3>
+                    <?php else :?>
+                        <h4>Data Konsultan</h4>
+                    <?php endif; ?>
+                    <?php if($this->session->userdata('role_id') == 2): ?>
                         <div class="d-flex justify-content-between">
                             <div class="search-bar col-6">
                                 <form action="<?= base_url().'admin/index' ?>" method="get">
@@ -108,11 +121,13 @@
                                     <button type="submit"  class="log-primary-button">Search</button>
                                 </form>
                             </div>
-                            <a href="<?php echo site_url('admin/add_consultant') ?>" class="log-primary-button text-center">
-                                Tambah
-                            </a>
-                        </div>
+                                <a href="<?php echo site_url('admin/add_consultant') ?>" class="log-primary-button text-center">
+                                    Tambah
+                                </a>
+                            </div>
                         <div>
+                    <?php endif; ?>
+                        <div style="height: 500px; overflow-y: auto;">
                             <table class="table my-4">
                                 <thead class="table-head">
                                     <tr>
@@ -156,6 +171,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        </div>
                         
                        
                         
@@ -164,7 +180,7 @@
         </div>
 
         </ y>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <script>
         function deleteData(data,name) {
             var confirmation = confirm("Apakah Anda yakin ingin menghapus data consultant '" + name + "'?");
@@ -180,23 +196,10 @@
                 
             }
         }
-        $(document).ready(function() {
-            $('#searchProgram').on('input', function() {
-                var searchProgram = $(this).val();
 
-                $.ajax({
-                    url: '<?= base_url('admin/searchProgram'); ?>', 
-                    method: 'post',
-                    data: { searchProgram: searchProgram },
-                    success: function(response) {
-                        $('#resultProgram').html(response);
-                    }
-                });
-            });
-        });
 
         </script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
 
 

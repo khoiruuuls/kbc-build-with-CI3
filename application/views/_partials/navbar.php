@@ -30,37 +30,37 @@
                     <a href="<?php echo site_url('./faq') ?>" class="nav__link">FAQ</a>
                 </li>
                 <?php if (isset($user['name']) ? $user['name'] : '' != null) : ?>
-                <li>
-                    <a href="<?php echo site_url('profile') ?>" class="nav__link nav-hide">Profile</a>
-                </li>
+                    <li>
+                        <a href="<?php echo site_url('profile') ?>" class="nav__link nav-hide">Profile</a>
+                    </li>
                 <?php else : ?>
-                <li>
-                    <a href="<?php echo site_url('auth/sign-in') ?>" class="nav__link nav-hide">Masuk</a>
-                </li>
-                <li>
-                    <a href="<?php echo site_url('auth/sign-up') ?>" class="nav__link nav-hide">Register</a>
-                </li>
+                    <li>
+                        <a href="<?php echo site_url('auth/sign-in') ?>" class="nav__link nav-hide">Masuk</a>
+                    </li>
+                    <!-- <li>
+                        <a href="<?php echo site_url('auth/sign-up') ?>" class="nav__link nav-hide">Register</a>
+                    </li> -->
                 <?php endif; ?>
             </ul>
         </div>
 
         <div class="button__navbar">
             <?php if (isset($user['name']) ? $user['name'] : '' != null) : ?>
-            <a href="<?php echo site_url('profile') ?>" class="user-login">
-                <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="" />
-                <p><?= isset($user['name']) ? $user['name'] : '' ?></p>
-            </a>
+                <a href="<?php echo site_url('profile') ?>" class="user-login">
+                    <img src="<?php echo base_url('assets/img/user-profile.jpg') ?>" alt="" />
+                    <p><?= isset($user['name']) ? $user['name'] : '' ?></p>
+                </a>
             <?php else : ?>
-            <a href="<?php echo site_url('auth/sign-in') ?>">
-                <button class="log-secondary-button">
-                    Masuk
-                </button>
-            </a>
-            <a href="<?php echo site_url('auth/sign-up') ?>">
+                <a href="<?php echo site_url('auth/sign-in') ?>">
+                    <button class="log-secondary-button">
+                        Masuk
+                    </button>
+                </a>
+                <!-- <a href="<?php echo site_url('auth/sign-up') ?>">
                 <button class="log-primary-button">
                     Registrasi
                 </button>
-            </a>
+            </a> -->
             <?php endif; ?>
         </div>
     </div>

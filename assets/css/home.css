@@ -465,6 +465,16 @@
 	#our-consultant .card-our-consultant p {
 		font-size: 12px;
 	}
+
+	#our-consultant .card-our-consultant img {
+		width: 120px;
+		height: 146px;
+	}
+
+	#our-consultant .card-our-consultant {
+		width: 200px;
+		height: 116px;
+	}
 }
 
 @media (max-width: 480px) {
@@ -493,6 +503,10 @@
 		margin-left: 80px;
 		margin-bottom: 20px;
 	}
+
+	#our-consultant .card-our-consultant img {
+		width: 100%;
+	}
 }
 
 #our-consultant .consultant-icon {
@@ -509,6 +523,12 @@
 	cursor: pointer;
 }
 
+
+#our-consultant .card-our-consultant img {
+	width: 320px;
+	height: 346px;
+}
+
 #our-consultant .card-our-consultant,
 #our-program .card-our-program,
 #blog .card-blog {
@@ -521,7 +541,6 @@
 	position: relative;
 }
 
-#our-consultant .card-our-consultant img,
 #our-program .card-our-program img,
 #blog .card-blog img {
 	width: 100%;

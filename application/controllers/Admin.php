@@ -70,7 +70,11 @@ class Admin extends CI_Controller
                 
             $offset = ($this->uri->segment($config['uri_segment'])) ? $this->uri->segment($config['uri_segment']) : 0;
             // $data['users'] = $this->db->limit($config['per_page'], $offset)->get('users')->result();
-
+            if($this->input->post('search')){
+                $search = $this->input->post('seacrh');
+            }else{
+                $search = '';
+            }
             
             $this->load->model("ConsultantModel");
             if($this->session->userdata('role_id') == 2){
@@ -92,9 +96,9 @@ class Admin extends CI_Controller
             }
             // var_dump($resultProgram);die;
             $data = [
-                
                 'consultant' => $dataConsultant,
                 'program' =>  $resultProgram,
+                'search' => $search,
                 'page_title' => 'Dashboard',
                 'user' => $this->db->get_where('users', ['email' =>
                 $this->session->userdata('email')])->row_array(),
@@ -523,6 +527,7 @@ class Admin extends CI_Controller
             'name' => htmlspecialchars($this->input->post('name'), true),
             // 'users_id' => $user[0]['id'],
             // 'profesi' => 'consultant',
+            'perusahaan' => htmlspecialchars($this->input->post('perusahaan'), true),
             'profile' => htmlspecialchars($this->input->post('profile'), true),
             'alamat' => htmlspecialchars($this->input->post('alamat'), true),
             'email' => htmlspecialchars($this->input->post('email'), true),
@@ -815,10 +820,10 @@ class Admin extends CI_Controller
 
                             $consultant = $this->db->select('id,name')
                                                     ->from('consultant')
-                                                    ->where('name',$this->input->post('name'))
+                                                    ->where('users_id',$user[0]['id'])
                                                     ->get()
                                                     ->result_array();
-                            
+
                             if($this->input->post('bahasa') != NUll){
                                 for ($i=0; $i < count($this->input->post('bahasa')) ; $i++) { 
                                     $this->db->insert('bahasa',[

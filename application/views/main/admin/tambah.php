@@ -97,10 +97,13 @@
                                 </div>
                             <?php else : ?>
                                 <?php 
+                                // var_dump($this->session->userdata('id'));die;
                                 $id = $this->db->select('id')
-                                                ->from('consultant')
-                                                ->where('users_id',$this->session->userdata('id'))
-                                                ->get()->result();    
+                                ->from('consultant')
+                                ->where('users_id',$this->session->userdata('id'))
+                                ->get()->result();
+                                
+                                // var_dump($id);die;
                                 
                                 ?>
                                 <input type="hidden" name="users_id" value="<?= $id[0]->id ?>">

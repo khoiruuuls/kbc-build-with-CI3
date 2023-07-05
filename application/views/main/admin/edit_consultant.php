@@ -101,6 +101,11 @@
                                             <input class="log-input" type="number" name="jumlah_client" placeholder="Masukan Link Akun" value="<?= $consultant['jumlah_client'] ?>">
                                             <?= form_error('jumlah_client', '<p class="text-danger">', '</p>'); ?>
                                         </div>
+                                        <div class="col">
+                                            <p>Perusahaan</p>
+                                            <input class="log-input" type="text" name="perusahaan" placeholder="Masukan Link Akun" value="<?= $consultant['perusahaan'] ?>">
+                                            <?= form_error('perusahaan', '<p class="text-danger">', '</p>'); ?>
+                                        </div>
                                     </div>
                                 </div>
                                 

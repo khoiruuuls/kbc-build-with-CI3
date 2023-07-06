@@ -48,7 +48,7 @@
                                         <i class="ri-calendar-check-fill"></i>
                                         <p class="m-0">Program</p>
                                     </div>
-                                    <p class="m-0">7 Program yang ditawarkan</p>
+                                    <p class="m-0"><?= $item->total ?> Program yang ditawarkan</p>
                                 </div>
                             </div>
                         </div>

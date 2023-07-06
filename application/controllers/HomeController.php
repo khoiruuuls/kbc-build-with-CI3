@@ -44,7 +44,7 @@ class HomeController extends CI_Controller
         $this->load->model("ProgramModel");
 
         $data = [
-            'consultant' => $this->ConsultantModel->getConsultant(),
+            'consultant' => $this->ConsultantModel->getConsultantAndProgram(),
             'page_title' => 'Consultant',
             'user' => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
         ];

@@ -61,12 +61,14 @@
                 <h6>Program</h6>
             </div>
         </a>
-        <a href="<?php echo site_url('admin/add_consultant') ?>">
-            <div class="user-item">
-                <i class="ri-user-shared-2-line"></i>
-                <h6>Consultant</h6>
-            </div>
-        </a>
+        <?php if($this->session->userdata('role_id') == 2) : ?>
+            <a href="<?php echo site_url('admin/add_consultant') ?>">
+                <div class="user-item">
+                    <i class="ri-user-shared-2-line"></i>
+                    <h6>Consultant</h6>
+                </div>
+            </a>
+        <?php endif ;?>
         <a href="<?php echo base_url('SignController/signout') ?>" class="user-item">
             <i class="ri-logout-box-line"></i>
             <h6>Sign Out</h6>

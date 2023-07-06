@@ -13,6 +13,14 @@ class ConsultantModel extends CI_MOdel
         $query = $this->db->get('consultant');
         return $query->result();
     }
+    public function getConsultantAndProgram()
+    {
+        $query = $this->db->select('consultant.* , COUNT(program.consultant_id) as total ')
+                                ->from('consultant')
+                                ->join('program','consultant.id = program.consultant_id','left')
+                                ->group_by('consultant.id')->get();
+        return $query->result();
+    }
 
     public function getConsultantRole($id)
     {

@@ -14,9 +14,9 @@ class Profile extends CI_Controller
     public function index()
     {
 
-        if (!$this->session->userdata('name')) {
-            return redirect(site_url('./'));
-        }
+        // if (!$this->session->userdata('name')) {
+        //     return redirect(site_url('./'));
+        // }
         
         if ($this->input->post()) {
 
@@ -72,7 +72,7 @@ class Profile extends CI_Controller
             $data['page_title'] = 'Ubah Profile';
     
     
-            $this->load->view('main/profile/index', $data);
+             return $this->load->view('main/profile/index', $data);
         }
         return redirect(site_url('./'));
     }
